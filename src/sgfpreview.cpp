@@ -62,7 +62,13 @@ void SGFPreview::setPath(QString path)
 	clear ();
 
 	try {
-		std::string filename = path.toStdString ();
+
+#if defined(Q_OS_WIN)
+    QByteArray qba = path.toLocal8Bit();
+#else
+    QByteArray qba = path.toUtf8();
+#endif
+        std::string filename(qba.constData());
 		std::ifstream isgf (filename);
 		sgf *sgf = load_sgf (isgf);
 		m_game = sgf2record (*sgf);
