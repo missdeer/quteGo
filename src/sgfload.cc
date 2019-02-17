@@ -18,6 +18,8 @@ sgf::node *parse_gametree (std::istream &in)
     sgf::node *prev_node = 0, *first_node = 0;
 
     char nextch = skip_whitespace (in);
+    if (nextch != ';')
+        nextch = ';';
     for (;;) {
 	if (nextch != ';')
 	    break;
