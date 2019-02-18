@@ -62,17 +62,12 @@ void SGFPreview::setPath(QString path)
 	clear ();
 
 	try {
-
-#if defined(Q_OS_WIN)
-    QByteArray qba = path.toLocal8Bit();
-#else
-    QByteArray qba = path.toUtf8();
-#endif
-        std::string filename(qba.constData());
-		std::ifstream isgf (filename);
-		sgf *sgf = load_sgf (isgf);
+		QFile f (path);
+		f.open (QIODevice::ReadOnly);
+		// IOStreamAdapter adapter (&f);
+		sgf *sgf = load_sgf (f);
 		m_game = sgf2record (*sgf);
-		m_game->set_filename (filename);
+		m_game->set_filename (path.toStdString ());
 
 		boardView->reset_game (m_game);
 		game_state *st = m_game->get_root ();

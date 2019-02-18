@@ -1261,7 +1261,7 @@ void qGoBoard::set_game(Game *g, GameMode mode, stone_color own_color)
 	int handi = g->H.toInt ();
 	if (handi >= 2)
 		startpos = new_handicap_board (g->Sz.toInt(), handi);
-	enum ranked rt = ranked::ranked;
+	auto rt = ranked::ranked;
 	if (g->FR.contains("F"))
 		rt = ranked::free;
 	else if (g->FR.contains("T"))
