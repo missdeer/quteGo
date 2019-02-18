@@ -6,41 +6,29 @@
 #include "gogame.h"
 #include "sgfpreview.h"
 
+
 SGFPreview::SGFPreview (QWidget *parent, const QString &dir)
 	: QDialog (parent), m_empty_board (go_board (19), black),
 	  m_empty_game (std::make_shared<game_record> (go_board (19), black, game_info ("White", "Black"))),
 	  m_game (m_empty_game)
 {
 	setupUi (this);
+	prepareEncodingList();
 
-    QVBoxLayout *l = new QVBoxLayout (dialogWidget);
+	QVBoxLayout *l = new QVBoxLayout (dialogWidget);
 	fileDialog = new QFileDialog (dialogWidget, Qt::Widget);
 	fileDialog->setOption (QFileDialog::DontUseNativeDialog, true);
 	fileDialog->setWindowFlags (Qt::Widget);
 	fileDialog->setNameFilters ({ tr ("SGF files (*.sgf *.SGF)"), tr ("All files (*)") });
 	fileDialog->setDirectory (dir);
 
-    overwriteSGFEncoding = new QGroupBox(tr("Read SGF as encoding:"), dialogWidget);
-    overwriteSGFEncoding->setCheckable(true);
-    overwriteSGFEncoding->setChecked(false);
-    QHBoxLayout *codecLayout = new QHBoxLayout (dialogWidget);
-    overwriteSGFEncoding->setLayout(codecLayout);
-    encodingList = new QComboBox(dialogWidget);
-    auto codecs = QTextCodec::availableCodecs();
-    for (const auto & codec : codecs)
-    {
-        encodingList->addItem(QString(codec));
-    }
-    codecLayout->addWidget(encodingList);
-
 	setWindowTitle ("Open SGF file");
 	l->addWidget (fileDialog);
-    l->addWidget (overwriteSGFEncoding);
 	l->setContentsMargins (0, 0, 0, 0);
 	fileDialog->setSizePolicy (QSizePolicy::Preferred, QSizePolicy::Preferred);
 	fileDialog->show ();
-    connect (encodingList, &QComboBox::currentTextChanged, this, &SGFPreview::reloadPreview);
-    connect (overwriteSGFEncoding, &QGroupBox::toggled, this, &SGFPreview::reloadPreview);
+	connect (encodingList, &QComboBox::currentTextChanged, this, &SGFPreview::reloadPreview);
+	connect (overwriteSGFEncoding, &QGroupBox::toggled, this, &SGFPreview::reloadPreview);
 	connect (fileDialog, &QFileDialog::currentChanged, this, &SGFPreview::setPath);
 	connect (fileDialog, &QFileDialog::accepted, this, &QDialog::accept);
 	connect (fileDialog, &QFileDialog::rejected, this, &QDialog::reject);
@@ -82,7 +70,11 @@ void SGFPreview::setPath(QString path)
 		f.open (QIODevice::ReadOnly);
 		// IOStreamAdapter adapter (&f);
 		sgf *sgf = load_sgf (f);
-        m_game = sgf2record (*sgf, overwriteSGFEncoding->isChecked() ? (QTextCodec::codecForName(encodingList->currentText().toUtf8())) : nullptr);
+		if (overwriteSGFEncoding->isChecked()) {
+			m_game = sgf2record (*sgf, QTextCodec::codecForMib(encodingList->itemData(encodingList->currentIndex()).toInt()));
+		} else {
+			m_game = sgf2record (*sgf, nullptr);
+		}
 		m_game->set_filename (path.toStdString ());
 
 		boardView->reset_game (m_game);
@@ -99,14 +91,32 @@ void SGFPreview::setPath(QString path)
 		File_Komi->setText (QString::number (m_game->komi ()));
 		File_Size->setText (QString::number (st->get_board ().size_x ()));
 	} catch (...) {
-    }
+	}
 }
 
 void SGFPreview::reloadPreview()
 {
-    auto files = fileDialog->selectedFiles();
-    if (!files.isEmpty())
-        setPath(files.at(0));
+	auto files = fileDialog->selectedFiles();
+	if (!files.isEmpty())
+		setPath(files.at(0));
+}
+
+void SGFPreview::prepareEncodingList()
+{
+	QList<int> mibs = QTextCodec::availableMibs();
+	qSort(mibs);
+	QList<int> sortedMibs;
+	std::copy_if(mibs.begin(), mibs.end(), std::back_inserter(sortedMibs), [](int mib){ return mib >=0; });
+	std::copy_if(mibs.begin(), mibs.end(), std::back_inserter(sortedMibs), [](int mib){ return mib < 0; });
+	
+	foreach (int mib, sortedMibs) {
+		QTextCodec *c = QTextCodec::codecForMib(mib);
+		QString names = QString::fromLatin1(c->name());
+		foreach (const QByteArray &alias, c->aliases())
+			names += QLatin1String(" / ") + QString::fromLatin1(alias);
+		encodingList->addItem(names);
+		encodingList->setItemData(encodingList->count()-1, mib);
+	}
 }
 
 void SGFPreview::accept ()

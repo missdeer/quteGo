@@ -396,14 +396,14 @@ std::shared_ptr<game_record> sgf2record (const sgf &s, QTextCodec *codec)
 		else if (*gm != "1") {
 			throw broken_sgf ();
 		}
-    }
-    if (codec == nullptr) {
-        const std::string *ca = s.nodes->find_property_val ("CA");
-        if (ca != nullptr)
-            codec = QTextCodec::codecForName (ca->c_str ());
-        else
-            codec = QTextCodec::codecForName ("ISO-8859-1"); // default encoding of SGF by specification
-    }
+	}
+	if (codec == nullptr) {
+		const std::string *ca = s.nodes->find_property_val ("CA");
+		if (ca != nullptr)
+			codec = QTextCodec::codecForName (ca->c_str ());
+		else
+			codec = QTextCodec::codecForName ("ISO-8859-1"); // default encoding of SGF by specification
+	}
 	const std::string *p = s.nodes->find_property_val ("SZ");
 	int size_x = -1;
 	int size_y = 19;

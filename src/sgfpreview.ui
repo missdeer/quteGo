@@ -31,7 +31,29 @@
     </widget>
    </item>
    <item row="0" column="0" rowspan="4">
-    <widget class="QWidget" name="dialogWidget" native="true"/>
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,0">
+     <item>
+      <widget class="QWidget" name="dialogWidget" native="true"/>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="overwriteSGFEncoding">
+       <property name="title">
+        <string>Read SGF as encoding:</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QComboBox" name="encodingList"/>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item row="2" column="1">
     <layout class="QGridLayout" name="gridLayout_3">
