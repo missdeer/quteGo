@@ -177,14 +177,8 @@ std::shared_ptr<game_record> open_file_dialog (QWidget *parent)
 	}
 	QFileInfo fi (fileName);
 	if (fi.exists ())
-		setting->writeEntry ("LAST_DIR", fi.dir ().absolutePath ());
-
-#if defined(Q_OS_WIN)
-    QByteArray qba = fileName.toLocal8Bit();
-#else
-    QByteArray qba = fileName.toUtf8();
-#endif
-    return record_from_file (qba.constData());
+        setting->writeEntry ("LAST_DIR", fi.dir ().absolutePath ());
+    return record_from_file (fileName);
 }
 
 QString open_filename_dialog (QWidget *parent)
