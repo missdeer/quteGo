@@ -1,5 +1,5 @@
 TEMPLATE	      = app
-CONFIG		     += qt warn_on release thread
+CONFIG		     += qt warn_on thread
 FORMS	      = gui_dialog.ui \
 		analyze_gui.ui \
 		autodiags_gui.ui \

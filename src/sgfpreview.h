@@ -12,11 +12,14 @@ class SGFPreview : public QDialog, public Ui::SGFPreview
 	Q_OBJECT
 
 	QFileDialog *fileDialog;
+    QGroupBox *overwriteSGFEncoding;
+    QComboBox *encodingList;
 	game_state m_empty_board;
 	std::shared_ptr<game_record> m_empty_game;
 	std::shared_ptr<game_record> m_game;
 
 	void setPath (QString path);
+    void reloadPreview();
 	void clear ();
 
 public:

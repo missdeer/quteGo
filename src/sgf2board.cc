@@ -383,7 +383,7 @@ std::string translated_prop_str (const std::string *val, QTextCodec *codec)
 	return std::string (tmp.toStdString ());
 }
 
-std::shared_ptr<game_record> sgf2record (const sgf &s)
+std::shared_ptr<game_record> sgf2record (const sgf &s, QTextCodec *codec)
 {
 	const std::string *ff = s.nodes->find_property_val ("FF");
 	const std::string *gm = s.nodes->find_property_val ("GM");
@@ -396,12 +396,14 @@ std::shared_ptr<game_record> sgf2record (const sgf &s)
 		else if (*gm != "1") {
 			throw broken_sgf ();
 		}
-	}
-	const std::string *ca = s.nodes->find_property_val ("CA");
-	QTextCodec *codec = nullptr;
-	if (ca != nullptr) {
-		codec = QTextCodec::codecForName (ca->c_str ());
-	}
+    }
+    if (codec == nullptr) {
+        const std::string *ca = s.nodes->find_property_val ("CA");
+        if (ca != nullptr)
+            codec = QTextCodec::codecForName (ca->c_str ());
+        else
+            codec = QTextCodec::codecForName ("ISO-8859-1"); // default encoding of SGF by specification
+    }
 	const std::string *p = s.nodes->find_property_val ("SZ");
 	int size_x = -1;
 	int size_y = 19;
@@ -472,7 +474,7 @@ std::shared_ptr<game_record> sgf2record (const sgf &s)
 		if (km->find_first_not_of ("0123456789.", pos) != std::string::npos)
 			throw broken_sgf ();
 	}
-	double komi = km ? stod (*km) : 0;
+	double komi = (km && !km->empty()) ? stod (*km) : 0;
 	if (ha && (ha->find_first_not_of ("0123456789") != std::string::npos))
 		throw broken_sgf ();
 	int hc = ha ? stoi (*ha) : 0;
