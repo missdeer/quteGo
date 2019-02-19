@@ -90,11 +90,26 @@ std::shared_ptr<game_record> new_variant_game_dialog (QWidget *parent)
 static void warn_errors (std::shared_ptr<game_record> gr)
 {
 	const sgf_errors &errs = gr->errors ();
+	if (errs.invalid_structure) {
+		QMessageBox::warning (0, PACKAGE, QObject::tr ("The file did not quite have the correct structure of an SGF file, but could otherwise be understood."));
+	}
 	if (errs.played_on_stone) {
 		QMessageBox::warning (0, PACKAGE, QObject::tr ("The SGF file contained an invalid move that was played on top of another stone. Variations have been truncated at that point."));
 	}
 	if (errs.charset_error) {
 		QMessageBox::warning (0, PACKAGE, QObject::tr ("One or more comments have been dropped since they contained invalid characters."));
+	}
+	if (errs.empty_komi) {
+		QMessageBox::warning (0, PACKAGE, QObject::tr ("The SGF contained an empty value for komi. Assuming zero."));
+	}
+	if (errs.empty_handicap) {
+		QMessageBox::warning (0, PACKAGE, QObject::tr ("The SGF contained an empty value for the handicap. Assuming zero."));
+	}
+	if (errs.invalid_val) {
+		QMessageBox::warning (0, PACKAGE, QObject::tr ("The SGF contained an invalid value in a property related to display.  Things like move numbers might not show up correctly."));
+	}
+	if (errs.malformed_eval) {
+		QMessageBox::warning (0, PACKAGE, QObject::tr ("The SGF contained evaluation data that could not be understood."));
 	}
 }
 

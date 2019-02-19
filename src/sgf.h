@@ -22,11 +22,16 @@ struct sgf_errors
 {
 	bool played_on_stone = false;
 	bool charset_error = false;
+	/* For decorative things like move numbers.  */
 	bool invalid_val = false;
 	bool malformed_eval = false;
+	bool empty_komi = false;
+	bool empty_handicap = false;
+	bool invalid_structure = false;
 	bool any_set () const
 	{
-		return played_on_stone || charset_error || invalid_val || malformed_eval;
+		return (played_on_stone || charset_error || invalid_val || malformed_eval
+			|| empty_komi || empty_handicap || invalid_structure);
 	}
 };
 
@@ -109,8 +114,11 @@ public:
 	};
 
 	node *nodes;
+	sgf_errors errs;
 
-	sgf (node *n) : nodes (n) { }
+	sgf (node *n, const sgf_errors &e) : nodes (n), errs (e)
+	{
+	}
 };
 
 /* There is pain around trying to support Unicode characters in file names

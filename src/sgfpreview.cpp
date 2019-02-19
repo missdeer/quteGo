@@ -69,9 +69,9 @@ void SGFPreview::setPath(QString path)
 		QFile f (path);
 		f.open (QIODevice::ReadOnly);
 		// IOStreamAdapter adapter (&f);
-		sgf *sgf = load_sgf (f);
-		if (overwriteSGFEncoding->isChecked()) {
-			m_game = sgf2record (*sgf, QTextCodec::codecForMib(encodingList->itemData(encodingList->currentIndex()).toInt()));
+        sgf *sgf = load_sgf (f);
+		if (overwriteSGFEncoding->isChecked ()) {
+            m_game = sgf2record (*sgf, QTextCodec::codecForName (encodingList->currentText ().toLatin1 ()));
 		} else {
 			m_game = sgf2record (*sgf, nullptr);
 		}
@@ -94,29 +94,12 @@ void SGFPreview::setPath(QString path)
 	}
 }
 
-void SGFPreview::reloadPreview()
-{
-	auto files = fileDialog->selectedFiles();
-	if (!files.isEmpty())
-		setPath(files.at(0));
-}
 
-void SGFPreview::prepareEncodingList()
+void SGFPreview::reloadPreview ()
 {
-	QList<int> mibs = QTextCodec::availableMibs();
-	qSort(mibs);
-	QList<int> sortedMibs;
-	std::copy_if(mibs.begin(), mibs.end(), std::back_inserter(sortedMibs), [](int mib){ return mib >=0; });
-	std::copy_if(mibs.begin(), mibs.end(), std::back_inserter(sortedMibs), [](int mib){ return mib < 0; });
-	
-	foreach (int mib, sortedMibs) {
-		QTextCodec *c = QTextCodec::codecForMib(mib);
-		QString names = QString::fromLatin1(c->name());
-		foreach (const QByteArray &alias, c->aliases())
-			names += QLatin1String(" / ") + QString::fromLatin1(alias);
-		encodingList->addItem(names);
-		encodingList->setItemData(encodingList->count()-1, mib);
-	}
+	auto files = fileDialog->selectedFiles ();
+	if (!files.isEmpty ())
+        setPath (files.at (0));
 }
 
 void SGFPreview::accept ()
