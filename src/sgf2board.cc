@@ -478,12 +478,12 @@ std::shared_ptr<game_record> sgf2record (const sgf &s, QTextCodec *codec)
 			pos++;
 		if (km->find_first_not_of ("0123456789.", pos) != std::string::npos)
 			throw broken_sgf ();
-    }
+	}
 	double komi = km ? stod (*km) : 0;
 	if (ha && ha->length () == 0) {
 		errs.empty_handicap = true;
 		ha = nullptr;
-    }
+	}
 	if (ha && (ha->find_first_not_of ("0123456789") != std::string::npos))
 		throw broken_sgf ();
 	int hc = ha ? stoi (*ha) : 0;

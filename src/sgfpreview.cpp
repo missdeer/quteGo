@@ -12,7 +12,7 @@ SGFPreview::SGFPreview (QWidget *parent, const QString &dir)
 	  m_empty_game (std::make_shared<game_record> (go_board (19), black, game_info ("White", "Black"))),
 	  m_game (m_empty_game)
 {
-    setupUi (this);
+	setupUi (this);
 
 	QVBoxLayout *l = new QVBoxLayout (dialogWidget);
 	fileDialog = new QFileDialog (dialogWidget, Qt::Widget);
@@ -68,9 +68,9 @@ void SGFPreview::setPath(QString path)
 		QFile f (path);
 		f.open (QIODevice::ReadOnly);
 		// IOStreamAdapter adapter (&f);
-        sgf *sgf = load_sgf (f);
+		sgf *sgf = load_sgf (f);
 		if (overwriteSGFEncoding->isChecked ()) {
-            m_game = sgf2record (*sgf, QTextCodec::codecForName (encodingList->currentText ().toLatin1 ()));
+			m_game = sgf2record (*sgf, QTextCodec::codecForName (encodingList->currentText ().toLatin1 ()));
 		} else {
 			m_game = sgf2record (*sgf, nullptr);
 		}
@@ -98,7 +98,7 @@ void SGFPreview::reloadPreview ()
 {
 	auto files = fileDialog->selectedFiles ();
 	if (!files.isEmpty ())
-        setPath (files.at (0));
+		setPath (files.at (0));
 }
 
 void SGFPreview::accept ()
