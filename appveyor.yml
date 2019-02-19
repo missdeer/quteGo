@@ -24,7 +24,7 @@ install:
 
 # scripts that run before build
 before_build:
-    - if "%PLATFORM%" EQU "X64" (call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat")
+    - if "%PLATFORM%" EQU "amd64" (call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat")
     - if "%PLATFORM%" EQU "x86" (call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat")
     # After calling vcvarsall.bat, %PLATFORM% will be X64 or x86
     - qmake --version
