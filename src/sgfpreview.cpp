@@ -12,8 +12,7 @@ SGFPreview::SGFPreview (QWidget *parent, const QString &dir)
 	  m_empty_game (std::make_shared<game_record> (go_board (19), black, game_info ("White", "Black"))),
 	  m_game (m_empty_game)
 {
-	setupUi (this);
-	prepareEncodingList();
+    setupUi (this);
 
 	QVBoxLayout *l = new QVBoxLayout (dialogWidget);
 	fileDialog = new QFileDialog (dialogWidget, Qt::Widget);
