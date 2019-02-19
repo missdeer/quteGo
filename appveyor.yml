@@ -35,7 +35,7 @@ before_build:
 
 # custom build scripts
 build_script:
-    - nmake
+    - jom -j 4
 
 # scripts that run after build
 after_build:
