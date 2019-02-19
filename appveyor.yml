@@ -26,11 +26,11 @@ install:
 before_build:
     - if "%PLATFORM%" EQU "amd64" (call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat")
     - if "%PLATFORM%" EQU "x86" (call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat")
-    # After calling vcvarsall.bat, %PLATFORM% will be X64 or x86
+    # After calling vcvarsall.bat, %PLATFORM% will be x64 or x86
     - qmake --version
     - mkdir build
     - cd build
-    - if "%PLATFORM%" EQU "X64" (qmake -r -spec win32-msvc CONFIG+=x86_64 CONFIG-=debug CONFIG+=release ../src/q5Go.pro)
+    - if "%PLATFORM%" EQU "x64" (qmake -r -spec win32-msvc CONFIG+=x86_64 CONFIG-=debug CONFIG+=release ../src/q5Go.pro)
     - if "%PLATFORM%" EQU "x86" (qmake -r -spec win32-msvc CONFIG+=Win32 CONFIG-=debug CONFIG+=release ../src/q5Go.pro)
 
 # custom build scripts
