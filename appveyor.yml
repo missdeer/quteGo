@@ -1,0 +1,60 @@
+image: Visual Studio 2017
+
+version: 0.5.{build}
+
+branches:
+    only:
+        - master
+
+environment:
+    COMPILER: msvc
+    VSVER: 14.1
+
+    matrix:
+        - QT: C:\Qt\5.12.1\msvc2017_64
+          PLATFORM: amd64
+        - QT: C:\Qt\5.12.1\msvc2017
+          PLATFORM: x86
+
+clone_depth: 1
+
+# scripts that run after cloning repository
+install:
+    - set PATH=%QT%\bin\;C:\Qt\Tools\QtCreator\bin\;C:\Qt\QtIFW2.0.1\bin\;%PATH%
+
+# scripts that run before build
+before_build:
+    - if "%PLATFORM%" EQU "X64" (call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat")
+    - if "%PLATFORM%" EQU "x86" (call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat")
+    # After calling vcvarsall.bat, %PLATFORM% will be X64 or x86
+    - qmake --version
+    - mkdir build
+    - cd build
+    - if "%PLATFORM%" EQU "X64" (qmake -r -spec win32-msvc CONFIG+=x86_64 CONFIG-=debug CONFIG+=release ../src/q5Go.pro)
+    - if "%PLATFORM%" EQU "x86" (qmake -r -spec win32-msvc CONFIG+=Win32 CONFIG-=debug CONFIG+=release ../src/q5Go.pro)
+
+# custom build scripts
+build_script:
+    - nmake
+
+# scripts that run after build
+after_build:
+    - set q5Go_version=0.5
+    # Clone OpenSSL DLLs
+    - mkdir distrib\q5Go
+    - windeployqt.exe --dir .\distrib\q5Go %APPVEYOR_BUILD_FOLDER%\build\release\q5go.exe
+    - copy "%APPVEYOR_BUILD_FOLDER%\build\release\q5go.exe" "distrib\q5Go\q5Go.exe"
+    - copy "%APPVEYOR_BUILD_FOLDER%\README.md" "distrib\q5Go\README.md"
+    - echo %q5Go_version% > "distrib\q5Go\version.txt"
+    - echo %APPVEYOR_REPO_COMMIT% >> "distrib\q5Go\version.txt"
+    - copy "distrib\q5Go\q5Go.exe" "distrib\q5Go_win_%PLATFORM%.exe"
+    # Delete translations\qt_*.qm
+    - del /F /Q "distrib\q5Go\translations\qt_*.qm"
+    - cd distrib
+    - 7z a q5Go_win_%PLATFORM%_portable_%q5Go_version%.zip q5Go
+
+artifacts:
+    - path: build\distrib\q5Go_win_%PLATFORM%_portable_%q5Go_version%.zip
+      name: portable
+    - path: build\distrib\q5Go_win_%PLATFORM%.exe
+      name: exe_only
