@@ -78,6 +78,7 @@ private:
 			      bool clamshell, int idx = 0);
 	void paint_white_stone_picture (QImage &img, int size);
 	void paint_black_stone_picture (QImage &img, int size);
+	void paint_stone_picture (QImage &img, int size, const QString& path);
 	void ghostImage(QImage *img);
 
 	QList<QPixmap> stonePixmaps, ghostPixmaps;

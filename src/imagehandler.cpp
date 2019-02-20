@@ -281,21 +281,30 @@ void ImageHandler::paint_stone_new (QImage &wi, int d, const QColor &col, double
 
 void ImageHandler::paint_white_stone_picture(QImage &img, int size)
 {
-	QImage image(m_whiteStonePicturePath);
-	QPainter painter;
-	painter.begin (&img);
-	img.fill(Qt::transparent);
-	painter.drawImage(QRect(0,0,size*95/100,size*95/100), image, image.rect());
-	painter.end ();
+	paint_stone_picture(img, size, m_whiteStonePicturePath);
 }
 
 void ImageHandler::paint_black_stone_picture(QImage &img, int size)
 {
-	QImage image(m_blackStonePicturePath);
+	paint_stone_picture(img, size, m_blackStonePicturePath);
+}
+
+void ImageHandler::paint_stone_picture(QImage &img, int size, const QString &path)
+{
 	QPainter painter;
 	painter.begin (&img);
-	img.fill(Qt::transparent);
-	painter.drawImage(QRect(0,0,size*95/100,size*95/100), image, image.rect());
+	if (path.endsWith(".svg", Qt::CaseInsensitive))
+	{
+		img.fill(QColor(0, 0, 0, 0));
+		QSvgRenderer svgRenderer (path);
+		svgRenderer.render (&painter, QRectF(0,0,size*95/100,size*95/100));
+	}
+	else
+	{
+		img.fill(Qt::transparent);
+		QImage image(path);
+		painter.drawImage(QRect(0,0,size*95/100,size*95/100), image, image.rect());
+	}
 	painter.end ();
 }
 
