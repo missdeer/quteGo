@@ -293,15 +293,14 @@ void ImageHandler::paint_stone_picture(QImage &img, int size, const QString &pat
 {
 	QPainter painter;
 	painter.begin (&img);
+	img.fill(Qt::transparent);
 	if (path.endsWith(".svg", Qt::CaseInsensitive))
 	{
-		img.fill(QColor(0, 0, 0, 0));
 		QSvgRenderer svgRenderer (path);
 		svgRenderer.render (&painter, QRectF(0,0,size*95/100,size*95/100));
 	}
 	else
 	{
-		img.fill(Qt::transparent);
 		QImage image(path);
 		painter.drawImage(QRect(0,0,size*95/100,size*95/100), image, image.rect());
 	}
