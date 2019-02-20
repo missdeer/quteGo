@@ -281,23 +281,21 @@ void ImageHandler::paint_stone_new (QImage &wi, int d, const QColor &col, double
 
 void ImageHandler::paint_white_stone_picture(QImage &img, int size)
 {
-	QString path = setting->readEntry("STONES_WPICTURE");
-	QImage image(path);
+	QImage image(m_whiteStonePicturePath);
 	QPainter painter;
 	painter.begin (&img);
 	img.fill(Qt::transparent);
-	painter.drawImage(QRect(0,0,size*9/10,size*9/10), image, image.rect());
+	painter.drawImage(QRect(0,0,size*95/100,size*95/100), image, image.rect());
 	painter.end ();
 }
 
 void ImageHandler::paint_black_stone_picture(QImage &img, int size)
 {
-	QString path = setting->readEntry("STONES_BPICTURE");
-	QImage image(path);
+	QImage image(m_blackStonePicturePath);
 	QPainter painter;
 	painter.begin (&img);
 	img.fill(Qt::transparent);
-	painter.drawImage(QRect(0,0,size*9/10,size*9/10), image, image.rect());
+	painter.drawImage(QRect(0,0,size*95/100,size*95/100), image, image.rect());
 	painter.end ();
 }
 

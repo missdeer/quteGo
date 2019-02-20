@@ -79,9 +79,9 @@ PreferencesDialog::PreferencesDialog(QWidget* parent)
 
 	connect (radioButtonStones_2D, &QRadioButton::toggled, this, &PreferencesDialog::select_stone_look);
 	connect (radioButtonStones_3D, &QRadioButton::toggled, this, &PreferencesDialog::select_stone_look);
-    connect (radioButtonStone_picture, &QRadioButton::toggled, this, &PreferencesDialog::select_stone_look);
-    connect (blackStonePicturePathEdit, &QLineEdit::textChanged, [=] () { update_b_stones (); });
-    connect (whiteStonePicturePathEdit, &QLineEdit::textChanged, [=] () { update_w_stones (); });
+	connect (radioButtonStone_picture, &QRadioButton::toggled, this, &PreferencesDialog::select_stone_look);
+	connect (blackStonePicturePathEdit, &QLineEdit::textChanged, [=] () { update_b_stones (); });
+	connect (whiteStonePicturePathEdit, &QLineEdit::textChanged, [=] () { update_w_stones (); });
 
 	connect (whiteColorButton, &QToolButton::clicked, this, &PreferencesDialog::select_white_color);
 	connect (blackColorButton, &QToolButton::clicked, this, &PreferencesDialog::select_black_color);
@@ -297,6 +297,8 @@ void PreferencesDialog::select_black_color (bool)
 
 void PreferencesDialog::update_stone_params ()
 {
+	QString whiteStonePicturePath = whiteStonePicturePathEdit->text();
+	QString blackStonePicturePath = blackStonePicturePathEdit->text();
 	double br = 2.05 + (100 - blackRoundSlider->value ()) / 30.0;
 	double wr = 2.05 + (100 - whiteRoundSlider->value ()) / 30.0;
 	double bs = blackSpecSlider->value () / 100.0;
@@ -316,7 +318,7 @@ void PreferencesDialog::update_stone_params ()
 		look = 4;
 	blackGroupBox->setEnabled (look == 3);
 	whiteGroupBox->setEnabled (look == 3);
-	m_ih->set_stone_params (wh, bh, ws, bs, wr, br, wf, bf, ambient, look, clamshell);
+	m_ih->set_stone_params (wh, bh, ws, bs, wr, br, wf, bf, ambient, look, clamshell, whiteStonePicturePath, blackStonePicturePath);
 }
 
 void PreferencesDialog::update_w_stones ()

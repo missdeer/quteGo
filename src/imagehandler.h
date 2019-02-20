@@ -24,6 +24,7 @@ class ImageHandler
 	double m_ambient { 0.2 };
 	bool m_clamshell;
 	int m_look;
+	QString m_whiteStonePicturePath, m_blackStonePicturePath;
 
 	/* We want the appearance to stay the same across resizes, so we generate
 	   some random numbers in the constructor.  */
@@ -39,7 +40,8 @@ public:
 
 	void set_stone_params (double w_hard, double b_hard, double w_spec, double b_spec,
 			       double w_radius, double b_radius, int w_flat, int b_flat,
-			       double ambient, int look, bool clamshell)
+			       double ambient, int look, bool clamshell,
+			       const QString& whiteStonePicturePath, const QString& blackStonePicturePath)
 	{
 		m_w_hard = w_hard;
 		m_b_hard = b_hard;
@@ -52,6 +54,8 @@ public:
 		m_ambient = ambient;
 		m_clamshell = clamshell;
 		m_look = look;
+		m_whiteStonePicturePath = whiteStonePicturePath;
+		m_blackStonePicturePath = blackStonePicturePath;
 	}
 
 	void paint_one_stone (QImage &, bool white, int size, int idx = 0);
