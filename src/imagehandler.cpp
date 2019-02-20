@@ -679,7 +679,8 @@ void ImageHandler::stone_params_from_settings ()
 	m_ambient = setting->readIntEntry ("STONES_AMBIENT") / 100.0;
 
 	m_look = setting->readIntEntry ("STONES_LOOK");
-
+	m_whiteStonePicturePath = setting->readEntry("STONES_WPICTURE");
+	m_blackStonePicturePath = setting->readEntry("STONES_BPICTURE");
 	QString wcol = setting->readEntry ("STONES_WCOL");
 	QString bcol = setting->readEntry ("STONES_BCOL");
 	if (wcol.isEmpty ())
