@@ -26,9 +26,8 @@ make -j2
 git clone https://github.com/aurelien-rainone/macdeployqtfix.git
 
 $QTDIR/bin/macdeployqt q5go.app
-python ../macdeployqtfix/macdeployqtfix.py q5go.app/Contents/MacOS/q5go $QTDIR
+python macdeployqtfix/macdeployqtfix.py q5go.app/Contents/MacOS/q5go $QTDIR
 
-cd ${project_dir}/build
 mkdir -p distrib/q5Go
 cd distrib/q5go
 mv ../../q5go.app ./
