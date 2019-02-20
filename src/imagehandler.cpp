@@ -279,6 +279,28 @@ void ImageHandler::paint_stone_new (QImage &wi, int d, const QColor &col, double
 	delete[] intense;
 }
 
+void ImageHandler::paint_white_stone_picture(QImage &img, int size)
+{
+	QString path = setting->readEntry("STONES_WPICTURE");
+	QImage image(path);
+	QPainter painter;
+	painter.begin (&img);
+	img.fill(Qt::transparent);
+	painter.drawImage(QRect(0,0,size*9/10,size*9/10), image, image.rect());
+	painter.end ();
+}
+
+void ImageHandler::paint_black_stone_picture(QImage &img, int size)
+{
+	QString path = setting->readEntry("STONES_BPICTURE");
+	QImage image(path);
+	QPainter painter;
+	painter.begin (&img);
+	img.fill(Qt::transparent);
+	painter.drawImage(QRect(0,0,size*9/10,size*9/10), image, image.rect());
+	painter.end ();
+}
+
 void ImageHandler::paint_black_stone_old (QImage &bi, int d)
 {
 	const double pixel=0.8;//,shadow=0.99;
@@ -471,6 +493,7 @@ ImageHandler::ImageHandler()
 	stone_params_from_settings ();
 }
 
+
 static void paint_white_stone_svg (QImage &img)
 {
 	/* Gets scaled to the pixmap size during render.  */
@@ -507,6 +530,8 @@ void ImageHandler::paint_one_stone (QImage &img, bool white, int size, int idx)
 			paint_white_stone_svg (img);
 		} else if (m_look == 2) {
 			paint_white_stone_old (img, size, m_clamshell, idx);
+		} else if (m_look == 4) {
+			paint_white_stone_picture(img, size);
 		} else {
 			paint_stone_new (img, size, m_w_col, m_w_hard, m_w_spec, m_w_flat, m_w_radius,
 					 m_clamshell, idx);
@@ -516,6 +541,8 @@ void ImageHandler::paint_one_stone (QImage &img, bool white, int size, int idx)
 			paint_black_stone_svg (img);
 		} else if (m_look == 2) {
 			paint_black_stone_old (img, size);
+		} else if (m_look == 4) {
+			paint_black_stone_picture(img, size);
 		} else {
 			paint_stone_new (img, size, m_b_col, m_b_hard, m_b_spec, m_b_flat, m_b_radius,
 					 false, 0);

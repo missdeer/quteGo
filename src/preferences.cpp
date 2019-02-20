@@ -79,6 +79,9 @@ PreferencesDialog::PreferencesDialog(QWidget* parent)
 
 	connect (radioButtonStones_2D, &QRadioButton::toggled, this, &PreferencesDialog::select_stone_look);
 	connect (radioButtonStones_3D, &QRadioButton::toggled, this, &PreferencesDialog::select_stone_look);
+    connect (radioButtonStone_picture, &QRadioButton::toggled, this, &PreferencesDialog::select_stone_look);
+    connect (blackStonePicturePathEdit, &QLineEdit::textChanged, [=] () { update_b_stones (); });
+    connect (whiteStonePicturePathEdit, &QLineEdit::textChanged, [=] () { update_w_stones (); });
 
 	connect (whiteColorButton, &QToolButton::clicked, this, &PreferencesDialog::select_white_color);
 	connect (blackColorButton, &QToolButton::clicked, this, &PreferencesDialog::select_black_color);
@@ -160,6 +163,9 @@ void PreferencesDialog::init_from_settings ()
 	radioButtonStones_2D->setChecked((setting->readIntEntry("STONES_LOOK")==1));
 	radioButtonStones_3D->setChecked((setting->readIntEntry("STONES_LOOK")==2));
 	radioButtonStone_real->setChecked((setting->readIntEntry("STONES_LOOK")==3));
+	radioButtonStone_picture->setChecked((setting->readIntEntry("STONES_LOOK")==4));
+	whiteStonePicturePathEdit->setText(setting->readEntry("STONES_WPICTURE"));
+	blackStonePicturePathEdit->setText(setting->readEntry("STONES_BPICTURE"));
 	stripesCheckBox->setChecked (setting->readBoolEntry("STONES_STRIPES"));
 	whiteSpecSlider->setValue (setting->readIntEntry("STONES_WSPEC"));
 	blackSpecSlider->setValue (setting->readIntEntry("STONES_BSPEC"));
@@ -306,6 +312,8 @@ void PreferencesDialog::update_stone_params ()
 		look = 1;
 	else if (radioButtonStones_3D->isChecked ())
 		look = 2;
+	else if (radioButtonStone_picture->isChecked())
+		look = 4;
 	blackGroupBox->setEnabled (look == 3);
 	whiteGroupBox->setEnabled (look == 3);
 	m_ih->set_stone_params (wh, bh, ws, bs, wr, br, wf, bf, ambient, look, clamshell);
@@ -391,6 +399,8 @@ void PreferencesDialog::slot_apply()
 		i=1;
 	else if ( radioButtonStones_3D->isChecked())
 		i=2;
+	else if (radioButtonStone_picture->isChecked())
+		i=4;
 	setting->writeBoolEntry("STONES_STRIPES", stripesCheckBox->isChecked());
 	setting->writeIntEntry("STONES_LOOK", i);
 	setting->writeIntEntry("STONES_WSPEC", whiteSpecSlider->value());
@@ -402,6 +412,8 @@ void PreferencesDialog::slot_apply()
 	setting->writeIntEntry("STONES_WFLAT", whiteFlatSlider->value());
 	setting->writeIntEntry("STONES_BFLAT", blackFlatSlider->value());
 	setting->writeIntEntry("STONES_AMBIENT", ambientSlider->value());
+	setting->writeEntry("STONES_WPICTURE", whiteStonePicturePathEdit->text());
+	setting->writeEntry("STONES_BPICTURE", blackStonePicturePathEdit->text());
 	setting->writeEntry("STONES_BCOL", black_color().name());
 	setting->writeEntry("STONES_WCOL", white_color().name());
 
@@ -1089,7 +1101,63 @@ void PreferencesDialog::slot_getTablePicturePath()
 	if (fileName.isEmpty())
 		return;
 
-  	LineEdit_Table->setText(fileName);
+	LineEdit_Table->setText(fileName);
+}
+
+void PreferencesDialog::slot_getWhiteStonePicturePath()
+{
+#ifdef Q_OS_MACX
+	// On the Mac, we want to default this dialog to the directory in the bundle
+	// that contains the wood images we ship with the app
+	//get the bundle path and find our resources
+	CFURLRef bundleRef = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+	CFStringRef bundlePath = CFURLCopyFileSystemPath(bundleRef, kCFURLPOSIXPathStyle);
+	QString path = (QString)CFStringGetCStringPtr(bundlePath, CFStringGetSystemEncoding())
+		+ "/Contents/Resources/Stones";
+#else
+	QString path = setting->readEntry("LAST_DIR");
+#endif
+	QString old_name = whiteStonePicturePathEdit->text ();
+	if (!old_name.isEmpty ()) {
+		QFileInfo info (old_name);
+		if (info.exists ()) {
+			QDir dir = info.dir ();
+			path = dir.absolutePath ();
+		}
+	}
+	QString fileName(QFileDialog::getOpenFileName(this, tr ("Select a white stone image"), path, tr("Images (*.png *.xpm *.jpg *.svg)")));
+	if (fileName.isEmpty())
+		return;
+	
+	whiteStonePicturePathEdit->setText(fileName);
+}
+
+void PreferencesDialog::slot_getBlackStonePicturePath()
+{
+#ifdef Q_OS_MACX
+	// On the Mac, we want to default this dialog to the directory in the bundle
+	// that contains the wood images we ship with the app
+	//get the bundle path and find our resources
+	CFURLRef bundleRef = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+	CFStringRef bundlePath = CFURLCopyFileSystemPath(bundleRef, kCFURLPOSIXPathStyle);
+	QString path = (QString)CFStringGetCStringPtr(bundlePath, CFStringGetSystemEncoding())
+		+ "/Contents/Resources/Stones";
+#else
+	QString path = setting->readEntry("LAST_DIR");
+#endif
+	QString old_name = blackStonePicturePathEdit->text ();
+	if (!old_name.isEmpty ()) {
+		QFileInfo info (old_name);
+		if (info.exists ()) {
+			QDir dir = info.dir ();
+			path = dir.absolutePath ();
+		}
+	}
+	QString fileName(QFileDialog::getOpenFileName(this, tr ("Select a black stone image"), path, tr("Images (*.png *.xpm *.jpg *.svg)")));
+	if (fileName.isEmpty())
+		return;
+	
+	blackStonePicturePathEdit->setText(fileName);
 }
 
 void PreferencesDialog::slot_main_time_changed(int n)

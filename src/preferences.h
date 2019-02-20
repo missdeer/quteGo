@@ -73,6 +73,8 @@ public slots:
 	virtual void slot_getComputerPath();
 	virtual void slot_getGobanPicturePath();
 	virtual void slot_getTablePicturePath();
+	virtual void slot_getWhiteStonePicturePath();
+	virtual void slot_getBlackStonePicturePath();
 	virtual void slot_main_time_changed(int);
 	virtual void slot_BY_time_changed(int);
 	virtual void slot_clickedHostList(QListWidgetItem *);

@@ -72,6 +72,8 @@ private:
 	void paint_white_stone_old (QImage &wi, int d, bool clamshell, int idx = 0);
 	void paint_stone_new (QImage &wi, int d, const QColor &, double, double, int, double,
 			      bool clamshell, int idx = 0);
+	void paint_white_stone_picture (QImage &img, int size);
+	void paint_black_stone_picture (QImage &img, int size);
 	void ghostImage(QImage *img);
 
 	QList<QPixmap> stonePixmaps, ghostPixmaps;

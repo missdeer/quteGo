@@ -329,7 +329,7 @@ void Setting::saveSettings()
 		QMap<QString, QString>::const_iterator i = params.constBegin();
 		while (i != params.constEnd()) {
 			if (!i.value().isEmpty() && !i.value().isNull())
-				txtfile << i.key() << " [" << i.value() << "]" << endl;
+                txtfile << i.key() << " [" << i.value() << "]" << endl;
 			++i;
 		}
 
