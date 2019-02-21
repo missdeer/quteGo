@@ -30,11 +30,6 @@ if [ $? -ne 0 ]; then
     exit 1; 
 fi
 
-git clone https://github.com/aurelien-rainone/macdeployqtfix.git
-
-$QTDIR/bin/macdeployqt q5go.app
-python macdeployqtfix/macdeployqtfix.py q5go.app/Contents/MacOS/q5go $QTDIR
-
 mkdir -p distrib/q5Go
 cd distrib/q5go
 mv ../../q5go.app ./
