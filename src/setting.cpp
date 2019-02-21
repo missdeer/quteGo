@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include <QPixmap>
 #include <QTextCodec>
+
 #include "setting.h"
 #include "config.h"
 #include "defines.h"
