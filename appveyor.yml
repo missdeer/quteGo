@@ -50,11 +50,10 @@ after_build:
     - windeployqt.exe --dir .\distrib\q5Go %APPVEYOR_BUILD_FOLDER%\build\release\q5go.exe
     - copy "%APPVEYOR_BUILD_FOLDER%\build\release\q5go.exe" "distrib\q5Go\q5Go.exe"
     - copy "%APPVEYOR_BUILD_FOLDER%\README.md" "distrib\q5Go\README.md"
+    - copy "%APPVEYOR_BUILD_FOLDER%\src\translations\qgo_*.qm" "distrib\q5Go\translations\"
     - echo %q5Go_version% > "distrib\q5Go\version.txt"
     - echo %APPVEYOR_REPO_COMMIT% >> "distrib\q5Go\version.txt"
     - copy "distrib\q5Go\q5Go.exe" "distrib\q5Go_%MKSPEC%.exe"
-    # Delete translations\qt_*.qm
-    - del /F /Q "distrib\q5Go\translations\qt_*.qm"
     - cd distrib
     - 7z a q5Go_%MKSPEC%_portable_%q5Go_version%.zip q5Go
 

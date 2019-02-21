@@ -413,12 +413,6 @@ QString Setting::getTranslationsDirectory()
 
 #ifdef Q_OS_WIN
 	list << program_dir + "/translations"
-		<< "C:/Program Files/q4Go/translations"
-		<< "D:/Program Files/q4Go/translations"
-		<< "E:/Program Files/q4Go/translations"
-		<< "C:/Programme/q4Go/translations"
-		<< "D:/Programme/q4Go/translations"
-		<< "E:/Programme/q4Go/translations"
 		<< "./translations";
 #elif defined(Q_OS_MACX)
 	//get the bundle path and find our resources
