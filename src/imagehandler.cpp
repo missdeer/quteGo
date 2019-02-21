@@ -19,7 +19,7 @@
 
 //#include <iostream>
 
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN)
  double drand48() { return rand()*1.0/RAND_MAX; }
 #endif
 

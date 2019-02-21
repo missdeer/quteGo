@@ -187,7 +187,7 @@ protected:
 
 	ImageHandler *imageHandler;
 
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN)
 	bool resizeDelayFlag;
 #endif
 };

@@ -13,7 +13,7 @@
 #include "clientwin.h"
 #include "imagehandler.h"
 
-#ifdef Q_OS_MACX
+#if defined(Q_OS_MACX)
 #include <CoreFoundation/CFString.h>
 #include <CoreFoundation/CFBundle.h>
 #endif //Q_OS_MACX
@@ -1059,7 +1059,7 @@ void PreferencesDialog::slot_getComputerPath()
 
 void PreferencesDialog::slot_getGobanPicturePath()
 {
-#ifdef Q_OS_MACX
+#if defined(Q_OS_MACX)
 	// On the Mac, we want to default this dialog to the directory in the bundle
 	// that contains the wood images we ship with the app
 	//get the bundle path and find our resources
@@ -1088,7 +1088,7 @@ void PreferencesDialog::slot_getGobanPicturePath()
 
 void PreferencesDialog::slot_getTablePicturePath()
 {
-#ifdef Q_OS_MACX
+#if defined(Q_OS_MACX)
 	// On the Mac, we want to default this dialog to the directory in the bundle
 	// that contains the wood images we ship with the app
 	//get the bundle path and find our resources
@@ -1116,7 +1116,7 @@ void PreferencesDialog::slot_getTablePicturePath()
 
 void PreferencesDialog::slot_getWhiteStonePicturePath()
 {
-#ifdef Q_OS_MACX
+#if defined(Q_OS_MACX)
 	// On the Mac, we want to default this dialog to the directory in the bundle
 	// that contains the wood images we ship with the app
 	//get the bundle path and find our resources
@@ -1144,7 +1144,7 @@ void PreferencesDialog::slot_getWhiteStonePicturePath()
 
 void PreferencesDialog::slot_getBlackStonePicturePath()
 {
-#ifdef Q_OS_MACX
+#if defined(Q_OS_MACX)
 	// On the Mac, we want to default this dialog to the directory in the bundle
 	// that contains the wood images we ship with the app
 	//get the bundle path and find our resources

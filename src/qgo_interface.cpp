@@ -21,7 +21,7 @@
 #include <qcombobox.h>
 #include <qregexp.h>
 
-#ifdef Q_OS_MACX
+#if defined(Q_OS_MACX)
 #include <CoreFoundation/CFString.h>
 #include <CoreFoundation/CFBundle.h>
 #endif //Q_OS_MACX

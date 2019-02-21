@@ -32,7 +32,7 @@ void HelpViewer::set_url (const QUrl &url)
 {
 	QStringList strList;
 
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN)
 	strList << program_dir + "/html"
 		<< "C:/Program Files/qGo/html"
 		<< "D:/Program Files/qGo/html"

@@ -22,7 +22,7 @@
 #include ICON_APPICON
 //#endif
 
-#ifdef Q_OS_MACX
+#if defined(Q_OS_MACX)
 #include <CoreFoundation/CFString.h>
 #include <CoreFoundation/CFBundle.h>
 #endif //Q_OS_MACX
@@ -412,7 +412,7 @@ QString Setting::getTranslationsDirectory()
 
 	QStringList list;
 
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN)
 	list << program_dir + "/translations"
 		<< "./translations";
 #elif defined(Q_OS_MACX)

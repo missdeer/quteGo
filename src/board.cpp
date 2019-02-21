@@ -55,7 +55,7 @@ BoardView::BoardView(QWidget *parent)
 
 	imageHandler->init(10);
 
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN)
 	resizeDelayFlag = false;
 #endif
 	lockResize = false;
@@ -1895,7 +1895,7 @@ void Board::mousePressEvent(QMouseEvent *e)
 
 void BoardView::changeSize()
 {
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN)
 	resizeDelayFlag = false;
 #endif
 	resizeBoard (width (), height ());
