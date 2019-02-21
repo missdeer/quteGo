@@ -297,12 +297,12 @@ void ImageHandler::paint_stone_picture(QImage &img, int size, const QString &pat
 	if (path.endsWith(".svg", Qt::CaseInsensitive))
 	{
 		QSvgRenderer svgRenderer (path);
-		svgRenderer.render (&painter, QRectF(0,0,size*95/100,size*95/100));
+		svgRenderer.render (&painter, QRectF(0,0,size*m_sizePercent/100,size*m_sizePercent/100));
 	}
 	else
 	{
 		QImage image(path);
-		painter.drawImage(QRect(0,0,size*95/100,size*95/100), image, image.rect());
+		painter.drawImage(QRect(0,0,size*m_sizePercent/100,size*m_sizePercent/100), image, image.rect());
 	}
 	painter.end ();
 }
@@ -689,6 +689,7 @@ void ImageHandler::stone_params_from_settings ()
 	m_look = setting->readIntEntry ("STONES_LOOK");
 	m_whiteStonePicturePath = setting->readEntry("STONES_WPICTURE");
 	m_blackStonePicturePath = setting->readEntry("STONES_BPICTURE");
+	m_sizePercent = setting->readIntEntry("STONES_SIZE_PERCENT");
 	QString wcol = setting->readEntry ("STONES_WCOL");
 	QString bcol = setting->readEntry ("STONES_BCOL");
 	if (wcol.isEmpty ())

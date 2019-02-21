@@ -164,6 +164,7 @@ void PreferencesDialog::init_from_settings ()
 	radioButtonStones_3D->setChecked((setting->readIntEntry("STONES_LOOK")==2));
 	radioButtonStone_real->setChecked((setting->readIntEntry("STONES_LOOK")==3));
 	radioButtonStone_picture->setChecked((setting->readIntEntry("STONES_LOOK")==4));
+	stoneSizePercentSlider->setValue(setting->readIntEntry("STONES_SIZE_PERCENT"));
 	whiteStonePicturePathEdit->setText(setting->readEntry("STONES_WPICTURE"));
 	blackStonePicturePathEdit->setText(setting->readEntry("STONES_BPICTURE"));
 	stripesCheckBox->setChecked (setting->readBoolEntry("STONES_STRIPES"));
@@ -299,6 +300,7 @@ void PreferencesDialog::update_stone_params ()
 {
 	QString whiteStonePicturePath = whiteStonePicturePathEdit->text();
 	QString blackStonePicturePath = blackStonePicturePathEdit->text();
+	int sizePercent = stoneSizePercentSlider->value();
 	double br = 2.05 + (100 - blackRoundSlider->value ()) / 30.0;
 	double wr = 2.05 + (100 - whiteRoundSlider->value ()) / 30.0;
 	double bs = blackSpecSlider->value () / 100.0;
@@ -318,7 +320,7 @@ void PreferencesDialog::update_stone_params ()
 		look = 4;
 	blackGroupBox->setEnabled (look == 3);
 	whiteGroupBox->setEnabled (look == 3);
-	m_ih->set_stone_params (wh, bh, ws, bs, wr, br, wf, bf, ambient, look, clamshell, whiteStonePicturePath, blackStonePicturePath);
+	m_ih->set_stone_params (wh, bh, ws, bs, wr, br, wf, bf, ambient, look, clamshell, whiteStonePicturePath, blackStonePicturePath, sizePercent);
 }
 
 void PreferencesDialog::update_w_stones ()
@@ -416,6 +418,7 @@ void PreferencesDialog::slot_apply()
 	setting->writeIntEntry("STONES_AMBIENT", ambientSlider->value());
 	setting->writeEntry("STONES_WPICTURE", whiteStonePicturePathEdit->text());
 	setting->writeEntry("STONES_BPICTURE", blackStonePicturePathEdit->text());
+	setting->writeIntEntry("STONES_SIZE_PERCENT", stoneSizePercentSlider->value());
 	setting->writeEntry("STONES_BCOL", black_color().name());
 	setting->writeEntry("STONES_WCOL", white_color().name());
 
@@ -773,6 +776,11 @@ void PreferencesDialog::slot_clickedEngines (QListWidgetItem *lvi)
 			break;
 		}
 	}
+}
+
+void PreferencesDialog::slot_stoneSizePercentChanged(int v)
+{
+	stoneSizePercentLabel->setText(QString::number(v));
 }
 
 void PreferencesDialog::slot_engineChanged(const QString &title)

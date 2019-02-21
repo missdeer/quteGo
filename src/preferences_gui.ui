@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>666</width>
-    <height>776</height>
+    <height>826</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -21,16 +21,16 @@
   </property>
   <layout class="QGridLayout">
    <property name="leftMargin">
-    <number>2</number>
+    <number>0</number>
    </property>
    <property name="topMargin">
-    <number>2</number>
+    <number>0</number>
    </property>
    <property name="rightMargin">
-    <number>2</number>
+    <number>0</number>
    </property>
    <property name="bottomMargin">
-    <number>2</number>
+    <number>0</number>
    </property>
    <property name="spacing">
     <number>0</number>
@@ -2012,10 +2012,14 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
           <string>Stone picture</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_12">
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_24">
+          <item row="1" column="3">
+           <widget class="QPushButton" name="blackStonePicturePathButton">
             <property name="text">
-             <string>White stone picture:</string>
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="q4go.qrc">
+              <normaloff>:/PreferencesDialogGui/images/preferences/image1.png</normaloff>:/PreferencesDialogGui/images/preferences/image1.png</iconset>
             </property>
            </widget>
           </item>
@@ -2029,6 +2033,16 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
           <item row="0" column="2">
            <widget class="QLineEdit" name="whiteStonePicturePathEdit"/>
           </item>
+          <item row="1" column="2">
+           <widget class="QLineEdit" name="blackStonePicturePathEdit"/>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_24">
+            <property name="text">
+             <string>White stone picture:</string>
+            </property>
+           </widget>
+          </item>
           <item row="0" column="3">
            <widget class="QPushButton" name="whiteStonePicturePathButton">
             <property name="text">
@@ -2040,17 +2054,42 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="2">
-           <widget class="QLineEdit" name="blackStonePicturePathEdit"/>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_26">
+            <property name="text">
+             <string>Size Percent(%):</string>
+            </property>
+           </widget>
           </item>
-          <item row="1" column="3">
-           <widget class="QPushButton" name="blackStonePicturePathButton">
+          <item row="2" column="2">
+           <widget class="QSlider" name="stoneSizePercentSlider">
+            <property name="minimum">
+             <number>80</number>
+            </property>
+            <property name="maximum">
+             <number>100</number>
+            </property>
+            <property name="sliderPosition">
+             <number>100</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="invertedAppearance">
+             <bool>false</bool>
+            </property>
+            <property name="invertedControls">
+             <bool>false</bool>
+            </property>
+            <property name="tickPosition">
+             <enum>QSlider::NoTicks</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="QLabel" name="stoneSizePercentLabel">
             <property name="text">
              <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="q4go.qrc">
-              <normaloff>:/PreferencesDialogGui/images/preferences/image1.png</normaloff>:/PreferencesDialogGui/images/preferences/image1.png</iconset>
             </property>
            </widget>
           </item>
@@ -5027,6 +5066,22 @@ others:		guest</string>
     <hint type="destinationlabel">
      <x>332</x>
      <y>387</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stoneSizePercentSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>PreferencesDialogGui</receiver>
+   <slot>slot_stoneSizePercentChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>363</x>
+     <y>180</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>332</x>
+     <y>412</y>
     </hint>
    </hints>
   </connection>

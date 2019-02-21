@@ -79,6 +79,7 @@ public slots:
 	virtual void slot_BY_time_changed(int);
 	virtual void slot_clickedHostList(QListWidgetItem *);
 	virtual void slot_clickedEngines(QListWidgetItem *);
+	virtual void slot_stoneSizePercentChanged(int);
 	void select_white_color (bool);
 	void select_black_color (bool);
 	void select_stone_look (bool);
