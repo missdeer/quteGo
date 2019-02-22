@@ -60,10 +60,6 @@
         <translation>引擎状态</translation>
     </message>
     <message>
-        <source>Show messages</source>
-        <translation>显示消息</translation>
-    </message>
-    <message>
         <source>Start engine</source>
         <translation>启动引擎</translation>
     </message>
@@ -92,22 +88,6 @@
         <translation>已完成任务包含未保存数据。你要丢弃任务吗？</translation>
     </message>
     <message>
-        <source>Status: not running</source>
-        <translation>状态：未运行</translation>
-    </message>
-    <message>
-        <source>Status: starting up</source>
-        <translation>状态：正在启动</translation>
-    </message>
-    <message>
-        <source>Status: idle</source>
-        <translation>状态：空闲</translation>
-    </message>
-    <message>
-        <source>Status: working</source>
-        <translation>状态：工作中</translation>
-    </message>
-    <message>
         <source>Really discard selected job?</source>
         <translation>确定要丢弃选中的任务？</translation>
     </message>
@@ -132,16 +112,44 @@
         <translation>访问。</translation>
     </message>
     <message>
-        <source>You did not configure any analysis engine!</source>
-        <translation>你尚未设置任何分析引擎！</translation>
-    </message>
-    <message>
         <source>Analysis is supported only for square boards!</source>
         <translation>只支持正方形棋盘的分析！</translation>
     </message>
     <message>
-        <source>File has a different boardsize than expected by the running engine!</source>
-        <translation>文件与运行中的引擎使用不同的棋盘大小！</translation>
+        <source>Show messages...</source>
+        <translation>显示消息…</translation>
+    </message>
+    <message>
+        <source>Board size:</source>
+        <translation>棋盘大小:</translation>
+    </message>
+    <message>
+        <source>Choose:</source>
+        <translation>选择：</translation>
+    </message>
+    <message>
+        <source>stopped</source>
+        <translation>停止</translation>
+    </message>
+    <message>
+        <source>not running</source>
+        <translation>未运行</translation>
+    </message>
+    <message>
+        <source>starting up</source>
+        <translation>启动</translation>
+    </message>
+    <message>
+        <source>idle</source>
+        <translation>空闲</translation>
+    </message>
+    <message>
+        <source>working</source>
+        <translation>工作中</translation>
+    </message>
+    <message>
+        <source>File has a different boardsize than selected!</source>
+        <translation>文件与选择的棋盘大小不一致！</translation>
     </message>
 </context>
 <context>
@@ -222,8 +230,8 @@
         <translation>只支持正方形棋盘的分析！</translation>
     </message>
     <message>
-        <source>You did not configure any analysis engine!</source>
-        <translation>你尚未设置任何分析引擎！</translation>
+        <source>You did not configure any analysis engine for this boardsize!</source>
+        <translation>没有为此棋盘大小配置分析引擎！</translation>
     </message>
 </context>
 <context>
@@ -4783,6 +4791,10 @@ a variation</source>
     <message>
         <source>Duplicates shown either side of toroidal boards:</source>
         <translation>重复显示圆形棋盘的两边：</translation>
+    </message>
+    <message>
+        <source>Size Percent(%):</source>
+        <translation>大小百分比（%）：</translation>
     </message>
 </context>
 <context>
