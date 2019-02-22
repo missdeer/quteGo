@@ -697,7 +697,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>Up</source>
-        <translation>上</translation>
+        <translation>Up</translation>
     </message>
     <message>
         <source>N&amp;ext variation</source>
@@ -705,7 +705,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>Down</source>
-        <translation>下</translation>
+        <translation>Down</translation>
     </message>
     <message>
         <source>&amp;Main branch</source>
@@ -4452,11 +4452,11 @@ up to :</source>
     </message>
     <message>
         <source>Left</source>
-        <translation>左鍵</translation>
+        <translation>Left</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>右</translation>
+        <translation>Right</translation>
     </message>
     <message>
         <source>Coordinates:</source>
