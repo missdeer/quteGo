@@ -673,7 +673,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>Right</source>
-        <translation>右</translation>
+        <translation></translation>
     </message>
     <message>
         <source>&amp;Previous move</source>
@@ -681,7 +681,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>Left</source>
-        <translation>左鍵</translation>
+        <translation></translation>
     </message>
     <message>
         <source>&amp;First move</source>
@@ -689,7 +689,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>Home</source>
-        <translation>开始</translation>
+        <translation></translation>
     </message>
     <message>
         <source>&amp;Last move</source>
@@ -697,7 +697,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>End</source>
-        <translation>结束</translation>
+        <translation></translation>
     </message>
     <message>
         <source>P&amp;revious variation</source>
@@ -705,7 +705,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>Up</source>
-        <translation>Up</translation>
+        <translation></translation>
     </message>
     <message>
         <source>N&amp;ext variation</source>
@@ -713,7 +713,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>Down</source>
-        <translation>Down</translation>
+        <translation></translation>
     </message>
     <message>
         <source>&amp;Main branch</source>
@@ -4460,11 +4460,11 @@ up to :</source>
     </message>
     <message>
         <source>Left</source>
-        <translation>Left</translation>
+        <translation>左侧</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Right</translation>
+        <translation>右侧</translation>
     </message>
     <message>
         <source>Coordinates:</source>
