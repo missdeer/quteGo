@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include <QPixmap>
 #include <QTextCodec>
+#include <QApplication>
 
 #include "setting.h"
 #include "config.h"
@@ -411,7 +412,7 @@ QString Setting::getTranslationsDirectory()
 	qDebug("Checking for translations directory...");
 
 	QStringList list;
-
+	program_dir = QApplication::applicationDirPath();
 #if defined(Q_OS_WIN)
 	list << program_dir + "/translations"
 		<< "./translations";
