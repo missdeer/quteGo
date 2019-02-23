@@ -536,6 +536,12 @@ int main(int argc, char **argv)
 	} else if (lang != "en" && lang != "C")  // Skip warning for en and C default.
 		qWarning() << "Failed to find translation file for " << lang;
 
+	QTranslator qtTrans;
+	if (qtTrans.load("qt_" + lang, tr_dir)) {
+		qDebug () << "Qt Translation loaded.";
+		myapp.installTranslator(&qtTrans);
+	}
+
 	client_window = new ClientWindow (0);
 	client_window->setWindowTitle (PACKAGE1 + QString(" V") + VERSION);
 
