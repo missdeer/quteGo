@@ -51,6 +51,7 @@ after_build:
     - copy "%APPVEYOR_BUILD_FOLDER%\build\release\q5go.exe" "distrib\q5Go\q5Go.exe"
     - copy "%APPVEYOR_BUILD_FOLDER%\README.md" "distrib\q5Go\README.md"
     - copy "%APPVEYOR_BUILD_FOLDER%\src\translations\qgo_*.qm" "distrib\q5Go\translations\"
+    - copy "%QT%\translations\qt_zh_*.qm" "distrib\q5Go\translations\"
     - echo %q5Go_version% > "distrib\q5Go\version.txt"
     - echo %APPVEYOR_REPO_COMMIT% >> "distrib\q5Go\version.txt"
     - copy "distrib\q5Go\q5Go.exe" "distrib\q5Go_%MKSPEC%.exe"
