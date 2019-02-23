@@ -366,19 +366,19 @@ void MainWindow::initActions ()
 		 });
 
 	/* Navigation menu.  */
-	connect (navBackward, &QAction::triggered, [=] () { gfx_board->previous_move (); });
-	connect (navForward, &QAction::triggered, [=] () { gfx_board->next_move (); });
-	connect (navFirst, &QAction::triggered, [=] () { gfx_board->goto_first_move (); });
-	connect (navLast, &QAction::triggered, [=] () { gfx_board->goto_last_move (); });
-	connect (navPrevVar, &QAction::triggered, [=] () { gfx_board->previous_variation (); });
-	connect (navNextVar, &QAction::triggered, [=] () { gfx_board->next_variation (); });
-	connect (navMainBranch, &QAction::triggered, [=] () { gfx_board->goto_main_branch (); });
-	connect (navStartVar, &QAction::triggered, [=] () { gfx_board->goto_var_start (); });
-	connect (navNextBranch, &QAction::triggered, [=] () { gfx_board->goto_next_branch (); });
-	connect (navPrevComment, &QAction::triggered, [=] () { gfx_board->previous_comment (); });
-	connect (navNextComment, &QAction::triggered, [=] () { gfx_board->next_comment (); });
-	connect (navPrevFigure, &QAction::triggered, [=] () { gfx_board->previous_figure (); });
-	connect (navNextFigure, &QAction::triggered, [=] () { gfx_board->next_figure (); });
+	connect (navBackward, &QAction::triggered, [=] () { gfx_board->previous_move (); if(local_stone_sound)qgo->playStoneSound (); });
+	connect (navForward, &QAction::triggered, [=] () { gfx_board->next_move (); if(local_stone_sound)qgo->playStoneSound (); });
+	connect (navFirst, &QAction::triggered, [=] () { gfx_board->goto_first_move (); if(local_stone_sound)qgo->playStoneSound (); });
+	connect (navLast, &QAction::triggered, [=] () { gfx_board->goto_last_move (); if(local_stone_sound)qgo->playStoneSound (); });
+	connect (navPrevVar, &QAction::triggered, [=] () { gfx_board->previous_variation (); if(local_stone_sound)qgo->playStoneSound (); });
+	connect (navNextVar, &QAction::triggered, [=] () { gfx_board->next_variation (); if(local_stone_sound)qgo->playStoneSound (); });
+	connect (navMainBranch, &QAction::triggered, [=] () { gfx_board->goto_main_branch (); if(local_stone_sound)qgo->playStoneSound (); });
+	connect (navStartVar, &QAction::triggered, [=] () { gfx_board->goto_var_start (); if(local_stone_sound)qgo->playStoneSound (); });
+	connect (navNextBranch, &QAction::triggered, [=] () { gfx_board->goto_next_branch (); if(local_stone_sound)qgo->playStoneSound (); });
+	connect (navPrevComment, &QAction::triggered, [=] () { gfx_board->previous_comment (); if(local_stone_sound)qgo->playStoneSound (); });
+	connect (navNextComment, &QAction::triggered, [=] () { gfx_board->next_comment (); if(local_stone_sound)qgo->playStoneSound (); });
+	connect (navPrevFigure, &QAction::triggered, [=] () { gfx_board->previous_figure (); if(local_stone_sound)qgo->playStoneSound (); });
+	connect (navNextFigure, &QAction::triggered, [=] () { gfx_board->next_figure (); if(local_stone_sound)qgo->playStoneSound (); });
 
 	connect (navNthMove, &QAction::triggered, this, &MainWindow::slotNavNthMove);
 	connect (navIntersection, &QAction::triggered, this, &MainWindow::slotNavIntersection);
