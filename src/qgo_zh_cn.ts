@@ -673,7 +673,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>Right</source>
-        <translation></translation>
+        <translation>Right</translation>
     </message>
     <message>
         <source>&amp;Previous move</source>
@@ -681,7 +681,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>Left</source>
-        <translation></translation>
+        <translation>Left</translation>
     </message>
     <message>
         <source>&amp;First move</source>
@@ -689,7 +689,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>Home</source>
-        <translation></translation>
+        <translation>Home</translation>
     </message>
     <message>
         <source>&amp;Last move</source>
@@ -697,7 +697,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>End</source>
-        <translation></translation>
+        <translation>End</translation>
     </message>
     <message>
         <source>P&amp;revious variation</source>
@@ -705,7 +705,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>Up</source>
-        <translation></translation>
+        <translation>Up</translation>
     </message>
     <message>
         <source>N&amp;ext variation</source>
@@ -713,7 +713,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>Down</source>
-        <translation></translation>
+        <translation>Down</translation>
     </message>
     <message>
         <source>&amp;Main branch</source>
@@ -721,7 +721,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>Ins</source>
-        <translation>插入</translation>
+        <translation>Ins</translation>
     </message>
     <message>
         <source>Variation &amp;start</source>
@@ -733,7 +733,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>PgUp</source>
-        <translation>上一页</translation>
+        <translation>PgUp</translation>
     </message>
     <message>
         <source>Next &amp;branch</source>
@@ -745,7 +745,7 @@ After placing and/or undo release button for returning to starting point automat
     </message>
     <message>
         <source>PgDown</source>
-        <translation>下一页</translation>
+        <translation>PgDown</translation>
     </message>
     <message>
         <source>Previous &amp;commented move</source>
