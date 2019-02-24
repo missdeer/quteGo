@@ -1303,7 +1303,7 @@ void qGoBoard::set_game(Game *g, GameMode mode, stone_color own_color)
 	game_info info (m_title ? m_title->toStdString () : "",
 			g->wname.toStdString (), g->bname.toStdString (),
 			g->wrank.toStdString (), g->brank.toStdString (),
-			"", g->K.toFloat(), handi, rt, "",
+			"", g->K.toStdString(), g->H.toStdString(), rt, "",
 			QDate::currentDate().toString("dd MM yyyy").toStdString (),
 			place, "", "", "",
 			std::to_string (timelimit), overtime, -1);
@@ -1546,7 +1546,7 @@ void qGoBoard::set_move(stone_color sc, QString pt, QString mv_nr)
 		}
 
 		// special case: undo handicap
-		if (mv_counter <= 0 && m_game->handicap () > 0)
+		if (mv_counter <= 0 && QString::fromStdString(m_game->handicap ()).toInt() > 0)
 		{
 			go_board new_root = new_handicap_board (m_game->boardsize (), 0);
 			m_game->replace_root (new_root, black);
@@ -1577,9 +1577,9 @@ void qGoBoard::set_move(stone_color sc, QString pt, QString mv_nr)
 
 		// check if handicap is set with initGame() - game data from server do not
 		// contain correct handicap in early stage, because handicap is first move!
-		if (m_game->handicap () != h)
+		if (QString::fromStdString(m_game->handicap ()).toInt() != h)
 		{
-			m_game->set_handicap (h);
+			m_game->set_handicap (QString::number(h).toStdString());
 			go_board new_root = new_handicap_board (m_game->boardsize (), h);
 			m_game->replace_root (new_root, h > 1 ? white : black);
 			qDebug("corrected Handicap");
@@ -1892,7 +1892,7 @@ void qGoBoard::check_requests()
 	if (req_handicap.isNull() || gameMode == modeTeach || setting->readBoolEntry("DEFAULT_AUTONEGO"))
 		return;
 
-	if (m_game->handicap () != req_handicap.toInt())
+	if (m_game->handicap () != req_handicap.toStdString())
 	{
 		emit signal_sendcommand("handicap " + req_handicap, false);
 		qDebug() << "Requested handicap: " << req_handicap;
@@ -1900,7 +1900,7 @@ void qGoBoard::check_requests()
 	else
 		qDebug("Handicap settings ok...");
 
-	if (m_game->komi () != req_komi.toFloat())
+	if (m_game->komi () != req_komi.toStdString())
 	{
 		qDebug("qGoBoard::check_requests() : emit komi");
 		emit signal_sendcommand("komi " + req_komi, false);

@@ -472,28 +472,20 @@ std::shared_ptr<game_record> sgf2record (const sgf &s, QTextCodec *codec)
 		errs.empty_komi = true;
 		km = nullptr;
 	}
-	if (km && km->length () > 0) {
-		size_t pos = 0;
-		if ((*km)[0] == '-')
-			pos++;
-		if (km->find_first_not_of ("0123456789.", pos) != std::string::npos)
-			throw broken_sgf ();
-	}
-	double komi = km ? stod (*km) : 0;
+
 	if (ha && ha->length () == 0) {
 		errs.empty_handicap = true;
 		ha = nullptr;
 	}
-	if (ha && (ha->find_first_not_of ("0123456789") != std::string::npos))
-		throw broken_sgf ();
-	int hc = ha ? stoi (*ha) : 0;
+
+	int hc = ha ? QString::fromStdString(*ha).toInt() : 0;
 	if (st && (st->find_first_not_of ("0123456789") != std::string::npos))
 		throw broken_sgf ();
 	int style = st ? stoi (*st) : -1;
 	game_info info (translated_prop_str (gn, codec),
 			translated_prop_str (pw, codec), translated_prop_str (pb, codec),
 			translated_prop_str (wr, codec), translated_prop_str (br, codec),
-			translated_prop_str (ru, codec), komi, hc, ranked::free,
+			translated_prop_str (ru, codec), translated_prop_str (km, codec), translated_prop_str (ha, codec), ranked::free,
 			translated_prop_str (re, codec),
 			translated_prop_str (dt, codec), translated_prop_str (pc, codec),
 			translated_prop_str (ev, codec), translated_prop_str (ro, codec),
@@ -847,7 +839,7 @@ std::string game_record::to_sgf () const
 	encode_string (s, "PB", m_name_b);
 	encode_string (s, "WR", m_rank_w);
 	encode_string (s, "BR", m_rank_b);
-	encode_string (s, "KM", std::to_string (m_komi));
+	encode_string (s, "KM", m_komi);
 	encode_string (s, "PC", m_place);
 	encode_string (s, "DT", m_date);
 	encode_string (s, "RU", m_rules);
@@ -856,8 +848,8 @@ std::string game_record::to_sgf () const
 	encode_string (s, "RO", m_round);
 	encode_string (s, "OT", m_overtime);
 	encode_string (s, "CP", m_copyright);
-	if (m_handicap > 0)
-		encode_string (s, "HA", std::to_string (m_handicap));
+	if (QString::fromStdString(m_handicap).toInt() > 0)
+		encode_string (s, "HA", m_handicap);
 	encode_string (s, "RE", m_result);
 	if (m_root.to_move () == white)
 		s += "PL[W]";

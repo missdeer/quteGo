@@ -805,8 +805,8 @@ protected:
 	std::string m_rank_w = "", m_rank_b = "";
 
 	std::string m_rules = "";
-	double m_komi = 0;
-	int m_handicap = 0;
+	std::string m_komi = "";
+	std::string m_handicap = "";
 
 	std::string m_result = "";
 
@@ -825,12 +825,12 @@ protected:
 	int m_style = -1;
 public:
 	ranked ranked_type () const { return m_ranked; }
-	double komi () const { return m_komi; }
-	int handicap () const { return m_handicap; }
+	const std::string &komi () const { return m_komi; }
+	const std::string &handicap () const { return m_handicap; }
 
 	void set_ranked_type (ranked r) { m_ranked = r; }
-	void set_komi (double k) { m_komi = k; }
-	void set_handicap (int h) { m_handicap = h; }
+	void set_komi (const std::string &k) { m_komi = k; }
+	void set_handicap (const std::string &h) { m_handicap = h; }
 
 	int style () const { return m_style; }
 	void set_style (int st) { m_style = st; }
@@ -876,7 +876,7 @@ public:
 
 	game_info (const std::string title, const std::string &w, const std::string &b,
 		   const std::string &rw, const std::string &rb,
-		   const std::string &ru, double komi, int hc, ranked rt, const std::string &re,
+		   const std::string &ru, const std::string &komi, const std::string &hc, ranked rt, const std::string &re,
 		   const std::string &dt, const std::string &pc,
 		   const std::string &ev, const std::string &ro,
 		   const std::string &cp,

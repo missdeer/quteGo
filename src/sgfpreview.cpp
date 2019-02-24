@@ -95,9 +95,9 @@ void SGFPreview::setPath(const QString &path)
 		File_WhitePlayer->setText (QString::fromStdString (m_game->name_white ()));
 		File_BlackPlayer->setText (QString::fromStdString (m_game->name_black ()));
 		File_Date->setText (QString::fromStdString (m_game->date ()));
-		File_Handicap->setText (QString::number (m_game->handicap ()));
+		File_Handicap->setText (QString::fromStdString(m_game->handicap ()));
 		File_Result->setText (QString::fromStdString (m_game->result ()));
-		File_Komi->setText (QString::number (m_game->komi ()));
+		File_Komi->setText (QString::fromStdString(m_game->komi ()));
 		File_Size->setText (QString::number (st->get_board ().size_x ()));
 	} catch (...) {
 	}

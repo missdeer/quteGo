@@ -277,9 +277,9 @@ void MainWindow::update_game_record ()
 		normalTools->TextLabel_free->setText(QApplication::tr("rated"));
 	else
 		normalTools->TextLabel_free->setText(QApplication::tr("teach"));
-	normalTools->komi->setText(QString::number(m_game->komi ()));
-	scoreTools->komi->setText(QString::number(m_game->komi ()));
-	normalTools->handicap->setText(QString::number(m_game->handicap ()));
+	normalTools->komi->setText(QString::fromStdString(m_game->komi ()));
+	scoreTools->komi->setText(QString::fromStdString(m_game->komi ()));
+	normalTools->handicap->setText(QString::fromStdString(m_game->handicap ()));
 	updateCaption ();
 }
 
@@ -1049,8 +1049,8 @@ void MainWindow::slotSetGameInfo(bool)
 	dlg.eventEdit->setText(QString::fromStdString (m_game->event ()));
 	dlg.roundEdit->setText(QString::fromStdString (m_game->round ()));
 	dlg.copyrightEdit->setText(QString::fromStdString (m_game->copyright ()));
- 	dlg.komiSpin->setValue(m_game->komi ());
-	dlg.handicapSpin->setValue(m_game->handicap ());
+	dlg.komiSpin->setValue(QString::fromStdString(m_game->komi ()).toFloat());
+	dlg.handicapSpin->setValue(QString::fromStdString(m_game->handicap ()).toInt());
 
 	if (dlg.exec() == QDialog::Accepted)
 	{
@@ -1058,8 +1058,8 @@ void MainWindow::slotSetGameInfo(bool)
 		m_game->set_name_white (dlg.playerWhiteEdit->text().toStdString ());
 		m_game->set_rank_black (dlg.blackRankEdit->text().toStdString ());
 		m_game->set_rank_white (dlg.whiteRankEdit->text().toStdString ());
-		m_game->set_komi (dlg.komiSpin->value());
-		m_game->set_handicap (dlg.handicapSpin->value());
+		m_game->set_komi (QString::number(dlg.komiSpin->value()).toStdString());
+		m_game->set_handicap (QString::number(dlg.handicapSpin->value()).toStdString());
 		m_game->set_title (dlg.gameNameEdit->text().toStdString ());
 		m_game->set_result (dlg.resultEdit->text().toStdString ());
 		m_game->set_date (dlg.dateEdit->text().toStdString ());
@@ -2019,7 +2019,7 @@ void MainWindow::doCountDone()
 		return;
 	}
 
-	double komi = m_game->komi ();
+	double komi = QString::fromStdString( m_game->komi ()).toFloat();
 	int capW = scoreTools->capturesWhite->text().toInt();
 	int capB = scoreTools->capturesBlack->text().toInt();
 	int terrW = scoreTools->terrWhite->text().toInt();
@@ -2090,7 +2090,7 @@ MainWindow_GTP::MainWindow_GTP (QWidget *parent, std::shared_ptr<game_record> gr
 	: MainWindow (parent, gr, modeComputer), GTP_Controller (this)
 {
 	gfx_board->set_player_colors (!w_is_comp, !b_is_comp);
-	m_gtp = create_gtp (program, m_game->boardsize (), m_game->komi (), m_game->handicap ());
+	m_gtp = create_gtp (program, m_game->boardsize (), QString::fromStdString(m_game->komi ()).toFloat(), QString::fromStdString(m_game->handicap ()).toInt());
 }
 
 MainWindow_GTP::~MainWindow_GTP ()
@@ -2255,12 +2255,13 @@ void MainWindow::recalc_scores(const go_board &b)
 	normalTools->capturesWhite->setText(QString::number(caps_w));
 	normalTools->capturesBlack->setText(QString::number(caps_b));
 
+    double komi = QString::fromStdString(m_game->komi()).toFloat();
 	scoreTools->terrWhite->setText(QString::number(score_w));
-	scoreTools->totalWhite->setText(QString::number(score_w + caps_w + m_game->komi ()));
+	scoreTools->totalWhite->setText(QString::number(score_w + caps_w + komi));
 	scoreTools->terrBlack->setText(QString::number(score_b));
 	scoreTools->totalBlack->setText(QString::number(score_b + caps_b));
 
-	double res = score_w + caps_w + m_game->komi () - score_b - caps_b;
+	double res = score_w + caps_w + komi - score_b - caps_b;
 	if (res < 0)
 		scoreTools->result->setText ("B+" + QString::number (-res));
 	else if (res == 0)

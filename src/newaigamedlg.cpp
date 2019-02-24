@@ -80,7 +80,7 @@ game_info NewAIGameDlg::create_game_info ()
 	int hc = handicap ();
 	game_info info ("", w.toStdString (), b.toStdString (),
 			"", "",
-			"", komi, hc, ranked::free, "", "", "", "", "", "", "", "", -1);
+			"", QString::number(komi).toStdString(), QString::number(hc).toStdString(), ranked::free, "", "", "", "", "", "", "", "", -1);
 	return info;
 }
 
