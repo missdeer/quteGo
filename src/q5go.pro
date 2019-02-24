@@ -1,5 +1,5 @@
 TEMPLATE	      = app
-CONFIG		     += qt warn_on thread c++11
+CONFIG		     += qt warn_on thread
 FORMS	      = gui_dialog.ui \
 		analyze_gui.ui \
 		autodiags_gui.ui \
@@ -109,7 +109,7 @@ SOURCES		      = analyzedlg.cpp \
 isEmpty(PREFIX) {
 PREFIX = /usr/local
 }
-
+win32-*msvc: QMAKE_CXXFLAGS+=/std:c++17
 TARGET                = q5go
 DATADIR               = $$PREFIX/share/q5go
 DOCDIR                = $$PREFIX/share/doc/q5go
