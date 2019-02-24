@@ -5048,6 +5048,10 @@ reverting to default.</source>
         <source>Unable to save settings to </source>
         <translation>无法保存设置到</translation>
     </message>
+    <message>
+        <source>Specify text &lt;encoding&gt; of SGF files passed by command line.</source>
+        <translation>指定通过命令行传来的SGF文件的文本编码。</translation>
+    </message>
 </context>
 <context>
     <name>SGFPreview</name>
@@ -5130,6 +5134,10 @@ reverting to default.</source>
     <message>
         <source>All files (*)</source>
         <translation>所有文件 (*)</translation>
+    </message>
+    <message>
+        <source>Auto Detect</source>
+        <translation>自动检测</translation>
     </message>
 </context>
 <context>

@@ -1,3 +1,4 @@
+#include <QTextCodec>
 #include "goboard.h"
 #include "sgf.h"
 
@@ -122,4 +123,26 @@ sgf *load_sgf (const IODeviceAdapter &in)
     sgf::node *nodes = parse_gametree (in, errs);
     sgf *s = new sgf (nodes, errs);
     return s;
+}
+
+QTextCodec* charset_detect(const QByteArray& data)
+{
+    QByteArrayList encodings = {
+        "UTF-8",
+        "GB18030",
+        "EUC-KR",
+        "EUC-JP",
+        "ISO-2022-JP",
+        "Shift-JIS",
+        "Big5",
+    };
+    for (const auto& encoding : encodings) {
+        QTextCodec::ConverterState state;
+        QTextCodec *c = QTextCodec::codecForName(encoding);
+        c->toUnicode(data.constData(), data.size(), &state);
+        if (state.invalidChars == 0) {
+            return c;
+        }
+    }
+    return nullptr;
 }

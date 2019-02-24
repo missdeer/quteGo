@@ -60,20 +60,30 @@ QStringList SGFPreview::selected ()
 	return fileDialog->selectedFiles ();
 }
 
-void SGFPreview::setPath(QString path)
+void SGFPreview::setPath(const QString &path)
 {
+	if (!QFileInfo(path).isFile())
+		return;
+
 	clear ();
 
 	try {
 		QFile f (path);
-		f.open (QIODevice::ReadOnly);
+		if (!f.open (QIODevice::ReadOnly))
+			return;
 		// IOStreamAdapter adapter (&f);
-		sgf *sgf = load_sgf (f);
+		QTextCodec *codec = nullptr;
 		if (overwriteSGFEncoding->isChecked ()) {
-			m_game = sgf2record (*sgf, QTextCodec::codecForName (encodingList->currentText ().toLatin1 ()));
-		} else {
-			m_game = sgf2record (*sgf, nullptr);
+			if (encodingList->currentIndex() == 0) {
+				QByteArray data = f.readAll();
+				f.seek(0);
+				codec = charset_detect(data);
+			}
+			else
+				codec = QTextCodec::codecForName (encodingList->currentText ().toLatin1 ());
 		}
+		sgf *sgf = load_sgf (f);
+		m_game = sgf2record (*sgf, codec);
 		m_game->set_filename (path.toStdString ());
 
 		boardView->reset_game (m_game);

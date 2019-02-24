@@ -135,7 +135,14 @@ std::shared_ptr<game_record> record_from_stream (QIODevice &isgf, QTextCodec* co
 std::shared_ptr<game_record> record_from_file (const QString &filename, QTextCodec* codec)
 {
 	QFile f (filename);
-	f.open (QIODevice::ReadOnly);
+	if (!f.open (QIODevice::ReadOnly))
+		return nullptr;
+
+	if (codec == nullptr) {
+		QByteArray data = f.readAll();
+		f.seek(0);
+		codec = charset_detect(data);
+	}
 
 	std::shared_ptr<game_record> gr = record_from_stream (f, codec);
 	if (gr != nullptr)

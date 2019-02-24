@@ -147,5 +147,5 @@ public:
 };
 
 extern sgf *load_sgf (const IODeviceAdapter &);
-
+extern QTextCodec* charset_detect(const QByteArray &data);
 #endif
