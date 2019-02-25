@@ -845,7 +845,7 @@ Talk::~Talk()
 // release current Tab
 void Talk::slot_pbRelTab()
 {
-	emit signal_pbRelOneTab(this);	
+	emit signal_pbRelOneTab();	
 }
 
 void Talk::slot_returnPressed()

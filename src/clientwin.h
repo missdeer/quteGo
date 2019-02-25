@@ -87,7 +87,7 @@ public slots:
 	void slot_gamesPopup(int);
 //	void slot_channelPopup(int);
 	void slot_pbRelTabs();
-	void slot_pbRelOneTab(QWidget*);
+	void slot_pbRelOneTab();
 	void slot_statsPlayer(Player*);
 
 	void slot_whoopen (bool);

@@ -2044,8 +2044,9 @@ void ClientWindow::slot_pbRelTabs()
 }
 
 // release Talk Tabs
-void ClientWindow::slot_pbRelOneTab(QWidget *w)
+void ClientWindow::slot_pbRelOneTab()
 {
+	QWidget *w = qobject_cast<QWidget *>(sender());
 	// seek dialog
 	for (auto dlg: talklist) {
 		if (dlg->get_tabWidget() == w)
@@ -2095,7 +2096,7 @@ void ClientWindow::slot_talk(const QString &name, const QString &text, bool ispl
 		connect(dlg, SIGNAL(signal_talkto(QString&, QString&)), this, SLOT(slot_talkto(QString&, QString&)));
 		connect(dlg, SIGNAL(signal_matchrequest(const QString&,bool)), this, SLOT(slot_matchrequest(const QString&,bool)));
 		connect(dlg->get_le(), SIGNAL(returnPressed()), dlg, SLOT(slot_returnPressed()));
-		connect(dlg, SIGNAL(signal_pbRelOneTab(QWidget*)), this, SLOT(slot_pbRelOneTab(QWidget*)));
+		connect(dlg, SIGNAL(signal_pbRelOneTab()), this, SLOT(slot_pbRelOneTab()));
 
 		dlg->pageActive = false;
 		if (!name.isEmpty() && isplayer)

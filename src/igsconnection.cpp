@@ -38,7 +38,21 @@ IGSConnection::IGSConnection(QWidget *lvp, QWidget *lvg) : m_lv_p (lvp), m_lv_g 
 #if 0
 	connect(qsocket, SIGNAL(delayedCloseFinished()), SLOT(OnDelayedCloseFinish()));
 #endif
-	connect(qsocket, SIGNAL(error(QAbstractSocket::SocketError)), SLOT(OnError(QAbstractSocket::SocketError)));
+	connect(qsocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error),
+			[=](QAbstractSocket::SocketError i){ 
+		switch (i)
+		{
+		case QAbstractSocket::ConnectionRefusedError: qDebug("ERROR: connection refused...");
+			break;
+		case QAbstractSocket::HostNotFoundError: qDebug("ERROR: host not found...");
+			break;
+			//		case QAbstractSocket::SocketReadError: qDebug("ERROR: socket read...");
+			//			break;
+		default: qDebug("ERROR: unknown Error...");
+			break;
+		}
+		sendTextToApp("ERROR - Connection closed.\n");
+	});
 }
 
 IGSConnection::~IGSConnection()
@@ -235,23 +249,6 @@ void IGSConnection::OnDelayedCloseFinish()
 	authState = LOGIN;
 	sendTextToApp("Connection closed.\n");
 }
-
-void IGSConnection::OnError(QAbstractSocket::SocketError i)
-{
-	switch (i)
-	{
-		case QAbstractSocket::ConnectionRefusedError: qDebug("ERROR: connection refused...");
-			break;
-		case QAbstractSocket::HostNotFoundError: qDebug("ERROR: host not found...");
-			break;
-//		case QAbstractSocket::SocketReadError: qDebug("ERROR: socket read...");
-//			break;
-		default: qDebug("ERROR: unknown Error...");
-			break;
-	}
-	sendTextToApp("ERROR - Connection closed.\n");
-}
-
 
 /*
  * Functions called from the application
