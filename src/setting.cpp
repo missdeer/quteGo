@@ -407,9 +407,8 @@ QString Setting::getTranslationsDirectory()
 	qDebug("Checking for translations directory...");
 
 	QStringList list;
-	program_dir = QApplication::applicationDirPath();
 #if defined(Q_OS_WIN)
-	list << program_dir + "/translations"
+	list << QApplication::applicationDirPath() + "/translations"
 		<< "./translations";
 #elif defined(Q_OS_MACX)
 	//get the bundle path and find our resources
@@ -419,7 +418,7 @@ QString Setting::getTranslationsDirectory()
 		+ "/Contents/Resources";
 #else
 	list	<< DATADIR "/translations"
-		<< program_dir + "/translations"
+		<< QApplication::applicationDirPath() + "/translations"
 		<< "./share/" PACKAGE "/translations"
 		<< "/usr/share/" PACKAGE "/translations"
 		<< "/usr/local/share/" PACKAGE "/translations"

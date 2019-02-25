@@ -4,6 +4,7 @@
 
 #include <QPixmap>
 #include <QStringList>
+#include <QApplication>
 
 #include "helpviewer.h"
 #include "qgo.h"
@@ -33,7 +34,7 @@ void HelpViewer::set_url (const QUrl &url)
 	QStringList strList;
 
 #if defined(Q_OS_WIN)
-	strList << program_dir + "/html"
+	strList << QApplication::applicationDirPath() + "/html"
 		<< "C:/Program Files/qGo/html"
 		<< "D:/Program Files/qGo/html"
 		<< "E:/Program Files/qGo/html"
