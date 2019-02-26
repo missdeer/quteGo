@@ -4986,10 +4986,6 @@ a variation</source>
         <translation>打开SGF文件</translation>
     </message>
     <message>
-        <source>SGF Files (*.sgf *.SGF);;MGT Files (*.mgt);;XML Files (*.xml);;All Files (*)</source>
-        <translation>SGF (*.sgf *.SGF);;MGT (*.mgt);;XML (*.xml);;所有文件 (*)</translation>
-    </message>
-    <message>
         <source>Show the Go server client window (default if no other arguments)</source>
         <translation>显示围棋服务器的客户端窗口（如果没有其他参数，则默认显示）</translation>
     </message>
@@ -5051,6 +5047,10 @@ reverting to default.</source>
     <message>
         <source>Specify text &lt;encoding&gt; of SGF files passed by command line.</source>
         <translation>指定通过命令行传来的SGF文件的文本编码。</translation>
+    </message>
+    <message>
+        <source>All supported files (*.sgf *.zip *.rar *.7z *.qdb);;All Files (*)</source>
+        <translation>所有支持的文件 (*.sgf *.zip *.rar *.7z *.qdb);;所有文件 (*)</translation>
     </message>
 </context>
 <context>
@@ -5138,6 +5138,22 @@ reverting to default.</source>
     <message>
         <source>Auto Detect</source>
         <translation>自动检测</translation>
+    </message>
+    <message>
+        <source>All supported files (*.sgf *.zip *.rar *.7z *.qdb)</source>
+        <translation>所有支持的文件 (*.sgf *.zip *.rar *.7z *.qdb)</translation>
+    </message>
+    <message>
+        <source>Archieve files (*.zip *.rar *.7z)</source>
+        <translation>归档文件 (*.zip *.rar *.7z)</translation>
+    </message>
+    <message>
+        <source>q5Go Kifu Libraries (*.qdb)</source>
+        <translation>q5Go棋谱库 (*.qdb)</translation>
+    </message>
+    <message>
+        <source>Open SGF file</source>
+        <translation>打开SGF文件</translation>
     </message>
 </context>
 <context>
