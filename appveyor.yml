@@ -48,8 +48,9 @@ build_script:
 after_build:
     - set q5Go_version=0.6
     - mkdir distrib\q5Go
-    - windeployqt.exe --dir .\distrib\q5Go %APPVEYOR_BUILD_FOLDER%\build\release\q5go.exe
-    - copy "%APPVEYOR_BUILD_FOLDER%\build\release\q5go.exe" "distrib\q5Go\q5Go.exe"
+    - windeployqt.exe --dir .\distrib\q5Go %APPVEYOR_BUILD_FOLDER%\build\src\release\q5go.exe
+    - copy "%APPVEYOR_BUILD_FOLDER%\build\src\release\q5go.exe" "distrib\q5Go\q5Go.exe"
+    - copy "%APPVEYOR_BUILD_FOLDER%\build\src\thirdparty\QtRAR\src\release\QtRAR.dll" "distrib\q5Go\QtRAR.dll"
     - copy "%APPVEYOR_BUILD_FOLDER%\README.md" "distrib\q5Go\README.md"
     - copy "%APPVEYOR_BUILD_FOLDER%\src\translations\qgo_*.qm" "distrib\q5Go\translations\"
     - copy "%QT%\translations\qt_zh_*.qm" "distrib\q5Go\translations\"
