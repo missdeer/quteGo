@@ -264,7 +264,18 @@ void SGFPreview::reloadPreview ()
 {
 	auto files = fileDialog->selectedFiles ();
 	if (!files.isEmpty ())
-		setPath (files.at (0));
+	{
+		if (archiveItemList->isVisible())
+		{
+			if (archiveItemList->currentRow() >= 0)
+			{
+				QString item = archiveItemList->currentItem()->text();
+				archiveItemSelected(item);
+			}
+		}
+		else
+			setPath (files.at (0));
+	}
 }
 
 void SGFPreview::accept ()
