@@ -1,0 +1,6 @@
+[submodule "src/thirdparty/QtRAR"]
+	path = src/thirdparty/QtRAR
+	url = https://github.com/missdeer/QtRAR.git
+[submodule "src/thirdparty/Qt7z"]
+	path = src/thirdparty/Qt7z
+	url = https://github.com/missdeer/Qt7z.git

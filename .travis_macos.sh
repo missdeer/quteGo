@@ -20,7 +20,7 @@ cd ${project_dir}
 mkdir build
 cd build
 qmake -v
-qmake CONFIG-=debug CONFIG+=release ../src/q5go.pro
+qmake CONFIG-=debug CONFIG+=release ../q5go.pro
 if [ $? -ne 0 ]; then 
     exit 1; 
 fi

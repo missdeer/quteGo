@@ -191,7 +191,7 @@ std::shared_ptr<game_record> open_file_dialog (QWidget *parent)
 	} else {
 		fileName = QFileDialog::getOpenFileName (parent, QObject::tr ("Open SGF file"),
 							 setting->readEntry ("LAST_DIR"),
-							 QObject::tr ("SGF Files (*.sgf *.SGF);;MGT Files (*.mgt);;XML Files (*.xml);;All Files (*)"));
+							 QObject::tr ("All supported files (*.sgf *.zip *.rar *.7z *.tar *.gz *.bz2 *.xz *.tgz *.tbz *.bzip *.bzip2 *.gzip *.001 *.qdb);;All Files (*)"));
 		if (fileName.isEmpty ())
 			return nullptr;
 	}
@@ -223,7 +223,7 @@ QString open_filename_dialog (QWidget *parent)
 	} else {
 		fileName = QFileDialog::getOpenFileName (parent, QObject::tr ("Open SGF file"),
 							 setting->readEntry ("LAST_DIR"),
-							 QObject::tr ("SGF Files (*.sgf *.SGF);;MGT Files (*.mgt);;XML Files (*.xml);;All Files (*)"));
+							 QObject::tr ("All supported files (*.sgf *.zip *.rar *.7z *.tar *.gz *.bz2 *.xz *.tgz *.tbz *.bzip *.bzip2 *.gzip *.001 *.qdb);;All Files (*)"));
 		if (fileName.isEmpty ())
 			return nullptr;
 	}

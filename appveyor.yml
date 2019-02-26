@@ -1,6 +1,6 @@
 image: Visual Studio 2017
 
-version: 0.5.{build}
+version: 0.6.{build}
 
 branches:
     only:
@@ -35,9 +35,9 @@ before_build:
     - qmake --version
     - mkdir build
     - cd build
-    - if "%MKSPEC%" EQU "win64-msvc" (qmake -r -spec win32-msvc CONFIG+=x86_64 CONFIG-=debug CONFIG+=release ../src/q5Go.pro)
-    - if "%MKSPEC%" EQU "win64-clang-msvc" (qmake -r -spec win32-clang-msvc CONFIG+=x86_64 CONFIG-=debug CONFIG+=release ../src/q5Go.pro)
-    - if "%MKSPEC%" EQU "win32-msvc" (qmake -r -spec win32-msvc CONFIG+=Win32 CONFIG-=debug CONFIG+=release ../src/q5Go.pro)
+    - if "%MKSPEC%" EQU "win64-msvc" (qmake -r -spec win32-msvc CONFIG+=x86_64 CONFIG-=debug CONFIG+=release ../q5Go.pro)
+    - if "%MKSPEC%" EQU "win64-clang-msvc" (qmake -r -spec win32-clang-msvc CONFIG+=x86_64 CONFIG-=debug CONFIG+=release ../q5Go.pro)
+    - if "%MKSPEC%" EQU "win32-msvc" (qmake -r -spec win32-msvc CONFIG+=Win32 CONFIG-=debug CONFIG+=release ../q5Go.pro)
 
 # custom build scripts
 build_script:
@@ -45,7 +45,7 @@ build_script:
 
 # scripts that run after build
 after_build:
-    - set q5Go_version=0.5
+    - set q5Go_version=0.6
     - mkdir distrib\q5Go
     - windeployqt.exe --dir .\distrib\q5Go %APPVEYOR_BUILD_FOLDER%\build\release\q5go.exe
     - copy "%APPVEYOR_BUILD_FOLDER%\build\release\q5go.exe" "distrib\q5Go\q5Go.exe"

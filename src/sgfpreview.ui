@@ -21,9 +21,12 @@
     <layout class="QGridLayout" name="gridLayout_2"/>
    </item>
    <item row="0" column="0" rowspan="4">
-    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,0">
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,0,0">
      <item>
       <widget class="QWidget" name="dialogWidget" native="true"/>
+     </item>
+     <item>
+      <widget class="QListWidget" name="archiveItemList"/>
      </item>
      <item>
       <widget class="QGroupBox" name="overwriteSGFEncoding">
