@@ -91,8 +91,10 @@ void SGFPreview::previewZipFile(const QString &package, const QString &item)
 	QZipReader zr(package);
 	auto data = zr.fileData(item);
 	QBuffer b(&data);
-	b.open(QIODevice::ReadOnly);
-	previewSGF(b, item);
+	if (b.open(QIODevice::ReadOnly))
+	{
+		previewSGF(b, item);
+	}
 }
 
 void SGFPreview::extractRar(const QString &path)
@@ -132,10 +134,10 @@ void SGFPreview::previewRarFile(const QString &package, const QString &item)
 		return ;
 	}
 
-	QtRARFile *file = new QtRARFile(package, item);
-	if (file->open(QIODevice::ReadOnly))
+	QtRARFile file(package, item);
+	if (file.open(QIODevice::ReadOnly))
 	{
-		previewSGF(*file, item);
+		previewSGF(file, item);
 	}
 }
 
@@ -163,9 +165,9 @@ void SGFPreview::preview7ZipFile(const QString &package, const QString &item)
 	}
 
 	QBuffer buffer;
-	buffer.open(QBuffer::ReadWrite);
-	if (pkg.extractFile(item, &buffer))
+	if (buffer.open(QBuffer::ReadWrite) && pkg.extractFile(item, &buffer))
 	{
+		buffer.seek(0);
 		previewSGF(buffer, item);
 	}
 }
@@ -230,7 +232,6 @@ void SGFPreview::previewSGF(QIODevice &device, const QString& path)
 		QTextCodec *codec = nullptr;
 		if (overwriteSGFEncoding->isChecked ()) {
 			if (encodingList->currentIndex() == 0) {
-				device.seek(0);
 				QByteArray data = device.readAll();
 				device.seek(0);
 				codec = charset_detect(data);
