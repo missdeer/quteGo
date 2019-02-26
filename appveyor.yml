@@ -26,6 +26,7 @@ clone_depth: 1
 # scripts that run after cloning repository
 install:
     - set PATH=%QT%\bin\;C:\Qt\Tools\QtCreator\bin\;C:\Qt\QtIFW2.0.1\bin\;C:\Program Files\LLVM\bin;%PATH%
+    - git submodule update --init --recursive
 
 # scripts that run before build
 before_build:
