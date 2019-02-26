@@ -21,14 +21,14 @@ class SGFPreview : public QDialog, public Ui::SGFPreview
 	void reloadPreview ();
 	void clear ();
 	void extractZip (const QString &path);
-	void previewZipFile(const QString &package, int index, const QString &item);
+	void previewZipFile(const QString &package, const QString &item);
 	void extractRar (const QString &path);
-	void previewRarFile(const QString &package, int index, const QString &item);
+	void previewRarFile(const QString &package, const QString &item);
 	void extract7Zip (const QString &path);
-	void preview7ZipFile(const QString &package, int index, const QString &item);
+	void preview7ZipFile(const QString &package, const QString &item);
 	void extractQDB (const QString &path);
-	void previewQDBFile(const QString &package, int index, const QString &item);
-	void archiveItemSelected (int index);
+	void previewQDBFile(const QString &package, const QString &item);
+	void archiveItemSelected (const QString &item);
 public:
 	SGFPreview (QWidget * parent, const QString &dir);
 	~SGFPreview ();

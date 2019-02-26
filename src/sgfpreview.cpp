@@ -42,7 +42,7 @@ SGFPreview::SGFPreview (QWidget *parent, const QString &dir)
 	fileDialog->show ();
 	connect (encodingList, &QComboBox::currentTextChanged, this, &SGFPreview::reloadPreview);
 	connect (overwriteSGFEncoding, &QGroupBox::toggled, this, &SGFPreview::reloadPreview);
-	connect (archiveItemList, &QListWidget::currentRowChanged, this, &SGFPreview::archiveItemSelected);
+	connect (archiveItemList, &QListWidget::currentTextChanged, this, &SGFPreview::archiveItemSelected);
 	connect (fileDialog, &QFileDialog::currentChanged, this, &SGFPreview::setPath);
 	connect (fileDialog, &QFileDialog::accepted, this, &QDialog::accept);
 	connect (fileDialog, &QFileDialog::rejected, this, &QDialog::reject);
@@ -86,14 +86,13 @@ void SGFPreview::extractZip(const QString &path)
 	}
 }
 
-void SGFPreview::previewZipFile(const QString &package, int index, const QString &item)
+void SGFPreview::previewZipFile(const QString &package, const QString &item)
 {
 	QZipReader zr(package);
-	auto fi = zr.entryInfoAt(index);
-	auto data = zr.fileData(fi.filePath);
+	auto data = zr.fileData(item);
 	QBuffer b(&data);
 	b.open(QIODevice::ReadOnly);
-	previewSGF(b, fi.filePath);
+	previewSGF(b, item);
 }
 
 void SGFPreview::extractRar(const QString &path)
@@ -119,7 +118,7 @@ void SGFPreview::extractRar(const QString &path)
 	}
 }
 
-void SGFPreview::previewRarFile(const QString &package, int index, const QString &item)
+void SGFPreview::previewRarFile(const QString &package, const QString &item)
 {
 	QtRAR rar(package);
 	bool success = rar.open(QtRAR::OpenModeList);
@@ -156,7 +155,7 @@ void SGFPreview::extract7Zip(const QString &path)
 	}
 }
 
-void SGFPreview::preview7ZipFile(const QString &package, int index, const QString &item)
+void SGFPreview::preview7ZipFile(const QString &package, const QString &item)
 {
 	Qt7zPackage pkg(package);
 	if (!pkg.open()) {
@@ -176,24 +175,24 @@ void SGFPreview::extractQDB(const QString &path)
 
 }
 
-void SGFPreview::previewQDBFile(const QString &package, int index, const QString &item)
+void SGFPreview::previewQDBFile(const QString &package, const QString &item)
 {
 
 }
 
-void SGFPreview::archiveItemSelected(int index)
+void SGFPreview::archiveItemSelected(const QString &item)
 {
-	if (!archiveItemList->isVisible() || index < 0 || index >= archiveItemList->count() || fileDialog->selectedFiles().isEmpty())
+	if (!archiveItemList->isVisible() || item.isEmpty() || fileDialog->selectedFiles().isEmpty())
 		return;
 	QFileInfo fi(fileDialog->selectedFiles ()[0]);
 	if (fi.suffix().compare("zip", Qt::CaseInsensitive) == 0)
-		previewZipFile(fi.absoluteFilePath(), index, archiveItemList->item(index)->text());
+		previewZipFile(fi.absoluteFilePath(), item);
 	else if (fi.suffix().compare("rar", Qt::CaseInsensitive) == 0)
-		previewRarFile(fi.absoluteFilePath(), index, archiveItemList->item(index)->text());
+		previewRarFile(fi.absoluteFilePath(), item);
 	else if (fi.suffix().compare("7z", Qt::CaseInsensitive) == 0)
-		preview7ZipFile(fi.absoluteFilePath(), index, archiveItemList->item(index)->text());
+		preview7ZipFile(fi.absoluteFilePath(), item);
 	else if (fi.suffix().compare("qdb", Qt::CaseInsensitive) == 0)
-		previewQDBFile(fi.absoluteFilePath(), index, archiveItemList->item(index)->text());
+		previewQDBFile(fi.absoluteFilePath(), item);
 }
 
 QStringList SGFPreview::selected ()
