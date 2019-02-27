@@ -43,6 +43,7 @@ SGFPreview::SGFPreview (QWidget *parent, const QString &dir)
 	connect (encodingList, &QComboBox::currentTextChanged, this, &SGFPreview::reloadPreview);
 	connect (overwriteSGFEncoding, &QGroupBox::toggled, this, &SGFPreview::reloadPreview);
 	connect (archiveItemList, &QListWidget::currentTextChanged, this, &SGFPreview::archiveItemSelected);
+	connect (archiveItemList, &QListWidget::itemActivated, [=](){accept();});
 	connect (fileDialog, &QFileDialog::currentChanged, this, &SGFPreview::setPath);
 	connect (fileDialog, &QFileDialog::accepted, this, &QDialog::accept);
 	connect (fileDialog, &QFileDialog::rejected, this, &QDialog::reject);
