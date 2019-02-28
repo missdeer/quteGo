@@ -2,23 +2,24 @@
  * settings.cpp
  */
 
+#include <QApplication>
 #include <QTextStream>
 #include <QStandardPaths>
 #include <QMessageBox>
 #include <QPixmap>
 #include <QTextCodec>
-#include <QApplication>
+#include <QFile>
+#include <QDir>
+#include <QFont>
+#include <QStringList>
+#include <QString>
+#include <array>
 
+#include "qgo.h"
 #include "setting.h"
 #include "config.h"
 #include "defines.h"
 #include "icons.h"
-#include <qfile.h>
-#include <qdir.h>
-#include <qfont.h>
-#include <qstringlist.h>
-#include <qstring.h>
-#include <array>
 
 //#ifdef USE_XPM
 #include ICON_APPICON
@@ -408,8 +409,7 @@ QString Setting::getTranslationsDirectory()
 
 	QStringList list;
 #if defined(Q_OS_WIN)
-	list << QApplication::applicationDirPath() + "/translations"
-		<< "./translations";
+	list << QApplication::applicationDirPath() + "/translations";
 #elif defined(Q_OS_MACX)
 	//get the bundle path and find our resources
 	CFURLRef bundleRef = CFBundleCopyBundleURL(CFBundleGetMainBundle());
