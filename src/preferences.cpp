@@ -271,6 +271,8 @@ void PreferencesDialog::init_from_settings ()
 	fontListsButton->setFont(setting->fontLists);
 	fontClocksButton->setFont(setting->fontClocks);
 	fontConsoleButton->setFont(setting->fontConsole);
+	
+	ignoreSGFParserErrorCheckBox->setChecked(setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"));
 }
 
 void PreferencesDialog::select_stone_look (bool)
@@ -386,6 +388,7 @@ void PreferencesDialog::slot_apply()
 {
 	qDebug() << "onApply";
 
+	setting->writeBoolEntry("IGNORE_SGF_PARSER_ERRORS", ignoreSGFParserErrorCheckBox->isChecked());
 	setting->writeIntEntry("SKIN_INDEX", woodComboBox->currentIndex ());
 	setting->writeEntry("SKIN", LineEdit_goban->text());
 	setting->writeEntry("SKIN_TABLE", LineEdit_Table->text());

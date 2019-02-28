@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>666</width>
-    <height>826</height>
+    <height>850</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -183,7 +183,7 @@
       <string/>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="InterfaceTabWidget">
       <attribute name="title">
@@ -619,6 +619,136 @@ Select the font for the server console (fixed font preferably).</string>
          </layout>
         </widget>
        </item>
+       <item row="2" column="0">
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="title">
+          <string>Sound defaults by game type</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="soundNormalCheckBox">
+            <property name="text">
+             <string>Local editing</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QCheckBox" name="soundObserveCheckBox">
+            <property name="text">
+             <string>Observed games</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QCheckBox" name="soundComputerCheckBox">
+            <property name="text">
+             <string>Computer games</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QCheckBox" name="soundMatchCheckBox">
+            <property name="text">
+             <string>On-line matches</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_21">
+         <item>
+          <widget class="QLabel" name="label_27">
+           <property name="text">
+            <string>File selectors:</string>
+           </property>
+           <property name="buddy">
+            <cstring>fileSelComboBox</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="fileSelComboBox">
+           <item>
+            <property name="text">
+             <string>System default</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Qt selector with SGF preview</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="1">
+        <widget class="QGroupBox" name="GroupBox8">
+         <property name="toolTip">
+          <string>Set application language</string>
+         </property>
+         <property name="whatsThis">
+          <string>Set application language
+
+Choose your language for qGo.
+If 'System default' is selected, qGo will use the standard language of your system. On Linux this will check the environment variable LANG, on Windows simply the language you have set in your preferences.
+
+This change will take effect only after qGo has been restarted.
+
+If your language is not supported, you might consider translating qGo. Please check the qGo homepage at http://qgo.sourceforge.net</string>
+         </property>
+         <property name="title">
+          <string>Language</string>
+         </property>
+         <layout class="QHBoxLayout">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <property name="leftMargin">
+           <number>11</number>
+          </property>
+          <property name="topMargin">
+           <number>11</number>
+          </property>
+          <property name="rightMargin">
+           <number>11</number>
+          </property>
+          <property name="bottomMargin">
+           <number>11</number>
+          </property>
+          <item>
+           <widget class="QComboBox" name="languageComboBox">
+            <property name="focusPolicy">
+             <enum>Qt::TabFocus</enum>
+            </property>
+            <item>
+             <property name="text">
+              <string>System default</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <spacer name="spacer10_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Expanding</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>21</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
        <item row="0" column="0">
         <widget class="QGroupBox" name="soundButtonGroups">
          <property name="title">
@@ -827,134 +957,11 @@ You can set the warning time besides</string>
         </widget>
        </item>
        <item row="4" column="0">
-        <spacer name="spacer10_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
+        <widget class="QCheckBox" name="ignoreSGFParserErrorCheckBox">
+         <property name="text">
+          <string>Ignore SGF parser errors, try as best to load SGF file.</string>
          </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Expanding</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>21</width>
-           <height>0</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="2" column="1">
-        <widget class="QGroupBox" name="GroupBox8">
-         <property name="toolTip">
-          <string>Set application language</string>
-         </property>
-         <property name="whatsThis">
-          <string>Set application language
-
-Choose your language for qGo.
-If 'System default' is selected, qGo will use the standard language of your system. On Linux this will check the environment variable LANG, on Windows simply the language you have set in your preferences.
-
-This change will take effect only after qGo has been restarted.
-
-If your language is not supported, you might consider translating qGo. Please check the qGo homepage at http://qgo.sourceforge.net</string>
-         </property>
-         <property name="title">
-          <string>Language</string>
-         </property>
-         <layout class="QHBoxLayout">
-          <property name="spacing">
-           <number>6</number>
-          </property>
-          <property name="leftMargin">
-           <number>11</number>
-          </property>
-          <property name="topMargin">
-           <number>11</number>
-          </property>
-          <property name="rightMargin">
-           <number>11</number>
-          </property>
-          <property name="bottomMargin">
-           <number>11</number>
-          </property>
-          <item>
-           <widget class="QComboBox" name="languageComboBox">
-            <property name="focusPolicy">
-             <enum>Qt::TabFocus</enum>
-            </property>
-            <item>
-             <property name="text">
-              <string>System default</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
         </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QGroupBox" name="groupBox_5">
-         <property name="title">
-          <string>Sound defaults by game type</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_5">
-          <item row="0" column="0">
-           <widget class="QCheckBox" name="soundNormalCheckBox">
-            <property name="text">
-             <string>Local editing</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QCheckBox" name="soundObserveCheckBox">
-            <property name="text">
-             <string>Observed games</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QCheckBox" name="soundComputerCheckBox">
-            <property name="text">
-             <string>Computer games</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QCheckBox" name="soundMatchCheckBox">
-            <property name="text">
-             <string>On-line matches</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <layout class="QHBoxLayout" name="horizontalLayout_21">
-         <item>
-          <widget class="QLabel" name="label_27">
-           <property name="text">
-            <string>File selectors:</string>
-           </property>
-           <property name="buddy">
-            <cstring>fileSelComboBox</cstring>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="fileSelComboBox">
-           <item>
-            <property name="text">
-             <string>System default</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Qt selector with SGF preview</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-        </layout>
        </item>
       </layout>
      </widget>

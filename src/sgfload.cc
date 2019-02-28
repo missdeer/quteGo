@@ -1,26 +1,31 @@
 #include <QTextCodec>
 #include "goboard.h"
 #include "sgf.h"
+#include "setting.h"
 
 char skip_whitespace (const IODeviceAdapter &in)
 {
-    char nextch;
-    do {
-	if (! in.get (nextch))
-	    throw premature_eof ();
-    } while (isspace (nextch));
-    return nextch;
+	char nextch;
+	do {
+		if (! in.get (nextch)) {
+			if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+				return nextch;
+			else
+				throw premature_eof ();
+		}
+	} while (isspace (nextch));
+	return nextch;
 }
 
 sgf::node *parse_gametree (const IODeviceAdapter &in, sgf_errors &errs)
 {
-    sgf::node *prev_node = 0, *first_node = 0;
-
-    bool at_start = true;
-    char nextch = skip_whitespace (in);
-    if (nextch != ';')
-        nextch = ';';
-    for (;;) {
+	sgf::node *prev_node = 0, *first_node = 0;
+	
+	bool at_start = true;
+	char nextch = skip_whitespace (in);
+	if (nextch != ';')
+		nextch = ';';
+	for (;;) {
 	if (nextch != ';' && (nextch == ')' || !at_start))
 	    break;
 	if (nextch != ';')
@@ -37,25 +42,33 @@ sgf::node *parse_gametree (const IODeviceAdapter &in, sgf_errors &errs)
 	if (nextch == ';' || isspace (nextch))
 	    nextch = skip_whitespace (in);
 	for (;;) {
-	    std::string idstr = "";
-	    while (isalpha (nextch) && isalpha (nextch)) {
+		std::string idstr = "";
+		while (isalpha (nextch) && isalpha (nextch)) {
 		/* When downloading from their web interface, IGS writes
 		   properties with two uppercase and several ignored lowercase
 		   letters.  Ideally we'd add warning flags to the SGF to
 		   inform the user they have a broken file.  But for now,
 		   silently ignore them.  */
 		if (isupper (nextch))
-		    idstr += nextch;
-		if (! in.get (nextch))
-		    throw premature_eof ();
-	    }
-	    if (idstr.length () == 0)
+			idstr += nextch;
+		if (! in.get (nextch)) {
+			if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+				return first_node;
+			else
+				throw premature_eof ();
+		}
+		}
+		if (idstr.length () == 0)
 		break;
 
-	    if (isspace (nextch))
+		if (isspace (nextch))
 		nextch = skip_whitespace (in);
-	    if (nextch != '[')
-	      throw broken_sgf ();
+		if (nextch != '[') {
+			if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+				return first_node;
+			else
+				throw broken_sgf ();
+		}
 
 	    sgf::node::property *p = new sgf::node::property (idstr);
 	    this_node->props.push_back (p);
@@ -63,36 +76,48 @@ sgf::node *parse_gametree (const IODeviceAdapter &in, sgf_errors &errs)
 		std::string valstr = "";
 		int escaped = 0;
 		for (;;) {
-		    if (! in.get (nextch))
-			throw premature_eof ();
-		    if (! escaped && nextch == ']')
-			break;
-		    escaped = ! escaped && nextch == '\\';
-		    if (! escaped)
-			valstr += nextch;
+			if (! in.get (nextch)) {
+				if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+					return first_node;
+				else
+					throw premature_eof ();
+			}
+			if (! escaped && nextch == ']')
+				break;
+			escaped = ! escaped && nextch == '\\';
+			if (! escaped)
+				valstr += nextch;
 		}
 		p->values.push_back (valstr);
 		nextch = skip_whitespace (in);
-	    }
+		}
 	}
-    }
+	}
 
-    for (;;) {
+	for (;;) {
 	if (nextch == ')')
-	    break;
+		break;
 
-	if (nextch != '(')
-	    throw broken_sgf ();
+	if (nextch != '(') {
+		if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+			return first_node;
+		else
+			throw broken_sgf ();
+	}
 
-	if (! prev_node)
-	    throw broken_sgf ();
+	if (! prev_node) {
+		if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+			return first_node;
+		else
+			throw broken_sgf ();
+	}
 
 	sgf::node *n = parse_gametree (in, errs);
 	prev_node->add_child (n);
 	nextch = skip_whitespace (in);
-    }
+	}
 
-    return first_node;
+	return first_node;
 }
 
 sgf *load_sgf (const IODeviceAdapter &in)

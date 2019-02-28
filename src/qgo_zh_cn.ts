@@ -2767,6 +2767,10 @@ Overwrite stored game result?</source>
         <source>W Win %</source>
         <translation>白胜%</translation>
     </message>
+    <message>
+        <source> - Press F7 to show menu bar</source>
+        <translation>- 按F7显示菜单栏</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow_GTP</name>
@@ -3483,17 +3487,17 @@ If your engine allows multiple board sizes, you need to configure them in separa
     </message>
     <message>
         <source>Slider</source>
-        <translation>滑动条</translation>
+        <translation type="vanished">滑动条</translation>
     </message>
     <message>
         <source>Show slider</source>
-        <translation>显示滑动条</translation>
+        <translation type="vanished">显示滑动条</translation>
     </message>
     <message>
         <source>Show slider
 
 Toggles the slider on the bottom of the board on or off.</source>
-        <translation>显示滑动条
+        <translation type="vanished">显示滑动条
 
 在显示/不显示之间切换</translation>
     </message>
@@ -4456,7 +4460,7 @@ up to :</source>
     </message>
     <message>
         <source>Hidden</source>
-        <translation>隐藏</translation>
+        <translation type="vanished">隐藏</translation>
     </message>
     <message>
         <source>Left</source>
@@ -4795,6 +4799,10 @@ a variation</source>
     <message>
         <source>Size Percent(%):</source>
         <translation>大小百分比（%）：</translation>
+    </message>
+    <message>
+        <source>Ignore SGF parser errors, try as best to load SGF file.</source>
+        <translation>忽略SGF解析错误，尽量装载SGF文件。</translation>
     </message>
 </context>
 <context>

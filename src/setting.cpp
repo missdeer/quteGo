@@ -133,6 +133,8 @@ Setting::Setting()
 	writeIntEntry ("BOARD_DIAGMODE", 1);
 	writeIntEntry ("BOARD_DIAGCLEAR", 1);
 	writeIntEntry ("TOROID_DUPS", 2);
+	
+	writeBoolEntry("IGNORE_SGF_PARSER_ERRORS", 1);
 
 	language = "Default";
 	fontStandard = QFont();
