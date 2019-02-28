@@ -21,7 +21,7 @@ enum stone_color
 };
 
 enum class stone_type { live, seki, dead, var };
-enum class mark { none = 0, move, triangle, circle, square, plus, cross, text, num, letter, dead, seki, terr, falseeye };
+enum class mark { none = 0, move, triangle, circle, square, plus, cross, text, num, letter, dead, seki, terr, falseeye, redbox };
 typedef unsigned short mextra;
 
 class go_board

@@ -448,7 +448,7 @@ static bool add_mark_svg (svg_builder &svg, double cx, double cy, double factor,
 	/* We make an artificial mark for the last move.  Done late so as to not
 	   override other marks.  */
 	if (m == mark::none && was_last_move)
-		m = mark::move;
+		m = mark::redbox;
 
 	/* Convert the large number of conceptual marks into a smaller set of
 	   visual ones.  */
@@ -476,6 +476,10 @@ static bool add_mark_svg (svg_builder &svg, double cx, double cy, double factor,
 	case mark::square:
 		svg.square_at (cx, cy, factor * 0.8 / M_SQRT2,
 			       "none", mark_col);
+		break;
+	case mark::redbox:
+		svg.square_at (cx, cy, factor * 0.25 / M_SQRT2,
+			       "red", "red");
 		break;
 	case mark::triangle:
 		svg.triangle_at (cx, cy, factor * 0.8,
