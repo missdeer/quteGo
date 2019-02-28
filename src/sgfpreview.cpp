@@ -138,7 +138,13 @@ void SGFPreview::previewRarFile(const QString &package, const QString &item)
 	QtRARFile file(package, item);
 	if (file.open(QIODevice::ReadOnly))
 	{
-		previewSGF(file, item);
+		auto data = file.readAll();
+		
+		QBuffer b(&data);
+		if (b.open(QIODevice::ReadOnly))
+		{
+			previewSGF(b, item);
+		}
 	}
 }
 
