@@ -382,6 +382,7 @@ void PreferencesDialog::init_from_settings ()
 	fontConsoleButton->setFont(setting->fontConsole);
 	
 	ignoreSGFParserErrorCheckBox->setChecked(setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"));
+	suppressSGFParserErrorWarningCheckBox->setChecked(setting->readBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING"));
 	showNumberMoveCountSpinBox->setValue(setting->readIntEntry("MOVE_COUNT_MOVE_NUMBER"));
 	showMoveNumberGroupBox->setChecked(setting->readBoolEntry("SHOW_MOVE_NUMBER"));
 }
@@ -500,6 +501,7 @@ void PreferencesDialog::slot_apply()
 	qDebug() << "onApply";
 
 	setting->writeBoolEntry("IGNORE_SGF_PARSER_ERRORS", ignoreSGFParserErrorCheckBox->isChecked());
+	setting->writeBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING", suppressSGFParserErrorWarningCheckBox->isChecked());
 	setting->writeIntEntry("MOVE_COUNT_MOVE_NUMBER", showNumberMoveCountSpinBox->value());
 	setting->writeBoolEntry("SHOW_MOVE_NUMBER", showMoveNumberGroupBox->isChecked());
 	setting->writeIntEntry("SKIN_INDEX", woodComboBox->currentIndex ());

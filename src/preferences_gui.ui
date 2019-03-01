@@ -1006,6 +1006,13 @@ If your language is not supported, you might consider translating qGo. Please ch
          </property>
         </spacer>
        </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="suppressSGFParserErrorWarningCheckBox">
+         <property name="text">
+          <string>Suppress SGF parser error warnings.</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="clientWindowTabWidget">

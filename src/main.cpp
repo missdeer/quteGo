@@ -90,6 +90,8 @@ std::shared_ptr<game_record> new_variant_game_dialog (QWidget *parent)
 
 static void warn_errors (std::shared_ptr<game_record> gr)
 {
+	if (setting->readBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING"))
+		return;
 	const sgf_errors &errs = gr->errors ();
 	if (errs.invalid_structure) {
 		QMessageBox::warning (0, PACKAGE, QObject::tr ("The file did not quite have the correct structure of an SGF file, but could otherwise be understood."));
@@ -124,11 +126,14 @@ std::shared_ptr<game_record> record_from_stream (QIODevice &isgf, QTextCodec* co
 		warn_errors (gr);
 		return gr;
 	} catch (invalid_boardsize &) {
-		QMessageBox::warning (0, PACKAGE, QObject::tr ("Unsupported board size in SGF file."));
+		if (!setting->readBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING"))
+			QMessageBox::warning (0, PACKAGE, QObject::tr ("Unsupported board size in SGF file."));
 	} catch (broken_sgf &) {
-		QMessageBox::warning (0, PACKAGE, QObject::tr ("Errors found in SGF file."));
+		if (!setting->readBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING"))
+			QMessageBox::warning (0, PACKAGE, QObject::tr ("Errors found in SGF file."));
 	} catch (...) {
-		QMessageBox::warning (0, PACKAGE, QObject::tr ("Error while trying to load SGF file."));
+		if (!setting->readBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING"))
+			QMessageBox::warning (0, PACKAGE, QObject::tr ("Error while trying to load SGF file."));
 	}
 	return nullptr;
 }

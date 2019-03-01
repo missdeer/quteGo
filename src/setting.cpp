@@ -135,6 +135,7 @@ Setting::Setting()
 	writeIntEntry ("TOROID_DUPS", 2);
 	
 	writeBoolEntry("IGNORE_SGF_PARSER_ERRORS", 1);
+	writeBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING", 0);
 	writeIntEntry ("MOVE_COUNT_MOVE_NUMBER", 361);
 	writeBoolEntry("SHOW_MOVE_NUMBER", 0);
 
