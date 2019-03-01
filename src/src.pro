@@ -69,7 +69,12 @@ HEADERS		      = analyzedlg.h \
                         grid.h \
                         miscdialogs.h \
                         variantgamedlg.h \
-                        audio.h
+                        audio.h \
+    archivehandler.h \
+    ziparchivehandler.h \
+    rararchivehandler.h \
+    sevenzarchivehandler.h \
+    archivehandlerfactory.h
 
 SOURCES		      = analyzedlg.cpp \
 			autodiagsdlg.cpp \
@@ -108,7 +113,12 @@ SOURCES		      = analyzedlg.cpp \
 			textview.cpp \
                         grid.cpp \
                         variantgamedlg.cpp \
-                        audio.cpp
+                        audio.cpp \
+    archivehandler.cpp \
+    ziparchivehandler.cpp \
+    rararchivehandler.cpp \
+    sevenzarchivehandler.cpp \
+    archivehandlerfactory.cpp
 
 isEmpty(PREFIX) {
 PREFIX = /usr/local

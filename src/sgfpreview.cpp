@@ -2,15 +2,7 @@
 #include <QFileDialog>
 
 #include <fstream>
-
-#include <private/qzipreader_p.h>
-
-#include "thirdparty/Qt7z/Qt7z/qt7zfileinfo.h"
-#include "thirdparty/Qt7z/Qt7z/qt7zpackage.h"
-#include "thirdparty/QtRAR/src/qtrar.h"
-#include "thirdparty/QtRAR/src/qtrarfile.h"
-#include "thirdparty/QtRAR/src/qtrarfileinfo.h"
-
+#include "archivehandlerfactory.h"
 #include "gogame.h"
 #include "sgfpreview.h"
 
@@ -60,7 +52,7 @@ void SGFPreview::clear ()
 {
 	boardView->reset_game (m_empty_game);
 	m_game = nullptr;
-
+	m_archive.reset();
 	// ui->displayBoard->clearData ();
 
 	File_WhitePlayer->setText("");
@@ -74,111 +66,6 @@ void SGFPreview::clear ()
 	File_Round->setText("");
 	archiveItemList->setVisible(false);
 	archiveItemList->clear();
-}
-
-void SGFPreview::extractZip(const QString &path)
-{
-	QZipReader zr(path);
-
-	auto fil = zr.fileInfoList();
-	archiveItemList->setVisible(!fil.isEmpty());
-	for (auto & fi : fil)
-	{
-		if (fi.isFile && fi.filePath.endsWith(".sgf", Qt::CaseInsensitive))
-			archiveItemList->addItem(fi.filePath);
-	}
-}
-
-void SGFPreview::previewZipFile(const QString &package, const QString &item)
-{
-	QZipReader zr(package);
-	auto data = zr.fileData(item);
-	QBuffer b(&data);
-	if (b.open(QIODevice::ReadOnly))
-	{
-		previewSGF(b, item);
-	}
-}
-
-void SGFPreview::extractRar(const QString &path)
-{
-	QtRAR rar(path);
-	bool success = rar.open(QtRAR::OpenModeList);
-
-	if (!success) {
-		return ;
-	}
-
-	// TODO: Support password
-	if (rar.isHeadersEncrypted() || rar.isFilesEncrypted()) {
-		return ;
-	}
-
-	QStringList fileNameList = rar.fileNameList();
-	archiveItemList->setVisible(!fileNameList.isEmpty());
-	for (auto & fn : fileNameList)
-	{
-		if (fn.endsWith(".sgf", Qt::CaseInsensitive))
-			archiveItemList->addItem(fn);
-	}
-}
-
-void SGFPreview::previewRarFile(const QString &package, const QString &item)
-{
-	QtRAR rar(package);
-	bool success = rar.open(QtRAR::OpenModeList);
-
-	if (!success) {
-		return ;
-	}
-
-	// TODO: Support password
-	if (rar.isHeadersEncrypted() || rar.isFilesEncrypted()) {
-		return ;
-	}
-
-	QtRARFile file(package, item);
-	if (file.open(QIODevice::ReadOnly))
-	{
-		auto data = file.readAll();
-		
-		QBuffer b(&data);
-		if (b.open(QIODevice::ReadOnly))
-		{
-			previewSGF(b, item);
-		}
-	}
-}
-
-void SGFPreview::extract7Zip(const QString &path)
-{
-	Qt7zPackage pkg(path);
-	if (!pkg.open()) {
-		return ;
-	}
-
-	QStringList fileNameList = pkg.fileNameList();
-	archiveItemList->setVisible(!fileNameList.isEmpty());
-	for (auto & fn : fileNameList)
-	{
-		if (fn.endsWith(".sgf", Qt::CaseInsensitive))
-			archiveItemList->addItem(fn);
-	}
-}
-
-void SGFPreview::preview7ZipFile(const QString &package, const QString &item)
-{
-	Qt7zPackage pkg(package);
-	if (!pkg.open()) {
-		return ;
-	}
-
-	QBuffer buffer;
-	if (buffer.open(QBuffer::ReadWrite) && pkg.extractFile(item, &buffer))
-	{
-		buffer.seek(0);
-		previewSGF(buffer, item);
-	}
 }
 
 void SGFPreview::extractQDB(const QString &path)
@@ -195,15 +82,22 @@ void SGFPreview::archiveItemSelected(const QString &item)
 {
 	if (!archiveItemList->isVisible() || item.isEmpty() || fileDialog->selectedFiles().isEmpty())
 		return;
+		
+	if (m_archive) {
+		previewArchiveItem(item);
+		return;
+	}
+
 	QFileInfo fi(fileDialog->selectedFiles ()[0]);
-	if (fi.suffix().compare("zip", Qt::CaseInsensitive) == 0)
-		previewZipFile(fi.absoluteFilePath(), item);
-	else if (fi.suffix().compare("rar", Qt::CaseInsensitive) == 0)
-		previewRarFile(fi.absoluteFilePath(), item);
-	else if (fi.suffix().compare("7z", Qt::CaseInsensitive) == 0)
-		preview7ZipFile(fi.absoluteFilePath(), item);
-	else if (fi.suffix().compare("qdb", Qt::CaseInsensitive) == 0)
+	if (fi.suffix().compare("qdb", Qt::CaseInsensitive) == 0)
 		previewQDBFile(fi.absoluteFilePath(), item);
+}
+
+void SGFPreview::previewArchiveItem(const QString &item)
+{
+	QIODevice* device = m_archive->getSGFContent(item);
+	if (device)
+		previewSGF(*device, item);
 }
 
 QStringList SGFPreview::selected ()
@@ -223,14 +117,20 @@ void SGFPreview::setPath(const QString &path)
 		QFile f (path);
 		if (f.open (QIODevice::ReadOnly))
 			previewSGF(f, path);
+		return;
 	}
-	else if (fi.suffix().compare("zip", Qt::CaseInsensitive) == 0)
-		extractZip(path);
-	else if (fi.suffix().compare("rar", Qt::CaseInsensitive) == 0)
-		extractRar(path);
-	else if (fi.suffix().compare("7z", Qt::CaseInsensitive) == 0)
-		extract7Zip(path);
-	else if (fi.suffix().compare("qdb", Qt::CaseInsensitive) == 0)
+
+	auto archiveHandler = ArchiveHandlerFactory::createArchiveHandler(path);
+	if (archiveHandler)
+	{
+		m_archive.reset(archiveHandler);
+		auto fileList = m_archive->getSGFFileList();
+		archiveItemList->setVisible(!fileList.isEmpty());
+		archiveItemList->addItems(fileList);
+		return;
+	}
+
+	if (fi.suffix().compare("qdb", Qt::CaseInsensitive) == 0)
 		extractQDB(path);
 }
 

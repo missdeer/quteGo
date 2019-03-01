@@ -2,7 +2,7 @@
 #define SGFPREVIEW_H
 
 #include <QStringList>
-
+#include "archivehandler.h"
 #include "ui_sgfpreview.h"
 
 class QFileDialog;
@@ -15,20 +15,16 @@ class SGFPreview : public QDialog, public Ui::SGFPreview
 	game_state m_empty_board;
 	std::shared_ptr<game_record> m_empty_game;
 	std::shared_ptr<game_record> m_game;
+	ArchiveHandlerPtr m_archive;
 
 	void setPath (const QString &path);
 	void previewSGF (QIODevice &device, const QString &path);
 	void reloadPreview ();
 	void clear ();
-	void extractZip (const QString &path);
-	void previewZipFile(const QString &package, const QString &item);
-	void extractRar (const QString &path);
-	void previewRarFile(const QString &package, const QString &item);
-	void extract7Zip (const QString &path);
-	void preview7ZipFile(const QString &package, const QString &item);
 	void extractQDB (const QString &path);
 	void previewQDBFile(const QString &package, const QString &item);
 	void archiveItemSelected (const QString &item);
+	void previewArchiveItem(const QString &item);
 public:
 	SGFPreview (QWidget * parent, const QString &dir);
 	~SGFPreview ();
