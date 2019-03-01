@@ -474,7 +474,7 @@ static bool add_mark_svg (svg_builder &svg, double cx, double cy, double factor,
 			       "none", mark_col);
 		break;
 	case mark::square:
-		svg.square_at (cx, cy, factor * 0.8 / M_SQRT2,
+		svg.square_at (cx, cy, factor * 0.6 / M_SQRT2,
 			       "none", mark_col);
 		break;
 	case mark::redbox:
@@ -482,7 +482,7 @@ static bool add_mark_svg (svg_builder &svg, double cx, double cy, double factor,
 			       "red", "red");
 		break;
 	case mark::triangle:
-		svg.triangle_at (cx, cy, factor * 0.8,
+		svg.triangle_at (cx, cy, factor * 0.6,
 				 "none", mark_col);
 		break;
 	case mark::terr:
@@ -492,7 +492,7 @@ static bool add_mark_svg (svg_builder &svg, double cx, double cy, double factor,
 			mark_col = me == 0 ? "white" : "black";
 		/* fall through */
 	case mark::cross:
-		svg.cross_at (cx, cy, factor * 0.8,
+		svg.cross_at (cx, cy, factor * 0.6,
 			      mark_col);
 		break;
 	case mark::num:
