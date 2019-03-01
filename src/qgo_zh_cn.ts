@@ -1218,6 +1218,10 @@ Open the batch analysis dialog which allows you to add SGF files to a queue to b
         <source>A&amp;utomatic diagrams...</source>
         <translation>自动图解(&amp;U)…</translation>
     </message>
+    <message>
+        <source>Open from &amp;database...</source>
+        <translation>从数据库打开(&amp;D)…</translation>
+    </message>
 </context>
 <context>
     <name>ClientWindow</name>
@@ -2262,6 +2266,165 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <translation>批量分析
 	打开批量分析对话框，将SGF文件添加到队列中让引擎进行分析。
 	</translation>
+    </message>
+    <message>
+        <source>Open from &amp;database...</source>
+        <translation>从数据库打开(&amp;D)…</translation>
+    </message>
+</context>
+<context>
+    <name>DBDialog</name>
+    <message>
+        <source>Open database file</source>
+        <translation>打开数据库文件</translation>
+    </message>
+    <message>
+        <source>Filters</source>
+        <translation>过滤器</translation>
+    </message>
+    <message>
+        <source>Player 2:</source>
+        <translation>棋手2:</translation>
+    </message>
+    <message>
+        <source>Event:</source>
+        <translation>比赛：</translation>
+    </message>
+    <message>
+        <source>From:</source>
+        <translation>开始于：</translation>
+    </message>
+    <message>
+        <source>Player 1:</source>
+        <translation>棋手1:</translation>
+    </message>
+    <message>
+        <source>To:</source>
+        <translation>结束于：</translation>
+    </message>
+    <message>
+        <source>Reset Games</source>
+        <translation>重置棋局</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>清除</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>应用</translation>
+    </message>
+    <message>
+        <source>Configure database &amp;paths...</source>
+        <translation>配置数据库路径(&amp;P)…</translation>
+    </message>
+    <message>
+        <source>Override character set for text in SGF file:</source>
+        <translation>覆盖SGF文件中的文本编码设置：</translation>
+    </message>
+    <message>
+        <source>UTF-8</source>
+        <translation>UTF-8</translation>
+    </message>
+    <message>
+        <source>GB18030</source>
+        <translation>GB18030</translation>
+    </message>
+    <message>
+        <source>EUC-KR</source>
+        <translation>EUC-KR</translation>
+    </message>
+    <message>
+        <source>EUC-JP</source>
+        <translation>EUC-JP</translation>
+    </message>
+    <message>
+        <source>ISO-2022-JP</source>
+        <translation>ISO-2022-JP</translation>
+    </message>
+    <message>
+        <source>Shift-JIS</source>
+        <translation>Shift-JIS</translation>
+    </message>
+    <message>
+        <source>Big5</source>
+        <translation>Big5</translation>
+    </message>
+    <message>
+        <source>File properties</source>
+        <translation>文件属性</translation>
+    </message>
+    <message>
+        <source>19</source>
+        <translation>19</translation>
+    </message>
+    <message>
+        <source>Komi:</source>
+        <translation>贴目:</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>日期</translation>
+    </message>
+    <message>
+        <source>Size:</source>
+        <translation>大小：</translation>
+    </message>
+    <message>
+        <source>Handicap:</source>
+        <translation>让子:</translation>
+    </message>
+    <message>
+        <source>Date:</source>
+        <translation>日期:</translation>
+    </message>
+    <message>
+        <source>6.5</source>
+        <translation>6.5</translation>
+    </message>
+    <message>
+        <source>Result:</source>
+        <translation>结果:</translation>
+    </message>
+    <message>
+        <source>Black</source>
+        <translation>黑方</translation>
+    </message>
+    <message>
+        <source>White</source>
+        <translation>白方</translation>
+    </message>
+    <message>
+        <source>Round:</source>
+        <translation>轮次：</translation>
+    </message>
+    <message>
+        <source>Go to first move.</source>
+        <translation>跳转到第一手。</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <source>Go to previous move.</source>
+        <translation>跳转到前一手。</translation>
+    </message>
+    <message>
+        <source>Go to next move.</source>
+        <translation>跳转到下一手。</translation>
+    </message>
+    <message>
+        <source>Go to last move.</source>
+        <translation>跳转到最后一手。</translation>
+    </message>
+    <message>
+        <source>Players</source>
+        <translation>棋友</translation>
+    </message>
+    <message>
+        <source>Res.</source>
+        <translation>结果。</translation>
     </message>
 </context>
 <context>
@@ -3458,6 +3621,32 @@ If your engine allows multiple board sizes, you need to configure them in separa
         <source>Select a black stone image</source>
         <translation>选择黑棋子图像</translation>
     </message>
+    <message>
+        <source>Directory contains no database</source>
+        <translation>目录内没有数据库</translation>
+    </message>
+    <message>
+        <source>The directory could not be added because no kombilo.db file could be found.</source>
+        <translation>目录无法添加，因为没有找到kombilo.db文件。</translation>
+    </message>
+    <message>
+        <source>Directory already in the list</source>
+        <translation>目录已经在列表中</translation>
+    </message>
+    <message>
+        <source>The directory could not be added because it already exists in the list.</source>
+        <translation>目录无法添加，因为已经在列表中。</translation>
+    </message>
+    <message>
+        <source>Overwrite database paths</source>
+        <translation>覆盖数据库路径</translation>
+    </message>
+    <message>
+        <source>This operation replaces existing database paths.
+Do you still want to import from kombilo.cfg?</source>
+        <translation>此操作会替换已存在的数据库路径。
+仍要从kombilo.cfg导入吗？</translation>
+    </message>
 </context>
 <context>
     <name>PreferencesDialogGui</name>
@@ -3484,22 +3673,6 @@ If your engine allows multiple board sizes, you need to configure them in separa
     <message>
         <source>Board</source>
         <translation>棋盘</translation>
-    </message>
-    <message>
-        <source>Slider</source>
-        <translation type="vanished">滑动条</translation>
-    </message>
-    <message>
-        <source>Show slider</source>
-        <translation type="vanished">显示滑动条</translation>
-    </message>
-    <message>
-        <source>Show slider
-
-Toggles the slider on the bottom of the board on or off.</source>
-        <translation type="vanished">显示滑动条
-
-在显示/不显示之间切换</translation>
     </message>
     <message>
         <source>Show a ghost stone at mouse pointer</source>
@@ -4459,10 +4632,6 @@ up to :</source>
         <translation>侧边栏</translation>
     </message>
     <message>
-        <source>Hidden</source>
-        <translation type="vanished">隐藏</translation>
-    </message>
-    <message>
         <source>Left</source>
         <translation>左侧</translation>
     </message>
@@ -4804,6 +4973,26 @@ a variation</source>
         <source>Ignore SGF parser errors, try as best to load SGF file.</source>
         <translation>忽略SGF解析错误，尽量装载SGF文件。</translation>
     </message>
+    <message>
+        <source>Import/Export</source>
+        <translation>导入/导出</translation>
+    </message>
+    <message>
+        <source>Kombilo database paths</source>
+        <translation>Kombilo数据库路径</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>删除</translation>
+    </message>
+    <message>
+        <source>Add directory...</source>
+        <translation>添加目录…</translation>
+    </message>
+    <message>
+        <source>Import from kombilo.cfg...</source>
+        <translation>从kombilo.cfg导入…</translation>
+    </message>
 </context>
 <context>
     <name>QApplication</name>
@@ -5060,6 +5249,18 @@ reverting to default.</source>
         <source>All supported files (*.sgf *.zip *.rar *.7z *.qdb);;All Files (*)</source>
         <translation>所有支持的文件 (*.sgf *.zip *.rar *.7z *.qdb);;所有文件 (*)</translation>
     </message>
+    <message>
+        <source>Add a database directory</source>
+        <translation>添加数据库目录</translation>
+    </message>
+    <message>
+        <source>Open kombilo.cfg</source>
+        <translation>打开kombilo.cfg</translation>
+    </message>
+    <message>
+        <source>CFG Files (*.cfg);;All Files (*)</source>
+        <translation>CFG文件 (*.cfg);;所有文件 (*)</translation>
+    </message>
 </context>
 <context>
     <name>SGFPreview</name>
@@ -5162,6 +5363,14 @@ reverting to default.</source>
     <message>
         <source>Open SGF file</source>
         <translation>打开SGF文件</translation>
+    </message>
+    <message>
+        <source>Event:</source>
+        <translation>比赛：</translation>
+    </message>
+    <message>
+        <source>Round:</source>
+        <translation>轮次：</translation>
     </message>
 </context>
 <context>
