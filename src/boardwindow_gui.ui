@@ -2561,7 +2561,7 @@ After placing and/or undo release button for returning to starting point automat
      <x>0</x>
      <y>0</y>
      <width>1192</width>
-     <height>21</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="fileMenu">
@@ -2742,6 +2742,14 @@ After placing and/or undo release button for returning to starting point automat
    <addaction name="navStartVar"/>
    <addaction name="navNextBranch"/>
    <addaction name="navIntersection"/>
+   <addaction name="navFirst"/>
+   <addaction name="navBackward"/>
+   <addaction name="navForward"/>
+   <addaction name="navLast"/>
+   <addaction name="navPrevComment"/>
+   <addaction name="navNextComment"/>
+   <addaction name="navPrevFigure"/>
+   <addaction name="navNextFigure"/>
   </widget>
   <widget class="QToolBar" name="editBar">
    <property name="windowTitle">
