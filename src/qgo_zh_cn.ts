@@ -1222,6 +1222,10 @@ Open the batch analysis dialog which allows you to add SGF files to a queue to b
         <source>Open from &amp;database...</source>
         <translation>从数据库打开(&amp;D)…</translation>
     </message>
+    <message>
+        <source>Archive items</source>
+        <translation>归档条目</translation>
+    </message>
 </context>
 <context>
     <name>ClientWindow</name>
@@ -5004,6 +5008,10 @@ a variation</source>
     <message>
         <source>moves number.</source>
         <translation>落子手数。</translation>
+    </message>
+    <message>
+        <source>Suppress SGF parser error warnings.</source>
+        <translation>抑制SGF解析错误警告。</translation>
     </message>
 </context>
 <context>
