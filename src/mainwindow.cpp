@@ -239,6 +239,8 @@ MainWindow::MainWindow(QWidget* parent, std::shared_ptr<game_record> gr, GameMod
 	m_allow_text_update_signal = true;
 
 	update_analysis (analyzer::disconnected);
+	viewNumbers->setChecked(setting->readBoolEntry("SHOW_MOVE_NUMBER"));
+	slotViewMoveNumbers(setting->readBoolEntry("SHOW_MOVE_NUMBER"));
 	main_window_list.push_back (this);
 }
 

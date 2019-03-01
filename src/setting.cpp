@@ -136,6 +136,7 @@ Setting::Setting()
 	
 	writeBoolEntry("IGNORE_SGF_PARSER_ERRORS", 1);
 	writeIntEntry ("MOVE_COUNT_MOVE_NUMBER", 361);
+	writeBoolEntry("SHOW_MOVE_NUMBER", 0);
 
 	language = "Default";
 	fontStandard = QFont();

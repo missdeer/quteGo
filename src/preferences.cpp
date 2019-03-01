@@ -383,6 +383,7 @@ void PreferencesDialog::init_from_settings ()
 	
 	ignoreSGFParserErrorCheckBox->setChecked(setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"));
 	showNumberMoveCountSpinBox->setValue(setting->readIntEntry("MOVE_COUNT_MOVE_NUMBER"));
+	showMoveNumberGroupBox->setChecked(setting->readBoolEntry("SHOW_MOVE_NUMBER"));
 }
 
 void PreferencesDialog::select_stone_look (bool)
@@ -500,6 +501,7 @@ void PreferencesDialog::slot_apply()
 
 	setting->writeBoolEntry("IGNORE_SGF_PARSER_ERRORS", ignoreSGFParserErrorCheckBox->isChecked());
 	setting->writeIntEntry("MOVE_COUNT_MOVE_NUMBER", showNumberMoveCountSpinBox->value());
+	setting->writeBoolEntry("SHOW_MOVE_NUMBER", showMoveNumberGroupBox->isChecked());
 	setting->writeIntEntry("SKIN_INDEX", woodComboBox->currentIndex ());
 	setting->writeEntry("SKIN", LineEdit_goban->text());
 	setting->writeEntry("SKIN_TABLE", LineEdit_Table->text());

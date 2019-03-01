@@ -4993,6 +4993,18 @@ a variation</source>
         <source>Import from kombilo.cfg...</source>
         <translation>从kombilo.cfg导入…</translation>
     </message>
+    <message>
+        <source>Show move number</source>
+        <translation>显示落子手数</translation>
+    </message>
+    <message>
+        <source>Show the last</source>
+        <translation>显示最后的</translation>
+    </message>
+    <message>
+        <source>moves number.</source>
+        <translation>落子手数。</translation>
+    </message>
 </context>
 <context>
     <name>QApplication</name>
