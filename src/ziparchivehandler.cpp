@@ -32,8 +32,11 @@ QIODevice *ZipArchiveHandler::getSGFContent(const QString &fileName)
 		return nullptr;
 	if (m_buffer.isOpen())
 		m_buffer.close();
-	m_buffer.setBuffer(&data);
+	m_buffer.setData(data);
 	if (m_buffer.open(QIODevice::ReadOnly))
+	{
+		m_buffer.seek(0);
 		return &m_buffer;
+	}
 	return nullptr;
 }
