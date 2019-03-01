@@ -64,7 +64,7 @@ public:
 };
 
 MainWindow_IGS::MainWindow_IGS (QWidget *parent, std::shared_ptr<game_record> gr, qGoBoard *brd, bool playing_w, bool playing_b, GameMode mode)
-	: MainWindow (parent, gr, mode), m_connector (brd)
+	: MainWindow (parent, gr, nullptr, mode), m_connector (brd)
 {
 	gfx_board->set_player_colors (playing_w, playing_b);
 	/* Update clock tooltips after recording the player colors.  */

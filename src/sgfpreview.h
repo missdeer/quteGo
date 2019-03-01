@@ -32,6 +32,7 @@ public:
 	QStringList selected ();
 
 	std::shared_ptr<game_record> selected_record () { return m_game; }
+	ArchiveHandlerPtr selected_archive() { return m_archive; }
 };
 
 #endif

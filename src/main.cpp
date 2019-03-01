@@ -5,7 +5,7 @@
  *  (C) by Peter Strempel, Johannes Mesa, Emmanuel Beranger 2001-2003
  *
  */
-
+#include <tuple>
 #include <QFileDialog>
 
 #include "config.h"
@@ -19,6 +19,7 @@
 #include "analyzedlg.h"
 #include "sgfpreview.h"
 #include "dbdialog.h"
+#include "archivehandlerfactory.h"
 
 #include <qtranslator.h>
 #include <qtextcodec.h>
@@ -153,15 +154,17 @@ std::shared_ptr<game_record> record_from_file (const QString &filename, QTextCod
 bool open_window_from_file (const QString &filename, QTextCodec* codec)
 {
 	std::shared_ptr<game_record> gr = record_from_file (filename, codec);
-	if (gr == nullptr)
+	auto archive = ArchiveHandlerFactory::createArchiveHandler(filename);
+	if (gr == nullptr && archive == nullptr)
 		return false;
+	ArchiveHandlerPtr arc(archive);
 
-	MainWindow *win = new MainWindow (0, gr);
+	MainWindow *win = new MainWindow (0, gr, arc);
 	win->show ();
 	return true;
 }
 
-std::shared_ptr<game_record> open_file_dialog (QWidget *parent)
+std::tuple<std::shared_ptr<game_record>, ArchiveHandlerPtr> open_file_dialog (QWidget *parent)
 {
 	QString fileName;
 	if (setting->readIntEntry ("FILESEL") == 1) {
@@ -180,27 +183,38 @@ std::shared_ptr<game_record> open_file_dialog (QWidget *parent)
 			   open it to show message boxes about whatever error occurs.  */
 
 			std::shared_ptr<game_record> gr = file_open_dialog.selected_record ();
-			if (gr != nullptr) {
+			ArchiveHandlerPtr archive = file_open_dialog.selected_archive();
+			if (gr != nullptr || archive != nullptr) {
 				warn_errors (gr);
-				return gr;
+				return std::make_tuple(gr, archive);
 			}
 
 			QStringList l = file_open_dialog.selected ();
 			if (!l.isEmpty ())
 				fileName = l.first ();
 		} else
-			return nullptr;
+			return std::make_tuple(nullptr, nullptr);
 	} else {
 		fileName = QFileDialog::getOpenFileName (parent, QObject::tr ("Open SGF file"),
 							 setting->readEntry ("LAST_DIR"),
 							 QObject::tr ("All supported files (*.sgf *.zip *.rar *.7z *.qdb);;All Files (*)"));
 		if (fileName.isEmpty ())
-			return nullptr;
+			return std::make_tuple(nullptr, nullptr);
 	}
 	QFileInfo fi (fileName);
 	if (fi.exists ())
 		setting->writeEntry ("LAST_DIR", fi.dir ().absolutePath ());
-	return record_from_file (fileName, nullptr);
+	if (fi.suffix().compare("sgf", Qt::CaseInsensitive)) {
+		 auto gr = record_from_file (fileName, nullptr);
+		 return std::make_tuple(gr, nullptr);
+	}
+	auto archive = ArchiveHandlerFactory::createArchiveHandler(fileName);
+	if (archive) {
+		ArchiveHandlerPtr arc(archive);
+		return std::make_tuple(nullptr, arc);
+	}
+
+	return std::make_tuple(nullptr, nullptr);
 }
 
 std::shared_ptr<game_record> open_db_dialog (QWidget *parent)
@@ -284,7 +298,7 @@ void open_local_board (QWidget *parent, game_dialog_type type)
 		break;
 	}
 	}
-	MainWindow *win = new MainWindow (0, gr);
+	MainWindow *win = new MainWindow (0, gr, nullptr);
 	win->show ();
 }
 
@@ -598,7 +612,7 @@ int main(int argc, char **argv)
 		codec = QTextCodec::codecForName(encoding.toUtf8());
 	}
 	for (auto arg: args) {
-		if (QFile::exists(arg) && arg.endsWith(".sgf", Qt::CaseInsensitive))
+		if (QFile::exists(arg)) 
 			windows_open |= open_window_from_file (arg, codec);
 	}
 	if (cmdp.isSet (clo_board) && !windows_open) {

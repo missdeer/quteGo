@@ -2358,11 +2358,13 @@ void ClientWindow::initToolBar()
 
 void ClientWindow::slotFileOpen (bool)
 {
-	std::shared_ptr<game_record> gr = open_file_dialog (this);
-	if (gr == nullptr)
+	auto res = open_file_dialog (this);
+	std::shared_ptr<game_record> gr = std::get<0>(res);
+	ArchiveHandlerPtr archive = std::get<1>(res);
+	if (gr == nullptr && archive == nullptr)
 		return;
 
-	MainWindow *win = new MainWindow (0, gr);
+	MainWindow *win = new MainWindow (0, gr, archive);
 	win->show ();
 }
 
@@ -2372,7 +2374,7 @@ void ClientWindow::slotFileOpenDB (bool)
 	if (gr == nullptr)
 		return;
 
-	MainWindow *win = new MainWindow (0, gr);
+	MainWindow *win = new MainWindow (0, gr, nullptr);
 	win->show ();
 }
 

@@ -19,6 +19,7 @@
 #include "figuredlg.h"
 #include "qgtp.h"
 #include "ui_boardwindow_gui.h"
+#include "archivehandler.h"
 
 class Board;
 class QSplitter;
@@ -45,6 +46,7 @@ class MainWindow : public QMainWindow, public Ui::BoardWindow
 	QGraphicsRectItem *m_eval_bar;
 	QGraphicsTextItem *m_w_time, *m_b_time;
 	double m_eval;
+    ArchiveHandlerPtr m_archive;
 
 	void toggleSliderSignal(bool b) { sliderSignalToggle = b; }
 
@@ -54,7 +56,7 @@ class MainWindow : public QMainWindow, public Ui::BoardWindow
 	void updateCaption ();
 
 public:
-	MainWindow(QWidget* parent, std::shared_ptr<game_record>, GameMode mode = modeNormal);
+	MainWindow(QWidget* parent, std::shared_ptr<game_record>, ArchiveHandlerPtr archive, GameMode mode = modeNormal);
 	virtual ~MainWindow();
 	Board* getBoard() const { return gfx_board; }
 	int checkModified(bool interactive=true);
@@ -178,7 +180,7 @@ public slots:
 	void slotDiagASCII (bool);
 	void slotDiagSVG (bool);
 	void slotDiagChosen (int);
-
+	void slotArchiveItemActivated(QListWidgetItem *item);
 	virtual void doPass ();
 	virtual void doCountDone ();
 	virtual void doUndo ();

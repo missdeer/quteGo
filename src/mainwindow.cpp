@@ -36,6 +36,7 @@
 #include "qgo_interface.h"
 #include "autodiagsdlg.h"
 #include "ui_helpers.h"
+#include "archivehandlerfactory.h"
 
 std::list<MainWindow *> main_window_list;
 
@@ -52,8 +53,8 @@ QString screen_key (QWidget *w)
 	return QString::number (sz.width ()) + "x" + QString::number (sz.height ());
 }
 
-MainWindow::MainWindow(QWidget* parent, std::shared_ptr<game_record> gr, GameMode mode)
-	: QMainWindow(parent), m_game (gr), m_ascii_dlg (this), m_svg_dlg (this)
+MainWindow::MainWindow(QWidget* parent, std::shared_ptr<game_record> gr, ArchiveHandlerPtr archive, GameMode mode)
+	: QMainWindow(parent), m_game (gr), m_archive(archive), m_ascii_dlg (this), m_svg_dlg (this)
 {
 	setupUi (this);
 
@@ -155,10 +156,10 @@ MainWindow::MainWindow(QWidget* parent, std::shared_ptr<game_record> gr, GameMod
 	connect (evalView, &SizeGraphicsView::resized, this, [=] () { set_eval (m_eval); });
 
 	connect(passButton, &QPushButton::clicked, this, &MainWindow::doPass);
-        connect(undoButton, &QPushButton::clicked, this, &MainWindow::doUndo);
-        connect(adjournButton, &QPushButton::clicked, this, &MainWindow::doAdjourn);
-        connect(resignButton, &QPushButton::clicked, this, &MainWindow::doResign);
-        connect(doneButton, &QPushButton::clicked, this, &MainWindow::doCountDone);
+	connect(undoButton, &QPushButton::clicked, this, &MainWindow::doUndo);
+	connect(adjournButton, &QPushButton::clicked, this, &MainWindow::doAdjourn);
+	connect(resignButton, &QPushButton::clicked, this, &MainWindow::doResign);
+	connect(doneButton, &QPushButton::clicked, this, &MainWindow::doCountDone);
 
 	goLastButton->setDefaultAction (navLast);
 	goFirstButton->setDefaultAction (navFirst);
@@ -213,8 +214,8 @@ MainWindow::MainWindow(QWidget* parent, std::shared_ptr<game_record> gr, GameMod
 	   where someone seems to have the same issue, also involving a QGraphicsView, and the
 	   following is an adpatation of the suggested workaround.
 	   This should be removed once we can assume Qt 5.12 and the bug is indeed fixed.  */
-	resizeDocks ({diagsDock, treeDock, commentsDock, observersDock, graphDock}, { 0, 0, 0, 0, 0 }, Qt::Horizontal);
-	resizeDocks ({diagsDock, treeDock, commentsDock, observersDock, graphDock}, { 0, 0, 0, 0, 0 }, Qt::Vertical);
+	resizeDocks ({diagsDock, treeDock, commentsDock, observersDock, graphDock, archiveDock}, { 0, 0, 0, 0, 0, 0 }, Qt::Horizontal);
+	resizeDocks ({diagsDock, treeDock, commentsDock, observersDock, graphDock, archiveDock}, { 0, 0, 0, 0, 0, 0 }, Qt::Vertical);
 #endif
 	/* Order of operations here: restore a default layout if the user saved one.  We
 	   need to have the game mode variable set for this.
@@ -236,6 +237,12 @@ MainWindow::MainWindow(QWidget* parent, std::shared_ptr<game_record> gr, GameMod
 
 	connect(commentEdit, &QTextEdit::textChanged, this, &MainWindow::slotUpdateComment);
 	connect(commentEdit2, &QLineEdit::returnPressed, this, &MainWindow::slotUpdateComment2);
+	connect(archiveItemList, &QListWidget::itemActivated, this, &MainWindow::slotArchiveItemActivated);
+	if (m_archive) {
+		auto fileList = m_archive->getSGFFileList();
+		archiveItemList->addItems(fileList);
+	}
+
 	m_allow_text_update_signal = true;
 
 	update_analysis (analyzer::disconnected);
@@ -639,12 +646,22 @@ void MainWindow::slotFileOpen (bool)
 	if (!checkModified())
 		return;
 
-	std::shared_ptr<game_record> gr = open_file_dialog (this);
-	if (gr == nullptr)
-		return;
+	QString filePath;
+	auto res = open_file_dialog (this);
+	std::shared_ptr<game_record> gr = std::get<0>(res);
+	if (gr)
+	{
+		init_game_record (gr);
+		setGameMode (modeNormal);
+	}
 
-	init_game_record (gr);
-	setGameMode (modeNormal);
+	archiveItemList->clear();
+	m_archive = std::get<1>(res);
+	if (m_archive)
+	{
+		auto fileList = m_archive->getSGFFileList();
+		archiveItemList->addItems(fileList);
+	}
 }
 
 void MainWindow::slotFileOpenDB (bool)
@@ -902,6 +919,23 @@ void MainWindow::slotDiagChosen (int idx)
 	game_state *st = m_figures.at (idx);
 	diagView->set_displayed (st);
 	diagCommentView->setText (QString::fromStdString (st->comment ()));
+}
+
+void MainWindow::slotArchiveItemActivated(QListWidgetItem *item)
+{
+	auto fileName = item->text();
+	auto iodevice = m_archive->getSGFContent(fileName);
+	if (iodevice)
+	{
+		auto data = iodevice->readAll();
+		iodevice->seek(0);
+		auto gr = record_from_stream(*iodevice, charset_detect(data));
+		if (gr)
+		{
+			init_game_record (gr);
+			setGameMode (modeNormal);
+		}
+	}
 }
 
 void MainWindow::slotDiagEdit (bool)
@@ -1593,7 +1627,7 @@ void MainWindow::slot_editBoardInNewWindow(bool)
 {
 	std::shared_ptr<game_record> newgr = std::make_shared<game_record> (*m_game);
 	// online mode -> don't score, open new Window instead
-	MainWindow *w = new MainWindow (nullptr, newgr);
+	MainWindow *w = new MainWindow (nullptr, newgr, nullptr);
 
 	connect (w->refreshButton, &QPushButton::clicked,
 		 [gr = m_game, w] (bool)
@@ -2158,7 +2192,7 @@ void MainWindow::set_observer_model (QStandardItemModel *m)
 
 MainWindow_GTP::MainWindow_GTP (QWidget *parent, std::shared_ptr<game_record> gr, const Engine &program,
 				bool b_is_comp, bool w_is_comp)
-	: MainWindow (parent, gr, modeComputer), GTP_Controller (this)
+	: MainWindow (parent, gr, nullptr, modeComputer), GTP_Controller (this)
 {
 	gfx_board->set_player_colors (!w_is_comp, !b_is_comp);
 	m_gtp = create_gtp (program, m_game->boardsize (), QString::fromStdString(m_game->komi ()).toFloat(), QString::fromStdString(m_game->handicap ()).toInt());
