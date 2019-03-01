@@ -70,6 +70,8 @@ void SGFPreview::clear ()
 	File_Result->setText("");
 	File_Komi->setText("");
 	File_Size->setText("");
+	File_Event->setText("");
+	File_Round->setText("");
 	archiveItemList->setVisible(false);
 	archiveItemList->clear();
 }
@@ -263,6 +265,8 @@ void SGFPreview::previewSGF(QIODevice &device, const QString& path)
 		File_Result->setText (QString::fromStdString (m_game->result ()));
 		File_Komi->setText (QString::fromStdString(m_game->komi ()));
 		File_Size->setText (QString::number (st->get_board ().size_x ()));
+		File_Event->setText(QString::fromStdString (m_game->event ()));
+		File_Round->setText(QString::fromStdString (m_game->round ()));
 	} catch (...) {
 	}
 }
