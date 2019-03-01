@@ -1281,6 +1281,8 @@ QPixmap BoardView::draw_position (int default_vars_type)
 			ram_result rs = render_analysis_marks (svg, svg_factor, cx, cy, fi,
 							       x, y, an_child_mark, v, max_number);
 			if (rs == ram_result::none) {
+				if (max_number > 0 && v <= max_number - setting->readIntEntry("MOVE_COUNT_MOVE_NUMBER"))
+					v = 0;
 				added = add_mark_svg (svg, cx, cy, svg_factor,
 						      mark_at_pos, extra,
 						      mark_at_pos == mark::text ? b.mark_text_at (x, y) : "",

@@ -382,6 +382,7 @@ void PreferencesDialog::init_from_settings ()
 	fontConsoleButton->setFont(setting->fontConsole);
 	
 	ignoreSGFParserErrorCheckBox->setChecked(setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"));
+	showNumberMoveCountSpinBox->setValue(setting->readIntEntry("MOVE_COUNT_MOVE_NUMBER"));
 }
 
 void PreferencesDialog::select_stone_look (bool)
@@ -498,6 +499,7 @@ void PreferencesDialog::slot_apply()
 	qDebug() << "onApply";
 
 	setting->writeBoolEntry("IGNORE_SGF_PARSER_ERRORS", ignoreSGFParserErrorCheckBox->isChecked());
+	setting->writeIntEntry("MOVE_COUNT_MOVE_NUMBER", showNumberMoveCountSpinBox->value());
 	setting->writeIntEntry("SKIN_INDEX", woodComboBox->currentIndex ());
 	setting->writeEntry("SKIN", LineEdit_goban->text());
 	setting->writeEntry("SKIN_TABLE", LineEdit_Table->text());

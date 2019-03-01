@@ -135,6 +135,7 @@ Setting::Setting()
 	writeIntEntry ("TOROID_DUPS", 2);
 	
 	writeBoolEntry("IGNORE_SGF_PARSER_ERRORS", 1);
+	writeIntEntry ("MOVE_COUNT_MOVE_NUMBER", 361);
 
 	language = "Default";
 	fontStandard = QFont();
