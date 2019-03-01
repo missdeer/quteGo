@@ -42,13 +42,13 @@ QIODevice *RarArchiveHandler::getSGFContent(const QString &fileName)
 	if (file.open(QIODevice::ReadOnly))
 	{
 		auto data = file.readAll();
+		if (data.isEmpty())
+			return nullptr;
 		if (m_buffer.isOpen())
 			m_buffer.close();
 		m_buffer.setBuffer(&data);
 		if (m_buffer.open(QIODevice::ReadOnly))
-		{
 			return &m_buffer;
-		}
 	}
 	return nullptr;
 }

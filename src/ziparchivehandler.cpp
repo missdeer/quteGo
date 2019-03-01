@@ -27,10 +27,13 @@ const QStringList &ZipArchiveHandler::getSGFFileList()
 
 QIODevice *ZipArchiveHandler::getSGFContent(const QString &fileName)
 {
+	auto data = m_zipReader.fileData(fileName);
+	if (data.isEmpty())
+		return nullptr;
 	if (m_buffer.isOpen())
 		m_buffer.close();
-	auto data = m_zipReader.fileData(fileName);
 	m_buffer.setBuffer(&data);
-	m_buffer.open(QIODevice::ReadOnly);
-	return &m_buffer;
+	if (m_buffer.open(QIODevice::ReadOnly))
+		return &m_buffer;
+	return nullptr;
 }
