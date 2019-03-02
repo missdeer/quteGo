@@ -4451,7 +4451,7 @@ If the picture is not set, or unvalid, a default goban is used by qgo</source>
     </message>
     <message>
         <source>Table picture</source>
-        <translation>表格图片</translation>
+        <translation>桌面图片</translation>
     </message>
     <message>
         <source>Path to the table picture</source>
