@@ -214,7 +214,7 @@ void BoardView::draw_background()
 	int board_x1 = board_x0 + m_wood_rect.width () - 1;
 	int board_y1 = board_y0 + m_wood_rect.height () - 1;
 	painter.drawTiledPixmap (0, 0, w, h, m_table);
-	painter.drawTiledPixmap (m_wood_rect, m_wood);
+	painter.drawPixmap(m_wood_rect, m_wood, m_wood.rect());
 
 	// Modify the edges of the board so they appear slightly three-dimensional.
 	int width = 3;
