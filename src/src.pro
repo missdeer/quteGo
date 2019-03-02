@@ -160,8 +160,8 @@ TRANSLATIONS	      = qgo_cz.ts \
 			qgo_pt.ts\
 			qgo_ru.ts\
 			qgo_tr.ts\
-			qgo_zh.ts \
-                        qgo_zh_cn.ts
+			qgo_zh_TW.ts \
+			qgo_zh_CN.ts
 
 macx :{
     LIBS += -framework CoreFoundation
