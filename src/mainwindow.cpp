@@ -487,6 +487,7 @@ void MainWindow::initMenuBar (GameMode mode)
 	viewMenu->insertAction (view_first, diagsDock->toggleViewAction ());
 	viewMenu->insertAction (view_first, graphDock->toggleViewAction ());
 	viewMenu->insertAction (view_first, treeDock->toggleViewAction ());
+	viewMenu->insertAction (view_first, archiveDock->toggleViewAction());
 
 	helpMenu->addSeparator ();
 	helpMenu->addAction (whatsThis);
@@ -1340,6 +1341,7 @@ QString MainWindow::visible_panes_key ()
 	v += graphDock->isVisibleTo (this) ? "1" : "0";
 	v += commentsDock->isVisibleTo (this) ? "1" : "0";
 	v += observersDock->isVisibleTo (this) ? "1" : "0";
+	v += archiveDock->isVisibleTo (this) ? "1" : "0";
 	return v;
 }
 
@@ -1350,6 +1352,7 @@ void MainWindow::restore_visibility_from_key (const QString &v)
 	graphDock->setVisible (v[2] == '1');
 	commentsDock->setVisible (v[3] == '1');
 	observersDock->setVisible (v[4] == '1');
+	archiveDock->setVisible (v[5] == '1');
 }
 
 void MainWindow::saveWindowLayout (bool dflt)
@@ -1438,11 +1441,13 @@ void MainWindow::defaultPortraitLayout ()
 	removeDockWidget (graphDock);
 	removeDockWidget (commentsDock);
 	removeDockWidget (observersDock);
+	removeDockWidget (archiveDock);
 	addDockWidget (Qt::BottomDockWidgetArea, graphDock);
 	splitDockWidget (graphDock, diagsDock, Qt::Vertical);
 	splitDockWidget (diagsDock, commentsDock, Qt::Horizontal);
 	splitDockWidget (commentsDock, observersDock, Qt::Horizontal);
 	splitDockWidget (commentsDock, treeDock, Qt::Horizontal);
+	splitDockWidget (commentsDock, archiveDock, Qt::Horizontal);
 	restore_visibility_from_key (panesKey);
 	hide_panes_for_mode ();
 	setFocus ();
@@ -1460,11 +1465,13 @@ void MainWindow::defaultLandscapeLayout ()
 	removeDockWidget (graphDock);
 	removeDockWidget (commentsDock);
 	removeDockWidget (observersDock);
+	removeDockWidget (archiveDock);
 	addDockWidget (Qt::BottomDockWidgetArea, treeDock);
 	addDockWidget (Qt::RightDockWidgetArea, diagsDock);
 	splitDockWidget (diagsDock, commentsDock, Qt::Horizontal);
 	splitDockWidget (diagsDock, graphDock, Qt::Vertical);
 	splitDockWidget (commentsDock, observersDock, Qt::Vertical);
+	splitDockWidget (commentsDock, archiveDock, Qt::Vertical);
 	restore_visibility_from_key (panesKey);
 	hide_panes_for_mode ();
 	setFocus ();
