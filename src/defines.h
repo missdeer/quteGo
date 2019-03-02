@@ -22,6 +22,7 @@
 #define SLIDER_INIT 0
 
 #define WHITE_STONES_NB 8
+#define BLACK_STONES_NB 8
 
 /*
 * Set available languages here. The Codes have to be in the same order as the language names

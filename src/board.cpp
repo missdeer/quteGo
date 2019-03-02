@@ -993,11 +993,11 @@ const QPixmap &BoardView::choose_stone_pixmap (stone_color c, stone_type type, i
 		const QList<QPixmap> *l = imageHandler->getStonePixmaps ();
 		int cnt = l->count ();
 		if (c == black)
-			return (*l)[0];
+			return (*l)[bp % (cnt/2)];
 		else if (cnt <= 2)
 			return (*l)[1];
 		else
-			return (*l)[1 + bp % (cnt - 2)];
+			return (*l)[cnt/2 + bp % (cnt/2)];
 	} else {
 		const QList<QPixmap> *l = imageHandler->getGhostPixmaps ();
 		if (c == black)

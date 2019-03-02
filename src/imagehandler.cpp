@@ -9,6 +9,7 @@
 #include <QPainter>
 #include <QPixmap>
 #include <QSvgRenderer>
+#include <QFileInfo>
 
 #include "defines.h"
 #include "imagehandler.h"
@@ -279,29 +280,39 @@ void ImageHandler::paint_stone_new (QImage &wi, int d, const QColor &col, double
 	delete[] intense;
 }
 
-void ImageHandler::paint_white_stone_picture(QImage &img, int size)
+void ImageHandler::paint_white_stone_picture(QImage &img, int size, int idx)
 {
-	paint_stone_picture(img, size, m_whiteStonePicturePath);
+	paint_stone_picture(img, size, idx, m_whiteStonePicturePath);
 }
 
-void ImageHandler::paint_black_stone_picture(QImage &img, int size)
+void ImageHandler::paint_black_stone_picture(QImage &img, int size, int idx)
 {
-	paint_stone_picture(img, size, m_blackStonePicturePath);
+	paint_stone_picture(img, size, idx, m_blackStonePicturePath);
 }
 
-void ImageHandler::paint_stone_picture(QImage &img, int size, const QString &path)
+void ImageHandler::paint_stone_picture(QImage &img, int size, int idx, const QString &path)
 {
+	QFileInfo fi(path);
+	QString suffix = fi.suffix();
+	QString baseName = fi.baseName();
+	QChar lastChar = baseName.at(baseName.length() -1);
+	if (lastChar >= '0' && lastChar <= '9')
+		baseName = baseName.left(baseName.length() -1);
+	QString newPath = QString("%1/%2%3.%4").arg(fi.absolutePath(), baseName).arg(idx+1).arg(suffix);
+	if (!QFile::exists(newPath))
+		newPath = path;
+
 	QPainter painter;
 	painter.begin (&img);
 	img.fill(Qt::transparent);
-	if (path.endsWith(".svg", Qt::CaseInsensitive))
+	if (suffix.compare("svg", Qt::CaseInsensitive) == 0)
 	{
-		QSvgRenderer svgRenderer (path);
+		QSvgRenderer svgRenderer (newPath);
 		svgRenderer.render (&painter, QRectF(0,0,size*m_sizePercent/100,size*m_sizePercent/100));
 	}
 	else
 	{
-		QImage image(path);
+		QImage image(newPath);
 		painter.drawImage(QRect(0,0,size*m_sizePercent/100,size*m_sizePercent/100), image, image.rect());
 	}
 	painter.end ();
@@ -537,7 +548,7 @@ void ImageHandler::paint_one_stone (QImage &img, bool white, int size, int idx)
 		} else if (m_look == 2) {
 			paint_white_stone_old (img, size, m_clamshell, idx);
 		} else if (m_look == 4) {
-			paint_white_stone_picture(img, size);
+			paint_white_stone_picture(img, size, idx);
 		} else {
 			paint_stone_new (img, size, m_w_col, m_w_hard, m_w_spec, m_w_flat, m_w_radius,
 					 m_clamshell, idx);
@@ -548,7 +559,7 @@ void ImageHandler::paint_one_stone (QImage &img, bool white, int size, int idx)
 		} else if (m_look == 2) {
 			paint_black_stone_old (img, size);
 		} else if (m_look == 4) {
-			paint_black_stone_picture(img, size);
+			paint_black_stone_picture(img, size, idx);
 		} else {
 			paint_stone_new (img, size, m_b_col, m_b_hard, m_b_spec, m_b_flat, m_b_radius,
 					 false, 0);
@@ -563,18 +574,19 @@ void ImageHandler::init(int size)
 	size = size * 9 / 10;
 
 	//black stone
-	QImage ib = QImage(size, size, QImage::Format_ARGB32);
+	for (int i = 1; i <= WHITE_STONES_NB; i++)
+	{
+		QImage ib1(size, size, QImage::Format_ARGB32);
+		paint_one_stone (ib1, false, size, i - 1);
+		stonePixmaps.append(QPixmap::fromImage (ib1,
+							 Qt::PreferDither |
+							 Qt::DiffuseAlphaDither |
+							 Qt::DiffuseDither));
 
-	paint_one_stone (ib, false, size, 0);
-
-	stonePixmaps.append(QPixmap::fromImage(ib,
-						Qt::PreferDither |
-						Qt::DiffuseAlphaDither |
-						Qt::DiffuseDither));
-
-	QImage gb(ib);
-	ghostImage(&gb);
-	ghostPixmaps.append(QPixmap::fromImage(gb));
+		QImage gb1(ib1);
+		ghostImage(&gb1);
+		ghostPixmaps.append(QPixmap::fromImage(gb1));
+	}
 
 	// white stones
 	for (int i = 1; i <= WHITE_STONES_NB; i++)
@@ -609,28 +621,31 @@ void ImageHandler::rescale(int size)
 	size = size + 1;
 
 	//repaint black stones
-	QImage ib = QImage(size, size, QImage::Format_ARGB32);
-	paint_one_stone (ib, false, size);
-	stonePixmaps[0].convertFromImage(ib, Qt::PreferDither |
-					 Qt::DiffuseAlphaDither |
-					 Qt::DiffuseDither);
-	QImage gb(ib);
-	ghostImage(&gb);
-	ghostPixmaps[0].convertFromImage(gb, Qt::PreferDither |
-					 Qt::DiffuseAlphaDither |
-					 Qt::DiffuseDither);
+	for (int i = 0; i < BLACK_STONES_NB; i++)
+	{
+		QImage ib1 = QImage(size, size, QImage::Format_ARGB32);
+		paint_one_stone (ib1, false, size, i);
+		stonePixmaps[i].convertFromImage(ib1, Qt::PreferDither |
+						 Qt::DiffuseAlphaDither |
+						 Qt::DiffuseDither);
+		QImage gb1(ib1);
+		ghostImage(&gb1);
+		ghostPixmaps[i].convertFromImage(gb1, Qt::PreferDither |
+						 Qt::DiffuseAlphaDither |
+						 Qt::DiffuseDither);
+	}
 
 	// white stones
-	for (int i = 1; i <= WHITE_STONES_NB; i++)
+	for (int i = 0; i < WHITE_STONES_NB; i++)
 	{
 		QImage iw1 = QImage(size, size, QImage::Format_ARGB32);
-		paint_one_stone (iw1, true, size, i - 1);
-		stonePixmaps[i].convertFromImage(iw1, Qt::PreferDither |
+		paint_one_stone (iw1, true, size, i);
+		stonePixmaps[i+BLACK_STONES_NB].convertFromImage(iw1, Qt::PreferDither |
 						 Qt::DiffuseAlphaDither |
 						 Qt::DiffuseDither);
 		QImage gw1(iw1);
 		ghostImage(&gw1);
-		ghostPixmaps[i].convertFromImage(gw1, Qt::PreferDither |
+		ghostPixmaps[i+BLACK_STONES_NB].convertFromImage(gw1, Qt::PreferDither |
 						 Qt::DiffuseAlphaDither |
 						 Qt::DiffuseDither);
 	}
@@ -641,7 +656,7 @@ void ImageHandler::rescale(int size)
 		paint_shadow_stone(is, size);
 	else
 		is.fill(0);
-	stonePixmaps[WHITE_STONES_NB+1].convertFromImage(is, Qt::PreferDither |
+	stonePixmaps[WHITE_STONES_NB+BLACK_STONES_NB].convertFromImage(is, Qt::PreferDither |
 							 Qt::DiffuseAlphaDither |
 							 Qt::DiffuseDither);
 #if 0
