@@ -5013,6 +5013,10 @@ a variation</source>
         <source>Suppress SGF parser error warnings.</source>
         <translation>抑制SGF解析错误警告。</translation>
     </message>
+    <message>
+        <source>SGF Parser</source>
+        <translation>SGF解析器</translation>
+    </message>
 </context>
 <context>
     <name>QApplication</name>
