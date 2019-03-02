@@ -23,14 +23,11 @@ PreferencesDialog::PreferencesDialog(QWidget* parent)
 {
 	setupUi (this);
 	setModal (true);
-	// pointer to ClientWindow
-	parent_cw = setting->cw;
-	CHECK_PTR(parent_cw);
 
-	if (parent_cw->getPrefSize().width() > 0)
+	if (client_window->getPrefSize().width() > 0)
 	{
-		resize(parent_cw->getPrefSize());
-		move(parent_cw->getPrefPos());
+		resize(client_window->getPrefSize());
+		move(client_window->getPrefPos());
 	}
 	int engine_w = enginelabel_1->width ();
 	engine_w = std::max (engine_w, enginelabel_2->width ());
@@ -115,6 +112,13 @@ PreferencesDialog::PreferencesDialog(QWidget* parent)
 	connect (dbDirsButton, &QPushButton::clicked, this, &PreferencesDialog::slot_dbdir);
 	connect (dbCfgButton, &QPushButton::clicked, this, &PreferencesDialog::slot_dbcfg);
 	connect (dbRemButton, &QPushButton::clicked, this, &PreferencesDialog::slot_dbrem);
+
+	connect (fontStandardButton, &QPushButton::clicked, [this] () { selectFont (fontStandardButton, setting->fontStandard); });
+	connect (fontMarksButton, &QPushButton::clicked, [this] () { selectFont (fontMarksButton, setting->fontMarks); });
+	connect (fontCommentsButton, &QPushButton::clicked, [this] () { selectFont (fontCommentsButton, setting->fontComments); });
+	connect (fontListsButton, &QPushButton::clicked, [this] () { selectFont (fontListsButton, setting->fontLists); });
+	connect (fontClocksButton, &QPushButton::clicked, [this] () { selectFont (fontClocksButton, setting->fontClocks); });
+	connect (fontConsoleButton, &QPushButton::clicked, [this] () { selectFont (fontConsoleButton, setting->fontConsole); });
 }
 
 void PreferencesDialog::update_dbpaths (const QStringList &l)
@@ -123,6 +127,8 @@ void PreferencesDialog::update_dbpaths (const QStringList &l)
 	m_dbpath_model.clear ();
 	for (auto &it: m_dbpaths) {
 		QStandardItem *item = new QStandardItem (it);
+		item->setEditable (false);
+		item->setDropEnabled (false);
 		m_dbpath_model.appendRow (item);
 	}
 }
@@ -252,9 +258,9 @@ void PreferencesDialog::update_board_image ()
 
 void PreferencesDialog::init_from_settings ()
 {
-	for (auto h: parent_cw->hostlist)
+	for (auto h: client_window->hostlist)
 		new QListWidgetItem (h->title(), ListView_hosts);
-	for (auto h: parent_cw->m_engines)
+	for (auto h: client_window->m_engines)
 		new QListWidgetItem (h->title(), ListView_engines);
 
 	int idx = setting->readIntEntry("SKIN_INDEX");
@@ -646,75 +652,15 @@ void PreferencesDialog::startHelpMode()
 	QWhatsThis::enterWhatsThisMode();
 }
 
-void PreferencesDialog::selectFont(int selector)
+void PreferencesDialog::selectFont (QPushButton *button, QFont &font)
 {
 	// Open a font dialog to select a new font
 	bool ok;
-	QFont f;
-	switch (selector)
-	{
-	case 0:
-		f = QFontDialog::getFont(&ok, setting->fontStandard, this);
-		if (ok)  // Accepted
-		{
-			setting->fontStandard = f;
-			fontStandardButton->setText(setting->fontToString(f));
-			fontStandardButton->setFont(f);
-		}
-		break;
-
-	case 1:
-		f = QFontDialog::getFont(&ok, setting->fontMarks, this);
-		if (ok)  // Accepted
-		{
-			setting->fontMarks = f;
-			fontMarksButton->setText(setting->fontToString(f));
-			fontMarksButton->setFont(f);
-		}
-		break;
-
-	case 2:
-		f = QFontDialog::getFont(&ok, setting->fontComments, this);
-		if (ok)  // Accepted
-		{
-			setting->fontComments = f;
-			fontCommentsButton->setText(setting->fontToString(f));
-			fontCommentsButton->setFont(f);
-		}
-		break;
-
-	case 3:
-		f = QFontDialog::getFont(&ok, setting->fontLists, this);
-		if (ok)  // Accepted
-		{
-			setting->fontLists = f;
-			fontListsButton->setText(setting->fontToString(f));
-			fontListsButton->setFont(f);
-		}
-		break;
-
-	case 4:
-		f = QFontDialog::getFont(&ok, setting->fontClocks, this);
-		if (ok)  // Accepted
-		{
-			setting->fontClocks = f;
-			fontClocksButton->setText(setting->fontToString(f));
-			fontClocksButton->setFont(f);
-		}
-		break;
-
-	case 5:
-		f = QFontDialog::getFont(&ok, setting->fontConsole, this);
-		if (ok)  // Accepted
-		{
-			setting->fontConsole = f;
-			fontConsoleButton->setText(setting->fontToString(f));
-			fontConsoleButton->setFont(f);
-		}
-		break;
-
-	default:
-		break;
+	QFont f = QFontDialog::getFont(&ok, font, this);
+	if (ok) {
+		font = f;
+		button->setText (setting->fontToString (f));
+		button->setFont(f);
 	}
 }
 
@@ -770,10 +716,10 @@ void PreferencesDialog::slot_reject()
 void PreferencesDialog::saveSizes()
 {
 	// save size and position of window
-	parent_cw->savePrefFrame(pos(), size());
+	client_window->savePrefFrame(pos(), size());
 
 	// update hosts
-	parent_cw->slot_cbconnect(QString());
+	client_window->slot_cbconnect(QString());
 }
 
 void PreferencesDialog::slot_add_engine()
@@ -811,21 +757,21 @@ void PreferencesDialog::slot_add_engine()
 		// check if title already exists
 		bool found = false;
 
-		for (auto h: parent_cw->m_engines)
+		for (auto h: client_window->m_engines)
 			if (h->title() == name)
 			{
 				found = true;
 				// if found, insert at current pos, and remove old item
-				parent_cw->m_engines.removeOne (h);
+				client_window->m_engines.removeOne (h);
 				break;
 			}
 
-		parent_cw->m_engines.append (new Engine (engineName->text (),
+		client_window->m_engines.append (new Engine (engineName->text (),
 							 enginePath->text (), engineArgs->text (),
 							 engineKomi->text (),
 							 engineAnalysis->isChecked (),
 							 engineSize->text ()));
-		std::sort (parent_cw->m_engines.begin (), parent_cw->m_engines.end (),
+		std::sort (client_window->m_engines.begin (), client_window->m_engines.end (),
 			   [] (Engine *a, Engine *b) { return *a < *b; });
 
 		// create entry in listview
@@ -854,11 +800,11 @@ void PreferencesDialog::clear_engine ()
 
 void PreferencesDialog::slot_delete_engine()
 {
-	for (auto h: parent_cw->m_engines) {
+	for (auto h: client_window->m_engines) {
 		if (h->title() == engineName->text())
 		{
 			// if found, delete current entry
-			parent_cw->m_engines.removeOne(h);
+			client_window->m_engines.removeOne(h);
 			delete h;
 			break;
 		}
@@ -869,7 +815,7 @@ void PreferencesDialog::slot_delete_engine()
 	// set connection titles to listview
 	ListView_engines->clear ();
 
-	for (auto h: parent_cw->m_engines)
+	for (auto h: client_window->m_engines)
 		new QListWidgetItem(h->title(), ListView_engines);
 }
 
@@ -884,7 +830,7 @@ void PreferencesDialog::slot_clickedEngines (QListWidgetItem *lvi)
 		return;
 
 	// fill host info of selected title
-	for (auto h: parent_cw->m_engines) {
+	for (auto h: client_window->m_engines) {
 		if (h->title() == lvi->text ()) {
 			engineName->setText (h->title ());
 			enginePath->setText (h->path ());
@@ -904,7 +850,7 @@ void PreferencesDialog::slot_stoneSizePercentChanged(int v)
 
 void PreferencesDialog::slot_engineChanged(const QString &title)
 {
-	for (auto h: parent_cw->m_engines)
+	for (auto h: client_window->m_engines)
 	{
 		if (h->title() == title) {
 			m_changing_engine = true;
@@ -957,23 +903,23 @@ void PreferencesDialog::slot_add_server()
 			qWarning("Failed to convert port to integer!");
 		}
 
-		for (auto h: parent_cw->hostlist)
+		for (auto h: client_window->hostlist)
 			if (h->title() == LineEdit_title->text())
 			{
 				found = true;
 				// if found, insert at current pos, and remove old item
-				parent_cw->hostlist.removeOne (h);
+				client_window->hostlist.removeOne (h);
 				break;
 			}
 
 		// insert host at its sorted position
-		parent_cw->hostlist.append(new Host(LineEdit_title->text(),
+		client_window->hostlist.append(new Host(LineEdit_title->text(),
 						    LineEdit_host->text(),
 						    tmp,
 						    LineEdit_login->text(),
 						    LineEdit_pass->text(),
 						    ComboBox_codec->currentText()));
-		std::sort (parent_cw->hostlist.begin (), parent_cw->hostlist.end (),
+		std::sort (client_window->hostlist.begin (), client_window->hostlist.end (),
 			   [] (Host *a, Host *b) { return *a < *b; });
 
 		// create entry in listview
@@ -993,11 +939,11 @@ void PreferencesDialog::slot_add_server()
 
 void PreferencesDialog::slot_delete_server()
 {
-	for (auto h: parent_cw->hostlist) {
+	for (auto h: client_window->hostlist) {
 		if (h->title() == LineEdit_title->text())
 		{
 			// if found, delete current entry
-			parent_cw->hostlist.removeOne(h);
+			client_window->hostlist.removeOne(h);
 			delete h;
 			break;
 		}
@@ -1005,7 +951,7 @@ void PreferencesDialog::slot_delete_server()
 
 	// set connection titles to listview
 	ListView_hosts->clear ();
-	for (auto h: parent_cw->hostlist)
+	for (auto h: client_window->hostlist)
 		new QListWidgetItem(h->title(), ListView_hosts);
 	insertStandardHosts();
 	clear_host ();
@@ -1105,7 +1051,7 @@ void PreferencesDialog::slot_cbtitle(const QString &txt)
 	else
 	{
 		// fill host info of selected title
-		for (auto h: parent_cw->hostlist) {
+		for (auto h: client_window->hostlist) {
 			if (h->title() == txt)
 			{
 				LineEdit_title->setText(h->title());
@@ -1122,7 +1068,7 @@ void PreferencesDialog::slot_cbtitle(const QString &txt)
 
 void PreferencesDialog::slot_serverChanged(const QString &title)
 {
-	for (auto h: parent_cw->hostlist)
+	for (auto h: client_window->hostlist)
 	{
 		if (h->title() == title) {
 			m_changing_host = true;
@@ -1141,29 +1087,29 @@ void PreferencesDialog::on_soundButtonGroup_buttonClicked(QAbstractButton *cb)
 	qDebug() << "button text = " << cb->text();
 
 	if (cb->text() == tr("Stones"))
-		setting->qgo->playClick();
+		qgo->playClick();
 	else if (cb->text() == tr("Pass"))
-		setting->qgo->playPassSound();
+		qgo->playPassSound();
 	else if (cb->text() == tr("Autoplay"))
-		setting->qgo->playAutoPlayClick();
+		qgo->playAutoPlayClick();
 	else if (cb->text().startsWith(tr("Time"), Qt::CaseInsensitive))
-		setting->qgo->playTimeSound();
+		qgo->playTimeSound();
 	else if (cb->text() == tr("Talk"))
-		setting->qgo->playTalkSound();
+		qgo->playTalkSound();
 	else if (cb->text() == tr("Say"))
-		setting->qgo->playSaySound();
+		qgo->playSaySound();
 	else if (cb->text() == tr("Match"))
-		setting->qgo->playMatchSound();
+		qgo->playMatchSound();
 	else if (cb->text() == tr("Enter"))
-		setting->qgo->playEnterSound();
+		qgo->playEnterSound();
 	else if (cb->text() == tr("Game end"))
-		setting->qgo->playGameEndSound();
+		qgo->playGameEndSound();
 	else if (cb->text() == tr("Leave"))
-		setting->qgo->playLeaveSound();
+		qgo->playLeaveSound();
 	else if (cb->text() == tr("Disconnect"))
-		setting->qgo->playDisConnectSound();
+		qgo->playDisConnectSound();
 	else if (cb->text() == tr("Connect"))
-		setting->qgo->playConnectSound();
+		qgo->playConnectSound();
 }
 
 void PreferencesDialog::slot_getComputerPath()

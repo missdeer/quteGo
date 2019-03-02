@@ -7,9 +7,14 @@
 #include <QWhatsThis>
 #include <QMessageBox>
 #include <QTimerEvent>
-#include <QKeyEvent>
 #include <QMenu>
 #include <QAction>
+#include <QComboBox>
+#include <QCheckBox>
+#include <QLabel>
+#include <QStatusBar>
+#include <QToolButton>
+#include <QIcon>
 
 #include "clientwin.h"
 #include "defines.h"
@@ -24,18 +29,6 @@
 #include "ui_helpers.h"
 #include "msg_handler.h"
 #include "dbdialog.h"
-
-#include <qaction.h>
-#include <qcombobox.h>
-#include <qcheckbox.h>
-#include <qtabwidget.h>
-#include <qlabel.h>
-#include <qlineedit.h>
-#include <qevent.h>
-#include <qstatusbar.h>
-#include <qtooltip.h>
-#include <qtoolbutton.h>
-#include <qicon.h>
 
 ClientWindow *client_window;
 
@@ -57,7 +50,6 @@ ClientWindow::ClientWindow(QMainWindow *parent)
 
 	// init
 
-	setting->cw = this;
 	setWindowIcon (QIcon (":/ClientWindowGui/images/clientwindow/qgo.png"));
 	myAccount = new Account(this);
 
@@ -67,7 +59,6 @@ ClientWindow::ClientWindow(QMainWindow *parent)
 	cmd_valid = false;
 	tn_ready = false;
 	tn_wait_for_tn_ready = false;
-//	tn_active = false;
 	extUserInfo = false;
 	youhavemsg = false;
 	playerListEmpty = true;
@@ -86,24 +77,20 @@ ClientWindow::ClientWindow(QMainWindow *parent)
 
  	escapeFocus = new QAction(this);
 	escapeFocus->setShortcut(Qt::Key_Escape);
-	connect(escapeFocus, &QAction::triggered, [=] () { setFocus (); });
+	connect (escapeFocus, &QAction::triggered, [=] () { setFocus (); });
 	cb_cmdLine->addAction (escapeFocus);
 
 	// create instance of telnetConnection
 	telnetConnection = new TelnetConnection(this, ListView_players, ListView_games);
 
 	// doubleclick
-	connect(ListView_games, SIGNAL(signal_doubleClicked(QTreeWidgetItem*)), this,
-		SLOT(slot_click_games(QTreeWidgetItem*)));
-	connect(ListView_players, SIGNAL(signal_doubleClicked(QTreeWidgetItem *)), this,
-		SLOT(slot_click_players(QTreeWidgetItem*)));
+	connect (ListView_games, &GamesTable::signal_doubleClicked, this, &ClientWindow::slot_click_games);
+	connect (ListView_players, &PlayerTable::signal_doubleClicked, this, &ClientWindow::slot_click_players);
 
-	connect(ListView_players, SIGNAL(customContextMenuRequested(const QPoint&)),
-		this, SLOT(slot_menu_players(const QPoint&)));
-	connect(ListView_games, SIGNAL(customContextMenuRequested(const QPoint&)),
-		this, SLOT(slot_menu_games(const QPoint&)));
+	connect (ListView_players, &PlayerTable::customContextMenuRequested, this, &ClientWindow::slot_menu_players);
+	connect (ListView_games, &GamesTable::customContextMenuRequested, this, &ClientWindow::slot_menu_games);
 
-	connect(whoOpenCheck, &QCheckBox::toggled, this, &ClientWindow::slot_whoopen);
+	connect (whoOpenCheck, &QCheckBox::toggled, this, &ClientWindow::slot_whoopen);
 
 	initStatusBar(this);
 	initActions();
@@ -213,21 +200,6 @@ ClientWindow::ClientWindow(QMainWindow *parent)
 		view_s = QSize();
 	}
 
-	// restore size of menu window
-	s = setting->readEntry("MENUWINDOW");
-	if (s.length() > 5)
-	{
-		menu_p.setX(s.section(DELIMITER, 0, 0).toInt());
-		menu_p.setY(s.section(DELIMITER, 1, 1).toInt());
-		menu_s.setWidth(s.section(DELIMITER, 2, 2).toInt());
-		menu_s.setHeight(s.section(DELIMITER, 3, 3).toInt());
-	}
-	else
-	{
-		menu_p = QPoint();
-		menu_s = QSize();
-	}
-
 	// restore size of preferences window
 	s = setting->readEntry("PREFWINDOW");
 	if (s.length() > 5)
@@ -292,12 +264,6 @@ ClientWindow::ClientWindow(QMainWindow *parent)
 	connect(qgo, &qGo::signal_updateFont, this, &ClientWindow::slot_updateFont);
 	connect(parser, &Parser::signal_timeAdded, qgoif, &qGoIF::slot_timeAdded);
 	//connect(parser, &Parser::signal_undoRequest, qgoif, &qGoIF::slot_undoRequest);
-
-#if 0
-	//gamestable
-//	connect(ListView_players, SIGNAL(contentsMoving(int, int)), this, SLOT(slot_playerContentsMoving(int, int)));
-	connect(ListView_games, SIGNAL(contentsMoving(int, int)), this, SLOT(slot_gamesContentsMoving(int, int)));
-#endif
 
 	slot_updateFont();
 
@@ -387,7 +353,7 @@ void ClientWindow::timerEvent(QTimerEvent* e)
 //	static int statusCnt = 0;
 	static QString statusTxt = QString();
 	static int imagecounter = 0;
-	
+
 	//qDebug( "timer event, id %d", e->timerId() );
 
 	if (e->timerId() == seekButtonTimer)
@@ -412,25 +378,7 @@ void ClientWindow::timerEvent(QTimerEvent* e)
 		holdTheLine = true;
 		autoAwayMessage = false;
 	}
-/*	else if (!tn_active)
-	{
-		qDebug("---> sending forced!!!");
-		// case: not ready to send, waiting too long -> force sending
-		tnwait = 0;
-		set_tn_ready();
-	}
-	else
-		qDebug("---> not forced because of tn_active");
-*/
-	// show status bar text for 5 seconds
-/*	if (statusTxt != statusMessage->text())
-	{
-		statusTxt = statusMessage->text();
-		statusCnt = 5;
-	}
-	if (statusCnt-- == 0)
-		statusMessage->setText("");
-*/
+
 	if (counter % 300 == 0)
 	{
 		// 5 mins away -> set auto answering
@@ -577,6 +525,11 @@ void ClientWindow::slot_connclosed()
 
 	qgo->playConnectSound();
 
+	auto saved_list = matchlist;
+	matchlist.clear ();
+	for (auto it: saved_list)
+		delete it;
+
 	// show current Server name in status bar
 	statusServer->setText(" OFFLINE ");
 
@@ -653,13 +606,6 @@ void ClientWindow::saveSettings()
 			QString::number(debug_dialog->size().width()) + DELIMITER +
 			QString::number(debug_dialog->size().height()));
 
-	if (menu_s.width() > 0)
-		setting->writeEntry("MENUWINDOW",
-			QString::number(menu_p.x()) + DELIMITER +
-			QString::number(menu_p.y()) + DELIMITER +
-			QString::number(menu_s.width()) + DELIMITER +
-			QString::number(menu_s.height()));
-
 	if (pref_s.width() > 0)
 		setting->writeEntry("PREFWINDOW",
 			QString::number(pref_p.x()) + DELIMITER +
@@ -692,21 +638,17 @@ void ClientWindow::slot_last_window_closed ()
 }
 
 // distribute text from telnet session and local commands to tables
-void ClientWindow::sendTextToApp(const QString &txt)
+void ClientWindow::sendTextToApp (const QString &txt)
 {
 	static int store_sort_col = -1;
 	static int store_games_sort_col = -1;
 	static bool player7active = false;
 
 	// put text to parser
- 	InfoType it_ = parser->put_line(txt);
+ 	InfoType it_ = parser->put_line (txt);
 
 	// some statistics
-	setBytesIn(txt.length()+2);
-
-//	if (it_ != READY)
-		// a input is being parsed -> wait until tn_active == false before sending new cmd
-//		tn_active = true;
+	setBytesIn (txt.length ()+2);
 
 	// GAME7_END emulation:
 	if (player7active && it_ != GAME7)
@@ -720,192 +662,183 @@ void ClientWindow::sendTextToApp(const QString &txt)
 
 	switch (it_)
 	{
-		case READY:
-			// ok, telnet is ready to receive commands
-//			tn_active = false;
-			if (!tn_wait_for_tn_ready && !tn_ready)
-			{
-				QTimer::singleShot(200, this, SLOT(set_tn_ready()));
-				tn_wait_for_tn_ready = true;
-			}
-			sendTextFromApp (nullptr);
-		case WS:
-			// ready or white space -> return
-			return;
+	case READY:
+		if (!tn_wait_for_tn_ready && !tn_ready)
+		{
+			QTimer::singleShot (200, this, &ClientWindow::set_tn_ready);
+			tn_wait_for_tn_ready = true;
+		}
+		sendTextFromApp (nullptr);
+	case WS:
+		// ready or white space -> return
+		return;
 
 		// echo entered command
 		// echo server enter line
-		case CMD:
-			slot_message(txt);
-			break;
+	case CMD:
+		slot_message (txt);
+		break;
 
 		// set client mode
-		case NOCLIENTMODE:
-			set_sessionparameter("client", true);
-			break;
+	case NOCLIENTMODE:
+		set_sessionparameter ("client", true);
+		break;
 
-		case YOUHAVEMSG:
-			// normally no connection -> wait until logged in
-	        	youhavemsg = true;
-			break;
+	case YOUHAVEMSG:
+		// normally no connection -> wait until logged in
+		youhavemsg = true;
+		break;
 
-		case SERVERNAME:
-			slot_message(txt);
-			// clear send buffer
-			do
-			{
-				// enable sending
-				set_tn_ready();
-			} while (sendTextFromApp (nullptr) != 0);
+	case SERVERNAME:
+		slot_message (txt);
+		// clear send buffer
+		do
+		{
+			// enable sending
+			set_tn_ready ();
+		} while (sendTextFromApp (nullptr) != 0);
 
-			// check if tables are sorted
+		// check if tables are sorted
 #if 0 && (QT_VERSION > 0x030006)
-			if (ListView_players->sortColumn() == -1)
-				ListView_players->setSorting(2);
-			if (ListView_games->sortColumn() == -1)
-				ListView_games->setSorting(2);
+		if (ListView_players->sortColumn () == -1)
+			ListView_players->setSorting (2);
+		if (ListView_games->sortColumn () == -1)
+			ListView_games->setSorting (2);
 #endif
 
-			switch(myAccount->get_gsname())
+		switch (myAccount->get_gsname ())
+		{
+		case IGS:
+		{
+			// IGS - check if client mode
+			bool ok;
+			txt.section (' ', 0, 0).toInt (&ok);
+			if (!ok)
+				set_sessionparameter ("client", true);
+
+			// set quiet true; refresh players, games
+			//if (myAccount->get_status () == Status::guest)
+			set_sessionparameter ("quiet", true);
+			sendcommand ("id " PACKAGE " " VERSION, true);
+			sendcommand ("toggle newrating");
+
+			// we wanted to allow user to disable 'nmatch', but IGS disables 'seek' with nmatch
+			if (1 || setting->readBoolEntry ("USE_NMATCH"))
 			{
-				case IGS:
-				{
-					// IGS - check if client mode
-					bool ok;
-					/*int cmd_nr =*/ txt.section(' ', 0, 0).toInt(&ok);
-					if (!ok)
-						set_sessionparameter("client", true);
-
-					// set quiet true; refresh players, games
-					//if (myAccount->get_status() == Status::guest)
-					set_sessionparameter("quiet", true);
-					//else
-					// set id - only available if registerd; who knows why...
-					sendcommand("id qGo " + QString(VERSION), true);
-					sendcommand("toggle newrating");
-//					if (setting->readBoolEntry("USE_NMATCH"))
-//					{
-// we wanted to allow user to disable 'nmatch', but IGS disables 'seek' with nmatch
-					set_sessionparameter("nmatch",true);
-
-						//temporaary settings to prevent use of Koryo BY on IGS (as opposed to canadian)
-						//sendcommand("nmatchrange BWN 0-9 19-19 60-60 60-3600 25-25 0 0 0-0",false);
-					send_nmatch_range_parameters();
-//					}
-					sendcommand("toggle newundo");
-					sendcommand("toggle seek");
-					sendcommand("seek config_list ");
-					sendcommand("room");
-						
-					slot_refresh(11);
-					slot_refresh(10);
-					break;
-				}
-					
-				default:
-					set_sessionparameter("client", true);
-					// set quiet false; refresh players, games
-					//if (myAccount->get_status() == Status::guest)
-					set_sessionparameter("quiet", false);
-					slot_refresh(11);
-					if (myAccount->get_gsname() != CWS)
-						slot_refresh(10);
-					break;
+				set_sessionparameter ("nmatch",true);
+				// temporaary settings to prevent use of Koryo BY on IGS (as opposed to canadian)
+				// sendcommand("nmatchrange BWN 0-9 19-19 60-60 60-3600 25-25 0 0 0-0",false);
+				send_nmatch_range_parameters ();
 			}
 
-			// set menu
-			Connect->setEnabled(false);
-			Disconnect->setEnabled(true);
-			toolConnect->setChecked(true);
-			toolConnect->setToolTip (tr("Disconnect from") + " " + cb_connect->currentText());
+			sendcommand ("toggle newundo");
+			sendcommand ("toggle seek");
+			sendcommand ("seek config_list ");
+			sendcommand ("room");
 
-			// quiet mode? if yes do clear table before refresh
-			gamesListSteadyUpdate = ! setQuietMode->isChecked();
-			playerListSteadyUpdate = ! setQuietMode->isChecked();
-
-
-			// enable extended user info features
-			setColumnsForExtUserInfo();
-
-			// check for messages
-			if (youhavemsg)
-				sendcommand("message", false);
-
-			// let qgo know which server
-			qgoif->set_gsName(myAccount->get_gsname());
-			// show current Server name in status bar
-			statusServer->setText(" " + myAccount->svname + " ");
-
-			// start timer: event every second
-			onlineCount = 0;
-			oneSecondTimer = startTimer(1000);
-			// init shouts
-			slot_talk("Shouts*", QString::null, false);
-			
-			qgo->playConnectSound();
+			slot_refresh (11);
+			slot_refresh (10);
 			break;
-
-		// end of 'who'/'user' cmd
-		case PLAYER42_END:
-		case PLAYER27_END:
-			ListView_players->setSortingEnabled (true);
-			if (store_sort_col != -1)
-				ListView_players->sortItems (store_sort_col, Qt::AscendingOrder);
-
-			if (myAccount->get_gsname()==IGS)
-				ListView_players->showOpen(whoOpenCheck->isChecked());
-			playerListEmpty = false;
-			break;
-
-		// skip table if initial table is to be loaded
-		case PLAYER27_START:
-		case PLAYER42_START:
-			store_sort_col = ListView_players->sortColumn ();
-			ListView_players->setSortingEnabled (false);
-
-			if (playerListEmpty)
-				prepare_tables(WHO);
-			break;
-
-		case GAME7_START:
-			// "emulate" GAME7_END
-			player7active = true;
-			// disable sorting for fast operation; store sort column index
-			// unfortunately there is not GAME7_END cmd, thus, it's emulated
-			if (playerListEmpty)
-			{
-				// only if playerListEmpty, else PLAYERXX_END would not arise
-				store_games_sort_col = ListView_games->sortColumn ();
-				ListView_games->setSortingEnabled (false);
-			}
-			break;
-
-		case ACCOUNT:
-			// let qgo and parser know which account in case of setting something for own games
-			qgoif->set_myName(myAccount->acc_name);
-			parser->set_myname(myAccount->acc_name);
-			break;
-
-
-	case STATS:
-	  // we just received a players name as first line of stats -> create the dialog tab
-
-       // if (!talklist.current())
-	slot_talk( parser->get_statsPlayer()->name, QString::null,true);
-        
-        //else if (parser->get_statsPlayer()->name != talklist.current()->get_name())
-        //    slot_talk( parser->get_statsPlayer()->name,0,true);
-
-      break;
-      
-		case BEEP:
-//			QApplication::beep();
-			break;
+		}
 
 		default:
+			set_sessionparameter ("client", true);
+			// set quiet false; refresh players, games
+			//if (myAccount->get_status() == Status::guest)
+			set_sessionparameter ("quiet", false);
+			slot_refresh (11);
+			if (myAccount->get_gsname () != CWS)
+				slot_refresh (10);
 			break;
+		}
+
+		// set menu
+		Connect->setEnabled (false);
+		Disconnect->setEnabled (true);
+		toolConnect->setChecked (true);
+		toolConnect->setToolTip (tr ("Disconnect from") + " " + cb_connect->currentText ());
+
+		// quiet mode? if yes do clear table before refresh
+		gamesListSteadyUpdate = ! setQuietMode->isChecked ();
+		playerListSteadyUpdate = ! setQuietMode->isChecked ();
+
+		// enable extended user info features
+		setColumnsForExtUserInfo ();
+
+		// check for messages
+		if (youhavemsg)
+			sendcommand ("message", false);
+
+		// let qgo know which server
+		qgoif->set_gsName (myAccount->get_gsname ());
+		// show current Server name in status bar
+		statusServer->setText (" " + myAccount->svname + " ");
+
+		// start timer: event every second
+		onlineCount = 0;
+		oneSecondTimer = startTimer (1000);
+		// init shouts
+		slot_talk ("Shouts*", QString::null, false);
+
+		qgo->playConnectSound ();
+		break;
+
+		// end of 'who'/'user' cmd
+	case PLAYER42_END:
+	case PLAYER27_END:
+		ListView_players->setSortingEnabled (true);
+		if (store_sort_col != -1)
+			ListView_players->sortItems (store_sort_col, Qt::AscendingOrder);
+
+		if (myAccount->get_gsname () == IGS)
+			ListView_players->showOpen (whoOpenCheck->isChecked ());
+		playerListEmpty = false;
+		break;
+
+		// skip table if initial table is to be loaded
+	case PLAYER27_START:
+	case PLAYER42_START:
+		store_sort_col = ListView_players->sortColumn ();
+		ListView_players->setSortingEnabled (false);
+
+		if (playerListEmpty)
+			prepare_tables (WHO);
+		break;
+
+	case GAME7_START:
+		// "emulate" GAME7_END
+		player7active = true;
+		// disable sorting for fast operation; store sort column index
+		// unfortunately there is not GAME7_END cmd, thus, it's emulated
+		if (playerListEmpty) {
+			// only if playerListEmpty, else PLAYERXX_END would not arise
+			store_games_sort_col = ListView_games->sortColumn ();
+			ListView_games->setSortingEnabled (false);
+		}
+		break;
+
+	case ACCOUNT:
+		// let qgo and parser know which account in case of setting something for own games
+		qgoif->set_myName (myAccount->acc_name);
+		parser->set_myname (myAccount->acc_name);
+		break;
+
+	case STATS:
+		// we just received a players name as first line of stats -> create the dialog tab
+		slot_talk (parser->get_statsPlayer ()->name, QString::null, true);
+
+		break;
+
+	case BEEP:
+#if 0
+		QApplication::beep ();
+#endif
+		break;
+
+	default:
+		break;
 	}
-	qDebug() << txt;
+	qDebug () << txt;
 }
 
 // used for singleShot actions
@@ -1032,15 +965,6 @@ void ClientWindow::sendcommand(const QString &cmd, bool localecho)
 void ClientWindow::slot_sendcommand(const QString &cmd, bool localecho)
 {
 	sendcommand(cmd, localecho);
-}
-
-void ClientWindow::slot_toolbaractivated(const QString &cmd)
-{
-	// do some cmd lind checks for toolbar too
-	bool valid_marker = cmd_valid;
-	cmd_valid = true;
-	slot_cmdactivated(cmd);
-	cmd_valid = valid_marker;
 }
 
 // return pressed in edit line -> command to send
@@ -1551,58 +1475,28 @@ void ClientWindow::slot_matchrequest(const QString &line, bool myrequest)
 			break;
 		}
 
+	GSName gs = myAccount->get_gsname ();
 	if (!dlg)
 	{
-		dlg = new GameDialog(0, tr("New Game"));
+		dlg = new GameDialog (0, gs, myAccount->acc_name);
 		matchlist.append (dlg);
 
-		if (myAccount->get_gsname() == NNGS || myAccount->get_gsname() == LGS)
+		if (gs == NNGS || gs == LGS)
 		{
 			// now connect suggest signal
-			connect(parser,
-				SIGNAL(signal_suggest(const QString&, const QString&, const QString&, const QString&, int)),
-				dlg,
-				SLOT(slot_suggest(const QString&, const QString&, const QString&, const QString&, int)));
+			connect (parser, &Parser::signal_suggest, dlg, &GameDialog::slot_suggest);
 		}
 
-		connect(dlg,SIGNAL(signal_removeDialog(dlg)), this, SLOT(slot_removeDialog(dlg)));
+		connect (dlg, &GameDialog::signal_sendcommand, this, &ClientWindow::slot_sendcommand);
+		connect (dlg, &GameDialog::signal_removeDialog, this, &ClientWindow::slot_removeMatchDialog);
 
-		connect(dlg,
-			SIGNAL(signal_sendcommand(const QString&, bool)),
-			this,
-			SLOT(slot_sendcommand(const QString&, bool)));
+		connect (parser, &Parser::signal_matchcreate, dlg, &GameDialog::slot_matchcreate);
+		connect (parser, &Parser::signal_notopen, dlg, &GameDialog::slot_notopen);
+		connect (parser, &Parser::signal_komirequest, dlg, &GameDialog::slot_komirequest);
+		connect (parser, &Parser::signal_opponentopen, dlg, &GameDialog::slot_opponentopen);
+		connect (parser, &Parser::signal_dispute, dlg, &GameDialog::slot_dispute);
 
-		connect(dlg,
-			SIGNAL(signal_removeDialog(const QString&)),
-			this,
-			SLOT(slot_removeMatchDialog(const QString&)));
-
-
-		connect(parser,
-			SIGNAL(signal_matchcreate(const QString&, const QString&)),
-			dlg,
-			SLOT(slot_matchcreate(const QString&, const QString&)));
-		connect(parser,
-			SIGNAL(signal_notopen(const QString&)),
-			dlg,
-			SLOT(slot_notopen(const QString&)));
-		connect(parser,
-			SIGNAL(signal_komirequest(const QString&, int, float, bool)),
-			dlg,
-			SLOT(slot_komirequest(const QString&, int, float, bool)));
-		connect(parser,
-			SIGNAL(signal_opponentopen(const QString&)),
-			dlg,
-			SLOT(slot_opponentopen(const QString&)));
-		connect(parser,
-			SIGNAL(signal_dispute(const QString&, const QString&)),
-			dlg,
-			SLOT(slot_dispute(const QString&, const QString&)));
-
-		connect(dlg,
-			SIGNAL(signal_matchsettings(const QString&, const QString&, const QString&, assessType)),
-			qgoif,
-			SLOT(slot_matchsettings(const QString&, const QString&, const QString&, assessType)));
+		connect (dlg, &GameDialog::signal_matchsettings, qgoif, &qGoIF::slot_matchsettings);
 	}
 
 	if (myrequest)
@@ -1610,14 +1504,8 @@ void ClientWindow::slot_matchrequest(const QString &line, bool myrequest)
 		QString rk = line.section(' ', 1, 1);
 
 		// set values
-		/*dlg->playerWhiteEdit->setText(myAccount->acc_name);
-		dlg->playerWhiteEdit->setReadOnly(true);
-		dlg->playerBlackEdit->setText(opponent);
-		dlg->playerBlackEdit->setReadOnly(false);
-		*/
 		dlg->playerOpponentEdit->setText(opponent);
 		dlg->playerOpponentEdit->setReadOnly(true);
-		dlg->set_myName( myAccount->acc_name);
 
 		// set my and opponent's rank for suggestion
 		dlg->set_oppRk(rk);
@@ -1625,7 +1513,6 @@ void ClientWindow::slot_matchrequest(const QString &line, bool myrequest)
 		rk = myAccount->get_rank();
 		dlg->set_myRk(rk);
 		//dlg->playerWhiteRkEdit->setText(rk);
-		dlg->set_gsName(myAccount->get_gsname());
 		dlg->handicapSpin->setEnabled(false);
 
 		dlg->buttonDecline->setDisabled(true);
@@ -1731,39 +1618,17 @@ void ClientWindow::slot_matchrequest(const QString &line, bool myrequest)
 		dlg->playerOpponentEdit->setText(opponent);
 		dlg->playerOpponentEdit->setReadOnly(true);
 		dlg->playerOpponentRkEdit->setText(rk);
-		dlg->set_myName( myAccount->acc_name);
 
 		if (opp_plays_white)
-		{
-/*			dlg->playerBlackEdit->setText(myAccount->acc_name);
-			dlg->playerBlackEdit->setReadOnly(true);
-			dlg->playerBlackRkEdit->setText(myAccount->get_rank());
-			dlg->playerWhiteEdit->setText(opponent);
-			dlg->playerWhiteEdit->setReadOnly(false);
-			dlg->playerWhiteRkEdit->setText(rk);
-*/
-			dlg->play_black_button->setChecked(true);
-
-
-		}
+			dlg->play_black_button->setChecked (true);
 		else if (opp_plays_nigiri)
-		{
-/*			dlg->playerWhiteEdit->setText(myAccount->acc_name);
-			dlg->playerWhiteEdit->setReadOnly(true);
-			dlg->playerWhiteRkEdit->setText(myAccount->get_rank());
-			dlg->playerBlackEdit->setText(opponent);
-			dlg->playerBlackEdit->setReadOnly(false);
-			dlg->playerBlackRkEdit->setText(rk);
-*/
-			dlg->play_nigiri_button->setChecked(true);
-		}
+			dlg->play_nigiri_button->setChecked (true);
 		else
-			dlg->play_white_button->setChecked(true);
+			dlg->play_white_button->setChecked (true);
 
 		dlg->buttonDecline->setEnabled(true);
 		dlg->buttonOffer->setText(tr("Accept"));
 		dlg->buttonCancel->setDisabled(true);
-
 	}
 
 	dlg->slot_changed();
@@ -2025,15 +1890,12 @@ void ClientWindow::slot_mouse_players(int button, QTreeWidgetItem *lv)
 }
 
 // release Talk Tabs
-void ClientWindow::slot_pbRelTabs()
+void ClientWindow::slot_pbRelTabs ()
 {
 	// seek dialog
 	for (auto dlg: talklist) {
-		if (dlg->get_name().indexOf('*') == -1)
-		{
-			TabWidget_mini_2->removeTab (TabWidget_mini_2->indexOf (dlg->get_tabWidget ()));
-			dlg->pageActive = false;
-		}
+		if (dlg->get_name ().indexOf ('*') == -1)
+			TabWidget_mini_2->removeTab (TabWidget_mini_2->indexOf (dlg));
 	}
 }
 
@@ -2043,10 +1905,8 @@ void ClientWindow::slot_pbRelOneTab()
 	QWidget *w = qobject_cast<QWidget *>(sender());
 	// seek dialog
 	for (auto dlg: talklist) {
-		if (dlg->get_tabWidget() == w)
-		{
+		if (dlg == w) {
 			TabWidget_mini_2->removeTab (TabWidget_mini_2->indexOf (w));
-			dlg->pageActive = false;
 			return;
 		}
 	}
@@ -2084,15 +1944,13 @@ void ClientWindow::slot_talk(const QString &name, const QString &text, bool ispl
 
 	if (!dlg && !name.isEmpty () && name != tr ("msg*")) {
 		// not found -> create new dialog
-		dlg = new Talk(name, 0, isplayer);
+		dlg = new Talk (name, 0, isplayer);
 		talklist.append (dlg);
 
-		connect(dlg, SIGNAL(signal_talkto(QString&, QString&)), this, SLOT(slot_talkto(QString&, QString&)));
-		connect(dlg, SIGNAL(signal_matchrequest(const QString&,bool)), this, SLOT(slot_matchrequest(const QString&,bool)));
-		connect(dlg->get_le(), SIGNAL(returnPressed()), dlg, SLOT(slot_returnPressed()));
-		connect(dlg, SIGNAL(signal_pbRelOneTab()), this, SLOT(slot_pbRelOneTab()));
+		connect (dlg, &Talk::signal_talkto, this, &ClientWindow::slot_talkto);
+		connect (dlg, &Talk::signal_matchrequest, this, &ClientWindow::slot_matchrequest);
+		connect (dlg, &Talk::signal_pbRelOneTab, this, &ClientWindow::slot_pbRelOneTab);
 
-		dlg->pageActive = false;
 		if (!name.isEmpty() && isplayer)
 			slot_sendcommand("stats " + name, false);    // automatically request stats
 
@@ -2102,17 +1960,15 @@ void ClientWindow::slot_talk(const QString &name, const QString &text, bool ispl
 	}
 	if (dlg) {
 		dlg->write(txt);
-		QWidget *w = dlg->get_tabWidget ();
-		if (!dlg->pageActive)
+		if (dlg->parentWidget () != TabWidget_mini_2)
 		{
-			TabWidget_mini_2->addTab(w, dlg->get_name());
-			dlg->pageActive = true;
+			TabWidget_mini_2->addTab (dlg, dlg->get_name());
 			if (name != tr("Shouts*"))
-				TabWidget_mini_2->setCurrentIndex(TabWidget_mini_2->indexOf (w));
+				TabWidget_mini_2->setCurrentIndex (TabWidget_mini_2->indexOf (dlg));
 		}
 	}
 	// check if it was a channel message
-	autoAnswer &= (isplayer && autoAwayMessage && !name.contains('*') && (!text.isEmpty () && text[0] == '>'));
+	autoAnswer &= isplayer && autoAwayMessage && !name.contains('*') && text.startsWith ('>');
 	if (autoAnswer)
 	{
 		// send when qGo is NOT the active application - TO DO
@@ -2120,14 +1976,10 @@ void ClientWindow::slot_talk(const QString &name, const QString &text, bool ispl
 	}
 
 	// play a sound - not for shouts
-	if ((!text.isEmpty() && text[0] == '>' && bonus || !dlg->get_le()->hasFocus()) && !name.contains('*'))
+	if (((text.startsWith ('>') && bonus) || !dlg->lineedit_has_focus()) && !name.contains('*'))
 	{
 		qgo->playTalkSound();
-
-		// set cursor to last line
-		//dlg->get_mle()->setCursorPosition(dlg->get_mle()->lines(), 999); //eb16
-		dlg->get_mle()->append("");                                        //eb16
-		//dlg->get_mle()->removeParagraph(dlg->get_mle()->paragraphs()-2);   //eb16
+		dlg->append_to_mle ("");
 
 		// write time stamp
 		MultiLineEdit3->append(statusOnlineTime->text() + " " + name + (autoAnswer ? " (A)" : ""));
@@ -2135,11 +1987,7 @@ void ClientWindow::slot_talk(const QString &name, const QString &text, bool ispl
 	else if (name == tr("msg*"))
 	{
 		qgo->playTalkSound();
-
-		// set cursor to last line
-//		dlg->get_mle()->setCursorPosition(dlg->get_mle()->numLines(), 999); //eb16
-		dlg->get_mle()->append(""); //eb16
-//		dlg->get_mle()->removeParagraph(dlg->get_mle()->paragraphs()-2);   //eb16
+		dlg->append_to_mle ("");
 
 		// write time stamp
 		MultiLineEdit3->append(tr("Message") + ": " + text);
@@ -2211,32 +2059,12 @@ void ClientWindow::slot_preferences(bool)
 	dlgSetPreferences ();
 }
 
-/*
-// set Cursor to last position
-void ClientWindow::slot_tabWidgetMainChanged(QWidget *w)
-{
-	if (w->child("MultiLineEdit_messages"))
-	{
-		MultiLineEdit_messages->setCursorPosition(MultiLineEdit_messages->numLines(), 999);
-		MultiLineEdit_messages->insertLine("");
-		MultiLineEdit_messages->removeLine(MultiLineEdit_messages->numLines()-2);
-		return;
-	}
-	if (w->child("MultiLineEdit2"))
-	{
-		MultiLineEdit2->setCursorPosition(MultiLineEdit2->numLines(), 999);
-		MultiLineEdit2->insertLine("");
-		MultiLineEdit2->removeLine(MultiLineEdit2->numLines()-2);
-	}
-}
-*/
-
 void ClientWindow::initActions()
 {
-
-// signals and slots connections
-	connect( cb_cmdLine, SIGNAL( activated(int) ), this, SLOT( slot_cmdactivated_int(int) ) );
-	connect( cb_cmdLine, SIGNAL( activated(const QString&) ), this, SLOT( slot_cmdactivated(const QString&) ) );
+	void (QComboBox::*cact1) (int) = &QComboBox::activated;
+	void (QComboBox::*cact2) (const QString &) = &QComboBox::activated;
+	connect (cb_cmdLine, cact1, this, &ClientWindow::slot_cmdactivated_int);
+	connect (cb_cmdLine, cact2, this, &ClientWindow::slot_cmdactivated);
 
 	ListView_games->setWhatsThis (tr("Table of games\n\n"
 		"right click to observe\n\n"
@@ -2320,10 +2148,10 @@ void ClientWindow::initActions()
 	/*
 	* Menu View
 	*/
-	connect(viewToolBar, SIGNAL(toggled(bool)), this, SLOT(slotViewToolBar(bool)));
-	connect(viewMenuBar, SIGNAL(toggled(bool)), this, SLOT(slotViewMenuBar(bool)));
+	connect(viewToolBar, &QAction::toggled, this, &ClientWindow::slotViewToolBar);
+	connect(viewMenuBar, &QAction::toggled, this, &ClientWindow::slotViewMenuBar);
 	viewStatusBar->setWhatsThis(tr("Statusbar\n\nEnables/disables the statusbar."));
-	connect(viewStatusBar, SIGNAL(toggled(bool)), this, SLOT(slotViewStatusBar(bool)));
+	connect(viewStatusBar, &QAction::toggled, this, &ClientWindow::slotViewStatusBar);
 
 	/*
 	* Menu Help
@@ -2638,7 +2466,6 @@ void ClientWindow::slot_SeekList(const QString& player, const QString& condition
 */
 void ClientWindow::send_nmatch_range_parameters()
 {
-	
 	if (myAccount->get_gsname() != IGS || myAccount->get_status() == Status::offline)
 		return;
 
@@ -2659,7 +2486,7 @@ void ClientWindow::send_nmatch_range_parameters()
 	c.append("-");
 	c.append(QString::number(setting->readIntEntry("NMATCH_BYO_TIME")*60));
 	c.append(" 25-25 0 0 0-0");
-	
+
 	sendcommand(c, true);
 }
 
@@ -2667,11 +2494,8 @@ void ClientWindow::dlgSetPreferences(int tab)
 {
 	PreferencesDialog dlg;
 
-	if (tab >= 0)
-	{
-		if (dlg.tabWidget->count() <= tab+1)
-			dlg.tabWidget->setCurrentIndex (tab);
-	}
+	if (tab >= 0 && tab < dlg.tabWidget->count())
+		dlg.tabWidget->setCurrentIndex (tab);
 
 	if (dlg.exec() == QDialog::Accepted)
 	{
@@ -2682,15 +2506,15 @@ void ClientWindow::dlgSetPreferences(int tab)
 bool ClientWindow::preferencesAccept()
 {
 	// Update all boards with settings
-	setting->qgo->updateAllBoardSettings();
-	setting->qgo->updateFont();
+	qgo->updateAllBoardSettings();
+	qgo->updateFont();
 	if (db_dialog != nullptr)
 		db_dialog->update_prefs ();
 
 	if (setting->nmatch_settings_modified)
 	{
-		setting->cw->send_nmatch_range_parameters();
-		setting->nmatch_settings_modified = false ;
+		send_nmatch_range_parameters();
+		setting->nmatch_settings_modified = false;
 	}
 
 	return true;//result;

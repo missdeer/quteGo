@@ -69,14 +69,11 @@ MainWindow::MainWindow(QWidget* parent, std::shared_ptr<game_record> gr, Archive
 	   uninitialized reads).  */
 	m_gamemode = mode;
 
-	setProperty("icon", setting->image0);
 	setAttribute (Qt::WA_DeleteOnClose);
 	setDockNestingEnabled (true);
 
 	isFullScreen = 0;
 	setFocusPolicy(Qt::StrongFocus);
-
-	setWindowIcon (setting->image0);
 
 	if (!gr->filename ().empty ()) {
 		QFileInfo fi (QString::fromStdString (gr->filename ()));
@@ -1591,7 +1588,14 @@ void MainWindow::updateFont()
 	setFont (setting->fontStandard);
 	normalTools->wtimeView->update_font (setting->fontClocks);
 	normalTools->btimeView->update_font (setting->fontClocks);
-	commentEdit->setCurrentFont(setting->fontComments);
+
+	QTextCursor c = commentEdit->textCursor ();
+	commentEdit->selectAll ();
+	commentEdit->setCurrentFont (setting->fontComments);
+	commentEdit->setTextCursor (c);
+	commentEdit->setCurrentFont (setting->fontComments);
+
+	commentEdit2->setFont (setting->fontComments);
 
 	QFontMetrics fm (setting->fontStandard);
 	QRect r = fm.boundingRect ("Variation 12 of 15");
@@ -2241,7 +2245,7 @@ void MainWindow_GTP::gtp_played_resign ()
 	}
 
 	QMessageBox mb(QMessageBox::Information, tr("Game end"),
-		       QString(tr("The computer has resigned the game.")),
+		       tr("The computer has resigned the game."),
 		       QMessageBox::Ok | QMessageBox::Default);
 	mb.exec ();
 

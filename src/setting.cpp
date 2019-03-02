@@ -19,11 +19,6 @@
 #include "setting.h"
 #include "config.h"
 #include "defines.h"
-#include "icons.h"
-
-//#ifdef USE_XPM
-#include ICON_APPICON
-//#endif
 
 #if defined(Q_OS_MACX)
 #include <CoreFoundation/CFString.h>
@@ -148,14 +143,9 @@ Setting::Setting()
 	fontClocks.setPointSize (fontClocks.pointSize () * 1.5);
   	fontConsole = QFont("Fixed");
 
-	// init
-	qgo = 0;
-	cw = 0;
-
 	nmatch_settings_modified = false;
 
 	extract_frequent_settings ();
-	image0 = QPixmap((const char **)Bowl_xpm);
 }
 
 Setting::~Setting()

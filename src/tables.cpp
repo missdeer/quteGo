@@ -3,6 +3,7 @@
  */
 #include "tables.h"
 #include "clientwin.h"
+#include "misc.h"
 #include "playertable.h"
 #include "gamestable.h"
 #include "gs_globals.h"
@@ -576,24 +577,6 @@ void ClientWindow::slot_channelinfo(int nr, const QString &txt)
 	statusChannel->setToolTip (tipstring);
 }
 
-// user buttons
-void ClientWindow::slot_pbuser1()
-{
-	slot_toolbaractivated(setting->readEntry("USER1_2"));
-}
-void ClientWindow::slot_pbuser2()
-{
-	slot_toolbaractivated(setting->readEntry("USER2_2"));
-}
-void ClientWindow::slot_pbuser3()
-{
-	slot_toolbaractivated(setting->readEntry("USER3_2"));
-}
-void ClientWindow::slot_pbuser4()
-{
-	slot_toolbaractivated(setting->readEntry("USER4_2"));
-}
-
 // tell, say, kibitz...
 void ClientWindow::colored_message(QString txt, QColor c)
 {
@@ -651,36 +634,6 @@ void ClientWindow::slot_status(Status s)
 	myAccount->set_caption();
 }
 
-// correct viewport
-void ClientWindow::slot_playerContentsMoving(int /*x*/, int /*y*/)
-{
-/*	QPoint p(0,0);
-	QListViewItem *i = ListView_players->itemAt(p);
-
-	if (i)
-	{
-		ListView_players->clearSelection();
-		ListView_players->setSelected(i, true);
-		ListView_players->clearSelection();
-	}                         */
-}
-
-// correct viewport
-void ClientWindow::slot_gamesContentsMoving(int /*x*/, int /*y*/)
-{
-#if 0
-	QPoint p(0,0);
-	QTreeWidgetItem *i = ListView_games->itemAt(p);
-
-	if (i)
-	{
-		ListView_games->clearSelection();
-		ListView_games->setSelected(i, true);
-		ListView_games->clearSelection();
-	}
-#endif
-}
-
 /*
  *   account & caption
  */
@@ -724,26 +677,13 @@ void Account::set_gsname(GSName gs)
 	// now we know which server
 	switch (gsName)
 	{
-		case IGS: svname.sprintf("IGS");
-			break;
-
-		case NNGS: svname.sprintf("NNGS");
-			break;
-
-		case LGS: svname.sprintf("LGS");
-			break;
-
-		case WING: svname.sprintf("WING");
-			break;
-
-		case CTN: svname.sprintf("CTN");
-			break;
-
-		case CWS: svname.sprintf("CWS");
-			break;
-
-		default: svname.sprintf("unknown Server");
-			break;
+	case IGS: svname = "IGS"; break;
+	case NNGS: svname = "NNGS"; break;
+	case LGS: svname = "LGS"; break;
+	case WING: svname = "WING"; break;
+	case CTN: svname = "CTN"; break;
+	case CWS: svname = "CWS"; break;
+	default: svname = "unknown Server"; break;
 	}
 
 	// set account name
@@ -816,57 +756,57 @@ Host::Host(const QString &title, const QString &host, const unsigned int port, c
  *   Talk - Class to handle  Talk Dialog Windows
  */
 
-int Talk::counter = 0;
-
-Talk::Talk(const QString &playername, QWidget *parent, bool isplayer)
-  : QDialog (parent)
+Talk::Talk (const QString &playername, QWidget *parent, bool isplayer)
+	: QDialog (parent)
 {
-	setupUi(this);
+	setupUi (this);
 	setWindowTitle (playername);
-	name = playername;
+	m_name = playername;
 
 	// create a new tab
 	MultiLineEdit1->setCurrentFont(setting->fontComments);
 	LineEdit1->setFont(setting->fontComments);
 
 	// do not add a button for shouts* or channels tab
-	if (name.indexOf('*') != -1 || !isplayer)
+	if (m_name.indexOf ('*') != -1 || !isplayer)
 	{
 		delete pb_releaseTalkTab;
 		delete pb_match;
 		delete stats_layout;
+	} else {
+		connect (pb_releaseTalkTab, &QPushButton::pressed, [this] () { emit signal_pbRelOneTab (); });
+		connect (pb_match, &QPushButton::pressed, this, &Talk::slot_match);
 	}
+	connect (LineEdit1, &QLineEdit::returnPressed, this, &Talk::slot_returnPressed);
 }
 
-Talk::~Talk()
+bool Talk::lineedit_has_focus ()
 {
+	return LineEdit1->hasFocus ();
 }
 
-// release current Tab
-void Talk::slot_pbRelTab()
+void Talk::append_to_mle (const QString &s)
 {
-	emit signal_pbRelOneTab();	
+	MultiLineEdit1->append (s);
 }
 
-void Talk::slot_returnPressed()
+void Talk::slot_returnPressed ()
 {
 	// read tab
-	QString txt = LineEdit1->text();
-	emit signal_talkto(name, txt);
-	LineEdit1->clear();
+	QString txt = LineEdit1->text ();
+	emit signal_talkto (m_name, txt);
+	LineEdit1->clear ();
 }
 
-void Talk::slot_match()
+void Talk::slot_match ()
 {
-	QString txt= name+ " " + stats_rating->text();
-	emit signal_matchrequest(txt,true);
+	QString txt = m_name + " " + stats_rating->text ();
+	emit signal_matchrequest (txt, true);
 }
-
-
 
 // write to txt field in dialog
 // if null string -> check edit field
-void Talk::write(const QString &text) const
+void Talk::write (const QString &text) const
 {
 	QString txt;
 
@@ -883,11 +823,5 @@ void Talk::write(const QString &text) const
 	}
 
 	// Scroll at bottom of text, set cursor to end of line
-	MultiLineEdit1->append(txt); //eb16
-}
-
-void Talk::setTalkWindowColor(QPalette pal)
-{
-	MultiLineEdit1->setPalette(pal);
-	LineEdit1->setPalette(pal);
+	MultiLineEdit1->append (txt); //eb16
 }
