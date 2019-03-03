@@ -201,6 +201,10 @@ RESOURCES += \
 
 win32: {
     CONFIG(release, debug|release) : {
+        *msvc* {
+            QMAKE_CXXFLAGS_RELEASE += /Zi
+            QMAKE_LFLAGS_RELEASE += /DEBUG
+        }
         LIBS += -L$$OUT_PWD/thirdparty/QtRAR/src/release -L$$OUT_PWD/thirdparty/Qt7z/Qt7z/release
     } else: {
         LIBS += -L$$OUT_PWD/thirdparty/QtRAR/src/debug -L$$OUT_PWD/thirdparty/Qt7z/Qt7z/debug 
