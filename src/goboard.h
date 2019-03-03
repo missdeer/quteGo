@@ -257,6 +257,7 @@ public:
 	{
 		init_marks (false);
 		int bp = bitpos (x, y);
+		if (bp >= m_marks.size() || bp >= m_marks.size()) return false;
 		if (m_marks[bp] == m
 		    && (m != mark::num || m != mark::letter || m_mark_extra[bp] == extra))
 			return false;
@@ -269,6 +270,7 @@ public:
 	{
 		init_marks (false);
 		int bp = bitpos (x, y);
+		if (bp >= m_marks.size() || bp >= m_marks.size()) return;
 		size_t idx = m_mark_text.size ();
 		if (m_marks[bp] == mark::text) {
 			idx = m_mark_extra[bp];
