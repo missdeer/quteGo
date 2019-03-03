@@ -5,7 +5,7 @@
 
 char skip_whitespace (const IODeviceAdapter &in)
 {
-	char nextch;
+	char nextch = 0;
 	do {
 		if (! in.get (nextch)) {
 			if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
