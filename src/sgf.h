@@ -28,10 +28,12 @@ struct sgf_errors
 	bool empty_komi = false;
 	bool empty_handicap = false;
 	bool invalid_structure = false;
+	bool move_outside_board = false;
+
 	bool any_set () const
 	{
 		return (played_on_stone || charset_error || invalid_val || malformed_eval
-			|| empty_komi || empty_handicap || invalid_structure);
+			|| empty_komi || empty_handicap || invalid_structure || move_outside_board);
 	}
 };
 
@@ -121,6 +123,7 @@ public:
 	}
 };
 
+#ifndef TEST
 /* There is pain around trying to support Unicode characters in file names
    across multiple platforms.
    QFile in Qt4 did not support them correctly on either Windows or Linux.
@@ -148,4 +151,6 @@ public:
 
 extern sgf *load_sgf (const IODeviceAdapter &);
 extern QTextCodec* charset_detect(const QByteArray &data);
+#endif
+
 #endif

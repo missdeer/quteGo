@@ -79,6 +79,7 @@ public:
 		delete[] new_bits;
 	}
 	void debug () const;
+	void debug (int linesz) const;
 	void clear ()
 	{
 		for (int i = 0; i < m_n_elts; i++)
@@ -225,6 +226,19 @@ public:
 		}
 		return false;
 	}
+	bool subset_of (const bit_array &other) const
+	{
+		int limit = std::min (m_n_elts, other.m_n_elts);
+		int i;
+		for (i = 0; i < limit; i++) {
+			if (m_bits[i] & ~other.m_bits[i])
+				return false;
+		}
+		for (; i < m_n_elts; i++)
+			if (m_bits[i] != 0)
+				return false;
+		return true;
+	}
 	/* Check for intersections, but shift other left (or right, if negative).  */
 	bool intersect_p (const bit_array &other, int shift) const;
 
@@ -240,6 +254,42 @@ public:
 			}
 		}
 		return cnt;
+	}
+	unsigned ffs (int test = 0) const
+	{
+		int elt = test / 64;
+		int bitpos = test % 64;
+		uint64_t mask = (uint64_t)1 << bitpos;
+		while (elt < m_n_elts) {
+			uint64_t v = m_bits[elt];
+			while (mask != 0) {
+				if (v & mask)
+					return test;
+				mask <<= 1;
+				test++;
+			}
+			mask = 1;
+			elt++;
+		}
+		return m_n_bits;
+	}
+	unsigned ffz (int test = 0) const
+	{
+		int elt = test / 64;
+		int bitpos = test % 64;
+		uint64_t mask = (uint64_t)1 << bitpos;
+		while (elt < m_n_elts) {
+			uint64_t v = m_bits[elt];
+			while (mask != 0) {
+				if ((v & mask) == 0)
+					return test;
+				mask <<= 1;
+				test++;
+			}
+			mask = 1;
+			elt++;
+		}
+		return m_n_bits;
 	}
 };
 
