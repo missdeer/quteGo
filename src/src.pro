@@ -225,5 +225,5 @@ win32: {
                 UNICODE \
                 _UNICODE \
                 UNIX_USE_WIN_FILE
-    LIBS += -L$$OUT_PWD/thirdparty/QtRAR/src -lQtRAR -L$$OUT_PWD/thirdparty/Qt7z/Qt7z -lQt7z
+    LIBS += -L$$OUT_PWD/thirdparty/QtRAR/src -lQtRAR -L$$OUT_PWD/thirdparty/QtRAR/src/unrar -lunrar -L$$OUT_PWD/thirdparty/Qt7z/Qt7z -lQt7z
 }
