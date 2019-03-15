@@ -14,9 +14,6 @@ environment:
         - QT: C:\Qt\5.12.1\msvc2017_64
           PLATFORM: amd64
           MKSPEC: win64-msvc
-        - QT: C:\Qt\5.12.1\msvc2017_64
-          PLATFORM: amd64
-          MKSPEC: win64-clang-msvc
         - QT: C:\Qt\5.12.1\msvc2017
           PLATFORM: x86
           MKSPEC: win32-msvc
