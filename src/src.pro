@@ -205,16 +205,17 @@ win32: {
             QMAKE_CXXFLAGS_RELEASE += /Zi
             QMAKE_LFLAGS_RELEASE += /DEBUG
         }
-        LIBS += -L$$OUT_PWD/thirdparty/QtRAR/src/release -L$$OUT_PWD/thirdparty/Qt7z/Qt7z/release
+        LIBS += -L$$OUT_PWD/thirdparty/QtRAR/src/release -L$$OUT_PWD/thirdparty/QtRAR/src/unrar/release -L$$OUT_PWD/thirdparty/Qt7z/Qt7z/release
     } else: {
-        LIBS += -L$$OUT_PWD/thirdparty/QtRAR/src/debug -L$$OUT_PWD/thirdparty/Qt7z/Qt7z/debug 
+        LIBS += -L$$OUT_PWD/thirdparty/QtRAR/src/debug -L$$OUT_PWD/thirdparty/QtRAR/src/unrar/debug -L$$OUT_PWD/thirdparty/Qt7z/Qt7z/debug 
     }
     DEFINES += QT7Z_STATIC_LINK \
                 WIN_LONG_PATH \
                 _7ZIP_LARGE_PAGES \
                 SUPPORT_DEVICE_FILE \
-                QT7Z_STATIC
-    LIBS +=  -lQtRAR -lQt7z -lAdvApi32 -lOleAut32 -lUser32 -lShell32 -lPowrProf -lOle32 -lUuid
+                QT7Z_STATIC \
+                QTRAR_STATIC
+    LIBS += -lQtRAR -lunrar -lQt7z -lAdvApi32 -lOleAut32 -lUser32 -lShell32 -lPowrProf -lOle32 -lUuid
 } else: {
     DEFINES += QT7Z_STATIC_LINK \
                 _FILE_OFFSET_BITS=64 \
