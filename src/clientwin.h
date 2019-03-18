@@ -11,7 +11,6 @@
 #include "tables.h"
 #include "config.h"
 #include "telnet.h"
-#include "igsinterface.h"
 #include "parser.h"
 #include "gs_globals.h"
 #include "gamestable.h"
@@ -65,9 +64,6 @@ public:
 
 	Engine *analysis_engine (int boardsize);
 	QList<Engine> analysis_engines (int boardsize);
-
-	HostList hostlist;
-	QList<Engine *> m_engines;
 
 signals:
 	void signal_cmdsent (const QString&);
@@ -209,7 +205,9 @@ private:
 
 	int toggle_player_state (const char *list, const QString &symbol);
 
-	void colored_message(QString, QColor);
+	void colored_message (QString, QColor);
+
+	void populate_cbconnect (const QString &);
 
 	QString		watch;
 	QString		exclude;

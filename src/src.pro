@@ -35,7 +35,6 @@ HEADERS		      = analyzedlg.h \
 			gametree.h \
 			gs_globals.h \
 			igsconnection.h \
-			igsinterface.h \
 			clientwin.h \
 			misc.h \
 			msg_handler.h \
@@ -122,7 +121,7 @@ SOURCES		      = analyzedlg.cpp \
 isEmpty(PREFIX) {
 PREFIX = /usr/local
 }
-win32-*msvc: QMAKE_CXXFLAGS+=/std:c++17
+
 TARGET                = q5go
 DATADIR               = $$PREFIX/share/q5go
 DOCDIR                = $$PREFIX/share/doc/q5go

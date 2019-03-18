@@ -4,39 +4,11 @@
 #include <QProcess>
 
 #include "goboard.h"
+#include "goeval.h"
+#include "setting.h"
 #include "textview.h"
 
 class game_state;
-
-class Engine
-{
-	QString m_title;
-	QString m_path;
-	QString m_args;
-	QString m_komi;
-	bool m_analysis;
-	QString m_boardsize;
-
-public:
-	Engine (const QString &title, const QString &path, const QString &args, const QString &komi, bool analysis,
-		const QString &size)
-		: m_title (title), m_path (path), m_args (args), m_komi (komi), m_analysis (analysis), m_boardsize (size)
-	{
-	}
-	QString title() const { return m_title; };
-	QString path() const { return m_path; };
-	QString args() const { return m_args; };
-	QString komi() const { return m_komi; }
-	QString boardsize () const { return m_boardsize; }
-	void set_boardsize (const QString &s) { m_boardsize = s; }
-	bool analysis () const { return m_analysis; }
-
-	int operator== (Engine h)
-		{ return (this->m_title == h.m_title); };
-	bool operator< (Engine h)
-		{ return (this->m_title < h.m_title); };
-};
-
 
 class GTP_Process;
 
@@ -46,6 +18,8 @@ class GTP_Controller
 	QWidget *m_parent;
 
 protected:
+	analyzer_id m_id;
+
 	GTP_Controller (QWidget *p) : m_parent (p) { }
 	GTP_Process *create_gtp (const Engine &engine, int size, double komi, int hc, bool show_dialog = true);
 public:

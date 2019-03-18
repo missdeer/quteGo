@@ -9,19 +9,23 @@
 #include <memory>
 #include "defines.h"
 #include "setting.h"
+#include "goeval.h"
 
 class game_state;
 class game_record;
 class MainWindow;
+class an_id_model;
 
 class EvalGraph : public QGraphicsView
 {
 	Q_OBJECT
 
 	MainWindow *m_win {};
+	const an_id_model *m_model {};
 
 	std::shared_ptr<game_record> m_game {};
 	game_state *m_active {};
+	int m_id_idx = 0;
 	QGraphicsScene *m_scene;
 	QBrush *m_brush;
 	double m_step;
@@ -36,8 +40,8 @@ public slots:
 public:
 	EvalGraph (QWidget *parent);
 	~EvalGraph () { delete m_brush; delete m_scene; }
-	void set_board_win (MainWindow *win) { m_win = win; }
-	void update (std::shared_ptr<game_record> gr, game_state *);
+	void set_board_win (MainWindow *win, const an_id_model *m) { m_win = win; m_model = m; }
+	void update (std::shared_ptr<game_record> gr, game_state *, int id_idx);
 
 	void update_prefs ();
 

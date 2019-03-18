@@ -59,7 +59,7 @@ void EvalGraph::mousePressEvent (QMouseEvent *e)
 
 void EvalGraph::resizeEvent (QResizeEvent*)
 {
-	update (m_game, m_active);
+	update (m_game, m_active, m_id_idx);
 }
 
 QSize EvalGraph::sizeHint () const
@@ -99,7 +99,7 @@ void EvalGraph::export_file (bool)
 		QMessageBox::warning (this, PACKAGE, tr("Failed to save image!"));
 }
 
-void EvalGraph::update (std::shared_ptr<game_record> gr, game_state *active)
+void EvalGraph::update (std::shared_ptr<game_record> gr, game_state *active, int sel_idx)
 {
 	int w = width ();
 	int h = height ();
@@ -118,6 +118,7 @@ void EvalGraph::update (std::shared_ptr<game_record> gr, game_state *active)
 
 	m_game = gr;
 	m_active = active;
+	m_id_idx = sel_idx;
 
 	size_t count = 0;
 	int active_point = -1;
@@ -129,41 +130,45 @@ void EvalGraph::update (std::shared_ptr<game_record> gr, game_state *active)
 
 	m_step = (double)w / count;
 
-	QPainterPath path;
-	bool on_path = false;
-	game_state *st = r;
-	double prev = 0;
-	for (int x = 0;; x++) {
-		int v = st == nullptr ? 0 : st->eval_visits ();
-		if (v > 0) {
-			double wr = st->eval_wr_black ();
-			if (on_path) {
-				path.lineTo (GRADIENT_WIDTH + x * m_step, h * wr);
-				double chg = wr - prev;
-				if (chg != 0 && st->was_move_p ()) {
-					QBrush br (st->get_move_color () == black ? Qt::black : Qt::white);
-					/* One idea was to offset this by half the width of a step, so as to
-					   make the change appear between moves, but I found that confusing.  */
-					m_scene->addRect (GRADIENT_WIDTH + x * m_step, h / 2, m_step, h * chg,
-							  Qt::NoPen, br);
-				}
+	for (int idnr = 0; idnr < m_model->rowCount (); idnr++) {
+		auto id = m_model->entries ()[idnr];
+		QPainterPath path;
+		bool on_path = false;
+		game_state *st = r;
+		double prev = 0;
+		for (int x = 0;; x++) {
+			eval ev;
+			if (st != nullptr && st->find_eval (id, ev)) {
+				double wr = ev.wr_black;
+				if (on_path) {
+					path.lineTo (GRADIENT_WIDTH + x * m_step, h * wr);
+					double chg = wr - prev;
+					if (chg != 0 && st->was_move_p () && idnr == sel_idx) {
+						QBrush br (st->get_move_color () == black ? Qt::black : Qt::white);
+						/* One idea was to offset this by half the width of a step, so as to
+						   make the change appear between moves, but I found that confusing.  */
+						m_scene->addRect (GRADIENT_WIDTH + x * m_step, h / 2, m_step, h * chg,
+								  Qt::NoPen, br);
+					}
+				} else
+					path.moveTo (GRADIENT_WIDTH + x * m_step, h * wr);
+				prev = wr;
+				on_path = true;
 			} else
-				path.moveTo (GRADIENT_WIDTH + x * m_step, h * wr);
-			prev = wr;
+				on_path = false;
+
+			if (st == nullptr)
+				break;
+			st = st->next_primary_move ();
 		}
-		on_path = v > 0;
 
-		if (st == nullptr)
-			break;
-		st = st->next_primary_move ();
+		QPen pen;
+		pen.setWidth (2);
+		QVariant v = m_model->data (m_model->index (idnr, 0), Qt::DecorationRole);
+		pen.setColor (v.value<QColor> ());
+		QGraphicsPathItem *p = m_scene->addPath (path, pen);
+		p->setZValue (3);
 	}
-
-	QPen pen;
-	pen.setWidth (2);
-	pen.setColor (Qt::blue);
-	QGraphicsPathItem *p = m_scene->addPath (path, pen);
-	p->setZValue (3);
-
 	QGraphicsRectItem *sel = m_scene->addRect (GRADIENT_WIDTH + (int)(active_point * m_step), 0, round (m_step), h,
 						   Qt::NoPen, QBrush (Qt::gray));
 	sel->setZValue (-1);

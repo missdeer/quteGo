@@ -2544,16 +2544,6 @@ Note: 'Delete' concerns saved records.</string>
             </item>
            </layout>
           </item>
-          <item row="0" column="1" rowspan="8">
-           <widget class="QListWidget" name="ListView_engines">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-           </widget>
-          </item>
           <item row="5" column="0">
            <widget class="QCheckBox" name="engineAnalysis">
             <property name="text">
@@ -2615,6 +2605,16 @@ Note: 'Delete' concerns saved records.</string>
              <widget class="QLineEdit" name="engineSize"/>
             </item>
            </layout>
+          </item>
+          <item row="0" column="1" rowspan="8">
+           <widget class="ClickableListView" name="ListView_engines">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -2821,10 +2821,129 @@ On IGS only.</string>
            <property name="whatsThis">
             <string>port address, e.g.: 9696
 
+Note: don't use a default server name, i.e. '-- Aurora --' etc.</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <layout class="QHBoxLayout">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="TextLabel1_5">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Host:</string>
+           </property>
+           <property name="wordWrap">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="LineEdit_host">
+           <property name="toolTip">
+            <string>hostname, e.g.: nngs.cosmic.org</string>
+           </property>
+           <property name="whatsThis">
+            <string>hostname
+
+Use a valid hostname or ip address. Instead of typing it one of the predefined hosts can be chosen:
+
+-- Aurora --
+-- CTN --
+-- CWS --
+-- EGF --
+-- IGS --
+-- LGS --
+-- NNGS --
+-- WING --</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="0">
+        <layout class="QHBoxLayout">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="TextLabel2_4">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Port:</string>
+           </property>
+           <property name="wordWrap">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="LineEdit_port">
+           <property name="toolTip">
+            <string>port address, e.g.: 9696</string>
+           </property>
+           <property name="whatsThis">
+            <string>port address, e.g.: 9696
+
 Port address is defined for each go server. It's a fixed number. See Host for predefined server names.</string>
            </property>
            <property name="maxLength">
             <number>4</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0">
+        <layout class="QHBoxLayout">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="TextLabel3_2">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Name:</string>
+           </property>
+           <property name="wordWrap">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="LineEdit_login">
+           <property name="toolTip">
+            <string>use your login name; if unregistered use a unique name like 'hotdog17' (NNGS, CWS) or guest (other servers)</string>
+           </property>
+           <property name="whatsThis">
+            <string>name
+
+Registered users: 
+use your login name and password provided by the go server operator after registration
+
+New users: depends on server
+NNGS, CWS:	use a unique name like 'hotdog17'
+others:		guest</string>
            </property>
           </widget>
          </item>
@@ -4532,7 +4651,7 @@ Use semicolon &quot;;&quot; as delimiter (no spaces)</string>
         </widget>
        </item>
        <item row="0" column="1" rowspan="9">
-        <widget class="QListWidget" name="ListView_hosts">
+        <widget class="ClickableListView" name="ListView_hosts">
          <property name="whatsThis">
           <string>Host Entries
 
@@ -4599,6 +4718,19 @@ others:		guest</string>
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="0" column="1" rowspan="9">
+        <widget class="ClickableListView" name="ListView_hosts">
+         <property name="whatsThis">
+          <string>Host Entries
+
+Select 'New' to clear input fields. After filling in at least Title and Host use Add/Change.
+
+Select an entry to edit, change (Title keeps unchanged) or delete a line.
+
+Select one of the predefined hosts -- xxx -- and add a title to use it.</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -4720,14 +4852,13 @@ others:		guest</string>
    <extends>QGraphicsView</extends>
    <header>sizegraphicsview.h</header>
   </customwidget>
+  <customwidget>
+   <class>ClickableListView</class>
+   <extends>QListView</extends>
+   <header>clickableviews.h</header>
+  </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>LineEdit_pass</tabstop>
-  <tabstop>ComboBox_codec</tabstop>
-  <tabstop>pb_server_new</tabstop>
-  <tabstop>pb_server_add</tabstop>
-  <tabstop>pb_server_delete</tabstop>
-  <tabstop>ListView_hosts</tabstop>
   <tabstop>BYSpin_Nmatch</tabstop>
   <tabstop>timeSpin</tabstop>
   <tabstop>buttonCancel</tabstop>
@@ -4737,7 +4868,6 @@ others:		guest</string>
   <tabstop>stoneView</tabstop>
   <tabstop>buttonApply</tabstop>
   <tabstop>buttonHelp</tabstop>
-  <tabstop>ListView_engines</tabstop>
   <tabstop>checkBox_Nmatch_Black</tabstop>
   <tabstop>BYSpin</tabstop>
   <tabstop>timeSpin_Nmatch</tabstop>
@@ -4792,6 +4922,7 @@ others:		guest</string>
   <tabstop>pb_engine_new</tabstop>
   <tabstop>pb_engine_add</tabstop>
   <tabstop>pb_engine_delete</tabstop>
+  <tabstop>ListView_engines</tabstop>
   <tabstop>computerSizeSpin</tabstop>
   <tabstop>computerHandicapSpin</tabstop>
   <tabstop>computerWhiteButton</tabstop>
@@ -4803,6 +4934,16 @@ others:		guest</string>
   <tabstop>anHideCheckBox</tabstop>
   <tabstop>anChildMovesCheckBox</tabstop>
   <tabstop>anPruneCheckBox</tabstop>
+  <tabstop>LineEdit_title</tabstop>
+  <tabstop>LineEdit_host</tabstop>
+  <tabstop>LineEdit_port</tabstop>
+  <tabstop>LineEdit_login</tabstop>
+  <tabstop>LineEdit_pass</tabstop>
+  <tabstop>ComboBox_codec</tabstop>
+  <tabstop>pb_server_new</tabstop>
+  <tabstop>pb_server_add</tabstop>
+  <tabstop>pb_server_delete</tabstop>
+  <tabstop>ListView_hosts</tabstop>
   <tabstop>LineEdit_watch</tabstop>
   <tabstop>LineEdit_exclude</tabstop>
   <tabstop>radioButtonStones_2D</tabstop>
@@ -4826,10 +4967,6 @@ others:		guest</string>
   <tabstop>TablePicturePathButton</tabstop>
   <tabstop>lineScaleCheckBox</tabstop>
   <tabstop>lineWidenCheckBox</tabstop>
-  <tabstop>LineEdit_title</tabstop>
-  <tabstop>LineEdit_host</tabstop>
-  <tabstop>LineEdit_port</tabstop>
-  <tabstop>LineEdit_login</tabstop>
  </tabstops>
  <resources>
   <include location="q4go.qrc"/>
@@ -4860,102 +4997,6 @@ others:		guest</string>
     <hint type="sourcelabel">
      <x>568</x>
      <y>654</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>fontStandardButton</sender>
-   <signal>clicked ()</signal>
-   <receiver>PreferencesDialogGui</receiver>
-   <slot>selectStandardFont ()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>fontMarksButton</sender>
-   <signal>clicked ()</signal>
-   <receiver>PreferencesDialogGui</receiver>
-   <slot>selectMarksFont ()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>fontCommentsButton</sender>
-   <signal>clicked ()</signal>
-   <receiver>PreferencesDialogGui</receiver>
-   <slot>selectCommentsFont ()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>fontListsButton</sender>
-   <signal>clicked ()</signal>
-   <receiver>PreferencesDialogGui</receiver>
-   <slot>selectListsFont ()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>fontClocksButton</sender>
-   <signal>clicked ()</signal>
-   <receiver>PreferencesDialogGui</receiver>
-   <slot>selectClocksFont ()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>fontConsoleButton</sender>
-   <signal>clicked ()</signal>
-   <receiver>PreferencesDialogGui</receiver>
-   <slot>selectConsoleFont ()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>20</x>
-     <y>20</y>
     </hint>
     <hint type="destinationlabel">
      <x>20</x>
@@ -5044,22 +5085,6 @@ others:		guest</string>
    </hints>
   </connection>
   <connection>
-   <sender>ListView_engines</sender>
-   <signal>itemClicked(QListWidgetItem*)</signal>
-   <receiver>PreferencesDialogGui</receiver>
-   <slot>slot_clickedEngines(QListWidgetItem *)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>engineName</sender>
    <signal>textChanged(QString)</signal>
    <receiver>PreferencesDialogGui</receiver>
@@ -5112,22 +5137,6 @@ others:		guest</string>
    <signal>clicked()</signal>
    <receiver>PreferencesDialogGui</receiver>
    <slot>slot_add_server()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ListView_hosts</sender>
-   <signal>itemClicked(QListWidgetItem*)</signal>
-   <receiver>PreferencesDialogGui</receiver>
-   <slot>slot_clickedHostList(QListWidgetItem *)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>20</x>

@@ -53,13 +53,98 @@ QString screen_key (QWidget *w)
 	return QString::number (sz.width ()) + "x" + QString::number (sz.height ());
 }
 
+void an_id_model::populate_list (std::shared_ptr<game_record> game)
+{
+	beginResetModel ();
+	m_entries.clear ();
+	std::function<bool (game_state *)> f = [this] (game_state *st) -> bool
+		{
+			st->collect_analyzers (m_entries);
+			return true;
+		};
+	game_state *r = game->get_root ();
+	r->walk_tree (f);
+	endResetModel ();
+}
+
+/* This is called to notify us that an evaluation from NEW_ID came in.  */
+void an_id_model::notice_analyzer_id (const analyzer_id &new_id)
+{
+	bool found = false;
+	for (auto id: m_entries)
+		if (id == new_id) {
+			found = true;
+			break;
+		}
+	if (!found) {
+		beginInsertRows (QModelIndex (), m_entries.size (), m_entries.size ());
+		m_entries.push_back (new_id);
+		endInsertRows ();
+	}
+}
+
+QVariant an_id_model::data (const QModelIndex &index, int role) const
+{
+	static Qt::GlobalColor colors[] = { Qt::blue, Qt::red, Qt::green, Qt::cyan, Qt::yellow, Qt::darkBlue, Qt::darkRed, Qt::darkGreen };
+	int row = index.row ();
+	int col = index.column ();
+	if (row < 0 || (size_t)row >= m_entries.size () || col != 0)
+		return QVariant ();
+	if (role == Qt::DecorationRole) {
+		return QColor (colors[row % 8]);
+	}
+	if (role != Qt::DisplayRole)
+		return QVariant ();
+
+	const analyzer_id &id = m_entries[row];
+	if (!id.komi_set)
+		return QString::fromStdString (id.engine);
+	return QString::fromStdString (id.engine) + " @ " + QString::number (id.komi);
+}
+
+QModelIndex an_id_model::index (int row, int col, const QModelIndex &) const
+{
+	return createIndex (row, col);
+}
+
+QModelIndex an_id_model::parent (const QModelIndex &) const
+{
+	return QModelIndex ();
+}
+
+int an_id_model::rowCount (const QModelIndex &) const
+{
+	return m_entries.size ();
+}
+
+int an_id_model::columnCount (const QModelIndex &) const
+{
+	return 1;
+}
+
+QVariant an_id_model::headerData (int section, Qt::Orientation ot, int role) const
+{
+	if (role == Qt::TextAlignmentRole) {
+		return Qt::AlignLeft;
+	}
+
+	if (role != Qt::DisplayRole || ot != Qt::Horizontal)
+		return QVariant ();
+	switch (section) {
+	case 0:
+		return tr ("Engine");
+	}
+	return QVariant ();
+}
+
 MainWindow::MainWindow(QWidget* parent, std::shared_ptr<game_record> gr, ArchiveHandlerPtr archive, GameMode mode)
-	: QMainWindow(parent), m_game (gr), m_archive(archive), m_ascii_dlg (this), m_svg_dlg (this)
+: QMainWindow(parent), m_game (gr), m_archive(archive), m_ascii_dlg (this), m_svg_dlg (this)
 {
 	setupUi (this);
 
+	anIdListView->setModel (&m_an_id_model);
 	gameTreeView->set_board_win (this, gtHeaderView);
-	evalGraph->set_board_win (this);
+	evalGraph->set_board_win (this, &m_an_id_model);
 	gfx_board->set_board_win (this);
 	diagView->set_board_win (this);
 
@@ -151,6 +236,7 @@ MainWindow::MainWindow(QWidget* parent, std::shared_ptr<game_record> gr, Archive
 
 	m_eval = 0.5;
 	connect (evalView, &SizeGraphicsView::resized, this, [=] () { set_eval (m_eval); });
+	connect (anIdListView, &ClickableListView::current_changed, [this] () { update_game_tree (); });
 
 	connect(passButton, &QPushButton::clicked, this, &MainWindow::doPass);
 	connect(undoButton, &QPushButton::clicked, this, &MainWindow::doUndo);
@@ -263,6 +349,11 @@ void MainWindow::init_game_record (std::shared_ptr<game_record> gr)
 	   to update figures, which means we need to have diagView set up.  */
 	diagView->reset_game (gr);
 	gfx_board->reset_game (gr);
+	m_an_id_model.populate_list (gr);
+	if (m_an_id_model.rowCount () > 0)
+		anIdListView->setCurrentIndex (m_an_id_model.index (0, 0));
+	anIdListView->setVisible (m_an_id_model.rowCount () > 1);
+
 	updateCaption ();
 	update_game_record ();
 
@@ -601,7 +692,11 @@ void MainWindow::update_game_tree ()
 {
 	game_state *st = gfx_board->displayed ();
 	gameTreeView->update (m_game, st);
-	evalGraph->update (m_game, st);
+	QModelIndex idx = anIdListView->currentIndex ();
+	if (idx.isValid ()) {
+		gfx_board->set_analyzer_id (m_an_id_model.entries ()[idx.row ()]);
+	}
+	evalGraph->update (m_game, st, idx.isValid () ? idx.row () : 0);
 }
 
 void MainWindow::slotFileNewBoard (bool)
@@ -2449,6 +2544,14 @@ void MainWindow::setTimes(const QString &btime, const QString &bstones, const QS
 		normalTools->btimeView->flash (false);
 		normalTools->wtimeView->flash (false);
 	}
+}
+
+/* Called whenever a new evaluation comes in from NEW_ID.  We update the evaluation graph.  */
+void MainWindow::update_analyzer_ids (const analyzer_id &new_id)
+{
+	m_an_id_model.notice_analyzer_id (new_id);
+	QModelIndex idx = anIdListView->currentIndex ();
+	evalGraph->update (m_game, gfx_board->displayed (), idx.isValid () ? idx.row () : 0);
 }
 
 void MainWindow::set_eval (double eval)
