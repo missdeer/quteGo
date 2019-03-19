@@ -37,6 +37,8 @@ DBDialog *db_dialog;
 
 Debug_Dialog *debug_dialog;
 #ifdef OWN_DEBUG_MODE
+static QFile *debug_file {};
+QTextStream *debug_stream {};
 QTextEdit *debug_view;
 #endif
 
@@ -126,6 +128,7 @@ std::shared_ptr<game_record> record_from_stream (QIODevice &isgf, QTextCodec* co
 	try {
 		sgf *sgf = load_sgf (isgf);
 		std::shared_ptr<game_record> gr = sgf2record (*sgf, codec);
+		delete sgf;
 		warn_errors (gr);
 		return gr;
 	} catch (invalid_boardsize &) {
@@ -283,7 +286,7 @@ QString open_filename_dialog (QWidget *parent)
 	return fileName;
 }
 
-void open_local_board (QWidget *parent, game_dialog_type type)
+void open_local_board (QWidget *parent, game_dialog_type type, const QString &scrkey)
 {
 	std::shared_ptr<game_record> gr;
 	switch (type) {
@@ -306,7 +309,7 @@ void open_local_board (QWidget *parent, game_dialog_type type)
 		break;
 	}
 	}
-	MainWindow *win = new MainWindow (0, gr, nullptr);
+	MainWindow *win = new MainWindow (0, gr, nullptr, scrkey);
 	win->show ();
 }
 
@@ -540,6 +543,7 @@ int main(int argc, char **argv)
 	QCommandLineOption clo_board { { "b", "board" }, QObject::tr ("Start up with a board window (ignored if files are loaded).") };
 	QCommandLineOption clo_analysis { { "a", "analyze" }, QObject::tr ("Start up with the computer analysis dialog to analyze <file>."), QObject::tr ("file") };
 	QCommandLineOption clo_debug { { "d", "debug" }, QObject::tr ("Display debug messages in a window") };
+	QCommandLineOption clo_debug_file { { "D", "debug-file" }, QObject::tr ("Send debug messages to <file>."), QObject::tr ("file") };
 	QCommandLineOption clo_encoding { { "e", "encoding "}, QObject::tr ("Specify text <encoding> of SGF files passed by command line."), "encoding"};
 
 	cmdp.addOption (clo_client);
@@ -547,6 +551,7 @@ int main(int argc, char **argv)
 	cmdp.addOption (clo_analysis);
 #ifdef OWN_DEBUG_MODE
 	cmdp.addOption (clo_debug);
+	cmdp.addOption (clo_debug_file);
 #endif
 	cmdp.addOption (clo_encoding);
 	cmdp.addHelpOption ();
@@ -562,6 +567,11 @@ int main(int argc, char **argv)
 	debug_dialog = new Debug_Dialog ();
 	debug_dialog->setVisible (cmdp.isSet (clo_debug));
 	debug_view = debug_dialog->TextView1;
+	if (cmdp.isSet (clo_debug_file)) {
+		debug_file = new QFile (cmdp.value (clo_debug_file));
+		debug_file->open (QIODevice::WriteOnly);
+		debug_stream = new QTextStream (debug_file);
+	}
 #endif
 
 	// get application path
@@ -619,16 +629,30 @@ int main(int argc, char **argv)
 		QString encoding = cmdp.value(clo_encoding);
 		codec = QTextCodec::codecForName(encoding.toUtf8());
 	}
+	QStringList not_found;
 	for (auto arg: args) {
 		if (QFile::exists(arg)) 
 			windows_open |= open_window_from_file (arg, codec);
+		else
+			not_found << arg;
 	}
 	if (cmdp.isSet (clo_board) && !windows_open) {
-		open_local_board (client_window, game_dialog_type::none);
+		open_local_board (client_window, game_dialog_type::none, QString ());
 		windows_open = true;
 	}
 	windows_open |= show_client;
 	windows_open |= cmdp.isSet (clo_analysis);
+	if (!not_found.isEmpty ()) {
+		QString err = QObject::tr ("The following files could not be found:") + "\n";
+		for (auto &it: not_found)
+			err += "  " + it + "\n";
+		if (windows_open)
+			QMessageBox::warning (0, PACKAGE, err);
+		else {
+			QTextStream str (stderr);
+			str << err;
+		}
+	}
 	if (!windows_open)
 		return 1;
 
@@ -641,6 +665,22 @@ int main(int argc, char **argv)
 	if (setting->getNewVersionWarning())
 		help_new_version ();
 
-	return myapp.exec();
+	auto retval = myapp.exec ();
+
+	if (debug_stream != nullptr) {
+		delete debug_stream;
+		delete debug_file;
+		debug_stream = nullptr;
+		debug_file = nullptr;
+	}
+
+	delete client_window;
+	delete analyze_dialog;
+#ifdef OWN_DEBUG_MODE
+	delete debug_dialog;
+#endif
+	delete setting;
+
+	return retval;
 }
 

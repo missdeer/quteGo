@@ -81,22 +81,27 @@ class MainWindow : public QMainWindow, public Ui::BoardWindow
 	void toggleSidebar (bool);
 	void setSliderMax(int n);
 	void updateCaption ();
+	void update_font ();
+	void populate_engines_menu ();
+	void start_analysis ();
 
 public:
-	MainWindow(QWidget* parent, std::shared_ptr<game_record>, ArchiveHandlerPtr archive, GameMode mode = modeNormal);
+	MainWindow(QWidget* parent, std::shared_ptr<game_record>, ArchiveHandlerPtr archive, const QString opener_scrkey = QString (),
+		   GameMode mode = modeNormal);
 	virtual ~MainWindow();
 	Board* getBoard() const { return gfx_board; }
 	int checkModified(bool interactive=true);
-	void updateFont();
+
+	void update_settings ();
+
 	static QString getFileExtension(const QString &fileName, bool defaultExt=true);
 	void hide_panes_for_mode ();
 	QString visible_panes_key ();
 	void restore_visibility_from_key (const QString &);
 	void saveWindowLayout (bool);
-	bool restoreWindowLayout (bool);
+	bool restoreWindowLayout (bool, const QString &scrkey = QString ());
 	void defaultPortraitLayout ();
 	void defaultLandscapeLayout ();
-	void updateBoard ();
 
 	void set_observer_model (QStandardItemModel *m);
 	bool doSave(QString fileName, bool force=false);
@@ -209,6 +214,9 @@ public slots:
 	void slotDiagSVG (bool);
 	void slotDiagChosen (int);
 	void slotArchiveItemActivated(QListWidgetItem *item);
+
+	void slotEngineGroup(bool);
+
 	virtual void doPass ();
 	virtual void doCountDone ();
 	virtual void doUndo ();
@@ -231,7 +239,9 @@ protected:
 
 	QAction *escapeFocus, *whatsThis;
 	QAction *navAutoplay, *navSwapVariations;
-	QActionGroup *editGroup;
+	QActionGroup *editGroup, *engineGroup;
+	QList<QAction *> engine_actions;
+	QMap<QAction *, Engine> engine_map;
 	QTimer *timer;
 
 	float timerIntervals[6];
@@ -249,8 +259,8 @@ class MainWindow_GTP : public MainWindow, public GTP_Controller
 {
 	GTP_Process *m_gtp;
 public:
-	MainWindow_GTP (QWidget *parent, std::shared_ptr<game_record>, const Engine &program,
-			bool b_comp, bool w_comp);
+	MainWindow_GTP (QWidget *parent, std::shared_ptr<game_record>, QString opener_scrkey,
+			const Engine &program, bool b_comp, bool w_comp);
 	~MainWindow_GTP ();
 
 	/* Virtuals from MainWindow.  */

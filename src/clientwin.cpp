@@ -214,11 +214,11 @@ ClientWindow::ClientWindow(QMainWindow *parent)
 	connect(this, &ClientWindow::signal_move, qgoif, &qGoIF::slot_gamemove);
 	connect(qgoif, &qGoIF::signal_sendcommand, this, &ClientWindow::slot_sendcommand);
 	connect(qgoif, &qGoIF::signal_addToObservationList, this, &ClientWindow::slot_addToObservationList);
-	connect(qgo, &qGo::signal_updateFont, this, &ClientWindow::slot_updateFont);
+
 	connect(parser, &Parser::signal_timeAdded, qgoif, &qGoIF::slot_timeAdded);
 	//connect(parser, &Parser::signal_undoRequest, qgoif, &qGoIF::slot_undoRequest);
 
-	slot_updateFont();
+	update_font ();
 
 	// install an event filter
 	qApp->installEventFilter(this);
@@ -226,13 +226,10 @@ ClientWindow::ClientWindow(QMainWindow *parent)
 
 ClientWindow::~ClientWindow()
 {
-/*	delete qgoif;
-	delete setting;
 	delete telnetConnection;
+	delete qgoif;
 	delete parser;
-	delete statusUsers;
-	delete statusBar;
-*/
+	delete myAccount;
 }
 
 void ClientWindow::initStatusBar(QWidget* /*parent*/)
@@ -889,7 +886,7 @@ void ClientWindow::slot_cmdactivated(const QString &cmd)
 	if (cmd.isNull ())
 		return;
 
-qDebug("cmd_valid: %i", (int)cmd_valid);
+	qDebug("cmd_valid: %i", (int)cmd_valid);
 	// check if valid cmd -> cmd number risen
 	if (cmd_valid)
 	{
@@ -1097,7 +1094,7 @@ void ClientWindow::slot_cbExtUserInfo()
 	setColumnsForExtUserInfo();
 }
 
-void ClientWindow::slot_updateFont()
+void ClientWindow::update_font ()
 {
 	// lists
 	ListView_players->setFont(setting->fontLists);
@@ -1132,8 +1129,7 @@ void ClientWindow::slot_updateFont()
 // refresh button clicked
 void ClientWindow::slot_refresh(int i)
 {
-
-  QString wparam = "" ;
+	QString wparam = "" ;
 	// refresh depends on selected page
 	switch (i)
 	{
@@ -1142,23 +1138,23 @@ void ClientWindow::slot_refresh(int i)
 		case 0:
 			// send "WHO" command
       			//set the params of "who command"
-			if ((whoBox1->currentIndex() >1)  || (whoBox2->currentIndex() >1))
+			if (whoBox1->currentIndex() > 1 || whoBox2->currentIndex() > 1)
         		{
-				wparam.append(whoBox1->currentIndex()==1 ? "9p" : whoBox1->currentText());
-				if ((whoBox1->currentIndex())  && (whoBox2->currentIndex()))
+				wparam.append(whoBox1->currentIndex() == 1 ? "9p" : whoBox1->currentText());
+				if (whoBox1->currentIndex() && whoBox2->currentIndex())
 					wparam.append("-");
 
-				wparam.append(whoBox2->currentIndex()==1 ? "9p" : whoBox2->currentText());
+				wparam.append(whoBox2->currentIndex() == 1 ? "9p" : whoBox2->currentText());
          		}
 			else if ((whoBox1->currentIndex())  || (whoBox2->currentIndex()))
         			wparam.append("1p-9p");
 			else
-				wparam.append(((myAccount->get_gsname() == IGS) ? "9p-BC" : " "));
+				wparam.append(myAccount->get_gsname() == IGS ? "9p-BC" : " ");
 
 			if (whoOpenCheck->isChecked())
-				wparam.append(((myAccount->get_gsname() == WING) ? "O" : "o"));//wparam.append(" o");
+				wparam.append(myAccount->get_gsname() == WING ? "O" : "o");
 
-			if (myAccount->get_gsname() == IGS )//&& extUserInfo)
+			if (myAccount->get_gsname() == IGS)
 				sendcommand(wparam.prepend("userlist "));
 			else
 				sendcommand(wparam.prepend("who "));
@@ -1180,7 +1176,6 @@ void ClientWindow::slot_refresh(int i)
 		default:
 			break;
 	}
-
 }
 
 void ClientWindow::slot_whoopen (bool checked)
@@ -2009,9 +2004,9 @@ void ClientWindow::initActions()
 	/*
 	* Menu File
 	*/
-	connect(fileNewBoard, &QAction::triggered, [=] (bool) { open_local_board (this, game_dialog_type::none); });
-	connect(fileNewVariant, &QAction::triggered, [=] (bool) { open_local_board (this, game_dialog_type::variant); });
-	connect(fileNew, &QAction::triggered, [=] (bool) { open_local_board (this, game_dialog_type::normal); });
+	connect(fileNewBoard, &QAction::triggered, [=] (bool) { open_local_board (this, game_dialog_type::none, screen_key (this)); });
+	connect(fileNewVariant, &QAction::triggered, [=] (bool) { open_local_board (this, game_dialog_type::variant, screen_key (this)); });
+	connect(fileNew, &QAction::triggered, [=] (bool) { open_local_board (this, game_dialog_type::normal, screen_key (this)); });
 	connect(fileOpen, &QAction::triggered, this, &ClientWindow::slotFileOpen);
 	connect(fileOpenDB, &QAction::triggered, this, &ClientWindow::slotFileOpenDB);
 	connect(fileBatchAnalysis, &QAction::triggered, this, [] (bool) { show_batch_analysis (); });
@@ -2135,7 +2130,7 @@ void ClientWindow::slotComputerPlay(bool)
 	if (gr == nullptr)
 		return;
 	bool computer_white = dlg.computer_white_p ();
-	new MainWindow_GTP (0, gr, engine, !computer_white, computer_white);
+	new MainWindow_GTP (0, gr, screen_key (this), engine, !computer_white, computer_white);
 }
 
 
@@ -2393,7 +2388,8 @@ bool ClientWindow::preferencesAccept ()
 {
 	// Update all boards with settings
 	qgo->updateAllBoardSettings ();
-	qgo->updateFont ();
+	update_font ();
+
 	if (db_dialog != nullptr)
 		db_dialog->update_prefs ();
 

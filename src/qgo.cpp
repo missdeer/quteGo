@@ -72,17 +72,9 @@ int qGo::checkModified()
 void qGo::updateAllBoardSettings()
 {
 	for (auto it: main_window_list)
-		it->updateBoard ();
+		it->update_settings ();
+	setting->engines_changed = false;
 }
-
-void qGo::updateFont()
-{
-	for (auto it: main_window_list)
-		it->updateFont ();
-
-	emit signal_updateFont();
-}
-
 
 void qGo::playClick()
 {

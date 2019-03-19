@@ -31,6 +31,10 @@ AnalyzeDialog::AnalyzeDialog (QWidget *parent, const QString &filename)
 
 	openButton->setEnabled (false);
 
+	/* "Swap komi if better" seems like a reasonable default.  It only affects games with negative
+	   komi.  */
+	komiComboBox->setCurrentIndex (1);
+
 	connect (enqueueButton, &QPushButton::clicked, [=] (bool) { start_job (); });
 	connect (fileselButton, &QPushButton::clicked, [=] (bool) { select_file (); });
 	connect (openButton, &QPushButton::clicked, [=] (bool) { open_in_progress_window (false); });
@@ -124,20 +128,24 @@ void AnalyzeDialog::analyzer_state_changed ()
 }
 
 AnalyzeDialog::job::job (AnalyzeDialog *dlg, QString &title, std::shared_ptr<game_record> gr, int n_seconds, int n_lines,
-			 stone_color col, bool all)
-	: m_dlg (dlg), m_title (title), m_game (gr), m_n_seconds (n_seconds), m_n_lines (n_lines),
-	  m_side (col), m_analyze_all (all)
+			 engine_komi k)
+	: m_dlg (dlg), m_title (title), m_game (gr), m_n_seconds (n_seconds), m_n_lines (n_lines), m_komi_type (k)
 {
-	std::function<bool (game_state *)> f = [this] (game_state *st) -> bool
+	std::vector<game_state *> *q = &m_queue;
+	std::function<bool (game_state *)> f = [this, &q] (game_state *st) -> bool
 		{
 			eval ev = st->best_eval ();
 			if (st->has_figure () && ev.visits > 0)
 				return false;
-			m_queue.push_back (st);
+			q->push_back (st);
 			return true;
 		};
 	m_game->get_root ()->walk_tree (f);
-	m_initial_size = m_queue.size ();
+	if (k == engine_komi::both) {
+		q = &m_queue_flipped;
+		m_game->get_root ()->walk_tree (f);
+	}
+	m_initial_size = m_queue.size () + m_queue_flipped.size ();
 }
 
 AnalyzeDialog::job::~job ()
@@ -148,8 +156,19 @@ AnalyzeDialog::job::~job ()
 
 game_state *AnalyzeDialog::job::select_request (bool pop)
 {
-	if (m_queue.size () == 0)
-		return nullptr;
+	if (m_queue_flipped.size () > 0 && m_dlg->m_current_komi.isEmpty ()) {
+		m_initial_size -= m_queue_flipped.size ();
+		m_queue_flipped.clear ();
+	}
+	if (m_queue.size () == 0) {
+		m_komi_type = engine_komi::do_swap;
+		if (m_queue_flipped.size () == 0)
+			return nullptr;
+		game_state *st = m_queue_flipped.back ();
+		if (pop)
+			m_queue_flipped.pop_back ();
+		return st;
+	}
 
 	game_state *st = m_queue.back ();
 	if (pop)
@@ -160,7 +179,7 @@ game_state *AnalyzeDialog::job::select_request (bool pop)
 void AnalyzeDialog::job::show_window (bool done)
 {
 	if (m_win == nullptr) {
-		m_win = new MainWindow (nullptr, m_game, nullptr, done ? modeNormal : modeBatch);
+		m_win = new MainWindow (nullptr, m_game, nullptr, screen_key (m_dlg), done ? modeNormal : modeBatch);
 		m_connection = connect (m_win, &MainWindow::signal_closeevent,
 					[this] ()
 					{
@@ -237,6 +256,8 @@ void AnalyzeDialog::discard_job (bool done)
 	   Checking for nullptr is ultra-paranoid.  */
 	if (j->m_display == nullptr)
 		return;
+	if (j == m_requester)
+		m_requester = nullptr;
 	remove_job (*j->m_display, j);
 	update_progress ();
 }
@@ -273,57 +294,79 @@ void AnalyzeDialog::queue_next ()
 			m_requester = j;
 			if (analyzer_state () == analyzer::paused)
 				pause_analyzer (false, st);
-			else
-				request_analysis (st);
+			else {
+				bool flip = j->m_komi_type == engine_komi::do_swap;
+				if (j->m_komi_type == engine_komi::maybe_swap && !m_current_komi.isEmpty ()) {
+					bool ok;
+					double k = m_current_komi.toFloat (&ok);
+					double gm_k = QString::fromStdString(j->m_game->komi ()).toFloat();
+					if (ok && std::abs (k - gm_k) > std::abs (k + gm_k))
+						flip = true;
+				}
+				request_analysis (st, flip);
+			}
 			return;
 		}
 	}
 	pause_analyzer (true, nullptr);
 }
 
+void AnalyzeDialog::notice_analyzer_id (const analyzer_id &id)
+{
+	job *j = m_requester;
+	if (j == nullptr)
+		return;
+	if (j->m_win != nullptr)
+		j->m_win->update_analyzer_ids (id);
+}
+
 void AnalyzeDialog::eval_received (const QString &, int)
 {
 	job *j = m_requester;
+	if (j == nullptr) {
+		/* This occurs when the currently processed job is manually deleted by the user.  */
+		queue_next ();
+		return;
+	}
 	if (++m_seconds_count < j->m_n_seconds)
 		return;
 	j->m_done++;
 	update_progress ();
 
 	game_state *st = j->select_request (true);
-	if (j->m_queue.size () == 0) {
+	st->update_eval (*m_eval_state);
+	auto variations = m_eval_state->take_children ();
+	int count = 0;
+	for (auto it: variations) {
+		eval ev = it->best_eval ();
+		double wr = ev.wr_black;
+		QString cnt = QString::number (count + 1);
+		QString wrb = QString::number (wr * 100);
+		QString wrw = QString::number ((1 - wr) * 100);
+		QString vis = QString::number (ev.visits);
+		QString title = tr ("PV ") + cnt + ": " + tr ("W Win ") + wrw + "%, " + tr ("B Win ") + wrb + "% " + tr ("at ") + vis + tr (" visits.");
+		it->set_figure (257, title.toStdString ());
+		st->add_child_tree (it);
+		j->m_game->set_modified ();
+		if (j->m_win) {
+			j->m_win->update_game_tree ();
+			j->m_win->update_figures ();
+			j->m_win->update_game_record ();
+		}
+		count++;
+		if (count >= j->m_n_lines)
+			break;
+	}
+
+	if (j->select_request (false) == nullptr) {
 		if (j->m_win != nullptr)
 			j->m_win->setGameMode (modeNormal);
 
 		remove_job (m_jobs, j);
 		insert_job (m_done, doneView, j);
 		update_progress ();
-	} else {
-		if (j->m_win != nullptr)
-			j->m_win->update_analyzer_ids (m_id);
-		st->update_eval (*m_eval_state);
-		auto variations = m_eval_state->take_children ();
-		int count = 0;
-		for (auto it: variations) {
-			eval ev = it->best_eval ();
-			double wr = ev.wr_black;
-			QString cnt = QString::number (count + 1);
-			QString wrb = QString::number (wr * 100);
-			QString wrw = QString::number ((1 - wr) * 100);
-			QString vis = QString::number (ev.visits);
-			QString title = tr ("PV ") + cnt + ": " + tr ("W Win ") + wrw + "%, " + tr ("B Win ") + wrb + "% " + tr ("at ") + vis + tr (" visits.");
-			it->set_figure (257, title.toStdString ());
-			st->add_child_tree (it);
-			j->m_game->set_modified ();
-			if (j->m_win) {
-				j->m_win->update_game_tree ();
-				j->m_win->update_figures ();
-				j->m_win->update_game_record ();
-			}
-			count++;
-			if (count >= j->m_n_lines)
-				break;
-		}
 	}
+
 	queue_next ();
 }
 
@@ -426,6 +469,7 @@ void AnalyzeDialog::start_engine ()
 	boardsizeSpinBox->setEnabled (false);
 
 	const Engine &e = m_engines.at (idx);
+	m_current_komi = e.komi;
 	start_analyzer (e, e.boardsize.toInt (), 7.5, 0, false);
 }
 
@@ -451,13 +495,15 @@ void AnalyzeDialog::start_job ()
 		return;
 	}
 	filenameEdit->setText ("");
-	m_all_jobs.emplace_front (this, f, gr, secondsEdit->text ().toInt (), maxlinesEdit->text ().toInt (),
-				  none, true);
+	int komi_val = komiComboBox->currentIndex ();
+
+	engine_komi k = komi_val == 2 ? engine_komi::both : komi_val == 1 ? engine_komi::maybe_swap : engine_komi::dflt;
+	m_all_jobs.emplace_front (this, f, gr, secondsEdit->text ().toInt (), maxlinesEdit->text ().toInt (), k);
 	job *j = &m_all_jobs.front ();
 	insert_job (m_jobs, jobView, j);
+
 	update_progress ();
 	if (analyzer_state () == analyzer::paused) {
 		queue_next ();
 	}
 }
-

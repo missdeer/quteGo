@@ -33,16 +33,12 @@ public:
 	void playLeaveSound();
 	void playDisConnectSound();
 	void playConnectSound();
-	void updateFont();
-
-signals:
-	void signal_updateFont();
 
 public slots:
 	void unused_quit();
 
 private:
-	HelpViewer *helpViewer;
+	HelpViewer *helpViewer {};
 };
 
 class QApplication;

@@ -30,7 +30,8 @@ class MainWindow_IGS : public MainWindow
 {
 	qGoBoard *m_connector;
 public:
-	MainWindow_IGS (QWidget *parent, std::shared_ptr<game_record> gr, qGoBoard *connector, bool playing_w, bool playing_b, GameMode mode);
+	MainWindow_IGS (QWidget *parent, std::shared_ptr<game_record> gr, QString screen_key,
+			qGoBoard *connector, bool playing_w, bool playing_b, GameMode mode);
 	~MainWindow_IGS ();
 
 	virtual void player_move (stone_color col, int x, int y)
@@ -63,8 +64,9 @@ public:
 	}
 };
 
-MainWindow_IGS::MainWindow_IGS (QWidget *parent, std::shared_ptr<game_record> gr, qGoBoard *brd, bool playing_w, bool playing_b, GameMode mode)
-	: MainWindow (parent, gr, nullptr, mode), m_connector (brd)
+MainWindow_IGS::MainWindow_IGS (QWidget *parent, std::shared_ptr<game_record> gr, QString screen_key,
+				qGoBoard *brd, bool playing_w, bool playing_b, GameMode mode)
+	: MainWindow (parent, gr, nullptr, screen_key, mode), m_connector (brd)
 {
 	gfx_board->set_player_colors (playing_w, playing_b);
 	/* Update clock tooltips after recording the player colors.  */
@@ -1206,7 +1208,7 @@ void qGoBoard::game_startup ()
 {
 	bool am_black = m_own_color == black;
 	bool am_white = m_own_color == white;
-	win = new MainWindow_IGS (0, m_game, this, am_white, am_black, gameMode);
+	win = new MainWindow_IGS (0, m_game, screen_key (client_window), this, am_white, am_black, gameMode);
 	win->show ();
 	win->set_observer_model (&m_observers);
 
@@ -1617,7 +1619,7 @@ void qGoBoard::set_move(stone_color sc, QString pt, QString mv_nr)
 			j = m_game->boardsize () + 1 - pt[1].digitValue();
 
 		game_state *st = m_state;
-		game_state *st_new = st->add_child_move (i - 1, j - 1, sc);
+		game_state *st_new = st->add_child_move (i - 1, j - 1, sc, game_state::add_mode::set_main);
 		if (st_new != nullptr) {
 			st->transfer_observers (st_new);
 			if (win != nullptr)

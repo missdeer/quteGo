@@ -58,6 +58,7 @@ IGSConnection::IGSConnection(QWidget *lvp, QWidget *lvg) : m_lv_p (lvp), m_lv_g 
 
 IGSConnection::~IGSConnection()
 {
+	qsocket->close ();
 	delete qsocket;
 }
 
@@ -205,7 +206,7 @@ void IGSConnection::OnReadyRead()
 			char *c = new char[size + len_saved_data];
 			if (len_saved_data)
 				memcpy (c, saved_data, len_saved_data);
-			int bytes = qsocket->readLine(c + len_saved_data, size);
+			qsocket->readLine(c + len_saved_data, size);
 			QString x = textCodec->toUnicode(c);
 			delete[] c;
 			len_saved_data = 0;
@@ -239,7 +240,7 @@ void IGSConnection::OnReadyRead()
 }
 
 // Connection was closed from host
-void IGSConnection::OnConnectionClosed() 
+void IGSConnection::OnConnectionClosed()
 {
 	qDebug("CONNECTION CLOSED BY FOREIGN HOST");
 
@@ -253,7 +254,7 @@ void IGSConnection::OnConnectionClosed()
 void IGSConnection::OnDelayedCloseFinish()
 {
 	qDebug("DELAY CLOSED FINISHED");
-	
+
 	authState = LOGIN;
 	sendTextToApp("Connection closed.\n");
 }
@@ -281,22 +282,21 @@ void IGSConnection::sendTextToHost(QString txt, bool ignoreCodec)
 	if (ignoreCodec)
 	{
 
-        	int len;
-		const char * txt2 = txt.toLatin1();
-
-		if ((len = qsocket->write(txt2, strlen(txt2) * sizeof(char))) != -1)
-			qsocket->write("\r\n", 2);
+		QByteArray txt2 = txt.toLatin1 ();
+		int len = qsocket->write (txt2);
+		if (len != -1)
+			qsocket->write ("\r\n", 2);
 		else
-			qWarning() << QString("*** failed sending to host: %1").arg(txt2);
+			qWarning () << QString ("*** failed sending to host: %1").arg (txt);
 	}
 	else
 	{
-		QByteArray raw = textCodec->fromUnicode(txt);
+		QByteArray raw = textCodec->fromUnicode (txt);
 
-		if (qsocket->write(raw.data(), raw.size()) != -1)
-			qsocket->write("\r\n", 2);
+		if (qsocket->write (raw) != -1)
+			qsocket->write ("\r\n", 2);
 		else
-			qWarning() << QString("*** failed sending to host: %1").arg(txt);
+			qWarning() << QString ("*** failed sending to host: %1").arg (txt);
 	}
 }
 
