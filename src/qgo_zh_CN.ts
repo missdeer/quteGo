@@ -151,6 +151,22 @@
         <source>File has a different boardsize than selected!</source>
         <translation>文件与选择的棋盘大小不一致！</translation>
     </message>
+    <message>
+        <source>If fixed engine komi:</source>
+        <translation>如果固定引擎贴目：</translation>
+    </message>
+    <message>
+        <source>Use default</source>
+        <translation>使用默认</translation>
+    </message>
+    <message>
+        <source>Swap if better</source>
+        <translation>假如更好则交换</translation>
+    </message>
+    <message>
+        <source>Analyze both</source>
+        <translation>全部分析</translation>
+    </message>
 </context>
 <context>
     <name>AutoDiagsDialog</name>
@@ -231,7 +247,7 @@
     </message>
     <message>
         <source>You did not configure any analysis engine for this boardsize!</source>
-        <translation>没有为此棋盘大小配置分析引擎！</translation>
+        <translation type="vanished">没有为此棋盘大小配置分析引擎！</translation>
     </message>
 </context>
 <context>
@@ -1226,6 +1242,14 @@ Open the batch analysis dialog which allows you to add SGF files to a queue to b
         <source>Archive items</source>
         <translation>归档条目</translation>
     </message>
+    <message>
+        <source>Choose analysis engine</source>
+        <translation>选择分析引擎</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
 </context>
 <context>
     <name>ClientWindow</name>
@@ -1328,7 +1352,7 @@ The tooltip text contains the channels&apos; title and users&apos; names</source
     </message>
     <message>
         <source>New Game</source>
-        <translation>新建对局</translation>
+        <translation type="vanished">新建对局</translation>
     </message>
     <message>
         <source>Teaching</source>
@@ -1550,7 +1574,7 @@ Enables/disables the statusbar.</source>
     <message>
         <source>Engine configuration updated
 Analysis engines now require a board size to be set, assuming 19 for existing entries.</source>
-        <translation>引擎设置更新
+        <translation type="vanished">引擎设置更新
 分析引擎现在要求设置棋盘大小，已有的项目默认为19.</translation>
     </message>
     <message>
@@ -2533,7 +2557,7 @@ Displays evaluation data found in the game record.</source>
     <name>GameDialog</name>
     <message>
         <source>you</source>
-        <translation>您</translation>
+        <translation type="vanished">您</translation>
     </message>
     <message>
         <source>yes</source>
@@ -2560,11 +2584,11 @@ Displays evaluation data found in the game record.</source>
     </message>
     <message>
         <source>&amp;OK</source>
-        <translation>确定(&amp;O)</translation>
+        <translation type="vanished">确定(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>取消(&amp;C)</translation>
+        <translation type="vanished">取消(&amp;C)</translation>
     </message>
     <message>
         <source>Black</source>
@@ -2938,6 +2962,14 @@ Overwrite stored game result?</source>
         <source> - Press F7 to show menu bar</source>
         <translation>- 按F7显示菜单栏</translation>
     </message>
+    <message>
+        <source>You did not configure any analysis engine for this boardsize!</source>
+        <translation>没有为此棋盘大小配置分析引擎！</translation>
+    </message>
+    <message>
+        <source>Internal error - engine not found.</source>
+        <translation>内部错误 - 没有找到引擎。</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow_GTP</name>
@@ -2981,11 +3013,11 @@ Overwrite stored game result?</source>
     </message>
     <message>
         <source>&amp;OK</source>
-        <translation>确定(&amp;O)</translation>
+        <translation type="vanished">确定(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>取消(&amp;C)</translation>
+        <translation type="vanished">取消(&amp;C)</translation>
     </message>
     <message>
         <source>Players</source>
@@ -3167,11 +3199,11 @@ Overwrite stored game result?</source>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation>确定(&amp;O)</translation>
+        <translation type="vanished">确定(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>取消(&amp;C)</translation>
+        <translation type="vanished">取消(&amp;C)</translation>
     </message>
     <message>
         <source>Board size:</source>
@@ -3258,11 +3290,11 @@ Overwrite stored game result?</source>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation>确定(&amp;O)</translation>
+        <translation type="vanished">确定(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>取消(&amp;C)</translation>
+        <translation type="vanished">取消(&amp;C)</translation>
     </message>
 </context>
 <context>
@@ -5017,6 +5049,14 @@ a variation</source>
         <source>SGF Parser</source>
         <translation>SGF解析器</translation>
     </message>
+    <message>
+        <source>port address, e.g.: 9696
+
+Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</source>
+        <translation>端口地址, 例如:9696
+
+注意：请勿使用默认服务器名称，例如 &apos;-- Aurora ---&apos;等等。</translation>
+    </message>
 </context>
 <context>
     <name>QApplication</name>
@@ -5285,6 +5325,24 @@ reverting to default.</source>
         <source>CFG Files (*.cfg);;All Files (*)</source>
         <translation>CFG文件 (*.cfg);;所有文件 (*)</translation>
     </message>
+    <message>
+        <source>The SGF contained moves outside of the board area.  They were converted to passes.</source>
+        <translation>此SGF包括了棋盘区域外的落子。将被认为是PASS。</translation>
+    </message>
+    <message>
+        <source>Send debug messages to &lt;file&gt;.</source>
+        <translation>发送调试消息到 &lt;file&gt;。</translation>
+    </message>
+    <message>
+        <source>The following files could not be found:</source>
+        <translation>找不到下列文件：</translation>
+    </message>
+    <message>
+        <source>Engine configuration updated
+Analysis engines now require a board size to be set, assuming 19 for existing entries.</source>
+        <translation>引擎设置更新
+分析引擎现在要求设置棋盘大小，已有的项目默认为19.</translation>
+    </message>
 </context>
 <context>
     <name>SGFPreview</name>
@@ -5503,6 +5561,13 @@ reverting to default.</source>
     </message>
 </context>
 <context>
+    <name>T</name>
+    <message>
+        <source>Name</source>
+        <translation>姓名</translation>
+    </message>
+</context>
+<context>
     <name>TalkGui</name>
     <message>
         <source>Form1</source>
@@ -5696,6 +5761,13 @@ closes the tab (and dialog)</source>
     <message>
         <source>&amp;Abort</source>
         <translation>关于(&amp;A)</translation>
+    </message>
+</context>
+<context>
+    <name>an_id_model</name>
+    <message>
+        <source>Engine</source>
+        <translation>引擎</translation>
     </message>
 </context>
 <context>
