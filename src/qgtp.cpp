@@ -365,7 +365,7 @@ void GTP_Eval_Controller::request_analysis (std::shared_ptr<game_record> gr, gam
 	}
 	const go_board &startpos = st->get_board ();
 	m_analyzer->clear_board ();
-	m_analyzer->komi (gr->komi ());
+	m_analyzer->komi (QString::fromStdString(gr->komi ()).toFloat());
 
 	for (int i = 0; i < b.size_x (); i++)
 		for (int j = 0; j < b.size_y (); j++) {
