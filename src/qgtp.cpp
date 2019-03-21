@@ -157,6 +157,17 @@ void GTP_Process::played_move_pass (stone_color col)
 		send_request ("play white pass");
 }
 
+void GTP_Process::komi (double km)
+{
+	if (km == m_komi)
+		return;
+
+	char komi[20];
+	sprintf (komi, "komi %.2f", km);
+	m_komi = km;
+	send_request (komi);
+}
+
 void GTP_Process::request_move (stone_color col)
 {
 	if (col == black)
@@ -335,7 +346,7 @@ analyzer GTP_Eval_Controller::analyzer_state ()
 	return analyzer::running;
 }
 
-void GTP_Eval_Controller::request_analysis (game_state *st, bool flip)
+void GTP_Eval_Controller::request_analysis (std::shared_ptr<game_record> gr, game_state *st, bool flip)
 {
 	if (analyzer_state () != analyzer::running)
 		return;
@@ -354,6 +365,8 @@ void GTP_Eval_Controller::request_analysis (game_state *st, bool flip)
 	}
 	const go_board &startpos = st->get_board ();
 	m_analyzer->clear_board ();
+	m_analyzer->komi (gr->komi ());
+
 	for (int i = 0; i < b.size_x (); i++)
 		for (int j = 0; j < b.size_y (); j++) {
 			stone_color c = startpos.stone_at (i, j);
@@ -419,7 +432,7 @@ void GTP_Eval_Controller::stop_analyzer ()
 }
 
 /* Return true iff the state changed.  */
-bool GTP_Eval_Controller::pause_analyzer (bool on, game_state *st)
+bool GTP_Eval_Controller::pause_analyzer (bool on, std::shared_ptr<game_record> gr, game_state *st)
 {
 	if (m_analyzer == nullptr || !m_analyzer->started () || m_analyzer->stopped ())
 		return false;
@@ -430,15 +443,15 @@ bool GTP_Eval_Controller::pause_analyzer (bool on, game_state *st)
 		clear_eval_data ();
 		m_analyzer->pause_analysis ();
 	} else {
-		request_analysis (st);
+		request_analysis (gr, st);
 	}
-		analyzer_state_changed ();
+	analyzer_state_changed ();
 	return true;
 }
 
 void GTP_Eval_Controller::gtp_eval (const QString &s)
 {
-	if (m_pause_updates || m_switch_pending)
+	if (m_pause_updates || m_pause_eval || m_switch_pending)
 		return;
 
 	bool prune = setting->readBoolEntry("ANALYSIS_PRUNE");
@@ -461,6 +474,10 @@ void GTP_Eval_Controller::gtp_eval (const QString &s)
 	if (flip)
 		id.komi = -id.komi;
 	notice_analyzer_id (id);
+
+	std::vector<game_state *> old_children = m_eval_state->take_children ();
+	for (auto &old: old_children)
+		delete old;
 
 	for (auto &e: moves) {
 //		m_board_win->append_comment (e);
