@@ -5515,11 +5515,11 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
     </message>
     <message>
         <source>Territory scoring</source>
-        <translation>数子中</translation>
+        <translation>全局点目中</translation>
     </message>
     <message>
         <source>Area scoring</source>
-        <translation>数子中</translation>
+        <translation>局部点目中</translation>
     </message>
     <message>
         <source>Stones:</source>
