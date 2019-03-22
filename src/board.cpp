@@ -91,8 +91,6 @@ Board::Board (QWidget *parent)
 	viewport()->setMouseTracking(true);
 	curX = curY = -1;
 
-	antiClicko = setting->readBoolEntry ("ANTICLICKO");
-
 	navIntersectionStatus = false;
 }
 
@@ -314,7 +312,10 @@ void Board::setMode (GameMode mode)
 		m_edit_changed = false;
 		m_edit_to_move = m_displayed->to_move ();
 		if (mode == modeScore || mode == modeScoreRemote) {
-			m_edit_board->calc_scoring_markers_complex ();
+			if (mode == modeScore && m_displayed->was_score_p ())
+				m_edit_board->territory_from_markers ();
+			else
+				m_edit_board->calc_scoring_markers_complex ();
 		}
 	} else if (old_mode == modeScore || old_mode == modeScoreRemote) {
 		/* The only way the scored board is added to the game tree is through
@@ -684,11 +685,11 @@ QByteArray BoardView::render_svg (bool do_number, bool coords)
    This should really be part of game_state, but there is the added complication
    of the m_edit_board.  */
 
-QString BoardView::render_ascii (bool do_number, bool coords)
+QString BoardView::render_ascii (bool do_number, bool coords, bool go_tags)
 {
 	const go_board &db = m_displayed->get_board ();
 	bool have_figure = m_figure_view && m_edit_board == nullptr && m_displayed->has_figure ();
-	int bitsz = db.bitsize ();
+	unsigned bitsz = db.bitsize ();
 	int szx = db.size_x ();
 	int szy = db.size_y ();
 	QString result;
@@ -746,7 +747,9 @@ QString BoardView::render_ascii (bool do_number, bool coords)
 		}
 		if (first_col == none)
 			first_col = startpos->to_move ();
-		result += "[go]$$";
+		if (go_tags)
+			result += "[go]";
+		result +="$$";
 		result += first_col == black ? "B" : "W";
 		if (coords) {
 			result += "c" + QString::number (std::max (szx, szy));
@@ -815,7 +818,9 @@ QString BoardView::render_ascii (bool do_number, bool coords)
 				result += "-+";
 			result += "\n";
 		}
-		result += "[/go]\n";
+		if (go_tags)
+			result += "[/go]";
+		result += "\n";
 
 		for (int i = 0; i < n_mv; i++) {
 			int x = startpos->get_move_x ();
@@ -1299,7 +1304,7 @@ QPixmap BoardView::draw_position (int default_vars_type)
 
 	/* Now we're ready to draw the grid.  */
 	QPixmap image (m_wood_rect.size ());
-	image.fill (QColor (0, 0, 0, 0));
+	image.fill (Qt::transparent);
 	QPainter painter;
 	painter.begin (&image);
 
@@ -1414,11 +1419,17 @@ void Board::leaveEvent(QEvent*)
 	sync_appearance (true);
 }
 
-int BoardView::coord_vis_to_board_x (int p)
+int BoardView::coord_vis_to_board_x (int p, bool small_hitbox)
 {
 	p -= m_board_rect.x () - square_size / 2;
 	if (p < 0)
 		return -1;
+	if (small_hitbox) {
+		int off = p - (int)(p / square_size) * square_size;
+		off = off * 100. / square_size;
+		if (off < 15 || off > 85)
+			return -1;
+	}
 	p /= square_size;
 	p -= n_dups_h ();
 	if (p < 0)
@@ -1430,11 +1441,17 @@ int BoardView::coord_vis_to_board_x (int p)
 	return p;
 }
 
-int BoardView::coord_vis_to_board_y (int p)
+int BoardView::coord_vis_to_board_y (int p, bool small_hitbox)
 {
 	p -= m_board_rect.y () - square_size / 2;
 	if (p < 0)
 		return -1;
+	if (small_hitbox) {
+		int off = p - (int)(p / square_size) * square_size;
+		off = off * 100. / square_size;
+		if (off < 15 || off > 85)
+			return -1;
+	}
 	p /= square_size;
 	p -= n_dups_v ();
 	if (p < 0)
@@ -1570,8 +1587,8 @@ void Board::mouseMoveEvent(QMouseEvent *e)
 		return;
 	}
 
-	int x = coord_vis_to_board_x (e->x ());
-	int y = coord_vis_to_board_y (e->y ());
+	int x = coord_vis_to_board_x (e->x (), setting->values.clicko_hitbox && m_game_mode == modeMatch);
+	int y = coord_vis_to_board_y (e->y (), setting->values.clicko_hitbox && m_game_mode == modeMatch);
 
 	// Outside the valid board?
 	if (!m_dims.contained (x, y))
@@ -1766,8 +1783,8 @@ void Board::mousePressEvent(QMouseEvent *e)
 
 	m_down_x = m_down_y = -1;
 
-	int x = coord_vis_to_board_x (e->x ());
-	int y = coord_vis_to_board_y (e->y ());
+	int x = coord_vis_to_board_x (e->x (), setting->values.clicko_hitbox && m_game_mode == modeMatch);
+	int y = coord_vis_to_board_y (e->y (), setting->values.clicko_hitbox && m_game_mode == modeMatch);
 	if (!m_dims.contained (x, y))
 		return;
 
@@ -1899,10 +1916,10 @@ void Board::mousePressEvent(QMouseEvent *e)
 
 	case modeMatch:
 		// Delay of 250 msecs to avoid clickos
-    		wheelTime = QTime::currentTime();
+		wheelTime = QTime::currentTime ();
     		//qDebug("Mouse pressed at time %d,%03d", wheelTime.second(),wheelTime.msec());
-		if (antiClicko)
-			wheelTime = wheelTime.addMSecs(250);
+		if (setting->values.clicko_delay)
+			wheelTime = wheelTime.addMSecs (250);
 		break;
 
 	default:

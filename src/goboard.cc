@@ -170,7 +170,7 @@ bit_array go_board::init_fill (int bp, const bit_array &bounds, bool in)
 {
 	bit_array fill (bitsize ());
 	int rem_len = m_sz_x - bp % m_sz_x;
-	for (int y = bp; y < bitsize (); y += m_sz_x)  {
+	for (unsigned y = bp; y < bitsize (); y += m_sz_x)  {
 		if (bounds.test_bit (y) != in)
 			break;
 		for (int i = 0; i < rem_len; i++) {
@@ -357,12 +357,34 @@ void go_board::toggle_seki (int x, int y)
 		}
 }
 
+go_score go_board::get_scores () const
+{
+	go_score sc;
+	sc.caps_b = m_caps_b + m_dead_w;
+	sc.caps_w = m_caps_w + m_dead_b;
+	sc.score_b = m_score_b;
+	sc.score_w = m_score_w;
+	sc.stones_b = sc.stones_w = 0;
+	for (auto &it: m_units_w)
+		if (it.m_alive)
+			sc.stones_w += it.m_stones.popcnt ();
+	for (auto &it: m_units_b)
+		if (it.m_alive)
+			sc.stones_b += it.m_stones.popcnt ();
+	return sc;
+}
+
 /* Called when loading an SGF and encountering a position with territory markers.
    Update our captures and territory so that the correct result can be shown.  */
 void go_board::territory_from_markers ()
 {
-	for (int i = 0; i < bitsize (); i++) {
+	m_dead_b = m_dead_w = 0;
+	m_score_b = m_score_w = 0;
+	bit_array terr (bitsize ());
+	bit_array seki (bitsize ());
+	for (unsigned i = 0; i < bitsize (); i++) {
 		if (m_marks[i] == mark::terr) {
+			terr.set_bit (i);
 			if (m_stones_w->test_bit (i))
 				m_dead_w++;
 			else if (m_stones_b->test_bit (i))
@@ -371,7 +393,16 @@ void go_board::territory_from_markers ()
 				m_score_w++;
 			else
 				m_score_b++;
-		}
+		} else if (m_marks[i] == mark::seki)
+			seki.set_bit (i);
+	}
+	for (auto &it: m_units_w) {
+		it.m_alive = !it.m_stones.intersect_p (terr);
+		it.m_seki = it.m_stones.intersect_p (seki);
+	}
+	for (auto &it: m_units_b) {
+		it.m_alive = !it.m_stones.intersect_p (terr);
+		it.m_seki = it.m_stones.intersect_p (seki);
 	}
 }
 
@@ -411,7 +442,7 @@ void go_board::find_territory_units (const bit_array &w_stones, const bit_array 
 	dead_stones.andnot (w_stones);
 	dead_stones.andnot (b_stones);
 
-	for (int i = 0; i < bitsize (); i++) {
+	for (unsigned i = 0; i < bitsize (); i++) {
 		i = handled.ffz (i);
 		if (i == bitsize ())
 			break;
@@ -443,7 +474,7 @@ std::vector<go_board::enclosed_area> go_board::find_eas (const bit_array &stones
 {
 	std::vector<enclosed_area> ea;
 	bit_array handled = stones;
-	for (int i = 0; i < bitsize (); i++) {
+	for (unsigned i = 0; i < bitsize (); i++) {
 		i = handled.ffz (i);
 		if (i == bitsize ())
 			break;
@@ -554,7 +585,7 @@ void go_board::finish_scoring_markers (const bit_array *do_not_count)
 	}
 	m_score_w += terr_w.popcnt ();
 	m_score_b += terr_b.popcnt ();
-	for (int i = 0; i < bitsize (); i++) {
+	for (unsigned i = 0; i < bitsize (); i++) {
 		if (terr_w.test_bit (i)) {
 			m_marks[i] = mark::terr;
 			m_mark_extra[i] = 0;
@@ -575,8 +606,8 @@ void go_board::calc_scoring_markers_simple ()
 {
 	init_marks (true);
 
-	m_score_b = 0;
-	m_score_w = 0;
+	m_dead_w = m_dead_b = 0;
+	m_score_b = m_score_w = 0;
 
 	bit_array w_stones (bitsize ());
 	bit_array b_stones (bitsize ());
@@ -684,7 +715,7 @@ void go_board::calc_scoring_markers_complex ()
 		cand_territory.and_not (false_eyes);
 	}
 #endif
-	for (int i = 0; i < bitsize (); i++)
+	for (unsigned i = 0; i < bitsize (); i++)
 		if (false_eyes.test_bit (i))
 			m_marks[i] = mark::falseeye;
 
@@ -725,7 +756,7 @@ void go_board::calc_scoring_markers_complex ()
 	for (auto it: live_units)
 		if (it->m_seki)
 			seki_stones.ior (it->m_stones);
-	for (int i = 0; i < bitsize (); i++)
+	for (unsigned i = 0; i < bitsize (); i++)
 		if (seki_stones.test_bit (i))
 			m_marks[i] = mark::seki;
 

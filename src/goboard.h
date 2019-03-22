@@ -33,6 +33,13 @@ enum class stone_type { live, seki, dead, var };
 enum class mark { none = 0, move, triangle, circle, square, plus, cross, text, num, letter, dead, seki, terr, falseeye, redbox };
 typedef unsigned short mextra;
 
+struct go_score
+{
+	int caps_b = 0, caps_w = 0;
+	int score_b = 0, score_w = 0;
+	int stones_b = 0, stones_w = 0;
+};
+
 class go_board
 {
 	/* In everyday conversation, we might call these "strings of stones".  That
@@ -216,7 +223,7 @@ public:
 	{
 		return m_torus_v;
 	}
-	int bitsize () const
+	unsigned bitsize () const
 	{
 		return m_sz_x * m_sz_y;
 	}
@@ -312,7 +319,7 @@ public:
 	{
 		if (m_marks.size () == 0)
 			return;
-		for (int i = 0; i < bitsize (); i++) {
+		for (unsigned i = 0; i < bitsize (); i++) {
 			m_marks[i] = mark::none;
 			m_mark_extra[i] = 0;
 		}
@@ -347,7 +354,7 @@ public:
 		if (*m_stones_w != *other.m_stones_w)
 			return false;
 		if (m_marks.size () != 0 || other.m_marks.size () != 0) {
-			for (int i = 0; i < bitsize (); i++) {
+			for (unsigned i = 0; i < bitsize (); i++) {
 				mark m1 = m_marks.size () == 0 ? mark::none : m_marks[i];
 				mark m2 = other.m_marks.size () == 0 ? mark::none : other.m_marks[i];
 				if (m1 != m2)
@@ -373,13 +380,7 @@ public:
 	{
 		return *m_stones_w;
 	}
-	void get_scores (int &caps_b, int &caps_w, int &score_b, int &score_w) const
-	{
-		caps_b = m_caps_b + m_dead_w;
-		caps_w = m_caps_w + m_dead_b;
-		score_b = m_score_b;
-		score_w = m_score_w;
-	}
+	go_score get_scores () const;
 	void territory_from_markers ();
 	void append_marks_sgf (std::string &) const;
 
@@ -409,7 +410,7 @@ private:
 	bit_array collect_marks (mark t) const
 	{
 		bit_array tmp (bitsize ());
-		for (int i = 0; i < bitsize (); i++)
+		for (unsigned i = 0; i < bitsize (); i++)
 			if (m_marks[i] == t)
 				tmp.set_bit (i);
 		return tmp;
@@ -417,7 +418,7 @@ private:
 	bit_array collect_marks (mark t, mextra me) const
 	{
 		bit_array tmp (bitsize ());
-		for (int i = 0; i < bitsize (); i++)
+		for (unsigned i = 0; i < bitsize (); i++)
 			if (m_marks[i] == t && m_mark_extra[i] == me)
 				tmp.set_bit (i);
 		return tmp;
