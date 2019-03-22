@@ -2942,7 +2942,7 @@ Do you still want to save it?</source>
     </message>
     <message>
         <source>Jigo</source>
-        <translation>和棋</translation>
+        <translation type="vanished">和棋</translation>
     </message>
     <message>
         <source>Game result differs from the one stored.
@@ -4437,7 +4437,7 @@ On IGS only.</source>
     </message>
     <message>
         <source>Check for setting an anti cliko delay for on line games</source>
-        <translation>选中此项为网上对局启用&apos;防止误点击&apos;功能</translation>
+        <translation type="vanished">选中此项为网上对局启用&apos;防止误点击&apos;功能</translation>
     </message>
     <message>
         <source>Autosave</source>
@@ -5057,6 +5057,22 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
 
 注意：请勿使用默认服务器名称，例如 &apos;-- Aurora ---&apos;等等。</translation>
     </message>
+    <message>
+        <source>Options for preventing misclicks in online games</source>
+        <translation>在线对局中防止误点的选项</translation>
+    </message>
+    <message>
+        <source>If set, moves are only played if the mouse button is held down for a brief period</source>
+        <translation>如果设置，则仅当鼠标按键按下一小段时间后才落子有效</translation>
+    </message>
+    <message>
+        <source>If set, moves are only played when the click is not too close to an edge between positions</source>
+        <translation>如果设置，仅当点击位置不非常靠近边缘才落子有效</translation>
+    </message>
+    <message>
+        <source>Anti clicko (smaller hitbox)</source>
+        <translation>防点击（更小的点击区域）</translation>
+    </message>
 </context>
 <context>
     <name>QApplication</name>
@@ -5497,6 +5513,18 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <source>TextLabel</source>
         <translation>文字标签</translation>
     </message>
+    <message>
+        <source>Territory scoring</source>
+        <translation>数子中</translation>
+    </message>
+    <message>
+        <source>Area scoring</source>
+        <translation>数子中</translation>
+    </message>
+    <message>
+        <source>Stones:</source>
+        <translation>棋子：</translation>
+    </message>
 </context>
 <context>
     <name>SvgView</name>
@@ -5761,6 +5789,18 @@ closes the tab (and dialog)</source>
     <message>
         <source>&amp;Abort</source>
         <translation>关于(&amp;A)</translation>
+    </message>
+    <message>
+        <source>Target:</source>
+        <translation>目标：</translation>
+    </message>
+    <message>
+        <source>Forum</source>
+        <translation>论坛</translation>
+    </message>
+    <message>
+        <source>SL</source>
+        <translation>SL</translation>
     </message>
 </context>
 <context>
