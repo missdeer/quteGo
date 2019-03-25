@@ -223,6 +223,11 @@ void GTP_Process::slot_receive_stdout ()
 {
 	m_buffer += readAllStandardOutput ();
 
+	if (m_stopped) {
+		m_buffer.clear ();
+		return;
+	}
+
 	for (;;) {
 		/* Clear empty lines at the front of the buffer.  */
 		int last_lf = -1;
@@ -245,15 +250,14 @@ void GTP_Process::slot_receive_stdout ()
 		m_dlg.append (output);
 		m_dlg.textEdit->setTextColor (Qt::black);
 
+		m_buffer = m_buffer.mid (idx + 1);
 		if (output.length () >= 10 && output.left (10) == "info move ") {
-			m_buffer = m_buffer.mid (idx + 1);
 			m_controller->gtp_eval (output);
-			return;
+			continue;
 		}
 
 		if (m_receivers.isEmpty ())
-			return;
-		m_buffer = m_buffer.mid (idx + 1);
+			continue;
 
 		bool err = output[0] != '=';
 		output.remove (0, 1);
@@ -263,12 +267,14 @@ void GTP_Process::slot_receive_stdout ()
 			n_digits++;
 		while (n_digits < len && output[n_digits].isSpace ())
 			n_digits++;
+		if (n_digits == 0)
+			err = true;
 		int cmd_nr = output.left (n_digits).toInt ();
 		auto &rcv_map = err ? m_err_receivers : m_receivers;
 		QMap<int, t_receiver>::const_iterator map_iter = rcv_map.constFind (cmd_nr);
-		if (map_iter == m_receivers.constEnd ()) {
-			m_controller->gtp_failure (tr ("Invalid response from GTP engine"));
+		if (err || map_iter == rcv_map.constEnd ()) {
 			quit ();
+			m_controller->gtp_failure (tr ("Invalid response from GTP engine"));
 			return;
 		}
 		t_receiver rcv = *map_iter;
@@ -369,6 +375,9 @@ void GTP_Eval_Controller::request_analysis (std::shared_ptr<game_record> gr, gam
 
 	for (int i = 0; i < b.size_x (); i++)
 		for (int j = 0; j < b.size_y (); j++) {
+			/* This gives better behavior if the GTP process dies or misbehaves.  */
+			if (m_analyzer->stopped ())
+				return;
 			stone_color c = startpos.stone_at (i, j);
 			if (flip)
 				c = flip_color (c);
