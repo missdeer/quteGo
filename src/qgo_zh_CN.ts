@@ -167,6 +167,10 @@
         <source>Analyze both</source>
         <translation>全部分析</translation>
     </message>
+    <message>
+        <source>Add evaluation info to comments</source>
+        <translation>添加局面评估信息到评论中</translation>
+    </message>
 </context>
 <context>
     <name>AutoDiagsDialog</name>
@@ -244,10 +248,6 @@
     <message>
         <source>Analysis is supported only for square boards!</source>
         <translation>只支持正方形棋盘的分析！</translation>
-    </message>
-    <message>
-        <source>You did not configure any analysis engine for this boardsize!</source>
-        <translation type="vanished">没有为此棋盘大小配置分析引擎！</translation>
     </message>
 </context>
 <context>
@@ -594,10 +594,6 @@ After placing and/or undo release button for returning to starting point automat
     <message>
         <source>&amp;File</source>
         <translation>文件(&amp;F)</translation>
-    </message>
-    <message>
-        <source>&amp;Import/Export</source>
-        <translation>导入/导出(&amp;I)</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
@@ -1043,10 +1039,6 @@ Export the current board to an SVG vector graphics file</source>
 将当前棋盘导出成SVG矢量图形文件</translation>
     </message>
     <message>
-        <source>Import SGF from clipboard</source>
-        <translation>从剪贴板导入SGF</translation>
-    </message>
-    <message>
         <source>Import SGF from clipboard
 Import a complete game in SGF format from the clipboard.</source>
         <translation>从剪贴板导入SGF
@@ -1247,8 +1239,20 @@ Open the batch analysis dialog which allows you to add SGF files to a queue to b
         <translation>选择分析引擎</translation>
     </message>
     <message>
-        <source>None</source>
-        <translation>无</translation>
+        <source>Import/E&amp;xport</source>
+        <translation>导入/导出(&amp;X)</translation>
+    </message>
+    <message>
+        <source>Import SGF &amp;from clipboard</source>
+        <translation>从剪贴板导入SGF(&amp;F)</translation>
+    </message>
+    <message>
+        <source>S&amp;lide export...</source>
+        <translation>导出幻灯片(&amp;L)…</translation>
+    </message>
+    <message>
+        <source>Open the slide export dialog</source>
+        <translation>打开导出幻灯片对话框</translation>
     </message>
 </context>
 <context>
@@ -1349,10 +1353,6 @@ The tooltip text contains the channels&apos; title and users&apos; names</source
     <message>
         <source>stats B</source>
         <translation>黑方详细信息</translation>
-    </message>
-    <message>
-        <source>New Game</source>
-        <translation type="vanished">新建对局</translation>
     </message>
     <message>
         <source>Teaching</source>
@@ -1570,12 +1570,6 @@ Enables/disables the statusbar.</source>
     <message>
         <source>trail</source>
         <translation>追踪</translation>
-    </message>
-    <message>
-        <source>Engine configuration updated
-Analysis engines now require a board size to be set, assuming 19 for existing entries.</source>
-        <translation type="vanished">引擎设置更新
-分析引擎现在要求设置棋盘大小，已有的项目默认为19.</translation>
     </message>
     <message>
         <source>You did not configure any engines!</source>
@@ -2556,10 +2550,6 @@ Displays evaluation data found in the game record.</source>
 <context>
     <name>GameDialog</name>
     <message>
-        <source>you</source>
-        <translation type="vanished">您</translation>
-    </message>
-    <message>
         <source>yes</source>
         <translation>是</translation>
     </message>
@@ -2581,14 +2571,6 @@ Displays evaluation data found in the game record.</source>
     <message>
         <source>Game Information</source>
         <translation>对局信息</translation>
-    </message>
-    <message>
-        <source>&amp;OK</source>
-        <translation type="vanished">确定(&amp;O)</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
-        <translation type="vanished">取消(&amp;C)</translation>
     </message>
     <message>
         <source>Black</source>
@@ -2762,7 +2744,7 @@ Swap current move with previous variation.</source>
     </message>
     <message>
         <source>Current move</source>
-        <translation>当前手</translation>
+        <translation>当前落子</translation>
     </message>
     <message>
         <source>Move
@@ -2941,10 +2923,6 @@ Do you still want to save it?</source>
         <translation>白棋胜%1目</translation>
     </message>
     <message>
-        <source>Jigo</source>
-        <translation type="vanished">和棋</translation>
-    </message>
-    <message>
         <source>Game result differs from the one stored.
 Overwrite stored game result?</source>
         <translation>棋局结果与保存的不一致。
@@ -3010,14 +2988,6 @@ Overwrite stored game result?</source>
     <message>
         <source>Load game</source>
         <translation>读取对局</translation>
-    </message>
-    <message>
-        <source>&amp;OK</source>
-        <translation type="vanished">确定(&amp;O)</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
-        <translation type="vanished">取消(&amp;C)</translation>
     </message>
     <message>
         <source>Players</source>
@@ -3198,14 +3168,6 @@ Overwrite stored game result?</source>
         <translation>棋力:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation type="vanished">确定(&amp;O)</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
-        <translation type="vanished">取消(&amp;C)</translation>
-    </message>
-    <message>
         <source>Board size:</source>
         <translation>棋盘大小:</translation>
     </message>
@@ -3287,14 +3249,6 @@ Overwrite stored game result?</source>
     <message>
         <source>Vertically</source>
         <translation>纵向</translation>
-    </message>
-    <message>
-        <source>&amp;Ok</source>
-        <translation type="vanished">确定(&amp;O)</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
-        <translation type="vanished">取消(&amp;C)</translation>
     </message>
 </context>
 <context>
@@ -3682,6 +3636,26 @@ If your engine allows multiple board sizes, you need to configure them in separa
 Do you still want to import from kombilo.cfg?</source>
         <translation>此操作会替换已存在的数据库路径。
 仍要从kombilo.cfg导入吗？</translation>
+    </message>
+    <message>
+        <source>Invalid slide width</source>
+        <translation>无效的幻灯片宽度</translation>
+    </message>
+    <message>
+        <source>Please enter valid dimensions for slide export (100x100 or larger).</source>
+        <translation>请输入有效的维度用于幻灯片导出(100x100或更大)。</translation>
+    </message>
+    <message>
+        <source>Invalid slide height</source>
+        <translation>无效的幻灯片调试</translation>
+    </message>
+    <message>
+        <source>Invalid slide dimensions</source>
+        <translation>无效的幻灯片维度</translation>
+    </message>
+    <message>
+        <source>Slide export dimensions must be wider than they are tall.</source>
+        <translation>幻灯片导出维度必须宽大于高。</translation>
     </message>
 </context>
 <context>
@@ -4436,10 +4410,6 @@ On IGS only.</source>
 仅限于IGS.</translation>
     </message>
     <message>
-        <source>Check for setting an anti cliko delay for on line games</source>
-        <translation type="vanished">选中此项为网上对局启用&apos;防止误点击&apos;功能</translation>
-    </message>
-    <message>
         <source>Autosave</source>
         <translation>自动保存</translation>
     </message>
@@ -5073,6 +5043,66 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
         <source>Anti clicko (smaller hitbox)</source>
         <translation>防点击（更小的点击区域）</translation>
     </message>
+    <message>
+        <source>Coord size:</source>
+        <translation>坐标大小：</translation>
+    </message>
+    <message>
+        <source>Slide export defaults</source>
+        <translation>幻灯片导出默认值</translation>
+    </message>
+    <message>
+        <source>Exported size:</source>
+        <translation>导出大小：</translation>
+    </message>
+    <message>
+        <source>The dimensions used when saving.</source>
+        <translation>保存时使用的维度。</translation>
+    </message>
+    <message>
+        <source>x</source>
+        <translation>x</translation>
+    </message>
+    <message>
+        <source>Lines of comment text:</source>
+        <translation>评论文本行数：</translation>
+    </message>
+    <message>
+        <source>This controls the font size for the comments display</source>
+        <translation>这用于控制评论显示使用的字体大小</translation>
+    </message>
+    <message>
+        <source>Comment margin:</source>
+        <translation>评论边缘：</translation>
+    </message>
+    <message>
+        <source>Determines how the first paragraph of the comments should be displayed.</source>
+        <translation>决定评论第一段如何显示。</translation>
+    </message>
+    <message>
+        <source>Bold header</source>
+        <translation>头部加粗</translation>
+    </message>
+    <message>
+        <source>Choose the color scheme for the comments</source>
+        <translation>选择评论颜色</translation>
+    </message>
+    <message>
+        <source>White on black text</source>
+        <translation>白底黑字</translation>
+    </message>
+    <message>
+        <source>Show board coordinates</source>
+        <translation>显示棋盘坐标</translation>
+    </message>
+    <message>
+        <source>Coordinates</source>
+        <translation>坐标</translation>
+    </message>
+    <message>
+        <source>Italic header</source>
+        <translation>头部斜体</translation>
+    </message>
 </context>
 <context>
     <name>QApplication</name>
@@ -5524,6 +5554,197 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
     <message>
         <source>Stones:</source>
         <translation>棋子：</translation>
+    </message>
+</context>
+<context>
+    <name>SlideView</name>
+    <message>
+        <source>Export slide as</source>
+        <translation>导出幻灯片为</translation>
+    </message>
+    <message>
+        <source>Images (*.png *.xpm *.jpg);;All Files (*)</source>
+        <translation>图像 (*.png *.xpm *.jpg);;所有文件 (*)</translation>
+    </message>
+    <message>
+        <source>Error while saving</source>
+        <translation>保存时发生错误</translation>
+    </message>
+    <message>
+        <source>An error occurred while saving. The file could not be saved.
+</source>
+        <translation>保存时发生错误。文件不能保存。
+</translation>
+    </message>
+    <message>
+        <source>Filename pattern not set</source>
+        <translation>文件名模式未设置</translation>
+    </message>
+    <message>
+        <source>Please enter a filename pattern which includes &quot;%n&quot; where the number should be substituted.</source>
+        <translation>请输入文件名模式，使用“%n”替代数字。</translation>
+    </message>
+    <message>
+        <source>File exists</source>
+        <translation>文件已存在</translation>
+    </message>
+    <message>
+        <source>A filename matching the pattern and current number already exists.  Overwrite?</source>
+        <translation>文件名与模式匹配，当前数字已存在。覆盖吗？</translation>
+    </message>
+    <message>
+        <source>The file could not be saved.
+Please verify the filename pattern is correct.</source>
+        <translation>文件不能保存。
+请检查文件名模式是否正确。</translation>
+    </message>
+    <message>
+        <source>Choose file name to serve as template for slides</source>
+        <translation>选择文件名作为幻灯片模板</translation>
+    </message>
+</context>
+<context>
+    <name>SlideViewDialog</name>
+    <message>
+        <source>Form</source>
+        <translation>形式</translation>
+    </message>
+    <message>
+        <source>View settings</source>
+        <translation>视图设置</translation>
+    </message>
+    <message>
+        <source>Exported size:</source>
+        <translation>导出大小：</translation>
+    </message>
+    <message>
+        <source>The dimensions used when saving.</source>
+        <translation>保存时使用的维度。</translation>
+    </message>
+    <message>
+        <source>x</source>
+        <translation>x</translation>
+    </message>
+    <message>
+        <source>Lines of comment text:</source>
+        <translation>评论文本行数：</translation>
+    </message>
+    <message>
+        <source>This controls the font size for the comments display</source>
+        <translation>这用于控制评论显示使用的字体大小</translation>
+    </message>
+    <message>
+        <source>Comment margin:</source>
+        <translation>评论边缘：</translation>
+    </message>
+    <message>
+        <source>Determines how the first paragraph of the comments should be displayed.</source>
+        <translation>决定评论第一段如何显示。</translation>
+    </message>
+    <message>
+        <source>Bold header</source>
+        <translation>头部加粗</translation>
+    </message>
+    <message>
+        <source>Choose the color scheme for the comments</source>
+        <translation>选择评论颜色</translation>
+    </message>
+    <message>
+        <source>White on black text</source>
+        <translation>白底黑字</translation>
+    </message>
+    <message>
+        <source>Show board coordinates</source>
+        <translation>显示棋盘坐标</translation>
+    </message>
+    <message>
+        <source>Coordinates</source>
+        <translation>坐标</translation>
+    </message>
+    <message>
+        <source>Italic header</source>
+        <translation>头部斜体</translation>
+    </message>
+    <message>
+        <source>Automatic file naming (numbered sequence)</source>
+        <translation>自动命名文件（数字序列）</translation>
+    </message>
+    <message>
+        <source>Counts the number of the slide, incremented on every save.
+This is substituted into the filename template when choosing the Save button.</source>
+        <translation>计算幻灯片数量，每次保存加1。</translation>
+    </message>
+    <message>
+        <source>If checked, the Save button overwrites files without asking</source>
+        <translation>如果选中，点击“保存”按钮将覆盖文件而不再询问</translation>
+    </message>
+    <message>
+        <source>&amp;Force overwrite</source>
+        <translation>强制覆盖(&amp;F)</translation>
+    </message>
+    <message>
+        <source>File name template
+This should be a filename, with &quot;%n&quot; somewhere to indicate where the current number should be substituted.</source>
+        <translation>文件名模板
+这是一个文件名，使用“%n”代表当前数字。</translation>
+    </message>
+    <message>
+        <source>Choose a file name template
+You will need to add &apos;%n&quot; somewhere in the template to indicate the position where the current number should be substituted.</source>
+        <translation>选择文件名模板
+需要添加“%n”到模板中，代表当前数字所在位置。</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <source>Current number:</source>
+        <translation>当前数字：</translation>
+    </message>
+    <message>
+        <source>Save and increment</source>
+        <translation>保存并增加</translation>
+    </message>
+    <message>
+        <source>All positions on main branch</source>
+        <translation>主分支上所有位置</translation>
+    </message>
+    <message>
+        <source>All commented positions</source>
+        <translation>所有带评论的位置</translation>
+    </message>
+    <message>
+        <source>Commented positions on main branch</source>
+        <translation>主分支上所有带评论的位置</translation>
+    </message>
+    <message>
+        <source>All positions</source>
+        <translation>所有位置</translation>
+    </message>
+    <message>
+        <source>Current position</source>
+        <translation>当前位置</translation>
+    </message>
+    <message>
+        <source>Filename pattern (%n for number):</source>
+        <translation>文件名模式(%n代表数字)：</translation>
+    </message>
+    <message>
+        <source>Export the current slide to the clipboard</source>
+        <translation>导出当前幻灯片到剪贴板</translation>
+    </message>
+    <message>
+        <source>To &amp;clipboard</source>
+        <translation>到剪贴板(&amp;C)</translation>
+    </message>
+    <message>
+        <source>Choose a file name and save the current slide, without using the template.</source>
+        <translation>选择一个文件并并保存当前幻灯片，不使用模板。</translation>
+    </message>
+    <message>
+        <source>Save &amp;as...</source>
+        <translation>另存为(&amp;A)…</translation>
     </message>
 </context>
 <context>
