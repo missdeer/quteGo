@@ -187,7 +187,7 @@
       <string/>
      </property>
      <property name="currentIndex">
-      <number>6</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="InterfaceTabWidget">
       <attribute name="title">
@@ -985,7 +985,7 @@ You can set the warning time besides</string>
           <property name="spacing">
            <number>0</number>
           </property>
-          <item row="2" column="0">
+          <item row="3" column="0">
            <widget class="QCheckBox" name="cursorCheckBox">
             <property name="toolTip">
              <string>Show a ghost stone at mouse pointer</string>
@@ -1000,7 +1000,7 @@ Have a ghost stone showing the current position of the mouse pointer on the boar
             </property>
            </widget>
           </item>
-          <item row="3" column="0">
+          <item row="4" column="0">
            <widget class="QCheckBox" name="tooltipsCheckBox">
             <property name="toolTip">
              <string>Disable Tool Tips</string>
@@ -1034,7 +1034,7 @@ Globally disables all tool tips that would show up if the mouse hovers over a GU
             </item>
            </widget>
           </item>
-          <item row="1" column="0">
+          <item row="2" column="0">
            <widget class="QLabel" name="label_4">
             <property name="text">
              <string>Side bar:</string>
@@ -1044,7 +1044,7 @@ Globally disables all tool tips that would show up if the mouse hovers over a GU
             </property>
            </widget>
           </item>
-          <item row="1" column="1">
+          <item row="2" column="1">
            <widget class="QComboBox" name="sidebarComboBox">
             <item>
              <property name="text">
@@ -1068,7 +1068,7 @@ Globally disables all tool tips that would show up if the mouse hovers over a GU
             </property>
            </widget>
           </item>
-          <item row="4" column="0">
+          <item row="5" column="0">
            <spacer name="verticalSpacer_15">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
@@ -1083,6 +1083,35 @@ Globally disables all tool tips that would show up if the mouse hovers over a GU
              </size>
             </property>
            </spacer>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_24">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Coord size:</string>
+            </property>
+            <property name="buddy">
+             <cstring>coordSizeSlider</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QSlider" name="coordSizeSlider">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>100</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -1200,173 +1229,6 @@ If not available then interval time is used.</string>
             </property>
             <property name="text">
              <string>sgf time tags</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QGroupBox" name="boardButtonGroup">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="title">
-          <string>Board</string>
-         </property>
-         <layout class="QGridLayout">
-          <property name="leftMargin">
-           <number>6</number>
-          </property>
-          <property name="topMargin">
-           <number>6</number>
-          </property>
-          <property name="rightMargin">
-           <number>6</number>
-          </property>
-          <property name="bottomMargin">
-           <number>6</number>
-          </property>
-          <item row="3" column="0">
-           <widget class="QCheckBox" name="cursorCheckBox">
-            <property name="toolTip">
-             <string>Show a ghost stone at mouse pointer</string>
-            </property>
-            <property name="whatsThis">
-             <string>Show a ghost stone at mouse pointer
-
-Have a ghost stone showing the current position of the mouse pointer on the board?</string>
-            </property>
-            <property name="text">
-             <string>Cursor stone</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QCheckBox" name="tooltipsCheckBox">
-            <property name="toolTip">
-             <string>Disable Tool Tips</string>
-            </property>
-            <property name="whatsThis">
-             <string>Disable Tool Tips
-
-Globally disables all tool tips that would show up if the mouse hovers over a GUI element.</string>
-            </property>
-            <property name="text">
-             <string>Disable tooltips</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QComboBox" name="coordsComboBox">
-            <item>
-             <property name="text">
-              <string>None</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Standard</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>SGF style</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_4">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>Side bar:</string>
-            </property>
-            <property name="buddy">
-             <cstring>sidebarComboBox</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QComboBox" name="sidebarComboBox">
-            <item>
-             <property name="text">
-              <string>Left</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Right</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>Coordinates:</string>
-            </property>
-            <property name="buddy">
-             <cstring>coordsComboBox</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="0">
-           <spacer name="verticalSpacer_15">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Preferred</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>1</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_24">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>Coord size:</string>
-            </property>
-            <property name="buddy">
-             <cstring>coordSizeSlider</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QSlider" name="coordSizeSlider">
-            <property name="minimum">
-             <number>1</number>
-            </property>
-            <property name="maximum">
-             <number>100</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
