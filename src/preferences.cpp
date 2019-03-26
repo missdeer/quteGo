@@ -175,6 +175,8 @@ PreferencesDialog::PreferencesDialog(QWidget* parent)
 	LineEdit_port->setValidator (new QIntValidator (0, 9999, this));
 	anMaxMovesEdit->setValidator (new QIntValidator (0, 999, this));
 	anDepthEdit->setValidator (new QIntValidator (0, 999, this));
+	slideXEdit->setValidator (new QIntValidator (100, 9999, this));
+	slideYEdit->setValidator (new QIntValidator (100, 9999, this));
 
 	// clear edit field
 	LineEdit_title->clear();
@@ -450,6 +452,7 @@ void PreferencesDialog::init_from_settings ()
 		      ? (setting->readBoolEntry("SGF_BOARD_COORDS") ? 2 : 1)
 		      : 0);
 	coordsComboBox->setCurrentIndex(coords);
+	coordSizeSlider->setValue(setting->readIntEntry("COORDS_SIZE"));
 	cursorCheckBox->setChecked(setting->readBoolEntry("CURSOR"));
 	tooltipsCheckBox->setChecked(!(setting->readBoolEntry("TOOLTIPS")));
 	timerComboBox->setCurrentIndex(setting->readIntEntry("TIMER_INTERVAL"));
@@ -500,6 +503,15 @@ void PreferencesDialog::init_from_settings ()
 	CheckBox_autoSave_Played->setChecked(setting->readBoolEntry("AUTOSAVE_PLAYED"));
 
 	toroidDupsSpin->setValue (setting->readIntEntry("TOROID_DUPS"));
+
+	slideLinesSpinBox->setValue (setting->readIntEntry ("SLIDE_LINES"));
+	slideMarginSpinBox->setValue (setting->readIntEntry ("SLIDE_MARGIN"));
+	slideXEdit->setText (QString::number (setting->readIntEntry ("SLIDE_X")));
+	slideYEdit->setText (QString::number (setting->readIntEntry ("SLIDE_Y")));
+	slideItalicCheckBox->setChecked (setting->readBoolEntry ("SLIDE_ITALIC"));
+	slideBoldCheckBox->setChecked (setting->readBoolEntry ("SLIDE_BOLD"));
+	slideWBCheckBox->setChecked (setting->readBoolEntry ("SLIDE_WB"));
+	slideCoordsCheckBox->setChecked (setting->readBoolEntry ("SLIDE_COORDS"));
 
 	fontStandardButton->setText(setting->fontToString(setting->fontStandard));
 	fontMarksButton->setText(setting->fontToString(setting->fontMarks));
@@ -638,6 +650,34 @@ void PreferencesDialog::slot_apply()
 	setting->writeBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING", suppressSGFParserErrorWarningCheckBox->isChecked());
 	setting->writeIntEntry("MOVE_COUNT_MOVE_NUMBER", showNumberMoveCountSpinBox->value());
 	setting->writeBoolEntry("SHOW_MOVE_NUMBER", showMoveNumberGroupBox->isChecked());
+
+	bool ok;
+	int slide_x = slideXEdit->text ().toInt(&ok);
+	if (!ok || slide_x < 100 || slide_x > 10000) {
+		QMessageBox::warning (this, tr ("Invalid slide width"),
+				      tr ("Please enter valid dimensions for slide export (100x100 or larger)."));
+		return;
+	}
+	int slide_y = slideYEdit->text ().toInt (&ok);
+	if (!ok || slide_y < 100 || slide_y > 10000) {
+		QMessageBox::warning (this, tr ("Invalid slide height"),
+				      tr ("Please enter valid dimensions for slide export (100x100 or larger)."));
+		return;
+	}
+	if (slide_y > slide_x) {
+		QMessageBox::warning (this, tr ("Invalid slide dimensions"),
+				      tr ("Slide export dimensions must be wider than they are tall."));
+		return;
+	}
+	setting->writeIntEntry ("SLIDE_X", slide_x);
+	setting->writeIntEntry ("SLIDE_Y", slide_y);
+	setting->writeIntEntry ("SLIDE_LINES", slideLinesSpinBox->value ());
+	setting->writeIntEntry ("SLIDE_MARGIN", slideMarginSpinBox->value ());
+	setting->writeBoolEntry ("SLIDE_ITALIC", slideItalicCheckBox->isChecked ());
+	setting->writeBoolEntry ("SLIDE_BOLD", slideBoldCheckBox->isChecked ());
+	setting->writeBoolEntry ("SLIDE_WB", slideWBCheckBox->isChecked ());
+	setting->writeBoolEntry ("SLIDE_COORDS", slideCoordsCheckBox->isChecked ());
+
 	setting->writeIntEntry("SKIN_INDEX", woodComboBox->currentIndex ());
 	setting->writeEntry("SKIN", LineEdit_goban->text());
 	setting->writeEntry("SKIN_TABLE", LineEdit_Table->text());
@@ -701,6 +741,7 @@ void PreferencesDialog::slot_apply()
 	int sidebar = sidebarComboBox->currentIndex();
 	setting->writeBoolEntry("BOARD_COORDS", coords > 0);
 	setting->writeBoolEntry("SGF_BOARD_COORDS", coords == 2);
+	setting->writeIntEntry("COORDS_SIZE", coordSizeSlider->value());
 	setting->writeBoolEntry("SIDEBAR_LEFT", sidebar == 0);
 	setting->writeBoolEntry("CURSOR", cursorCheckBox->isChecked());
 	//setting->writeBoolEntry("SMALL_STONES", smallerStonesCheckBox->isChecked());

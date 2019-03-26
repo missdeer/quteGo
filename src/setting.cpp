@@ -46,6 +46,7 @@ Setting::Setting()
 
 	writeBoolEntry("SIDEBAR", true);
 	writeBoolEntry("BOARD_COORDS", true);
+	writeIntEntry("COORDS_SIZE", 65);
 	writeBoolEntry("SGF_BOARD_COORDS", false);
 	writeBoolEntry("CURSOR", true);
 	writeBoolEntry("SLIDER", true);
@@ -133,6 +134,11 @@ Setting::Setting()
 	writeBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING", 0);
 	writeIntEntry ("MOVE_COUNT_MOVE_NUMBER", 361);
 	writeBoolEntry("SHOW_MOVE_NUMBER", 0);
+
+	writeIntEntry ("SLIDE_LINES", 15);
+	writeIntEntry ("SLIDE_X", 1920);
+	writeIntEntry ("SLIDE_Y", 1080);
+	writeIntEntry ("SLIDE_MARGIN", 2);
 
 	language = "Default";
 	fontStandard = QFont();
