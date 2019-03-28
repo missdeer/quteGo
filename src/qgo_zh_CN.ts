@@ -4486,42 +4486,6 @@ If the picture is not set, or unvalid, a default picture is used by qgo</source>
         <translation>选中此项以自动保存您的对局</translation>
     </message>
     <message>
-        <source>flat circled ... ugly but asked for ...</source>
-        <translation>平面圆圈风格的棋子 ... 呆板但是有用户要求 ...</translation>
-    </message>
-    <message>
-        <source>Stone appearance
-
-This will display back and white circles</source>
-        <translation>棋子外观
-
-这个是黑白圆圈的风格</translation>
-    </message>
-    <message>
-        <source>plain 3D (no shadow, no stripes)</source>
-        <translation>普通3D风格(无阴影,无条纹)</translation>
-    </message>
-    <message>
-        <source>Stone appearance
-
-this will display simple 3D stones, with no shadow and neither stripes on white stones</source>
-        <translation>棋子外观
-
-这个是普通3D效果的风格,没有阴影,白棋棋子上也没有条纹.</translation>
-    </message>
-    <message>
-        <source>Realistic 3D stones with stripes and shadow</source>
-        <translation>逼真的3D棋子,有阴影和条纹</translation>
-    </message>
-    <message>
-        <source>Stone appearance
-
-This will display realistic 3D stones with stripes and shadow</source>
-        <translation>棋子外观
-
-这是逼真的3D风格,带有阴影和条纹</translation>
-    </message>
-    <message>
         <source>All servers settings</source>
         <translation>所有服务器设置</translation>
     </message>
@@ -5102,6 +5066,30 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
     <message>
         <source>Italic header</source>
         <translation>头部斜体</translation>
+    </message>
+    <message>
+        <source>This shows plain and simple 2D stones</source>
+        <translation>显示平面或简单2D棋子</translation>
+    </message>
+    <message>
+        <source>This is the 3D style used in earlier versions of the program. Kept mainly for compatibility.</source>
+        <translation>这是程序早期版本使用3D风格。主要为兼容目的保留。</translation>
+    </message>
+    <message>
+        <source>Realistically shaded 3D stones, configurable with the other settings on this page.</source>
+        <translation>现实光照3D棋子，在此页可配置其他设置。</translation>
+    </message>
+    <message>
+        <source>Choose a preset, or set to &quot;Custom File&quot; to use your own image file as the wood image for the board.</source>
+        <translation>选择预设置，或设置为“自定义文件”以使用你自己的图像文件作为棋盘木图片。</translation>
+    </message>
+    <message>
+        <source>Determines whether the wood image is scaled or tiled</source>
+        <translation>拉伸或平铺棋盘木图片</translation>
+    </message>
+    <message>
+        <source>Scale wood image</source>
+        <translation>拉伸棋盘木图片</translation>
     </message>
 </context>
 <context>
