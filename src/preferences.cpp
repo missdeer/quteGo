@@ -378,7 +378,12 @@ void PreferencesDialog::update_board_image ()
 	painter.begin(&image);
 	painter.setPen(Qt::NoPen);
 
-	painter.drawTiledPixmap (0, 0, w, h, p);
+	/* @@@ Scaling to the narrow strip of wood in the preferences dialog won't look the
+	   same as on the real board.  It's unclear what best to do here.  */
+	if (0 && scaleWoodCheckBox->isChecked ())
+		painter.drawPixmap (0, 0, w, h, p);
+	else
+		painter.drawTiledPixmap (0, 0, w, h, p);
 	painter.end();
 	m_stone_canvas->setSceneRect (0, 0, w, h);
 	m_stone_canvas->setBackgroundBrush (QBrush (image));
@@ -399,6 +404,7 @@ void PreferencesDialog::init_from_settings ()
 
 	LineEdit_goban->setText(setting->readEntry("SKIN"));
 	LineEdit_Table->setText(setting->readEntry("SKIN_TABLE"));
+	scaleWoodCheckBox->setChecked (setting->readBoolEntry("SKIN_SCALE_WOOD"));
 	languageComboBox->insertItems(1, setting->getAvailableLanguages());
 	languageComboBox->setCurrentIndex(setting->convertLanguageCodeToNumber());
 
@@ -679,8 +685,9 @@ void PreferencesDialog::slot_apply()
 	setting->writeBoolEntry ("SLIDE_COORDS", slideCoordsCheckBox->isChecked ());
 
 	setting->writeIntEntry("SKIN_INDEX", woodComboBox->currentIndex ());
-	setting->writeEntry("SKIN", LineEdit_goban->text());
-	setting->writeEntry("SKIN_TABLE", LineEdit_Table->text());
+	setting->writeEntry("SKIN", LineEdit_goban->text ());
+	setting->writeEntry("SKIN_TABLE", LineEdit_Table->text ());
+	setting->writeBoolEntry("SKIN_SCALE_WOOD", scaleWoodCheckBox->isChecked ());
 	setting->obtain_skin_images ();
 
 	setting->writeEntry("LANG", setting->convertNumberToLanguage(languageComboBox->currentIndex()));

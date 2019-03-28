@@ -1305,7 +1305,7 @@ void MainWindow::slotSetGameInfo(bool)
 	dlg.eventEdit->setText(QString::fromStdString (m_game->event ()));
 	dlg.roundEdit->setText(QString::fromStdString (m_game->round ()));
 	dlg.copyrightEdit->setText(QString::fromStdString (m_game->copyright ()));
-	dlg.komiSpin->setValue(QString::fromStdString(m_game->komi ()).toFloat());
+	dlg.komiSpin->setValue(QString::fromStdString(m_game->komi ()).toDouble());
 	dlg.handicapSpin->setValue(QString::fromStdString(m_game->handicap ()).toInt());
 
 	if (dlg.exec() == QDialog::Accepted)
@@ -2401,7 +2401,7 @@ MainWindow_GTP::MainWindow_GTP (QWidget *parent, std::shared_ptr<game_record> gr
 	: MainWindow (parent, gr, nullptr, opener_scrkey, modeComputer), GTP_Controller (this)
 {
 	gfx_board->set_player_colors (!w_is_comp, !b_is_comp);
-	m_gtp = create_gtp (program, m_game->boardsize (), QString::fromStdString(m_game->komi ()).toFloat(), QString::fromStdString(m_game->handicap ()).toInt());
+	m_gtp = create_gtp (program, m_game->boardsize (), QString::fromStdString(m_game->komi ()).toDouble());
 }
 
 MainWindow_GTP::~MainWindow_GTP ()
@@ -2409,11 +2409,26 @@ MainWindow_GTP::~MainWindow_GTP ()
 	delete m_gtp;
 }
 
-void MainWindow_GTP::gtp_startup_success ()
+void MainWindow_GTP::gtp_setup_success ()
 {
 	show ();
 	if (!gfx_board->player_to_move_p ())
 		m_gtp->request_move (gfx_board->to_move ());
+}
+
+void MainWindow_GTP::gtp_startup_success ()
+{
+	game_state *r = m_game->get_root ();
+	game_state *st = r;
+	while (st->n_children () > 0) {
+		st = st->next_primary_move ();
+	}
+	if (st != r || !st->get_board ().position_empty_p ()) {
+		gfx_board->set_displayed (st);
+		m_gtp->setup_initial_position (st);
+	}
+	else
+		gtp_setup_success ();
 }
 
 void MainWindow_GTP::gtp_played_move (int x, int y)
@@ -2576,12 +2591,12 @@ void MainWindow::update_score_type ()
 	scoreTools->stonesBlack->setEnabled (!terr);
 	double extra_w = terr ? m_score.caps_w : m_score.stones_w;
 	double extra_b = terr ? m_score.caps_b : m_score.stones_b;
-	double total_w = m_score.score_w + extra_w + QString::fromStdString(m_game->komi ()).toFloat();
+	double total_w = m_score.score_w + extra_w + QString::fromStdString(m_game->komi ()).toDouble();
 	double total_b = m_score.score_b + extra_b;
 
 	scoreTools->totalWhite->setText (QString::number (total_w));
 	scoreTools->totalBlack->setText (QString::number (total_b));
-	m_result = m_score.score_w + extra_w + QString::fromStdString(m_game->komi ()).toFloat() - m_score.score_b - extra_b;
+	m_result = m_score.score_w + extra_w + QString::fromStdString(m_game->komi ()).toDouble() - m_score.score_b - extra_b;
 	if (m_result < 0)
 		scoreTools->result->setText ("B+" + QString::number (-m_result));
 	else if (m_result == 0)

@@ -306,7 +306,7 @@ void AnalyzeDialog::queue_next ()
 				if (j->m_komi_type == engine_komi::maybe_swap && !m_current_komi.isEmpty ()) {
 					bool ok;
 					double k = m_current_komi.toFloat (&ok);
-					double gm_k = QString::fromStdString(j->m_game->komi ()).toFloat();
+					double gm_k = QString::fromStdString(j->m_game->komi ()).toDouble();
 					if (ok && std::abs (k - gm_k) > std::abs (k + gm_k))
 						flip = true;
 				}
@@ -358,10 +358,6 @@ void AnalyzeDialog::eval_received (const QString &, int)
 					comm.push_back ('\n');
 				comm += "----------------\n";
 			}
-			comm += s_tr ("Analysis: ") + e.id.engine;
-			if (e.id.komi_set)
-				comm += s_tr (" @") + komi_str (e.id.komi) + s_tr (" komi");
-			comm += "\n";
 			auto cname = st->get_board ().coords_name (best->get_move_x (), best->get_move_y (), false);
 			comm += s_tr ("Engine top choice: ") + cname.first + cname.second;
 			comm += s_tr (", ") + std::to_string (e.visits) + s_tr (" visits") + s_tr (", winrate B: ") + komi_str (e.wr_black * 100) + "%\n";
@@ -392,6 +388,10 @@ void AnalyzeDialog::eval_received (const QString &, int)
 				}
 				comm += "\n";
 			}
+			comm += s_tr ("Analysis: ") + e.id.engine;
+			if (e.id.komi_set)
+				comm += s_tr (" @") + komi_str (e.id.komi) + s_tr (" komi");
+			comm += "\n";
 			st->set_comment (comm);
 		}
 	}
@@ -529,7 +529,7 @@ void AnalyzeDialog::start_engine ()
 
 	const Engine &e = m_engines.at (idx);
 	m_current_komi = e.komi;
-	start_analyzer (e, e.boardsize.toInt (), 7.5, 0, false);
+	start_analyzer (e, e.boardsize.toInt (), 7.5, false);
 }
 
 void AnalyzeDialog::start_job ()
