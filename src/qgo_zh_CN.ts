@@ -1254,6 +1254,14 @@ Open the batch analysis dialog which allows you to add SGF files to a queue to b
         <source>Open the slide export dialog</source>
         <translation>打开导出幻灯片对话框</translation>
     </message>
+    <message>
+        <source>Play against engine from current position...</source>
+        <translation>从当前位置开始与引擎对局…</translation>
+    </message>
+    <message>
+        <source>Start a game against an engine from the current position</source>
+        <translation>从当前位置开始与引擎对局</translation>
+    </message>
 </context>
 <context>
     <name>ClientWindow</name>
@@ -2977,6 +2985,10 @@ Overwrite stored game result?</source>
     <message>
         <source>SGF Files (*.sgf);;MGT Files (*.mgt);;XML Files (*.xml);;All Files (*)</source>
         <translation>SGF 文件 (*.sgf);;MGT 文件 (*.mgt);;XML 文件 (*.xml);;所有文件 (*)</translation>
+    </message>
+    <message>
+        <source>Play engine from current position</source>
+        <translation>从当前位置开始与引擎对局</translation>
     </message>
 </context>
 <context>
