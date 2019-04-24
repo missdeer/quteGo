@@ -42,7 +42,7 @@ QTextStream *debug_stream {};
 QTextEdit *debug_view;
 #endif
 
-std::shared_ptr<game_record> new_game_dialog (QWidget *parent)
+go_game_ptr new_game_dialog (QWidget *parent)
 {
 	NewLocalGameDialog dlg(parent);
 
@@ -60,12 +60,12 @@ std::shared_ptr<game_record> new_game_dialog (QWidget *parent)
 			"", QString::number(dlg.komiSpin->value()).toStdString(), QString::number(hc).toStdString(),
 			ranked::free,
 			"", "", "", "", "", "", "", "", -1);
-	std::shared_ptr<game_record> gr = std::make_shared<game_record> (starting_pos, hc > 1 ? white : black, info);
+	go_game_ptr gr = std::make_shared<game_record> (starting_pos, hc > 1 ? white : black, info);
 
 	return gr;
 }
 
-std::shared_ptr<game_record> new_variant_game_dialog (QWidget *parent)
+go_game_ptr new_variant_game_dialog (QWidget *parent)
 {
 	NewVariantGameDialog dlg(parent);
 
@@ -85,12 +85,12 @@ std::shared_ptr<game_record> new_variant_game_dialog (QWidget *parent)
 			"", QString::number(dlg.komiSpin->value()).toStdString(), 0,
 			ranked::free,
 			"", "", "", "", "", "", "", "", -1);
-	std::shared_ptr<game_record> gr = std::make_shared<game_record> (starting_pos, black, info);
+	go_game_ptr gr = std::make_shared<game_record> (starting_pos, black, info);
 
 	return gr;
 }
 
-static void warn_errors (std::shared_ptr<game_record> gr)
+static void warn_errors (go_game_ptr gr)
 {
 	if (setting->readBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING"))
 		return;
@@ -123,11 +123,11 @@ static void warn_errors (std::shared_ptr<game_record> gr)
 
 /* A wrapper around sgf2record to handle exceptions with message boxes.  */
 
-std::shared_ptr<game_record> record_from_stream (QIODevice &isgf, QTextCodec* codec)
+go_game_ptr record_from_stream (QIODevice &isgf, QTextCodec* codec)
 {
 	try {
 		sgf *sgf = load_sgf (isgf);
-		std::shared_ptr<game_record> gr = sgf2record (*sgf, codec);
+		go_game_ptr gr = sgf2record (*sgf, codec);
 		delete sgf;
 		warn_errors (gr);
 		return gr;
@@ -144,7 +144,7 @@ std::shared_ptr<game_record> record_from_stream (QIODevice &isgf, QTextCodec* co
 	return nullptr;
 }
 
-std::shared_ptr<game_record> record_from_file (const QString &filename, QTextCodec* codec)
+go_game_ptr record_from_file (const QString &filename, QTextCodec* codec)
 {
 	QFile f (filename);
 	if (!f.open (QIODevice::ReadOnly))
@@ -156,7 +156,7 @@ std::shared_ptr<game_record> record_from_file (const QString &filename, QTextCod
 		codec = charset_detect(data);
 	}
 
-	std::shared_ptr<game_record> gr = record_from_stream (f, codec);
+	go_game_ptr gr = record_from_stream (f, codec);
 	if (gr != nullptr)
 		gr->set_filename (filename.toStdString ());
 	return gr;
@@ -164,7 +164,7 @@ std::shared_ptr<game_record> record_from_file (const QString &filename, QTextCod
 
 bool open_window_from_file (const QString &filename, QTextCodec* codec)
 {
-	std::shared_ptr<game_record> gr = record_from_file (filename, codec);
+	go_game_ptr gr = record_from_file (filename, codec);
 	auto archive = ArchiveHandlerFactory::createArchiveHandler(filename);
 	if (gr == nullptr && archive == nullptr)
 		return false;
@@ -175,7 +175,7 @@ bool open_window_from_file (const QString &filename, QTextCodec* codec)
 	return true;
 }
 
-std::tuple<std::shared_ptr<game_record>, ArchiveHandlerPtr> open_file_dialog (QWidget *parent)
+std::tuple<go_game_ptr, ArchiveHandlerPtr> open_file_dialog (QWidget *parent)
 {
 	QString fileName;
 	if (setting->readIntEntry ("FILESEL") == 1) {
@@ -193,7 +193,7 @@ std::tuple<std::shared_ptr<game_record>, ArchiveHandlerPtr> open_file_dialog (QW
 			   that game record.  Otherwise extract the filename and try to
 			   open it to show message boxes about whatever error occurs.  */
 
-			std::shared_ptr<game_record> gr = file_open_dialog.selected_record ();
+			go_game_ptr gr = file_open_dialog.selected_record ();
 			ArchiveHandlerPtr archive = file_open_dialog.selected_archive();
 			if (gr != nullptr || archive != nullptr) {
 				warn_errors (gr);
@@ -228,7 +228,7 @@ std::tuple<std::shared_ptr<game_record>, ArchiveHandlerPtr> open_file_dialog (QW
 	return std::make_tuple(nullptr, nullptr);
 }
 
-std::shared_ptr<game_record> open_db_dialog (QWidget *parent)
+go_game_ptr open_db_dialog (QWidget *parent)
 {
 	QString fileName;
 	QString geokey = "DBDIALOG_GEOM_" + screen_key (parent);
@@ -244,7 +244,7 @@ std::shared_ptr<game_record> open_db_dialog (QWidget *parent)
 	int result = db_dialog->exec ();
 	setting->writeEntry (geokey, QString::fromLatin1 (db_dialog->saveGeometry ().toHex ()));
 	if (result == QDialog::Accepted) {
-		std::shared_ptr<game_record> gr = db_dialog->selected_record ();
+		go_game_ptr gr = db_dialog->selected_record ();
 		if (gr != nullptr) {
 			warn_errors (gr);
 			return gr;
@@ -288,7 +288,7 @@ QString open_filename_dialog (QWidget *parent)
 
 void open_local_board (QWidget *parent, game_dialog_type type, const QString &scrkey)
 {
-	std::shared_ptr<game_record> gr;
+	go_game_ptr gr;
 	switch (type) {
 	case game_dialog_type::normal:
 		gr = new_game_dialog (parent);

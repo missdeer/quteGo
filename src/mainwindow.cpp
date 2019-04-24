@@ -37,9 +37,11 @@
 #include "config.h"
 #include "qgo_interface.h"
 #include "autodiagsdlg.h"
+#include "newaigamedlg.h"
 #include "ui_helpers.h"
 #include "archivehandlerfactory.h"
 #include "slideview.h"
+
 std::list<MainWindow *> main_window_list;
 
 /* Return a string to identify the screen.  We use its dimensions.  */
@@ -56,7 +58,7 @@ QString screen_key (QWidget *w)
 	return QString::number (sz.width ()) + "x" + QString::number (sz.height ());
 }
 
-void an_id_model::populate_list (std::shared_ptr<game_record> game)
+void an_id_model::populate_list (go_game_ptr game)
 {
 	beginResetModel ();
 	m_entries.clear ();
@@ -140,8 +142,8 @@ QVariant an_id_model::headerData (int section, Qt::Orientation ot, int role) con
 	return QVariant ();
 }
 
-MainWindow::MainWindow(QWidget* parent, std::shared_ptr<game_record> gr, ArchiveHandlerPtr archive, const QString opener_scrkey, GameMode mode)
-: QMainWindow(parent), m_game (gr), m_archive(archive), m_ascii_dlg (this), m_svg_dlg (this)
+MainWindow::MainWindow(QWidget* parent, go_game_ptr gr, ArchiveHandlerPtr archive, const QString opener_scrkey, GameMode mode)
+	: QMainWindow(parent), m_game (gr), m_archive(archive), m_ascii_dlg (this), m_svg_dlg (this)
 {
 	setupUi (this);
 
@@ -349,7 +351,7 @@ MainWindow::MainWindow(QWidget* parent, std::shared_ptr<game_record> gr, Archive
 	main_window_list.push_back (this);
 }
 
-void MainWindow::init_game_record (std::shared_ptr<game_record> gr)
+void MainWindow::init_game_record (go_game_ptr gr)
 {
 	m_svg_dlg.hide ();
 	m_ascii_dlg.hide ();
@@ -558,6 +560,7 @@ void MainWindow::initActions ()
 	connect(anPause, &QAction::toggled, this, [=] (bool on) { if (on) { grey_eval_bar (); } gfx_board->pause_analysis (on); });
 	connect(anDisconnect, &QAction::triggered, this, [=] () { gfx_board->stop_analysis (); });
 	connect(anBatch, &QAction::triggered, [] (bool) { show_batch_analysis (); });
+	connect(anPlay, &QAction::triggered, this, &MainWindow::slotPlayFromHere);
 
 	/* Help menu.  */
 	connect(helpManual, &QAction::triggered, [=] (bool) { qgo->openManual (QUrl ("index.html")); });
@@ -746,7 +749,7 @@ void MainWindow::slotFileNewGame (bool)
 	if (!checkModified())
 		return;
 
-	std::shared_ptr<game_record> gr = new_game_dialog (this);
+	go_game_ptr gr = new_game_dialog (this);
 	if (gr == nullptr)
 		return;
 
@@ -761,7 +764,7 @@ void MainWindow::slotFileNewVariantGame (bool)
 	if (!checkModified())
 		return;
 
-	std::shared_ptr<game_record> gr = new_variant_game_dialog (this);
+	go_game_ptr gr = new_variant_game_dialog (this);
 	if (gr == nullptr)
 		return;
 
@@ -778,7 +781,7 @@ void MainWindow::slotFileOpen (bool)
 
 	QString filePath;
 	auto res = open_file_dialog (this);
-	std::shared_ptr<game_record> gr = std::get<0>(res);
+	go_game_ptr gr = std::get<0>(res);
 	if (gr)
 	{
 		init_game_record (gr);
@@ -799,7 +802,7 @@ void MainWindow::slotFileOpenDB (bool)
 	if (!checkModified())
 		return;
 
-	std::shared_ptr<game_record> gr = open_db_dialog (this);
+	go_game_ptr gr = open_db_dialog (this);
 	if (gr == nullptr)
 		return;
 
@@ -910,7 +913,7 @@ void MainWindow::slotFileImportSgfClipB(bool)
 	QByteArray bytes = sgfString.toUtf8 ();
 	QBuffer buf (&bytes);
 	buf.open (QBuffer::ReadOnly);
-	std::shared_ptr<game_record> gr = record_from_stream (buf, nullptr);
+	go_game_ptr gr = record_from_stream (buf, nullptr);
 	if (gr == nullptr)
 		/* Assume alerts were shown in record_from_stream.  */
 		return;
@@ -1043,6 +1046,22 @@ void MainWindow::slotEditFigure (bool on)
 		st->clear_figure ();
 	update_figures ();
 	update_game_tree ();
+}
+
+void MainWindow::slotPlayFromHere (bool)
+{
+	NewAIGameDlg dlg (this, setting->m_engines, true);
+	if (dlg.exec () != QDialog::Accepted)
+		return;
+
+	int eidx = dlg.engine_index ();
+	const Engine &engine = setting->m_engines[eidx];
+	std::shared_ptr<game_record> gr = std::make_shared<game_record> (*m_game);
+	game_state *curr_pos = gfx_board->displayed ();
+	game_state *st = gr->get_root ()->follow_path (curr_pos->path_from_root ());
+
+	bool computer_white = dlg.computer_white_p ();
+	new MainWindow_GTP (0, gr, st, screen_key (this), engine, !computer_white, computer_white);
 }
 
 void MainWindow::slotDiagChosen (int idx)
@@ -1837,7 +1856,7 @@ void MainWindow::update_font ()
 
 void MainWindow::slot_editBoardInNewWindow(bool)
 {
-	std::shared_ptr<game_record> newgr = std::make_shared<game_record> (*m_game);
+	go_game_ptr newgr = std::make_shared<game_record> (*m_game);
 	// online mode -> don't score, open new Window instead
 	MainWindow *w = new MainWindow (nullptr, newgr, nullptr);
 
@@ -1941,6 +1960,8 @@ void MainWindow::setGameMode(GameMode mode)
 	navSwapVariations->setEnabled (enable_nav);
 
 	fileImportSgfClipB->setEnabled (enable_nav);
+
+	anPlay->setEnabled (mode == modeNormal || mode == modeObserve);
 
 	bool editable_comments = mode == modeNormal || mode == modeEdit || mode == modeScore || mode == modeComputer || mode == modeBatch;
 	commentEdit->setReadOnly (!editable_comments || mode == modeEdit);
@@ -2396,9 +2417,21 @@ void MainWindow::set_observer_model (QStandardItemModel *m)
 	ListView_observers->header()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
 }
 
-MainWindow_GTP::MainWindow_GTP (QWidget *parent, std::shared_ptr<game_record> gr, QString opener_scrkey, const Engine &program,
+MainWindow_GTP::MainWindow_GTP (QWidget *parent, go_game_ptr gr, QString opener_scrkey, const Engine &program,
 				bool b_is_comp, bool w_is_comp)
 	: MainWindow (parent, gr, nullptr, opener_scrkey, modeComputer), GTP_Controller (this)
+{
+	game_state *st = gr->get_root ();
+	while (st->n_children () > 0)
+		st = st->next_primary_move ();
+	m_first_pos = st;
+	gfx_board->set_player_colors (!w_is_comp, !b_is_comp);
+	m_gtp = create_gtp (program, m_game->boardsize (), QString::fromStdString(m_game->komi ()).toDouble());
+}
+
+MainWindow_GTP::MainWindow_GTP (QWidget *parent, go_game_ptr gr, game_state *st, QString opener_scrkey, const Engine &program,
+				bool b_is_comp, bool w_is_comp)
+	: MainWindow (parent, gr, nullptr, opener_scrkey, modeComputer), GTP_Controller (this), m_first_pos (st)
 {
 	gfx_board->set_player_colors (!w_is_comp, !b_is_comp);
 	m_gtp = create_gtp (program, m_game->boardsize (), QString::fromStdString(m_game->komi ()).toDouble());
@@ -2419,15 +2452,11 @@ void MainWindow_GTP::gtp_setup_success ()
 void MainWindow_GTP::gtp_startup_success ()
 {
 	game_state *r = m_game->get_root ();
-	game_state *st = r;
-	while (st->n_children () > 0) {
-		st = st->next_primary_move ();
-	}
+	game_state *st = m_first_pos;
 	if (st != r || !st->get_board ().position_empty_p ()) {
 		gfx_board->set_displayed (st);
 		m_gtp->setup_initial_position (st);
-	}
-	else
+	} else
 		gtp_setup_success ();
 }
 

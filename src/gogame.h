@@ -275,9 +275,6 @@ public:
 	}
 	~game_state ()
 	{
-		for (sgf::node::property *it: m_unrecognized_props)
-			delete it;
-
 		while (m_children.size () > 0) {
 			game_state *c = m_children.back ();
 			delete c;
@@ -656,6 +653,9 @@ public:
 			return go_board (m_board.size_x (), m_board.size_y ());
 		return p->child_moves (this, exclude_figs);
 	}
+	std::vector<int> path_from_root ();
+	game_state *follow_path (const std::vector<int> &);
+
 	/* Set a mark on the current board, and return true if that made a change.  */
 	bool set_mark (int x, int y, mark m, mextra extra)
 	{
@@ -896,13 +896,14 @@ public:
 };
 
 class game_record;
+typedef std::shared_ptr<game_record> go_game_ptr;
 extern game_state *sgf2board (sgf &);
-extern std::shared_ptr<game_record> sgf2record (const sgf &, QTextCodec *codec);
+extern go_game_ptr sgf2record (const sgf &, QTextCodec *codec);
 extern std::string record2sgf (const game_record &);
 
 class game_record : public game_info
 {
-	friend std::shared_ptr<game_record> sgf2record (const sgf &s, QTextCodec *codec);
+	friend go_game_ptr sgf2record (const sgf &s, QTextCodec *codec);
 	game_state m_root;
 	bool m_modified = false;
 	sgf_errors m_errors;
@@ -966,7 +967,7 @@ public:
 class navigable_observer : public game_state::observer
 {
 protected:
-	std::shared_ptr<game_record> m_game = nullptr;
+	go_game_ptr m_game = nullptr;
 
 public:
 	void next_move ();
