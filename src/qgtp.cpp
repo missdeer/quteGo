@@ -78,8 +78,20 @@ void GTP_Process::slot_abort_request (bool)
 
 void GTP_Process::slot_startup_messages ()
 {
-	QString output = readAllStandardError ();
-	m_dlg.append (output);
+	m_stderr_buffer += readAllStandardError ();
+	if (m_stopped) {
+		m_stderr_buffer.clear ();
+		return;
+	}
+	for (;;) {
+		int idx = m_stderr_buffer.indexOf ("\n");
+		if (idx < 0)
+			return;
+
+		QString output = m_stderr_buffer.left (idx).trimmed ();
+		append_text (output, Qt::black);
+		m_stderr_buffer = m_stderr_buffer.mid (idx + 1);
+	}
 }
 
 void GTP_Process::startup_part2 (const QString &response)
@@ -109,8 +121,24 @@ void GTP_Process::startup_part5 (const QString &)
 {
 	/* Set this before calling startup success, as the callee may want to examine it.  */
 	m_started = true;
+	m_dlg.textEdit->setTextColor (Qt::darkGray);
+	m_dlg.append ("[...]\n");
+	m_dlg.textEdit->setTextColor (Qt::black);
 	m_dlg.hide ();
+	m_dlg.remember_cursor ();
 	m_controller->gtp_startup_success ();
+}
+
+void GTP_Process::append_text (const QString &txt, const QColor &col)
+{
+	/* If we let the text grow without bounds, eventually Qt will
+	   hang after a few hours of analysis.  */
+	if (m_dlg_lines == 200) {
+		m_dlg.delete_cursor_line ();
+	} else
+		m_dlg_lines++;
+	m_dlg.textEdit->setTextColor (col);
+	m_dlg.append (txt);
 }
 
 void GTP_Process::receive_move (const QString &move)
@@ -132,6 +160,8 @@ void GTP_Process::receive_move (const QString &move)
 
 void GTP_Process::played_move (stone_color col, int x, int y)
 {
+	if (m_last_move != nullptr)
+		m_last_move = m_last_move->add_child_move (x, y, col);
 	if (x >= 8)
 		x++;
 	char req[20];
@@ -169,6 +199,16 @@ void GTP_Process::request_move (stone_color col)
 		send_request ("genmove white", &GTP_Process::receive_move);
 }
 
+void GTP_Process::undo_move ()
+{
+	send_request ("undo");
+	game_state *st = m_last_move;
+	if (st != nullptr) {
+		m_last_move = st->prev_move ();
+		delete st;
+	}
+}
+
 static stone_color maybe_flip (stone_color col, bool flip)
 {
 	if (!flip)
@@ -185,6 +225,26 @@ void GTP_Process::dup_move (game_state *from, bool flip)
 void GTP_Process::setup_board (game_state *st, double km, bool flip)
 {
 	const go_board &b = st->get_board ();
+
+	/* Check for shortcuts.
+	   @@@ Should handle flip as well, but need to do something about position_equal_p.  */
+	if (m_last_move != nullptr && !flip) {
+		game_state *st_parent = st->prev_move ();
+		if (st->was_move_p () && st_parent->get_board ().position_equal_p (m_last_move->get_board ())) {
+			dup_move (st, flip);
+			return;
+		}
+		game_state *our_parent = m_last_move->prev_move ();
+		if (our_parent != nullptr && our_parent->get_board ().position_equal_p (st->get_board ())) {
+			undo_move ();
+			return;
+		}
+	}
+
+	/* Must clear this before doing played_move calls for the initial setup.  */
+	delete m_moves;
+	m_moves = nullptr;
+	m_last_move = nullptr;
 
 	std::vector<game_state *> moves;
 	while (st->was_move_p () && !st->root_node_p ()) {
@@ -205,6 +265,11 @@ void GTP_Process::setup_board (game_state *st, double km, bool flip)
 			if (c != none)
 				played_move (c, i, j);
 		}
+
+	/* Allocate this here so that m_last_move is nullptr during previous calls to
+	   played_move and they don't try to track the position.  */
+	m_moves = new game_state (startpos, maybe_flip (st->to_move (), flip));
+	m_last_move = m_moves;
 
 	while (!moves.empty ()) {
 		st = moves.back ();
@@ -294,9 +359,7 @@ void GTP_Process::slot_receive_stdout ()
 
 		QString output = m_buffer.left (idx).trimmed ();
 
-		m_dlg.textEdit->setTextColor (Qt::red);
-		m_dlg.append (output);
-		m_dlg.textEdit->setTextColor (Qt::black);
+		append_text (output, Qt::red);
 
 		m_buffer = m_buffer.mid (idx + 1);
 		if (output.length () >= 10 && output.left (10) == "info move ") {
@@ -346,9 +409,7 @@ void GTP_Process::send_request(const QString &s, t_receiver rcv, t_receiver err_
 	m_receivers[req_cnt] = rcv;
 	m_err_receivers[req_cnt] = err_rcv;
 #if 1
-	m_dlg.textEdit->setTextColor (Qt::blue);
-	m_dlg.append (s);
-	m_dlg.textEdit->setTextColor (Qt::black);
+	append_text (s, Qt::blue);
 #endif
 	QString req = QString::number (req_cnt) + " " + s + "\n";
 	write (req.toLatin1 ());
@@ -379,6 +440,7 @@ GTP_Process::~GTP_Process ()
 	disconnect (this, &QProcess::errorOccurred, nullptr, nullptr);
 	void (QProcess::*fini)(int, QProcess::ExitStatus) = &QProcess::finished;
 	disconnect (this, fini, nullptr, nullptr);
+	delete m_moves;
 }
 
 GTP_Eval_Controller::~GTP_Eval_Controller ()
@@ -541,8 +603,9 @@ void GTP_Eval_Controller::gtp_eval (const QString &s)
 			primary_visits = visits;
 			m_eval_state->set_eval_data (visits, to_move == white ? 1 - wr : wr, id);
 		}
+#if 0
 		qDebug () << move << " wr " << winrate << " visits " << visits << " PV: " << pv;
-
+#endif
 		QStringList pvmoves = pv.split (" ", QString::SkipEmptyParts);
 		if (count < 52 && (!prune || pvmoves.length () > 1 || visits >= 2)) {
 			game_state *cur = m_eval_state;
