@@ -81,7 +81,7 @@ go_game_ptr NewVariantGameDialog::create_game_record ()
 			ui->playerBlackEdit->text().toStdString (),
 			ui->playerWhiteRkEdit->text().toStdString (),
 			ui->playerBlackRkEdit->text().toStdString (),
-			"", ui->komiSpin->value(), 0,
+			"", QString::number(ui->komiSpin->value()).toStdString(), 0,
 			ranked::free,
 			"", "", "", "", "", "", "", "", -1);
 	go_game_ptr gr = std::make_shared<game_record> (starting_pos, black, info);
