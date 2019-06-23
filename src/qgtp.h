@@ -32,7 +32,7 @@ public:
 	virtual void gtp_setup_success () = 0;
 	virtual void gtp_exited () = 0;
 	virtual void gtp_failure (const QString &) = 0;
-	virtual void gtp_eval (const QString &)
+	virtual void gtp_eval (const QString &, bool)
 	{
 	}
 	virtual void gtp_switch_ready () { }
@@ -72,9 +72,9 @@ protected:
 	bool pause_analyzer (bool on, go_game_ptr, game_state *);
 	void initiate_switch ();
 	void request_analysis (go_game_ptr, game_state *, bool flip = false);
-	virtual void eval_received (const QString &, int) = 0;
+	virtual void eval_received (const QString &, int, bool) = 0;
 	virtual void analyzer_state_changed () { }
-	virtual void notice_analyzer_id (const analyzer_id &) { }
+	virtual void notice_analyzer_id (const analyzer_id &, bool) { }
 public:
 	analyzer analyzer_state ();
 
@@ -82,7 +82,7 @@ public:
 	virtual void gtp_played_resign () override { /* Should not happen.  */ }
 	virtual void gtp_played_pass () override { /* Should not happen.  */ }
 	virtual void gtp_setup_success () override { /* Should not happen.  */ }
-	virtual void gtp_eval (const QString &) override;
+	virtual void gtp_eval (const QString &, bool) override;
 	virtual void gtp_switch_ready () override;
 };
 
@@ -91,16 +91,26 @@ class GTP_Process : public QProcess
 	Q_OBJECT
 
 	QString m_buffer;
+	QString m_stderr_buffer;
 
 	TextView m_dlg;
 	GTP_Controller *m_controller;
 
+	int m_dlg_lines = 0;
 	int m_size;
 	/* The komi we've requested with the "komi" command.  The engine may have
 	   ignored it.  */
 	double m_komi;
+
+	/* A tree in which we keep track of what the move history, in sync with the GTP engine.  */
+	game_state *m_moves {};
+	game_state *m_last_move {};
+
 	bool m_started = false;
 	bool m_stopped = false;
+
+	bool m_analyze_lz = false;
+	bool m_analyze_kata = false;
 
 	typedef void (GTP_Process::*t_receiver) (const QString &);
 	QMap <int, t_receiver> m_receivers;
@@ -114,12 +124,15 @@ class GTP_Process : public QProcess
 	void startup_part3 (const QString &);
 	void startup_part4 (const QString &);
 	void startup_part5 (const QString &);
+	void startup_part6 (const QString &);
+	void startup_part7 (const QString &);
 	void setup_success (const QString &);
 	void receive_move (const QString &);
 	void pause_callback (const QString &);
 	void internal_quit ();
 	void default_err_receiver (const QString &);
 	void dup_move (game_state *, bool);
+	void append_text (const QString &, const QColor &col);
 
 public slots:
 	void slot_started ();
@@ -141,6 +154,7 @@ public:
 	void setup_initial_position (game_state *);
 	void request_move (stone_color col);
 	void played_move (stone_color col, int x, int y);
+	void undo_move ();
 	void komi (double);
 	void played_move_pass (stone_color col);
 	void played_move_resign (stone_color col);
