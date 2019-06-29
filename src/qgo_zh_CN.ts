@@ -1262,6 +1262,10 @@ Open the batch analysis dialog which allows you to add SGF files to a queue to b
         <source>Start a game against an engine from the current position</source>
         <translation>从当前位置开始与引擎对局</translation>
     </message>
+    <message>
+        <source>Follow</source>
+        <translation>跟随</translation>
+    </message>
 </context>
 <context>
     <name>ClientWindow</name>
@@ -2301,6 +2305,32 @@ Enables/disables the statusbar.</source>
         <source>Open from &amp;database...</source>
         <translation>从数据库打开(&amp;D)…</translation>
     </message>
+    <message>
+        <source>&amp;Automatic computer vs. computer play</source>
+        <translation>自动电脑vs电脑对弈</translation>
+    </message>
+    <message>
+        <source>Automatic computer vs. computer play</source>
+        <translation>自动电脑vs电脑对弈</translation>
+    </message>
+    <message>
+        <source>Select two engines and let them play one or more games</source>
+        <translation>选择2个引擎使其对弈一局或更多对局</translation>
+    </message>
+    <message>
+        <source>Brings up a dialog to set up play between two engines.
+
+	You can set up one game or a multi-game match, optionally starting from
+	a single position, or from multiple positions found in a loaded game file.</source>
+        <translation>弹出对话框，设置2个引擎进行对局
+
+	你可以设置一局或多局匹配，
+	可选择从一个位置开始或多个对局文件中的位置开始</translation>
+    </message>
+    <message>
+        <source>Ctrl+T</source>
+        <translation>Ctrl+T</translation>
+    </message>
 </context>
 <context>
     <name>DBDialog</name>
@@ -2487,6 +2517,22 @@ Displays evaluation data found in the game record.</source>
     <message>
         <source>Failed to save image!</source>
         <translation>保存图像失败!</translation>
+    </message>
+    <message>
+        <source>Show scores</source>
+        <translation>显示得分</translation>
+    </message>
+    <message>
+        <source>Show winrates</source>
+        <translation>显示胜率</translation>
+    </message>
+    <message>
+        <source>Score</source>
+        <translation>点目</translation>
+    </message>
+    <message>
+        <source>Win rate</source>
+        <translation>胜率</translation>
     </message>
 </context>
 <context>
@@ -2967,25 +3013,64 @@ Overwrite stored game result?</source>
         <source>The computer has resigned the game.</source>
         <translation>电脑已认输。</translation>
     </message>
+    <message>
+        <source>Invalid move by the engine</source>
+        <translation>引擎落子无效</translation>
+    </message>
+    <message>
+        <source>An invalid move was played by the engine, game terminated.</source>
+        <translation>引擎落子无效，对局结束。</translation>
+    </message>
+    <message>
+        <source>Reported score by White: </source>
+        <translation>白棋点目：</translation>
+    </message>
+    <message>
+        <source>Reported score by Black: </source>
+        <translation>黑棋点目：</translation>
+    </message>
+    <message>
+        <source>Neither program reported a score.
+</source>
+        <translation>程序未报告点目。</translation>
+    </message>
+    <message>
+        <source>Game #%1:
+</source>
+        <translation>对局 #%1:
+</translation>
+    </message>
+    <message>
+        <source>Wins for White/Black: %1/%2</source>
+        <translation>白棋/黑棋胜率：%1/%2</translation>
+    </message>
+    <message>
+        <source> Jigo: %1</source>
+        <translation>Jigo: %1</translation>
+    </message>
+    <message>
+        <source> Disagreements: %1</source>
+        <translation>不同意：%1</translation>
+    </message>
+    <message>
+        <source>Engine play has completed.</source>
+        <translation>引擎对弈结束。</translation>
+    </message>
+    <message>
+        <source>B+R</source>
+        <translation>黑+R</translation>
+    </message>
+    <message>
+        <source>W+R</source>
+        <translation>白+R</translation>
+    </message>
+    <message>
+        <source>Game result: </source>
+        <translation>对局结果：</translation>
+    </message>
 </context>
 <context>
     <name>NewAIGameDlg</name>
-    <message>
-        <source>Error</source>
-        <translation>错误</translation>
-    </message>
-    <message>
-        <source>You entered an invalid Handicap (1 is not legal)</source>
-        <translation>您输入的让子数无效(1是无效的)</translation>
-    </message>
-    <message>
-        <source>Choose an SGF file to load</source>
-        <translation>选择一个SGF文件打开</translation>
-    </message>
-    <message>
-        <source>SGF Files (*.sgf);;MGT Files (*.mgt);;XML Files (*.xml);;All Files (*)</source>
-        <translation>SGF 文件 (*.sgf);;MGT 文件 (*.mgt);;XML 文件 (*.xml);;所有文件 (*)</translation>
-    </message>
     <message>
         <source>Play engine from current position</source>
         <translation>从当前位置开始与引擎对局</translation>
@@ -5389,6 +5474,11 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <translation>引擎设置更新
 分析引擎现在要求设置棋盘大小，已有的项目默认为19.</translation>
     </message>
+    <message>
+        <source>O</source>
+        <comment>Board status line: observe GTP mode</comment>
+        <translation>观局</translation>
+    </message>
 </context>
 <context>
     <name>SGFPreview</name>
@@ -6022,6 +6112,109 @@ closes the tab (and dialog)</source>
     <message>
         <source>SL</source>
         <translation>SL</translation>
+    </message>
+</context>
+<context>
+    <name>TwoAIGameDlg</name>
+    <message>
+        <source>Error</source>
+        <translation>错误</translation>
+    </message>
+    <message>
+        <source>The number of games was not set.</source>
+        <translation>对局编号未设置</translation>
+    </message>
+    <message>
+        <source>Opening book was selected but no file name specified.</source>
+        <translation>选择打开书本但没有选择文件名。</translation>
+    </message>
+</context>
+<context>
+    <name>TwoAIGameDlgGui</name>
+    <message>
+        <source>Computer Game</source>
+        <translation>计算机对弈</translation>
+    </message>
+    <message>
+        <source>Playing mode</source>
+        <translation>对局模式</translation>
+    </message>
+    <message>
+        <source>Game file:</source>
+        <translation>对局文件：</translation>
+    </message>
+    <message>
+        <source>Number of games:</source>
+        <translation>对局编号：</translation>
+    </message>
+    <message>
+        <source>1</source>
+        <translation>1</translation>
+    </message>
+    <message>
+        <source>Use game file as opening book
+and play the selected number of games per line</source>
+        <translation>使用对局文件作为被打开的书本
+并按行以选中编号进行对局</translation>
+    </message>
+    <message>
+        <source>Game parameters</source>
+        <translation>棋局参数</translation>
+    </message>
+    <message>
+        <source>Komi:</source>
+        <translation>贴目:</translation>
+    </message>
+    <message>
+        <source>Handicap:</source>
+        <translation>让子:</translation>
+    </message>
+    <message>
+        <source>Board size:</source>
+        <translation>棋盘大小:</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>时间</translation>
+    </message>
+    <message>
+        <source>Main time (minutes):</source>
+        <translation>主时间（分钟）：</translation>
+    </message>
+    <message>
+        <source>Overtime</source>
+        <translation>超时</translation>
+    </message>
+    <message>
+        <source>Period (minutes):</source>
+        <translation>耗时（分钟）：</translation>
+    </message>
+    <message>
+        <source>Stones per period:</source>
+        <translation>每段时间内落子数：</translation>
+    </message>
+    <message>
+        <source>Players</source>
+        <translation>棋友</translation>
+    </message>
+    <message>
+        <source>Engine (white):</source>
+        <translation>引擎（白）：</translation>
+    </message>
+    <message>
+        <source>Engine (black):</source>
+        <translation>引擎（黑）：</translation>
+    </message>
+</context>
+<context>
+    <name>UI</name>
+    <message>
+        <source>Choose an SGF file to load</source>
+        <translation>选择一个SGF文件打开</translation>
+    </message>
+    <message>
+        <source>SGF Files (*.sgf);;All Files (*)</source>
+        <translation>SGF (*.sgf);;所有文件 (*)</translation>
     </message>
 </context>
 <context>
