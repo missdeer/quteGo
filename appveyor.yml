@@ -11,10 +11,10 @@ environment:
     VSVER: 14.1
 
     matrix:
-        - QT: C:\Qt\5.12\msvc2017_64
+        - QT: C:\Qt\5.13\msvc2017_64
           PLATFORM: amd64
           MKSPEC: win64-msvc
-        - QT: C:\Qt\5.12\msvc2017
+        - QT: C:\Qt\5.13\msvc2017
           PLATFORM: x86
           MKSPEC: win32-msvc
 
@@ -28,13 +28,11 @@ install:
 # scripts that run before build
 before_build:
     - if "%MKSPEC%" EQU "win64-msvc" (call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat")
-    - if "%MKSPEC%" EQU "win64-clang-msvc" (call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat")
     - if "%MKSPEC%" EQU "win32-msvc" (call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat")
     - qmake --version
     - mkdir build
     - cd build
     - if "%MKSPEC%" EQU "win64-msvc" (qmake -r -spec win32-msvc CONFIG+=x86_64 CONFIG-=debug CONFIG+=release ../q5Go.pro)
-    - if "%MKSPEC%" EQU "win64-clang-msvc" (qmake -r -spec win32-clang-msvc CONFIG+=x86_64 CONFIG-=debug CONFIG+=release ../q5Go.pro)
     - if "%MKSPEC%" EQU "win32-msvc" (qmake -r -spec win32-msvc CONFIG+=Win32 CONFIG-=debug CONFIG+=release ../q5Go.pro)
 
 # custom build scripts
