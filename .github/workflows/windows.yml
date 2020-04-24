@@ -54,8 +54,6 @@ jobs:
           cd build
           qmake -r CONFIG+=release CONFIG+=qtquickcompiler ..\q5go.pro
           nmake
-          dir
-          dir release
           cd ..
       - name: package
         env:
@@ -63,9 +61,7 @@ jobs:
           archiveName: ${{ env.targetName }}-${{ matrix.qt_arch }}
         shell: pwsh
         run: |
-          dir
           New-Item -ItemType Directory ${env:archiveName}
-          dir build\src\Release\
           Copy-Item build\src\Release\${env:targetName}'.exe' ${env:archiveName}\
           windeployqt --qmldir . ${env:archiveName}\${env:targetName}'.exe'
           Compress-Archive -Path ${env:archiveName} ${env:archiveName}'.zip'
