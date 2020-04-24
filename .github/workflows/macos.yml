@@ -1,8 +1,6 @@
 name: MacOS
 on: 
   push:
-    branches:
-      - ${{ github.ref }}
     paths-ignore:
       - 'README.md'
       - 'LICENSE'
@@ -36,6 +34,7 @@ jobs:
           
       - name: build macos
         run: |
+          echo "${{ github.ref }}"
           mkdir build
           cd build
           qmake -r CONFIG+=release CONFIG+=qtquickcompiler ../${{ env.targetName }}.pro
