@@ -1,8 +1,6 @@
 name: MacOS
 on: 
   push:
-    branches:
-      - ${{ github.head_ref  }}
     paths-ignore:
       - 'README.md'
       - 'LICENSE'

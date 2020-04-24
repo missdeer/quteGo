@@ -1,8 +1,6 @@
 name: Windows
 on: 
   push:
-    branches:
-      - ${{ github.head_ref  }}
     paths-ignore:
       - 'README.md'
       - 'LICENSE'
