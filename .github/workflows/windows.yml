@@ -1,6 +1,8 @@
 name: Windows
 on: 
   push:
+    branches:
+      - ${{ github.head_ref  }}
     paths-ignore:
       - 'README.md'
       - 'LICENSE'
@@ -41,6 +43,7 @@ jobs:
           
       - uses: actions/checkout@v2
         with:
+          ref: ${{ github.head_ref  }}
           submodules: true
           
       - name: build-msvc
@@ -64,7 +67,7 @@ jobs:
         run: |
           dir
           New-Item -ItemType Directory ${env:archiveName}
-          dir
+          dir build\src\Release\
           Copy-Item build\src\Release\${env:targetName}'.exe' ${env:archiveName}\
           windeployqt --qmldir . ${env:archiveName}\${env:targetName}'.exe'
           Compress-Archive -Path ${env:archiveName} ${env:archiveName}'.zip'

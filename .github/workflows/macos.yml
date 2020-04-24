@@ -1,6 +1,8 @@
 name: MacOS
 on: 
   push:
+    branches:
+      - ${{ github.head_ref  }}
     paths-ignore:
       - 'README.md'
       - 'LICENSE'
@@ -29,12 +31,11 @@ jobs:
       
       - uses: actions/checkout@v2
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ github.head_ref  }}
           submodules: true
           
       - name: build macos
         run: |
-          echo "${{ github.ref }}"
           mkdir build
           cd build
           qmake -r CONFIG+=release CONFIG+=qtquickcompiler ../${{ env.targetName }}.pro
