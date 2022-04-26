@@ -304,16 +304,18 @@ void ImageHandler::paint_stone_picture(QImage &img, int size, int idx, const QSt
 
 	QPainter painter(&img);
 	img.fill(Qt::transparent);
+	auto offset       = size * m_sizePercent / 2000;
+	auto actualLength = size * m_sizePercent * 19 / 2000;
 	if (suffix.compare("svg", Qt::CaseInsensitive) == 0)
 	{
-		QSvgRenderer svgRenderer (newPath);
-		svgRenderer.render (&painter, QRectF(0,0,size*m_sizePercent/100,size*m_sizePercent/100));
+		QSvgRenderer svgRenderer(newPath);
+		svgRenderer.render(&painter, QRectF(offset, offset, actualLength, actualLength));
 	}
 	else
 	{
 		QPixmap pixmapToDraw(newPath);
 		painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform, true);
-		painter.drawPixmap(QRect(0, 0, size * m_sizePercent / 100, size * m_sizePercent / 100), pixmapToDraw);
+		painter.drawPixmap(QRect(offset, offset, actualLength, actualLength), pixmapToDraw);
 	}
 }
 
