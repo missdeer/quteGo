@@ -74,7 +74,6 @@ jobs:
           windeployqt --qmldir . ${env:archiveName}\${env:targetName}'.exe'
           Compress-Archive -Path ${env:archiveName} ${env:archiveName}'.zip'
           $name = ${env:archiveName}
-          echo "::set-env name=packageName::$name"
           Write-Host 'packageName:'${env:packageName}
 
       - name: Upload artifact
@@ -129,7 +128,6 @@ jobs:
         run: |
           if (${env:upUrl}.Length -gt 0) {
               $v=${env:upUrl}
-              echo "::set-env name=uploadUrl::$v"
               return
           } 
           [string]$tag = ${env:ref}.Substring(${env:ref}.LastIndexOf('/') + 1)
@@ -137,7 +135,6 @@ jobs:
           $response = Invoke-RestMethod -Uri $url -Method Get
           [string]$latestUpUrl = $response.upload_url
           Write-Host 'latestUpUrl:'$latestUpUrl
-          echo "::set-env name=uploadUrl::$latestUpUrl"
           Write-Host 'env uploadUrl:'${env:uploadUrl}
       - name: uploadRelease
         id: uploadRelease
