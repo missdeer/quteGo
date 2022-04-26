@@ -302,8 +302,7 @@ void ImageHandler::paint_stone_picture(QImage &img, int size, int idx, const QSt
 	if (!QFile::exists(newPath))
 		newPath = path;
 
-	QPainter painter;
-	painter.begin (&img);
+	QPainter painter(&img);
 	img.fill(Qt::transparent);
 	if (suffix.compare("svg", Qt::CaseInsensitive) == 0)
 	{
@@ -312,10 +311,10 @@ void ImageHandler::paint_stone_picture(QImage &img, int size, int idx, const QSt
 	}
 	else
 	{
-		QImage image(newPath);
-		painter.drawImage(QRect(0,0,size*m_sizePercent/100,size*m_sizePercent/100), image, image.rect());
+		QPixmap pixmapToDraw(newPath);
+		painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform, true);
+		painter.drawPixmap(QRect(0, 0, size * m_sizePercent / 100, size * m_sizePercent / 100), pixmapToDraw);
 	}
-	painter.end ();
 }
 
 void ImageHandler::paint_black_stone_old (QImage &bi, int d)
