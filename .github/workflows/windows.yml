@@ -10,6 +10,13 @@ on:
       - 'README.md'
       - 'LICENSE'
       - '.github/workflows/macos.yml'
+
+env:
+  WINDOWS_BASEKIT_URL: https://registrationcenter-download.intel.com/akdlm/irc_nas/18599/w_BaseKit_p_2022.1.3.210_offline.exe
+  WINDOWS_HPCKIT_URL: https://registrationcenter-download.intel.com/akdlm/irc_nas/18578/w_HPCKit_p_2022.1.3.145_offline.exe
+  WINDOWS_CPP_COMPONENTS: intel.oneapi.win.cpp-compiler
+  WINDOWS_DPCPP_COMPONENTS: intel.oneapi.win.dpcpp-compiler
+
 jobs:
   win32-msvc:
     runs-on: windows-latest
@@ -224,6 +231,89 @@ jobs:
         with:
           name: ${{ env.targetName }}-${{ matrix.qt_arch }}-clang
           path: ${{ env.targetName }}-${{ matrix.qt_arch }}-clang
+  
+  win32-msvc-intel:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        qt_ver: [5.15.2]
+        qt_target: [desktop]
+        qt_arch: [win64_msvc2019_64]
+        include:
+          - qt_arch: win64_msvc2019_64
+            msvc_arch: x64
+            qt_arch_install: msvc2019_64
+    env:
+      targetName: q5Go
+    steps:
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: ${{ matrix.qt_ver }}
+          target: ${{ matrix.qt_target }}
+          arch: ${{ matrix.qt_arch }}
+
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref  }}
+          submodules: true
+
+      - name: cache install
+        id: cache-install
+        uses: actions/cache@v2
+        with:
+          path: |
+              C:\Program Files (x86)\Intel\oneAPI\setvars-vcvarsall.bat
+              C:\Program Files (x86)\Intel\oneAPI\compiler
+          key: install-${{ env.CACHE_NUMBER }}-${{ env.WINDOWS_HPCKIT_URL }}-${{ env.WINDOWS_CPP_COMPONENTS }}-compiler-${{ hashFiles('**/scripts/cache_exclude_windows.sh') }}
+
+      - name: install
+        if: steps.cache-install.outputs.cache-hit != 'true'
+        run: |
+          git clone --depth=1 git@github.com:oneapi-src/oneapi-ci.git
+          cd oneapi-ci
+          scripts/install_windows.bat $WINDOWS_HPCKIT_URL $WINDOWS_CPP_COMPONENTS
+
+      - name: Set up jom
+        shell: cmd
+        run: |
+          mkdir jom
+          cd jom
+          curl.exe -o jom.zip -L https://download.qt.io/official_releases/jom/jom_1_1_3.zip
+          if exist jom.zip 7z.exe x jom.zip
+          cd ..
+
+      - name: build-msvc-intel
+        shell: cmd
+        env:
+          vc_arch: ${{ matrix.msvc_arch }}
+        run: |
+          call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" %vc_arch%
+          call "C:\Program Files (x86)\Intel\oneAPI\compiler\2022.0.3\env\vars.bat"
+          set PATH="C:\Program Files (x86)\Intel\oneAPI\compiler\2022.0.3\windows\bin-llvm\";%CD%\jom;%PATH%
+          mkdir build
+          cd build
+          qmake -r -spec win32-clang-msvc CONFIG+=release CONFIG+=qtquickcompiler ..\q5go.pro
+          if exist %CD%\jom\jom.exe jom.exe -j %NUMBER_OF_PROCESSORS%
+          if not exist %CD%\jom\jom.exe nmake
+          cd ..
+      - name: package
+        env:
+          archiveName: ${{ env.targetName }}-${{ matrix.qt_arch }}-intel
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory ${env:archiveName}
+          Copy-Item build\src\Release\${env:targetName}'.exe' ${env:archiveName}\
+          windeployqt --qmldir . ${env:archiveName}\${env:targetName}'.exe'
+          Compress-Archive -Path ${env:archiveName} ${env:archiveName}'.zip'
+          $name = ${env:archiveName}
+          Write-Host 'packageName:'${env:packageName}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: ${{ env.targetName }}-${{ matrix.qt_arch }}-intel
+          path: ${{ env.targetName }}-${{ matrix.qt_arch }}-intel
 
   win32-mingw:
     runs-on: windows-latest
