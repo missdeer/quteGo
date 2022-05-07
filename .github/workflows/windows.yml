@@ -311,7 +311,7 @@ jobs:
 
       - name: extract executable
         env:
-          archiveName: ${{ env.targetName }}-${{ matrix.toolchains }}
+          archiveName: ${{ env.targetName }}-${{ matrix.qt_arch }}
         shell: pwsh
         run: |
           New-Item -ItemType Directory ${env:archiveName}
@@ -320,5 +320,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
         with:
-          name: ${{ env.targetName }}-${{ matrix.toolchains }}
-          path: ${{ env.targetName }}-${{ matrix.toolchains }}
+          name: ${{ env.targetName }}-${{ matrix.qt_arch }}
+          path: ${{ env.targetName }}-${{ matrix.qt_arch }}
