@@ -37,7 +37,7 @@ jobs:
         uses: actions/cache@v1  # not v2!
         with:
           path: ../Qt
-          key: ${{ matrix.qt_arch }}-QtCache
+          key: ${{ matrix.qt_arch }}-$${{ matrix.qt_ver }}-QtCache
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
@@ -176,7 +176,7 @@ jobs:
         uses: actions/cache@v1  # not v2!
         with:
           path: ../Qt
-          key: ${{ matrix.qt_arch }}-QtCache
+          key: ${{ matrix.qt_arch }}-$${{ matrix.qt_ver }}-QtCache
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
@@ -258,7 +258,7 @@ jobs:
         uses: actions/cache@v1  # not v2!
         with:
           path: ../Qt
-          key: ${{ matrix.qt_arch }}-QtCache
+          key: ${{ matrix.qt_arch }}-$${{ matrix.qt_ver }}-QtCache
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
