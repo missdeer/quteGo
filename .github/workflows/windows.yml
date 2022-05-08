@@ -263,7 +263,7 @@ jobs:
       - name: install
         if: steps.cache-install.outputs.cache-hit != 'true'
         run: |
-          git clone --depth=1 https://github.com/oneapi-src/oneapi-ci.git
+          git clone --depth=1 https://github.com/oneapi-src/oneapi-ci.git oneapi-ci
           cd oneapi-ci
           scripts/install_windows.bat $WINDOWS_HPCKIT_URL $WINDOWS_CPP_COMPONENTS
 
@@ -375,7 +375,13 @@ jobs:
         run: |
           New-Item -ItemType Directory ${env:archiveName}
           Copy-Item build\src\release\${env:targetName}'.exe' ${env:archiveName}\
-          
+      - name: deploy qt
+        env:
+          archiveName: ${{ env.targetName }}-${{ matrix.qt_arch }}
+        shell: cmd
+        run: |
+          ${{ matrix.windeployqt }} ${{ env.targetName }}-${{ matrix.qt_arch }}\${{ env.targetName }}.exe
+      
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
         with:
