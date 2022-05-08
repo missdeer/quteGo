@@ -2,7 +2,7 @@
  * misc.cpp
  */
 
-#include <qregexp.h>
+#include <QRegexp>
 
 #include "misc.h"
 

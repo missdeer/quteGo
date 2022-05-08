@@ -9,8 +9,8 @@
 #include <QAction>
 #include <QGridLayout>
 #include <QLabel>
+#include <QLayout>
 #include <QMainWindow>
-#include <qlayout.h>
 
 #include "archivehandler.h"
 #include "board.h"

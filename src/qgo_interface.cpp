@@ -2,22 +2,21 @@
  *   qgo_interface.cpp - qGoClient's interface to qGo
  */
 
-#include "qgo.h"
-// Added by qt3to4:
+#include <QComboBox>
+#include <QMessageBox>
+#include <QRegexp>
+#include <QString>
+#include <QTimer>
 #include <QTimerEvent>
-#include <qcombobox.h>
-#include <qmessagebox.h>
-#include <qregexp.h>
-#include <qstring.h>
-#include <qtimer.h>
 
+#include "qgo_interface.h"
 #include "clientwin.h"
 #include "config.h"
 #include "defines.h"
 #include "gs_globals.h"
 #include "mainwindow.h"
 #include "misc.h"
-#include "qgo_interface.h"
+#include "qgo.h"
 #include "tables.h"
 #include "ui_helpers.h"
 

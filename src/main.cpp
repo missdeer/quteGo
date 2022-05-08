@@ -7,13 +7,13 @@
  */
 #include <tuple>
 
-#include <QFileDialog>
 #include <QApplication>
-#include <qdialog.h>
-#include <qdir.h>
-#include <qmessagebox.h>
-#include <qtextcodec.h>
-#include <qtranslator.h>
+#include <QDialog>
+#include <QDir>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QTextCodec>
+#include <QTranslator>
 
 #include "analyzedlg.h"
 #include "archivehandlerfactory.h"

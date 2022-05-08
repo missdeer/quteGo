@@ -1,156 +1,171 @@
 #include <QTextCodec>
+
 #include "goboard.h"
-#include "sgf.h"
 #include "setting.h"
+#include "sgf.h"
 
-char skip_whitespace (const IODeviceAdapter &in)
+char skip_whitespace(const IODeviceAdapter &in)
 {
-	char nextch = 0;
-	do {
-		if (! in.get (nextch)) {
-			if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
-				return nextch;
-			else
-				throw premature_eof ();
-		}
-	} while (isspace (nextch));
-	return nextch;
+    char nextch = 0;
+    do
+    {
+        if (!in.get(nextch))
+        {
+            if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+                return nextch;
+            else
+                throw premature_eof();
+        }
+    } while (isspace(nextch));
+    return nextch;
 }
 
-sgf::node *parse_gametree (const IODeviceAdapter &in, sgf_errors &errs)
+sgf::node *parse_gametree(const IODeviceAdapter &in, sgf_errors &errs)
 {
-	sgf::node *prev_node = 0, *first_node = 0;
-	
-	bool at_start = true;
-	char nextch = skip_whitespace (in);
-	if (nextch != ';')
-		nextch = ';';
-	for (;;) {
-	if (nextch != ';' && (nextch == ')' || !at_start))
-	    break;
-	if (nextch != ';')
-	    errs.invalid_structure = true;
-	at_start = false;
+    sgf::node *prev_node = 0, *first_node = 0;
 
-	sgf::node *this_node = new sgf::node ();
-	if (prev_node)
-	    prev_node->add_child (this_node);
-	else
-	    first_node = this_node;
-	prev_node = this_node;
+    bool at_start = true;
+    char nextch   = skip_whitespace(in);
+    if (nextch != ';')
+        nextch = ';';
+    for (;;)
+    {
+        if (nextch != ';' && (nextch == ')' || !at_start))
+            break;
+        if (nextch != ';')
+            errs.invalid_structure = true;
+        at_start = false;
 
-	if (nextch == ';' || isspace (nextch))
-	    nextch = skip_whitespace (in);
-	for (;;) {
-		std::string idstr = "";
-		while (isalpha (nextch) && isalpha (nextch)) {
-		/* When downloading from their web interface, IGS writes
-		   properties with two uppercase and several ignored lowercase
-		   letters.  Ideally we'd add warning flags to the SGF to
-		   inform the user they have a broken file.  But for now,
-		   silently ignore them.  */
-		if (isupper (nextch))
-			idstr += nextch;
-		if (! in.get (nextch)) {
-			if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
-				return first_node;
-			else
-				throw premature_eof ();
-		}
-		}
-		if (idstr.length () == 0)
-		break;
+        sgf::node *this_node = new sgf::node();
+        if (prev_node)
+            prev_node->add_child(this_node);
+        else
+            first_node = this_node;
+        prev_node = this_node;
 
-		if (isspace (nextch))
-		nextch = skip_whitespace (in);
-		if (nextch != '[') {
-			if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
-				return first_node;
-			else
-				throw broken_sgf ();
-		}
+        if (nextch == ';' || isspace(nextch))
+            nextch = skip_whitespace(in);
+        for (;;)
+        {
+            std::string idstr = "";
+            while (isalpha(nextch) && isalpha(nextch))
+            {
+                /* When downloading from their web interface, IGS writes
+                   properties with two uppercase and several ignored lowercase
+                   letters.  Ideally we'd add warning flags to the SGF to
+                   inform the user they have a broken file.  But for now,
+                   silently ignore them.  */
+                if (isupper(nextch))
+                    idstr += nextch;
+                if (!in.get(nextch))
+                {
+                    if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+                        return first_node;
+                    else
+                        throw premature_eof();
+                }
+            }
+            if (idstr.length() == 0)
+                break;
 
-	    this_node->props.emplace_back (idstr);
-	    auto &p = this_node->props.back ();
-	    while (nextch == '[') {
-		std::string valstr = "";
-		int escaped = 0;
-		for (;;) {
-			if (! in.get (nextch)) {
-				if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
-					return first_node;
-				else
-					throw premature_eof ();
-			}
-			if (! escaped && nextch == ']')
-				break;
-			escaped = ! escaped && nextch == '\\';
-			if (! escaped)
-				valstr += nextch;
-		}
-		p.values.push_back (valstr);
-		nextch = skip_whitespace (in);
-		}
-	}
-	}
+            if (isspace(nextch))
+                nextch = skip_whitespace(in);
+            if (nextch != '[')
+            {
+                if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+                    return first_node;
+                else
+                    throw broken_sgf();
+            }
 
-	for (;;) {
-	if (nextch == ')')
-		break;
+            this_node->props.emplace_back(idstr);
+            auto &p = this_node->props.back();
+            while (nextch == '[')
+            {
+                std::string valstr  = "";
+                int         escaped = 0;
+                for (;;)
+                {
+                    if (!in.get(nextch))
+                    {
+                        if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+                            return first_node;
+                        else
+                            throw premature_eof();
+                    }
+                    if (!escaped && nextch == ']')
+                        break;
+                    escaped = !escaped && nextch == '\\';
+                    if (!escaped)
+                        valstr += nextch;
+                }
+                p.values.push_back(valstr);
+                nextch = skip_whitespace(in);
+            }
+        }
+    }
 
-	if (nextch != '(') {
-		if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
-			return first_node;
-		else
-			throw broken_sgf ();
-	}
+    for (;;)
+    {
+        if (nextch == ')')
+            break;
 
-	if (! prev_node) {
-		if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
-			return first_node;
-		else
-			throw broken_sgf ();
-	}
+        if (nextch != '(')
+        {
+            if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+                return first_node;
+            else
+                throw broken_sgf();
+        }
 
-	sgf::node *n = parse_gametree (in, errs);
-	prev_node->add_child (n);
-	nextch = skip_whitespace (in);
-	}
+        if (!prev_node)
+        {
+            if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+                return first_node;
+            else
+                throw broken_sgf();
+        }
 
-	return first_node;
+        sgf::node *n = parse_gametree(in, errs);
+        prev_node->add_child(n);
+        nextch = skip_whitespace(in);
+    }
+
+    return first_node;
 }
 
-sgf *load_sgf (const IODeviceAdapter &in)
+sgf *load_sgf(const IODeviceAdapter &in)
 {
     char nextch;
 
-    if (!in.get (nextch))
-	throw premature_eof ();
+    if (!in.get(nextch))
+        throw premature_eof();
     /* Look for (and discard) a UTF-8 BOM.  Bogus, since SGF is a
        binary file format, but it occurs in the wild.  */
-    if (nextch == (char)0xEF) {
-	if (!in.get (nextch))
-	    throw premature_eof ();
-	if (nextch != (char)0xBB)
-	    throw broken_sgf ();
-	if (!in.get (nextch))
-	    throw premature_eof ();
-	if (nextch != (char)0xBF)
-	    throw broken_sgf ();
-	if (!in.get (nextch))
-	    throw premature_eof ();
+    if (nextch == (char)0xEF)
+    {
+        if (!in.get(nextch))
+            throw premature_eof();
+        if (nextch != (char)0xBB)
+            throw broken_sgf();
+        if (!in.get(nextch))
+            throw premature_eof();
+        if (nextch != (char)0xBF)
+            throw broken_sgf();
+        if (!in.get(nextch))
+            throw premature_eof();
     }
-    if (isspace (nextch))
-	nextch = skip_whitespace (in);
+    if (isspace(nextch))
+        nextch = skip_whitespace(in);
     if (nextch != '(')
-	throw broken_sgf ();
+        throw broken_sgf();
     sgf_errors errs;
-    sgf::node *nodes = parse_gametree (in, errs);
-    sgf *s = new sgf (nodes, errs);
+    sgf::node *nodes = parse_gametree(in, errs);
+    sgf       *s     = new sgf(nodes, errs);
     return s;
 }
 
-QTextCodec* charset_detect(const QByteArray& data)
+QTextCodec *charset_detect(const QByteArray &data)
 {
     QByteArrayList encodings = {
         "UTF-8",
@@ -161,11 +176,13 @@ QTextCodec* charset_detect(const QByteArray& data)
         "Shift-JIS",
         "Big5",
     };
-    for (const auto& encoding : encodings) {
+    for (const auto &encoding : encodings)
+    {
         QTextCodec::ConverterState state;
-        QTextCodec *c = QTextCodec::codecForName(encoding);
+        QTextCodec                *c = QTextCodec::codecForName(encoding);
         c->toUnicode(data.constData(), data.size(), &state);
-        if (state.invalidChars == 0) {
+        if (state.invalidChars == 0)
+        {
             return c;
         }
     }

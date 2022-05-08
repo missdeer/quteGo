@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-#include <qregexp.h>
+#include <QRegexp>
 
 #include "parser.h"
 #include "clientwin.h"
@@ -1194,9 +1194,9 @@ InfoType Parser::cmd9(QString &line)
     }
 
     // 9 ROOM 01: FREE GAME
-    // ROOM;PSMNYACF;Ž©—R‘Î‹ÇŽº;19;1;10;1,19,60,600,30,25,10,60,0 9 ROOM 10: SLOW
-    // GAME ROOM;PSMNYACF;½Û°‘Î‹ÇŽº;19;1;20 9 ROOM 92: PANDA OPEN
-    // ROOM;X;ŒŽ—á‘å‰ï;19;10;15
+    // ROOM;PSMNYACF;ï¿½ï¿½ï¿½Rï¿½Î‹ÇŽï¿½;19;1;10;1,19,60,600,30,25,10,60,0 9 ROOM 10: SLOW
+    // GAME ROOM;PSMNYACF;ï¿½Û°ï¿½Î‹ÇŽï¿½;19;1;20 9 ROOM 92: PANDA OPEN
+    // ROOM;X;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½;19;10;15
     else if (!line.left(5).compare("ROOM "))
     {
         QString t1 = line.section(';', 0, 0).trimmed();

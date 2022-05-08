@@ -3,9 +3,9 @@
  */
 
 #include <QApplication>
-#include <qlineedit.h>
-#include <qmenubar.h>
-#include <qmessagebox.h>
+#include <QLineEdit>
+#include <QMenuBar>
+#include <QMessageBox>
 
 #include "telnet.h"
 #include "clientwin.h"

@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-#include <qspinbox.h>
+#include <QSpinBox>
 
 class KomiSpinBox : public QDoubleSpinBox
 {
