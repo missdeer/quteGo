@@ -19,7 +19,6 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-
 #ifndef _AUDIO_H_
 #define _AUDIO_H_
 
@@ -27,32 +26,32 @@
 
 class Sound : public QObject
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
-	Sound( const QString &, QObject *parent = 0) : QObject(parent) {};
-	virtual ~Sound() {};
+    Sound(const QString &, QObject *parent = 0) : QObject(parent) {};
+    virtual ~Sound() {};
 
-	virtual void play() {}
+    virtual void play() {}
 };
-
 
 class QSoundSound : public Sound
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
-	QSoundSound( const QString& filename, QObject* parent=0);
+    QSoundSound(const QString &filename, QObject *parent = 0);
 
-	virtual void play();
+    virtual void play();
+
 private:
-	QSound *qSound;
+    QSound *qSound;
 };
 
 class SoundFactory
 {
 public:
-	static Sound *newSound(const QString &filename, QObject *parent = 0);
+    static Sound *newSound(const QString &filename, QObject *parent = 0);
 };
 
 #endif // _AUDIO_H_

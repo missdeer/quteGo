@@ -4,45 +4,44 @@
 #include <QListView>
 #include <QTableView>
 
-class ClickableListView: public QListView
+class ClickableListView : public QListView
 {
-	Q_OBJECT
+    Q_OBJECT
 
 signals:
-	void doubleclicked ();
-	void current_changed ();
+    void doubleclicked();
+    void current_changed();
 
 protected:
-	virtual void mouseDoubleClickEvent (QMouseEvent *) override
-	{
-		emit doubleclicked ();
-	}
-	virtual void currentChanged(const QModelIndex &current, const QModelIndex &previous) override
-	{
-		QListView::currentChanged (current, previous);
-		emit current_changed ();
-	}
+    virtual void mouseDoubleClickEvent(QMouseEvent *) override
+    {
+        emit doubleclicked();
+    }
+    virtual void currentChanged(const QModelIndex &current, const QModelIndex &previous) override
+    {
+        QListView::currentChanged(current, previous);
+        emit current_changed();
+    }
+
 public:
-	ClickableListView (QWidget *parent) : QListView (parent)
-	{
-	}
+    ClickableListView(QWidget *parent) : QListView(parent) {}
 };
 
-class ClickableTableView: public QTableView
+class ClickableTableView : public QTableView
 {
-	Q_OBJECT
+    Q_OBJECT
 
 signals:
-	void doubleclicked ();
+    void doubleclicked();
+
 protected:
-	virtual void mouseDoubleClickEvent (QMouseEvent *) override
-	{
-		emit doubleclicked ();
-	}
+    virtual void mouseDoubleClickEvent(QMouseEvent *) override
+    {
+        emit doubleclicked();
+    }
+
 public:
-	ClickableTableView (QWidget *parent) : QTableView (parent)
-	{
-	}
+    ClickableTableView(QWidget *parent) : QTableView(parent) {}
 };
 
 #endif

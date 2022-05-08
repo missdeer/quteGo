@@ -1,10 +1,10 @@
 #ifndef SGF_H
 #define SGF_H
 
-#include <string>
-#include <vector>
 #include <exception>
 #include <memory>
+#include <string>
+#include <vector>
 
 class premature_eof : public std::exception
 {
@@ -20,119 +20,119 @@ class invalid_boardsize : public std::exception
 
 struct sgf_errors
 {
-	bool played_on_stone = false;
-	bool charset_error = false;
-	/* For decorative things like move numbers.  */
-	bool invalid_val = false;
-	bool malformed_eval = false;
-	bool empty_komi = false;
-	bool empty_handicap = false;
-	bool invalid_structure = false;
-	bool move_outside_board = false;
+    bool played_on_stone = false;
+    bool charset_error   = false;
+    /* For decorative things like move numbers.  */
+    bool invalid_val        = false;
+    bool malformed_eval     = false;
+    bool empty_komi         = false;
+    bool empty_handicap     = false;
+    bool invalid_structure  = false;
+    bool move_outside_board = false;
 
-	bool any_set () const
-	{
-		return (played_on_stone || charset_error || invalid_val || malformed_eval
-			|| empty_komi || empty_handicap || invalid_structure || move_outside_board);
-	}
+    bool any_set() const
+    {
+        return (played_on_stone || charset_error || invalid_val || malformed_eval || empty_komi || empty_handicap || invalid_structure ||
+                move_outside_board);
+    }
 };
 
 struct sgf_figure
 {
-	bool present = false;
-	int flags = 0;
-	std::string title;
+    bool        present = false;
+    int         flags   = 0;
+    std::string title;
 };
 
 class sgf
 {
 public:
-	class node {
-		node *active;
-		node **m_end_children;
-	public:
-		node *m_children = nullptr, *m_siblings = nullptr;
+    class node
+    {
+        node  *active;
+        node **m_end_children;
 
-		class property {
-		public:
-			std::string ident;
-			std::list<std::string> values;
-			/* True if we ever looked up this property, indicating that
-			   it is one the program understands.  */
-			bool handled = false;
+    public:
+        node *m_children = nullptr, *m_siblings = nullptr;
 
-			property (std::string &i) : ident (i) { }
-			property (const property &other)
-				: ident (other.ident), values (other.values)
-			{
-			}
-		};
-		typedef std::vector<property> proplist;
-		proplist props;
+        class property
+        {
+        public:
+            std::string            ident;
+            std::list<std::string> values;
+            /* True if we ever looked up this property, indicating that
+               it is one the program understands.  */
+            bool handled = false;
 
-		node ()
-		{
-			active = nullptr;
-			m_end_children = &m_children;
-		}
-		~node ()
-		{
-			while (m_children != nullptr) {
-				node *t = m_children;
-				m_children = t->m_siblings;
-				delete t;
-			}
-		}
-		void set_active (node *c)
-		{
-			active = c;
-		}
-		node *get_active () const
-		{
-			return active;
-		}
-		void add_child (node *c)
-		{
-			*m_end_children = c;
-			m_end_children = &c->m_siblings;
-			if (! active)
-				active = c;
-		}
-		property *find_property (const char *id, bool require_value = true)
-		{
-			for (auto &i: props)
-				if (i.ident == id) {
-					if (require_value && i.values.empty ())
-						throw broken_sgf ();
-					i.handled = true;
-					return &i;
-				}
-			return nullptr;
-		}
-		const std::string *find_property_val (const char *id)
-		{
-			property *p = find_property (id);
-			if (p == nullptr)
-				return nullptr;
-			auto it = p->values.begin ();
-			const std::string *retval = &*it;
-			++it;
-			if (it != p->values.end ())
-				throw broken_sgf ();
-			return retval;
-		}
-	};
+            property(std::string &i) : ident(i) {}
+            property(const property &other) : ident(other.ident), values(other.values) {}
+        };
+        typedef std::vector<property> proplist;
+        proplist                      props;
 
-	node *nodes;
-	sgf_errors errs;
+        node()
+        {
+            active         = nullptr;
+            m_end_children = &m_children;
+        }
+        ~node()
+        {
+            while (m_children != nullptr)
+            {
+                node *t    = m_children;
+                m_children = t->m_siblings;
+                delete t;
+            }
+        }
+        void set_active(node *c)
+        {
+            active = c;
+        }
+        node *get_active() const
+        {
+            return active;
+        }
+        void add_child(node *c)
+        {
+            *m_end_children = c;
+            m_end_children  = &c->m_siblings;
+            if (!active)
+                active = c;
+        }
+        property *find_property(const char *id, bool require_value = true)
+        {
+            for (auto &i : props)
+                if (i.ident == id)
+                {
+                    if (require_value && i.values.empty())
+                        throw broken_sgf();
+                    i.handled = true;
+                    return &i;
+                }
+            return nullptr;
+        }
+        const std::string *find_property_val(const char *id)
+        {
+            property *p = find_property(id);
+            if (p == nullptr)
+                return nullptr;
+            auto               it     = p->values.begin();
+            const std::string *retval = &*it;
+            ++it;
+            if (it != p->values.end())
+                throw broken_sgf();
+            return retval;
+        }
+    };
 
-	sgf (node *n, const sgf_errors &e) : nodes (n), errs (e)
-	{
-	}
-	~sgf ()
-	{
-		delete nodes;
-	}
+    node      *nodes;
+    sgf_errors errs;
+
+    sgf(node *n, const sgf_errors &e) : nodes(n), errs(e) {}
+    ~sgf()
+    {
+        delete nodes;
+    }
 };
 
 #ifndef TEST
@@ -146,23 +146,22 @@ public:
    Qt got better with Qt5, so now we use the following adapter to make
    a QFile appear somewhat like an istream.  */
 
-#include <QDataStream>
-#include <QFile>
+#    include <QDataStream>
+#    include <QFile>
 class IODeviceAdapter
 {
-	QIODevice &m_dev;
+    QIODevice &m_dev;
+
 public:
-	IODeviceAdapter (QIODevice &d) : m_dev (d)
-	{
-	}
-	bool get (char &c) const
-	{
-		return m_dev.getChar (&c);
-	}
+    IODeviceAdapter(QIODevice &d) : m_dev(d) {}
+    bool get(char &c) const
+    {
+        return m_dev.getChar(&c);
+    }
 };
 
-extern sgf *load_sgf (const IODeviceAdapter &);
-extern QTextCodec* charset_detect(const QByteArray &data);
+extern sgf        *load_sgf(const IODeviceAdapter &);
+extern QTextCodec *charset_detect(const QByteArray &data);
 #endif
 
 #endif

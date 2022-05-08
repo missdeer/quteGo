@@ -19,39 +19,38 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-
-#include "audio.h"
 #include <QDir>
 #include <QFile>
 
-QSoundSound::QSoundSound(const QString &filename, QObject *parent)
-	: Sound(filename, parent)
+#include "audio.h"
+
+QSoundSound::QSoundSound(const QString &filename, QObject *parent) : Sound(filename, parent)
 {
-	qSound = new QSound(filename, this);
+    qSound = new QSound(filename, this);
 }
 
 void QSoundSound::play(void)
 {
-	qSound->play();
+    qSound->play();
 }
 
 Sound *SoundFactory::newSound(const QString &filename, QObject *parent)
 {
-	QFile * f;
-	if (!QFile::exists(filename))
-	{
-		QStringList sl;
-		sl << QDir::homePath() + "/ressources/sounds" 
-			<< "../ressources/sounds"
-			<< "../../src/ressources/sounds"
-			<< "../src/ressources/sounds"
-			<< ":/ressources/sounds";
+    QFile *f;
+    if (!QFile::exists(filename))
+    {
+        QStringList sl;
+        sl << QDir::homePath() + "/ressources/sounds"
+           << "../ressources/sounds"
+           << "../../src/ressources/sounds"
+           << "../src/ressources/sounds"
+           << ":/ressources/sounds";
 
-		QDir::setSearchPaths("sounds", sl);
+        QDir::setSearchPaths("sounds", sl);
 
-		f = new QFile("sounds:" + filename.right(filename.length() - filename.lastIndexOf('/') - 1));
-	}
-	else
-		f = new QFile(filename);
-	return new QSoundSound(f->fileName(), parent);
+        f = new QFile("sounds:" + filename.right(filename.length() - filename.lastIndexOf('/') - 1));
+    }
+    else
+        f = new QFile(filename);
+    return new QSoundSound(f->fileName(), parent);
 }

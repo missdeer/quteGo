@@ -12,38 +12,37 @@ class QUrl;
 
 class qGo : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
-
-	qGo();
-	~qGo();
-	void openManual(const QUrl &);
-	int checkModified();
-	void updateAllBoardSettings();
-	void playClick();
-	void playAutoPlayClick();
-	void playTalkSound();
-	void playMatchSound();
-	void playGameEndSound();
-	void playPassSound();
-	void playTimeSound();
-	void playSaySound();
-	void playEnterSound();
-	void playStoneSound();
-	void playLeaveSound();
-	void playDisConnectSound();
-	void playConnectSound();
+    qGo();
+    ~qGo();
+    void openManual(const QUrl &);
+    int  checkModified();
+    void updateAllBoardSettings();
+    void playClick();
+    void playAutoPlayClick();
+    void playTalkSound();
+    void playMatchSound();
+    void playGameEndSound();
+    void playPassSound();
+    void playTimeSound();
+    void playSaySound();
+    void playEnterSound();
+    void playStoneSound();
+    void playLeaveSound();
+    void playDisConnectSound();
+    void playConnectSound();
 
 public slots:
-	void unused_quit();
+    void unused_quit();
 
 private:
-	HelpViewer *helpViewer {};
+    HelpViewer *helpViewer {};
 };
 
 class QApplication;
 
-extern qGo *qgo;
+extern qGo          *qgo;
 extern QApplication *qgo_app;
 
 #endif

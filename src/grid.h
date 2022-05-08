@@ -19,50 +19,51 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-
 #ifndef GRID_H
 #define GRID_H
 
 #include <vector>
 
-#include <QtGui>
-#include <QMap>
-#include <QGraphicsLineItem>
 #include <QGraphicsEllipseItem>
+#include <QGraphicsLineItem>
+#include <QMap>
+#include <QtGui>
+
+#include "goboard.h"
 
 class Grid
 {
-	const go_board m_ref_board;
-	int m_h_dups, m_v_dups;
-	const bit_array m_hoshi_map;
-	std::vector<QGraphicsLineItem> m_hgrid, m_vgrid;
-	std::vector<QGraphicsEllipseItem> m_hoshis;
-	std::vector<std::pair <int, int> > m_hoshi_pos;
-	std::vector<std::pair <int, int> > m_hoshi_screen_pos;
+    const go_board                    m_ref_board;
+    int                               m_h_dups, m_v_dups;
+    const bit_array                   m_hoshi_map;
+    std::vector<QGraphicsLineItem>    m_hgrid, m_vgrid;
+    std::vector<QGraphicsEllipseItem> m_hoshis;
+    std::vector<std::pair<int, int>>  m_hoshi_pos;
+    std::vector<std::pair<int, int>>  m_hoshi_screen_pos;
 
 public:
-	Grid (QGraphicsScene *Canvas, const go_board &ref, int h, int v, const bit_array &hoshis);
+    Grid(QGraphicsScene *Canvas, const go_board &ref, int h, int v, const bit_array &hoshis);
 
-	void hide (int x, int y);
-	void resize (const QRect &r, int shift_x, int shift_y, double square_size);
-	void showAll ();
+    void hide(int x, int y);
+    void resize(const QRect &r, int shift_x, int shift_y, double square_size);
+    void showAll();
 
 private:
 };
 
 class CoordDisplay
 {
-	const go_board m_ref_board;
-	int m_h_dups, m_v_dups;
-	std::vector<QGraphicsSimpleTextItem> m_coords_v1, m_coords_v2;
-	std::vector<QGraphicsSimpleTextItem> m_coords_h1, m_coords_h2;
-	int m_coord_offset, m_coord_margin;
+    const go_board                       m_ref_board;
+    int                                  m_h_dups, m_v_dups;
+    std::vector<QGraphicsSimpleTextItem> m_coords_v1, m_coords_v2;
+    std::vector<QGraphicsSimpleTextItem> m_coords_h1, m_coords_h2;
+    int                                  m_coord_offset, m_coord_margin;
 
 public:
-	CoordDisplay (QGraphicsScene *Canvas, const go_board &ref, int h, int v, int offs, int margin, bool sgf);
-	void resize (const QRect &w, const QRect &b, int shift_x, int shift_y, double square_size, bool);
-	void set_texts (bool);
-	void retrieve_text (QString &xt, QString &yt, int x, int y);
+    CoordDisplay(QGraphicsScene *Canvas, const go_board &ref, int h, int v, int offs, int margin, bool sgf);
+    void resize(const QRect &w, const QRect &b, int shift_x, int shift_y, double square_size, bool);
+    void set_texts(bool);
+    void retrieve_text(QString &xt, QString &yt, int x, int y);
 };
 
 #endif

@@ -15,21 +15,20 @@ struct Host;
 
 class TelnetConnection : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	IGSConnection *igsInterface;
+    IGSConnection *igsInterface;
 
 public:
-	TelnetConnection (ClientWindow *parent, QWidget *, QWidget *);
-	~TelnetConnection ();
+    TelnetConnection(ClientWindow *parent, QWidget *, QWidget *);
+    ~TelnetConnection();
 
-	void sendTextFromApp (const QString&);
-	void connect_host (const Host &);
+    void sendTextFromApp(const QString &);
+    void connect_host(const Host &);
 
 public slots:
-	void slotHostDisconnect();
-	void slotHostQuit();
+    void slotHostDisconnect();
+    void slotHostQuit();
 };
- 
-#endif
 
+#endif

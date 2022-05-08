@@ -6,8 +6,8 @@
 class ArchiveHandlerFactory
 {
 public:
-	ArchiveHandlerFactory();
-	static ArchiveHandler *createArchiveHandler(const QString& archive);
+    ArchiveHandlerFactory();
+    static ArchiveHandler *createArchiveHandler(const QString &archive);
 };
 
 #endif // ARCHIVEHANDLERFACTORY_H

@@ -9,7 +9,6 @@
 
 // some useful functions
 
-QString rkToKey(QString, bool integer=false);
-
+QString rkToKey(QString, bool integer = false);
 
 #endif

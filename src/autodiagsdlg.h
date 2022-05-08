@@ -1,23 +1,27 @@
 #ifndef AUTODIAGSDLG_H
 #define AUTODIAGSDLG_H
 
-#include "ui_autodiags_gui.h"
 #include <memory>
+
+#include "ui_autodiags_gui.h"
 
 class game_record;
 class MainWindow;
 class QIntValidator;
 
-class AutoDiagsDialog : public QDialog, public Ui::AutoDiagsDialog
+class AutoDiagsDialog
+    : public QDialog
+    , public Ui::AutoDiagsDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	std::shared_ptr<game_record> m_game;
-	QIntValidator *m_intval;
+    std::shared_ptr<game_record> m_game;
+    QIntValidator               *m_intval;
+
 public:
-	AutoDiagsDialog (std::shared_ptr<game_record>, MainWindow* parent = 0);
-	~AutoDiagsDialog ();
-	virtual void accept () override;
+    AutoDiagsDialog(std::shared_ptr<game_record>, MainWindow *parent = 0);
+    ~AutoDiagsDialog();
+    virtual void accept() override;
 };
 
 #endif
