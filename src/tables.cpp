@@ -80,7 +80,7 @@ QString ClientWindow::getPlayerRk(QString player)
         }
     }
 
-    return QString::null;
+    return {};
 }
 
 // check for exclude list entry of a given name
@@ -94,7 +94,7 @@ QString ClientWindow::getPlayerExcludeListEntry(QString player)
         if (lvpi->text(1) == player)
             return lvpi->text(6);
 
-    return QString::null;
+    return {};
 }
 
 // take a new game from parser
@@ -712,7 +712,7 @@ void Account::set_gsname(GSName gs)
     if (acc_name.isNull())
     {
         // acc_name should be set...
-        acc_name.sprintf("Lulu");
+        acc_name = "Lulu";
         qWarning() << "set_gsname() - acc_name not found!";
     }
 
@@ -736,8 +736,8 @@ void Account::set_status(Status s)
 void Account::set_offline()
 {
     gsName   = GS_UNKNOWN;
-    svname   = QString::null;
-    acc_name = QString::null;
+    svname   = QString();
+    acc_name = QString();
     status   = Status::offline;
 
     set_caption();

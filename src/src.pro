@@ -1,5 +1,4 @@
 TEMPLATE	      = app
-CONFIG		     += qt warn_on thread
 FORMS	      = gui_dialog.ui \
 		analyze_gui.ui \
 		autodiags_gui.ui \
@@ -198,6 +197,9 @@ INSTALLS += target
 }
 
 QT += widgets gui xml network multimedia svg sql gui-private
+equals(QT_MAJOR_VERSION, 6): QT += core5compat svgwidgets
+
+CONFIG += c++20
 
 RESOURCES += \
     q4go.qrc

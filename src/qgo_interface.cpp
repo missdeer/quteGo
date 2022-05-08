@@ -4,7 +4,7 @@
 
 #include <QComboBox>
 #include <QMessageBox>
-#include <QRegexp>
+#include <QRegularExpression>
 #include <QString>
 #include <QTimer>
 #include <QTimerEvent>
@@ -136,7 +136,7 @@ void qGoIF::game_end(qGoBoard *qb, const QString &txt)
     qb->send_kibitz(txt + "\n");
 
     // set correct result entry
-    QString rs          = QString::null;
+    QString rs          = QString();
     QString extended_rs = txt;
 
     if (txt.contains("White forfeits"))
@@ -618,7 +618,7 @@ void qGoIF::slot_komi(const QString &nr, const QString &komi, bool isrequest)
 {
     qGoBoard      *qb;
     static int     move_number_memo = -1;
-    static QString komi_memo        = QString::null;
+    static QString komi_memo        = QString();
 
     // correctness:
     if (komi.isEmpty())
@@ -1095,8 +1095,8 @@ qGoBoard::qGoBoard(qGoIF *qif, int gameid) : m_qgoif(qif), id(gameid)
     // set timer to 1 second
     timer_id        = startTimer(1000);
     game_paused     = false;
-    req_handicap    = QString::null;
-    req_komi        = -1;
+    req_handicap    = QString();
+    req_komi        = QString::number(-1);
     bt_i            = -1;
     wt_i            = -1;
     stated_mv_count = 0;
@@ -1703,7 +1703,7 @@ void qGoBoard::send_kibitz(const QString &msg)
         {
             // opponent has been selected
             QString opp;
-            opp = msg.section(':', 2, -1).remove(QRegExp("\\(.*$")).trimmed();
+            opp = msg.section(':', 2, -1).remove(QRegularExpression("\\(.*$")).trimmed();
 
             if (opp == "0")
                 slot_ttOpponentSelected(tr("-- none --"));
@@ -1749,7 +1749,7 @@ void qGoBoard::send_kibitz(const QString &msg)
             //   it's ensured that yyy [rk] didn't send forged message
             //   e.g.: yyy [rk]: xxx[rk]: S1 (3)
             QString s;
-            s = msg.section(':', 1, -1).remove(QRegExp("\\(.*$")).trimmed().toUpper();
+            s = msg.section(':', 1, -1).remove(QRegularExpression("\\(.*$")).trimmed().toUpper();
 
             // check whether it's a position
             // e.g. B1, A17, NOT: ok, yes
@@ -1818,7 +1818,7 @@ void qGoBoard::send_coords(int x, int y)
 
     if (x > 7)
         x++;
-    QChar c1 = x + 'A';
+    QChar c1 = QChar(x + 'A');
     int   c2 = m_game->boardsize() - y;
 
     if (ExtendedTeachingGame && IamPupil)

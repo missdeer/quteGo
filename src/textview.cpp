@@ -6,6 +6,7 @@
 #include <QClipboard>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QSvgWidget>
 #include <QTextEdit>
 #include <QTextStream>
 
@@ -22,6 +23,10 @@
 TextView::TextView(QWidget *parent, type t) : QDialog(parent)
 {
     setupUi(this);
+    connect(buttonClose, &QPushButton::clicked, this, QOverload<>::of(&TextView::accept));
+    connect(buttonSave, &QPushButton::clicked, this, QOverload<>::of(&TextView::saveMe));
+    connect(buttonToClip, &QPushButton::clicked, this, QOverload<>::of(&TextView::toClipboard));
+
     textEdit->setWordWrapMode(QTextOption::WordWrap);
     textEdit->setLineWrapColumnOrWidth(80);
     QFont f("fixed", 10);
@@ -69,7 +74,7 @@ void TextView::delete_cursor_line()
  */
 void TextView::saveMe()
 {
-    QString fileName(QFileDialog::getSaveFileName(this, tr("Save ASCII export"), QString::null, tr("Text Files (*.txt);;All Files (*)")));
+    QString fileName(QFileDialog::getSaveFileName(this, tr("Save ASCII export"), {}, tr("Text Files (*.txt);;All Files (*)")));
 
     if (fileName.isEmpty())
         return;
@@ -101,6 +106,9 @@ void TextView::toClipboard()
 SvgView::SvgView(QWidget *parent) : QDialog(parent)
 {
     setupUi(this);
+    connect(buttonClose, &QPushButton::clicked, this, QOverload<>::of(&SvgView::accept));
+    connect(buttonSave, &QPushButton::clicked, this, QOverload<>::of(&SvgView::saveMe));
+    connect(buttonToClip, &QPushButton::clicked, this, QOverload<>::of(&SvgView::toClipboard));
 
     m_view = new QSvgWidget(aspectWidget);
     aspectWidget->set_child(m_view);
@@ -130,7 +138,7 @@ void SvgView::set(const QByteArray &qba)
  */
 void SvgView::saveMe()
 {
-    QString fileName(QFileDialog::getSaveFileName(this, tr("Save SVG export"), QString::null, tr("Svg Files (*.txt);;All Files (*)")));
+    QString fileName(QFileDialog::getSaveFileName(this, tr("Save SVG export"), {}, tr("Svg Files (*.txt);;All Files (*)")));
 
     if (fileName.isEmpty())
         return;

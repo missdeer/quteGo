@@ -40,6 +40,17 @@ ClientWindow *client_window;
 ClientWindow::ClientWindow(QMainWindow *parent) : QMainWindow(parent), seekButtonTimer(0), oneSecondTimer(0)
 {
     setupUi(this);
+    connect(setQuietMode, &QAction::triggered, this, &ClientWindow::slot_cbquiet);
+    connect(setOpenMode, &QAction::triggered, this, &ClientWindow::slot_cbopen);
+    connect(setLookingMode, &QAction::triggered, this, &ClientWindow::slot_cblooking);
+    connect(refreshGames, &QAction::triggered, this, &ClientWindow::slot_pbrefreshgames);
+    connect(refreshPlayers, &QAction::triggered, this, &ClientWindow::slot_pbrefreshplayers);
+    connect(pb_releaseTalkTabs, &QPushButton::clicked, this, QOverload<>::of(&ClientWindow::slot_pbRelTabs));
+    connect(RoomList, &QListWidget::itemDoubleClicked, this, &ClientWindow::slot_RoomListClicked);
+    connect(LeaveRoomButton, &QPushButton::clicked, this, QOverload<>::of(&ClientWindow::slot_leaveRoom));
+    connect(cb_connect, QOverload<const QString &>::of(&QComboBox::currentTextChanged), this, &ClientWindow::slot_cbconnect);
+    connect(toolConnect, &QToolButton::toggled, this, &ClientWindow::slot_connect);
+    connect(toolSeek, &QToolButton::toggled, this, QOverload<bool>::of(&ClientWindow::slot_seek));
 
     seekingIcon[0] = QIcon(":/ClientWindowGui/images/clientwindow/seeking0.png");
     seekingIcon[1] = QIcon(":/ClientWindowGui/images/clientwindow/seeking1.png");
@@ -698,7 +709,7 @@ void ClientWindow::sendTextToApp(const QString &txt)
         onlineCount    = 0;
         oneSecondTimer = startTimer(1000);
         // init shouts
-        slot_talk("Shouts*", QString::null, false);
+        slot_talk("Shouts*", {}, false);
 
         qgo->playConnectSound();
         break;
@@ -748,7 +759,7 @@ void ClientWindow::sendTextToApp(const QString &txt)
     case STATS:
         // we just received a players name as first line of stats -> create the
         // dialog tab
-        slot_talk(parser->get_statsPlayer()->name, QString::null, true);
+        slot_talk(parser->get_statsPlayer()->name, {}, true);
 
         break;
 
@@ -1612,7 +1623,7 @@ void ClientWindow::slot_playerPopup(int i)
     case 2:
     case 3:
         // talk and stats at the same time
-        slot_talk(player_name, QString::null, true);
+        slot_talk(player_name, {}, true);
         // slot_sendcommand("stats " + lv_popupPlayer->text(1), false);
         break;
 
@@ -1957,10 +1968,8 @@ void ClientWindow::slot_preferences(bool)
 
 void ClientWindow::initActions()
 {
-    void (QComboBox::*cact1)(int)             = &QComboBox::activated;
-    void (QComboBox::*cact2)(const QString &) = &QComboBox::activated;
-    connect(cb_cmdLine, cact1, this, &ClientWindow::slot_cmdactivated_int);
-    connect(cb_cmdLine, cact2, this, &ClientWindow::slot_cmdactivated);
+    connect(cb_cmdLine, QOverload<int>::of(&QComboBox::activated), this, &ClientWindow::slot_cmdactivated_int);
+    // connect(cb_cmdLine, QOverload<const QString &>::of(&QComboBox::activated), this, &ClientWindow::slot_cmdactivated);
 
     ListView_games->setWhatsThis(tr("Table of games\n\n"
                                     "right click to observe\n\n"

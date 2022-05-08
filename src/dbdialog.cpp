@@ -149,32 +149,36 @@ void DBDialog::db_model::populate_list()
             m_entries.push_back(m_all_entries.size());
             QString filename = dbdir.filePath(q2.value(0).toString());
             QString date     = q2.value(3).toString();
-            QRegExp re_full("(\\d\\d\\d\\d)[^\\d](\\d\\d)[^\\d](\\d\\d)");
-            QRegExp re_noday("(\\d\\d\\d\\d)[^\\d](\\d\\d)");
-            QRegExp re_year("(\\d\\d\\d\\d)");
+            QRegularExpression re_full("(\\d\\d\\d\\d)[^\\d](\\d\\d)[^\\d](\\d\\d)");
+            QRegularExpression re_noday("(\\d\\d\\d\\d)[^\\d](\\d\\d)");
+            QRegularExpression re_year("(\\d\\d\\d\\d)");
             /* Compatibility with old versions of qGo/q4go/q5go before we corrected
                that little problem.  */
-            QRegExp re_compat("^(\\d\\d) (\\d\\d) (\\d\\d\\d\\d)$");
-            if (re_compat.exactMatch(date))
+            QRegularExpression re_compat("^(\\d\\d) (\\d\\d) (\\d\\d\\d\\d)$");
+            auto               matched = re_compat.match(date);
+            if (matched.hasMatch())
             {
-                date = re_compat.cap(3) + "-" + re_compat.cap(2) + "-" + re_compat.cap(1);
+                date = matched.captured(3) + "-" + matched.captured(2) + "-" + matched.captured(1);
             }
-            else if (re_full.indexIn(date) != -1)
+            else if (re_full.match(date).hasMatch())
             {
-                QStringList sl = re_full.capturedTexts();
+                auto        matched = re_full.match(date);
+                QStringList sl      = matched.capturedTexts();
                 sl.removeFirst();
                 date = sl.join("-");
             }
-            else if (re_noday.indexIn(date) != -1)
+            else if (re_noday.match(date).hasMatch())
             {
-                QStringList sl = re_noday.capturedTexts();
+                auto        matched = re_full.match(date);
+                QStringList sl      = matched.capturedTexts();
                 sl.removeFirst();
                 date = sl.join("-") + "-??";
             }
-            else if (re_year.indexIn(date) != -1)
+            else if (re_year.match(date).hasMatch())
             {
-                date = re_year.cap(0) + "-??"
-                                        "-??";
+                auto matched = re_full.match(date);
+                date         = matched.captured(0) + "-??"
+                                                     "-??";
             }
             else
                 date = "0000"

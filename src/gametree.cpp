@@ -2,7 +2,11 @@
  * gametree.cpp
  */
 
+#include <QGraphicsSceneContextMenuEvent>
+#include <QGraphicsSceneMouseEvent>
 #include <QHelpEvent>
+#include <QScrollBar>
+#include <QToolTip>
 
 #include "gametree.h"
 #include "board.h"

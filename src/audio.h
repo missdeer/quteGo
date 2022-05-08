@@ -22,7 +22,8 @@
 #ifndef _AUDIO_H_
 #define _AUDIO_H_
 
-#include <QSound>
+#include <QObject>
+#include <QSoundEffect>
 
 class Sound : public QObject
 {
@@ -45,7 +46,7 @@ public:
     virtual void play();
 
 private:
-    QSound *qSound;
+    QSoundEffect *qSound;
 };
 
 class SoundFactory

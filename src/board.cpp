@@ -446,9 +446,9 @@ static int collect_moves(go_board &b, game_state *startpos, game_state *stop_pos
 static QString convert_letter_mark(mextra extra)
 {
     if (extra < 26)
-        return QString('A' + extra);
+        return QString(QChar('A' + extra));
     else
-        return QString('a' + extra - 26);
+        return QString(QChar('a' + extra - 26));
 }
 
 /* Render a mark in SVG at center position CX/CY in a square with a side length
@@ -1303,7 +1303,7 @@ Board::ram_result Board::render_analysis_marks(
 
     if (analysis_vartype == 0)
     {
-        QChar c = pv_idx >= 26 ? 'a' + pv_idx - 26 : 'A' + pv_idx;
+        QChar c = pv_idx >= 26 ? QChar('a' + pv_idx - 26) : QChar('A' + pv_idx);
         svg.text_at(cx, cy, svg_factor, 0, c, "black", fi);
     }
     else

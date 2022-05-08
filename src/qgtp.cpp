@@ -47,7 +47,7 @@ GTP_Process::GTP_Process(QWidget *parent, GTP_Controller *c, const Engine &engin
 
     QStringList arguments;
     if (!args.isEmpty())
-        arguments = args.split(QRegExp("\\s+"));
+        arguments = args.split(QRegularExpression("\\s+"));
     QFileInfo fi(prog);
     QString   wd = fi.dir().absolutePath();
     setWorkingDirectory(wd);
@@ -614,7 +614,7 @@ void GTP_Eval_Controller::gtp_eval(const QString &s, bool kata_format)
 
     bool prune = setting->readBoolEntry("ANALYSIS_PRUNE");
 
-    QStringList moves = s.split("info move ", QString::SkipEmptyParts);
+    QStringList moves = s.split("info move ", Qt::SkipEmptyParts);
     if (moves.isEmpty())
         return;
 
@@ -684,7 +684,7 @@ void GTP_Eval_Controller::gtp_eval(const QString &s, bool kata_format)
 #if 0
 		qDebug () << move << " wr " << wr << " visits " << visits << " PV: " << pv;
 #endif
-        QStringList pvmoves = pv.split(" ", QString::SkipEmptyParts);
+        QStringList pvmoves = pv.split(" ", Qt::SkipEmptyParts);
         if (count < 52 && (!prune || pvmoves.length() > 1 || visits >= 2))
         {
             game_state *cur      = m_eval_state;

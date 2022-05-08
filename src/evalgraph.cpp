@@ -1,6 +1,8 @@
 /*
  * gametree.cpp
  */
+#include <QFileDialog>
+#include <QMessageBox>
 
 #include "evalgraph.h"
 #include "config.h"

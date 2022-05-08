@@ -29,10 +29,10 @@
  * language names
  */
 #define NUMBER_OF_AVAILABLE_LANGUAGES 15
-#define AVAILABLE_LANGUAGES                                                                                                                \
-    {                                                                                                                                      \
-        "Chinese", "Chinese (simplified)", "Czech", "Danish", "Deutsch", "English", "Espanol", u8"Fran\u00e7ais", "Italiano", "Latin (!)", \
-            "Nederlands", "Polish", "Portuges", "Russian", u8"T\u00fcrk\u00e7e"                                                            \
+#define AVAILABLE_LANGUAGES                                                                                                                 \
+    {                                                                                                                                       \
+        "Chinese", "Chinese (simplified)", "Czech", "Danish", "Deutsch", "English", "Espanol", (const char *)u8"Fran\u00e7ais", "Italiano", \
+            "Latin (!)", "Nederlands", "Polish", "Portuges", "Russian", (const char *)u8"T\u00fcrk\u00e7e"                                  \
     }
 
 #define LANGUAGE_CODES                                                                              \

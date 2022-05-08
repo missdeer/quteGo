@@ -295,7 +295,7 @@ public:
     {
         gsName = n;
     }
-    void     set_localboard(QString file = QString::null);
+    void     set_localboard(QString file = {});
     void     set_localgame();
     QWidget *get_parent()
     {
@@ -341,7 +341,7 @@ public slots:
     void set_observe(const QString &);
 
 protected:
-    bool parse_move(int src, GameInfo *gi = 0, Game *g = 0, QString txt = QString::null);
+    bool parse_move(int src, GameInfo *gi = 0, Game *g = 0, QString txt = {});
 
 private:
     qGoBoard *find_game_id(int);

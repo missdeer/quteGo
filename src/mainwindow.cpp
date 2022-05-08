@@ -20,6 +20,7 @@
 #include <QMessageBox>
 #include <QPixmap>
 #include <QPushButton>
+#include <QRegularExpression>
 #include <QSlider>
 #include <QTimer>
 #include <QToolBar>
@@ -165,6 +166,11 @@ MainWindow::MainWindow(QWidget *parent, go_game_ptr gr, ArchiveHandlerPtr archiv
     : QMainWindow(parent), m_game(gr), m_archive(archive), m_ascii_dlg(this), m_svg_dlg(this)
 {
     setupUi(this);
+
+    connect(slider, &QSlider::valueChanged, this, &MainWindow::sliderChanged);
+    connect(editButton, &QPushButton::clicked, this, QOverload<>::of(&MainWindow::doEdit));
+    connect(editPosButton, &QPushButton::clicked, this, &MainWindow::doEditPos);
+    connect(scoreButton, &QPushButton::clicked, this, &MainWindow::doRealScore);
 
     anIdListView->setModel(&m_an_id_model);
     gameTreeView->set_board_win(this, gtHeaderView);
@@ -1728,8 +1734,8 @@ bool MainWindow::restoreWindowLayout(bool dflt, const QString &scrkey)
     QString s3 = setting->readEntry("BOARDLAYOUT3_" + strKey);
     if (s1.isEmpty() || s2.isEmpty())
         return false;
-    QRegExp verify("^[0-9A-Fa-f]*$");
-    if (!verify.exactMatch(s1) || !verify.exactMatch(s2))
+    QRegularExpression verify("^[0-9A-Fa-f]*$");
+    if (!verify.match(s1).hasMatch() || !verify.match(s2).hasMatch())
         return false;
 
     // do not resize until end of this procedure

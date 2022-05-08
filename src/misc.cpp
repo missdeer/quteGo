@@ -2,7 +2,7 @@
  * misc.cpp
  */
 
-#include <QRegexp>
+#include <QRegularExpression>
 
 #include "misc.h"
 
@@ -13,6 +13,7 @@ QString rkToKey(QString txt, bool integer)
     QString rk = txt;
     QString keyStr;
 
+    static QRegularExpression r("[pdk+?\\*\\s]");
     if (integer)
     {
         // NR
@@ -25,7 +26,7 @@ QString rkToKey(QString txt, bool integer)
 
         // get number
         QString buffer = rk;
-        buffer.replace(QRegExp("[pdk+?\\*\\s]"), "");
+        buffer.replace(r, "");
         bool ok;
         int  pt = buffer.toInt(&ok);
         if (!ok)
@@ -85,7 +86,7 @@ QString rkToKey(QString txt, bool integer)
 
         // get number
         QString buffer = rk;
-        buffer.replace(QRegExp("[pdk+?\\*\\s]"), "");
+        buffer.replace(r, "");
 
         // reverse sort order for dan/pro players
         if (keyStr == "a" || keyStr == "b")

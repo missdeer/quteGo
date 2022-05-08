@@ -26,7 +26,8 @@
 
 QSoundSound::QSoundSound(const QString &filename, QObject *parent) : Sound(filename, parent)
 {
-    qSound = new QSound(filename, this);
+    qSound = new QSoundEffect(this);
+    qSound->setSource(QUrl::fromLocalFile(filename));
 }
 
 void QSoundSound::play(void)

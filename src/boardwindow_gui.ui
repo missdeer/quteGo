@@ -440,30 +440,12 @@ Maximum game move the slider can currently show.</string>
                  <property name="palette">
                   <palette>
                    <active>
-                    <colorrole role="WindowText">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
                     <colorrole role="Button">
                      <brush brushstyle="SolidPattern">
                       <color alpha="255">
                        <red>192</red>
                        <green>192</green>
                        <blue>192</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
-                    <colorrole role="Light">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>255</red>
-                       <green>255</green>
-                       <blue>255</blue>
                       </color>
                      </brush>
                     </colorrole>
@@ -494,42 +476,6 @@ Maximum game move the slider can currently show.</string>
                       </color>
                      </brush>
                     </colorrole>
-                    <colorrole role="Text">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
-                    <colorrole role="BrightText">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>255</red>
-                       <green>255</green>
-                       <blue>255</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
-                    <colorrole role="ButtonText">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
-                    <colorrole role="Base">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>255</red>
-                       <green>255</green>
-                       <blue>255</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
                     <colorrole role="Window">
                      <brush brushstyle="SolidPattern">
                       <color alpha="255">
@@ -554,15 +500,6 @@ Maximum game move the slider can currently show.</string>
                        <red>0</red>
                        <green>0</green>
                        <blue>0</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
-                    <colorrole role="HighlightedText">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>255</red>
-                       <green>255</green>
-                       <blue>255</blue>
                       </color>
                      </brush>
                     </colorrole>
@@ -595,30 +532,12 @@ Maximum game move the slider can currently show.</string>
                     </colorrole>
                    </active>
                    <inactive>
-                    <colorrole role="WindowText">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
                     <colorrole role="Button">
                      <brush brushstyle="SolidPattern">
                       <color alpha="255">
                        <red>192</red>
                        <green>192</green>
                        <blue>192</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
-                    <colorrole role="Light">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>255</red>
-                       <green>255</green>
-                       <blue>255</blue>
                       </color>
                      </brush>
                     </colorrole>
@@ -649,42 +568,6 @@ Maximum game move the slider can currently show.</string>
                       </color>
                      </brush>
                     </colorrole>
-                    <colorrole role="Text">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
-                    <colorrole role="BrightText">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>255</red>
-                       <green>255</green>
-                       <blue>255</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
-                    <colorrole role="ButtonText">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
-                    <colorrole role="Base">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>255</red>
-                       <green>255</green>
-                       <blue>255</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
                     <colorrole role="Window">
                      <brush brushstyle="SolidPattern">
                       <color alpha="255">
@@ -709,15 +592,6 @@ Maximum game move the slider can currently show.</string>
                        <red>0</red>
                        <green>0</green>
                        <blue>0</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
-                    <colorrole role="HighlightedText">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>255</red>
-                       <green>255</green>
-                       <blue>255</blue>
                       </color>
                      </brush>
                     </colorrole>
@@ -750,30 +624,12 @@ Maximum game move the slider can currently show.</string>
                     </colorrole>
                    </inactive>
                    <disabled>
-                    <colorrole role="WindowText">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>128</red>
-                       <green>128</green>
-                       <blue>128</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
                     <colorrole role="Button">
                      <brush brushstyle="SolidPattern">
                       <color alpha="255">
                        <red>192</red>
                        <green>192</green>
                        <blue>192</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
-                    <colorrole role="Light">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>255</red>
-                       <green>255</green>
-                       <blue>255</blue>
                       </color>
                      </brush>
                     </colorrole>
@@ -804,42 +660,6 @@ Maximum game move the slider can currently show.</string>
                       </color>
                      </brush>
                     </colorrole>
-                    <colorrole role="Text">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
-                    <colorrole role="BrightText">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>255</red>
-                       <green>255</green>
-                       <blue>255</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
-                    <colorrole role="ButtonText">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>128</red>
-                       <green>128</green>
-                       <blue>128</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
-                    <colorrole role="Base">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>255</red>
-                       <green>255</green>
-                       <blue>255</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
                     <colorrole role="Window">
                      <brush brushstyle="SolidPattern">
                       <color alpha="255">
@@ -864,15 +684,6 @@ Maximum game move the slider can currently show.</string>
                        <red>0</red>
                        <green>0</green>
                        <blue>0</blue>
-                      </color>
-                     </brush>
-                    </colorrole>
-                    <colorrole role="HighlightedText">
-                     <brush brushstyle="SolidPattern">
-                      <color alpha="255">
-                       <red>255</red>
-                       <green>255</green>
-                       <blue>255</blue>
                       </color>
                      </brush>
                     </colorrole>
@@ -1120,30 +931,12 @@ Variation 1 of 20
                    <property name="palette">
                     <palette>
                      <active>
-                      <colorrole role="WindowText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>0</red>
-                         <green>0</green>
-                         <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
                       <colorrole role="Button">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
                          <red>192</red>
                          <green>192</green>
                          <blue>192</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="Light">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
                         </color>
                        </brush>
                       </colorrole>
@@ -1174,42 +967,6 @@ Variation 1 of 20
                         </color>
                        </brush>
                       </colorrole>
-                      <colorrole role="Text">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>0</red>
-                         <green>0</green>
-                         <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="BrightText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="ButtonText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>0</red>
-                         <green>0</green>
-                         <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="Base">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
                       <colorrole role="Window">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
@@ -1234,15 +991,6 @@ Variation 1 of 20
                          <red>0</red>
                          <green>0</green>
                          <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="HighlightedText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
                         </color>
                        </brush>
                       </colorrole>
@@ -1275,30 +1023,12 @@ Variation 1 of 20
                       </colorrole>
                      </active>
                      <inactive>
-                      <colorrole role="WindowText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>0</red>
-                         <green>0</green>
-                         <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
                       <colorrole role="Button">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
                          <red>192</red>
                          <green>192</green>
                          <blue>192</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="Light">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
                         </color>
                        </brush>
                       </colorrole>
@@ -1329,42 +1059,6 @@ Variation 1 of 20
                         </color>
                        </brush>
                       </colorrole>
-                      <colorrole role="Text">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>0</red>
-                         <green>0</green>
-                         <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="BrightText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="ButtonText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>0</red>
-                         <green>0</green>
-                         <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="Base">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
                       <colorrole role="Window">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
@@ -1389,15 +1083,6 @@ Variation 1 of 20
                          <red>0</red>
                          <green>0</green>
                          <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="HighlightedText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
                         </color>
                        </brush>
                       </colorrole>
@@ -1430,30 +1115,12 @@ Variation 1 of 20
                       </colorrole>
                      </inactive>
                      <disabled>
-                      <colorrole role="WindowText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>128</red>
-                         <green>128</green>
-                         <blue>128</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
                       <colorrole role="Button">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
                          <red>192</red>
                          <green>192</green>
                          <blue>192</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="Light">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
                         </color>
                        </brush>
                       </colorrole>
@@ -1484,42 +1151,6 @@ Variation 1 of 20
                         </color>
                        </brush>
                       </colorrole>
-                      <colorrole role="Text">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>0</red>
-                         <green>0</green>
-                         <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="BrightText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="ButtonText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>128</red>
-                         <green>128</green>
-                         <blue>128</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="Base">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
                       <colorrole role="Window">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
@@ -1544,15 +1175,6 @@ Variation 1 of 20
                          <red>0</red>
                          <green>0</green>
                          <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="HighlightedText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
                         </color>
                        </brush>
                       </colorrole>
@@ -1831,30 +1453,12 @@ Send adjournment request to your opponent. If he accept it, the game will be adj
                    <property name="palette">
                     <palette>
                      <active>
-                      <colorrole role="WindowText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>0</red>
-                         <green>0</green>
-                         <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
                       <colorrole role="Button">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
                          <red>181</red>
                          <green>179</green>
                          <blue>220</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="Light">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
                         </color>
                        </brush>
                       </colorrole>
@@ -1885,42 +1489,6 @@ Send adjournment request to your opponent. If he accept it, the game will be adj
                         </color>
                        </brush>
                       </colorrole>
-                      <colorrole role="Text">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>0</red>
-                         <green>0</green>
-                         <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="BrightText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="ButtonText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>0</red>
-                         <green>0</green>
-                         <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="Base">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
                       <colorrole role="Window">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
@@ -1945,15 +1513,6 @@ Send adjournment request to your opponent. If he accept it, the game will be adj
                          <red>10</red>
                          <green>36</green>
                          <blue>106</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="HighlightedText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
                         </color>
                        </brush>
                       </colorrole>
@@ -1986,30 +1545,12 @@ Send adjournment request to your opponent. If he accept it, the game will be adj
                       </colorrole>
                      </active>
                      <inactive>
-                      <colorrole role="WindowText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>0</red>
-                         <green>0</green>
-                         <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
                       <colorrole role="Button">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
                          <red>181</red>
                          <green>179</green>
                          <blue>220</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="Light">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
                         </color>
                        </brush>
                       </colorrole>
@@ -2040,42 +1581,6 @@ Send adjournment request to your opponent. If he accept it, the game will be adj
                         </color>
                        </brush>
                       </colorrole>
-                      <colorrole role="Text">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>0</red>
-                         <green>0</green>
-                         <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="BrightText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="ButtonText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>0</red>
-                         <green>0</green>
-                         <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="Base">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
                       <colorrole role="Window">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
@@ -2100,15 +1605,6 @@ Send adjournment request to your opponent. If he accept it, the game will be adj
                          <red>10</red>
                          <green>36</green>
                          <blue>106</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="HighlightedText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
                         </color>
                        </brush>
                       </colorrole>
@@ -2141,30 +1637,12 @@ Send adjournment request to your opponent. If he accept it, the game will be adj
                       </colorrole>
                      </inactive>
                      <disabled>
-                      <colorrole role="WindowText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>128</red>
-                         <green>128</green>
-                         <blue>128</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
                       <colorrole role="Button">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
                          <red>181</red>
                          <green>179</green>
                          <blue>220</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="Light">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
                         </color>
                        </brush>
                       </colorrole>
@@ -2195,42 +1673,6 @@ Send adjournment request to your opponent. If he accept it, the game will be adj
                         </color>
                        </brush>
                       </colorrole>
-                      <colorrole role="Text">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>0</red>
-                         <green>0</green>
-                         <blue>0</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="BrightText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="ButtonText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>128</red>
-                         <green>128</green>
-                         <blue>128</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="Base">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
                       <colorrole role="Window">
                        <brush brushstyle="SolidPattern">
                         <color alpha="255">
@@ -2255,15 +1697,6 @@ Send adjournment request to your opponent. If he accept it, the game will be adj
                          <red>10</red>
                          <green>36</green>
                          <blue>106</blue>
-                        </color>
-                       </brush>
-                      </colorrole>
-                      <colorrole role="HighlightedText">
-                       <brush brushstyle="SolidPattern">
-                        <color alpha="255">
-                         <red>255</red>
-                         <green>255</green>
-                         <blue>255</blue>
                         </color>
                        </brush>
                       </colorrole>
@@ -2572,7 +2005,7 @@ After placing and/or undo release button for returning to starting point automat
      <x>0</x>
      <y>0</y>
      <width>1192</width>
-     <height>23</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="fileMenu">
@@ -4070,70 +3503,5 @@ Open the batch analysis dialog which allows you to add SGF files to a queue to b
  <resources>
   <include location="q4go.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>slider</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>BoardWindow</receiver>
-   <slot>sliderChanged(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>43</x>
-     <y>372</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>editButton</sender>
-   <signal>clicked()</signal>
-   <receiver>BoardWindow</receiver>
-   <slot>doEdit()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>468</x>
-     <y>309</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>editPosButton</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>BoardWindow</receiver>
-   <slot>doEditPos(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>468</x>
-     <y>335</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>scoreButton</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>BoardWindow</receiver>
-   <slot>doRealScore(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>468</x>
-     <y>257</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
