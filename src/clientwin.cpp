@@ -48,7 +48,7 @@ ClientWindow::ClientWindow(QMainWindow *parent) : QMainWindow(parent), seekButto
     connect(pb_releaseTalkTabs, &QPushButton::clicked, this, QOverload<>::of(&ClientWindow::slot_pbRelTabs));
     connect(RoomList, &QListWidget::itemDoubleClicked, this, &ClientWindow::slot_RoomListClicked);
     connect(LeaveRoomButton, &QPushButton::clicked, this, QOverload<>::of(&ClientWindow::slot_leaveRoom));
-    connect(cb_connect, QOverload<const QString &>::of(&QComboBox::activated), this, &ClientWindow::slot_cbconnect);
+    connect(cb_connect, QOverload<const QString &>::of(&QComboBox::currentTextChanged), this, &ClientWindow::slot_cbconnect);
     connect(toolConnect, &QToolButton::toggled, this, &ClientWindow::slot_connect);
     connect(toolSeek, &QToolButton::toggled, this, QOverload<bool>::of(&ClientWindow::slot_seek));
 

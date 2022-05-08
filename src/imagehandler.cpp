@@ -212,7 +212,11 @@ void ImageHandler::paint_stone_new(QImage &wi, int d, const QColor &col, double 
 
     double d2 = (double)d / 2.0 - 5e-1;
     double r  = d2 - 2e-1;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     double h, s, v;
+#else
+    float h, s, v;
+#endif
     col.getHsvF(&h, &s, &v);
 
     // these are the images
