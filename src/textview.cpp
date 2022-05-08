@@ -23,9 +23,9 @@
 TextView::TextView(QWidget *parent, type t) : QDialog(parent)
 {
     setupUi(this);
-    connect(buttonClose, &QPushButton::clicked, this, qOverload<>(&TextView::accept));
-    connect(buttonSave, &QPushButton::clicked, this, qOverload<>(&TextView::saveMe));
-    connect(buttonToClip, &QPushButton::clicked, this, qOverload<>(&TextView::toClipboard));
+    connect(buttonClose, &QPushButton::clicked, this, QOverload<>::of(&TextView::accept));
+    connect(buttonSave, &QPushButton::clicked, this, QOverload<>::of(&TextView::saveMe));
+    connect(buttonToClip, &QPushButton::clicked, this, QOverload<>::of(&TextView::toClipboard));
 
     textEdit->setWordWrapMode(QTextOption::WordWrap);
     textEdit->setLineWrapColumnOrWidth(80);
@@ -106,9 +106,9 @@ void TextView::toClipboard()
 SvgView::SvgView(QWidget *parent) : QDialog(parent)
 {
     setupUi(this);
-    connect(buttonClose, &QPushButton::clicked, this, qOverload<>(&SvgView::accept));
-    connect(buttonSave, &QPushButton::clicked, this, qOverload<>(&SvgView::saveMe));
-    connect(buttonToClip, &QPushButton::clicked, this, qOverload<>(&SvgView::toClipboard));
+    connect(buttonClose, &QPushButton::clicked, this, QOverload<>::of(&SvgView::accept));
+    connect(buttonSave, &QPushButton::clicked, this, QOverload<>::of(&SvgView::saveMe));
+    connect(buttonToClip, &QPushButton::clicked, this, QOverload<>::of(&SvgView::toClipboard));
 
     m_view = new QSvgWidget(aspectWidget);
     aspectWidget->set_child(m_view);

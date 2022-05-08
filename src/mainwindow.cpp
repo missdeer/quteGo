@@ -168,7 +168,7 @@ MainWindow::MainWindow(QWidget *parent, go_game_ptr gr, ArchiveHandlerPtr archiv
     setupUi(this);
 
     connect(slider, &QSlider::valueChanged, this, &MainWindow::sliderChanged);
-    connect(editButton, &QPushButton::clicked, this, qOverload<>(&MainWindow::doEdit));
+    connect(editButton, &QPushButton::clicked, this, QOverload<>::of(&MainWindow::doEdit));
     connect(editPosButton, &QPushButton::clicked, this, &MainWindow::doEditPos);
     connect(scoreButton, &QPushButton::clicked, this, &MainWindow::doRealScore);
 

@@ -150,21 +150,21 @@ PreferencesDialog::PreferencesDialog(QWidget *parent)
     setupUi(this);
     setModal(true);
 
-    connect(buttonApply, &QPushButton::clicked, this, qOverload<>(&PreferencesDialog::slot_apply));
-    connect(buttonCancel, &QPushButton::clicked, this, qOverload<>(&PreferencesDialog::slot_reject));
-    connect(buttonHelp, &QPushButton::clicked, this, qOverload<>(&PreferencesDialog::startHelpMode));
-    connect(buttonOk, &QPushButton::clicked, this, qOverload<>(&PreferencesDialog::slot_accept));
-    connect(enginePathButton, &QPushButton::clicked, this, qOverload<>(&PreferencesDialog::slot_getComputerPath));
-    connect(pb_engine_delete, &QPushButton::clicked, this, qOverload<>(&PreferencesDialog::slot_delete_engine));
-    connect(pb_engine_add, &QPushButton::clicked, this, qOverload<>(&PreferencesDialog::slot_add_engine));
+    connect(buttonApply, &QPushButton::clicked, this, QOverload<>::of(&PreferencesDialog::slot_apply));
+    connect(buttonCancel, &QPushButton::clicked, this, QOverload<>::of(&PreferencesDialog::slot_reject));
+    connect(buttonHelp, &QPushButton::clicked, this, QOverload<>::of(&PreferencesDialog::startHelpMode));
+    connect(buttonOk, &QPushButton::clicked, this, QOverload<>::of(&PreferencesDialog::slot_accept));
+    connect(enginePathButton, &QPushButton::clicked, this, QOverload<>::of(&PreferencesDialog::slot_getComputerPath));
+    connect(pb_engine_delete, &QPushButton::clicked, this, QOverload<>::of(&PreferencesDialog::slot_delete_engine));
+    connect(pb_engine_add, &QPushButton::clicked, this, QOverload<>::of(&PreferencesDialog::slot_add_engine));
     connect(engineName, &QLineEdit::textChanged, this, &PreferencesDialog::slot_engineChanged);
-    connect(pb_engine_new, &QPushButton::clicked, this, qOverload<>(&PreferencesDialog::slot_new_engine));
-    connect(pb_server_delete, &QPushButton::clicked, this, qOverload<>(&PreferencesDialog::slot_delete_server));
-    connect(pb_server_add, &QPushButton::clicked, this, qOverload<>(&PreferencesDialog::slot_add_server));
+    connect(pb_engine_new, &QPushButton::clicked, this, QOverload<>::of(&PreferencesDialog::slot_new_engine));
+    connect(pb_server_delete, &QPushButton::clicked, this, QOverload<>::of(&PreferencesDialog::slot_delete_server));
+    connect(pb_server_add, &QPushButton::clicked, this, QOverload<>::of(&PreferencesDialog::slot_add_server));
     connect(LineEdit_title, &QLineEdit::textChanged, this, &PreferencesDialog::slot_serverChanged);
-    connect(pb_server_new, &QPushButton::clicked, this, qOverload<>(&PreferencesDialog::slot_new_server));
-    connect(blackStonePicturePathButton, &QPushButton::clicked, this, qOverload<>(&PreferencesDialog::slot_getBlackStonePicturePath));
-    connect(whiteStonePicturePathButton, &QPushButton::clicked, this, qOverload<>(&PreferencesDialog::slot_getWhiteStonePicturePath));
+    connect(pb_server_new, &QPushButton::clicked, this, QOverload<>::of(&PreferencesDialog::slot_new_server));
+    connect(blackStonePicturePathButton, &QPushButton::clicked, this, QOverload<>::of(&PreferencesDialog::slot_getBlackStonePicturePath));
+    connect(whiteStonePicturePathButton, &QPushButton::clicked, this, QOverload<>::of(&PreferencesDialog::slot_getWhiteStonePicturePath));
     connect(stoneSizePercentSlider, &QSlider::valueChanged, this, &PreferencesDialog::slot_stoneSizePercentChanged);
 
     if (client_window->getPrefSize().width() > 0)

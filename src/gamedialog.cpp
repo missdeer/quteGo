@@ -13,16 +13,16 @@ GameDialog::GameDialog(QWidget *parent, GSName gs, const QString &name) : QDialo
     setupUi(this);
     setModal(true);
 
-    connect(buttonCancel, &QPushButton::clicked, this, qOverload<>(&GameDialog::slot_cancel));
-    connect(pb_suggest, &QPushButton::clicked, this, qOverload<>(&GameDialog::slot_pbsuggest));
-    connect(buttonDecline, &QPushButton::clicked, this, qOverload<>(&GameDialog::slot_decline));
+    connect(buttonCancel, &QPushButton::clicked, this, QOverload<>::of(&GameDialog::slot_cancel));
+    connect(pb_suggest, &QPushButton::clicked, this, QOverload<>::of(&GameDialog::slot_pbsuggest));
+    connect(buttonDecline, &QPushButton::clicked, this, QOverload<>::of(&GameDialog::slot_decline));
     connect(byoTimeSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &GameDialog::slot_changed);
     connect(timeSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &GameDialog::slot_changed);
     connect(handicapSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &GameDialog::slot_changed);
     connect(boardSizeSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &GameDialog::slot_changed);
     connect(komiSpin, QOverload<double>::of(&QDoubleSpinBox::valueChanged), this, &GameDialog::slot_changed);
     connect(buttonOffer, &QPushButton::toggled, this, &GameDialog::slot_offer);
-    connect(pb_stats, &QPushButton::clicked, this, qOverload<>(&GameDialog::slot_stats_opponent));
+    connect(pb_stats, &QPushButton::clicked, this, QOverload<>::of(&GameDialog::slot_stats_opponent));
 
     have_suggestdata = false;
     //	komiSpin->setValue(55);

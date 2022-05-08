@@ -45,9 +45,9 @@ ClientWindow::ClientWindow(QMainWindow *parent) : QMainWindow(parent), seekButto
     connect(setLookingMode, &QAction::triggered, this, &ClientWindow::slot_cblooking);
     connect(refreshGames, &QAction::triggered, this, &ClientWindow::slot_pbrefreshgames);
     connect(refreshPlayers, &QAction::triggered, this, &ClientWindow::slot_pbrefreshplayers);
-    connect(pb_releaseTalkTabs, &QPushButton::clicked, this, qOverload<>(&ClientWindow::slot_pbRelTabs));
+    connect(pb_releaseTalkTabs, &QPushButton::clicked, this, QOverload<>::of(&ClientWindow::slot_pbRelTabs));
     connect(RoomList, &QListWidget::itemDoubleClicked, this, &ClientWindow::slot_RoomListClicked);
-    connect(LeaveRoomButton, &QPushButton::clicked, this, qOverload<>(&ClientWindow::slot_leaveRoom));
+    connect(LeaveRoomButton, &QPushButton::clicked, this, QOverload<>::of(&ClientWindow::slot_leaveRoom));
     connect(cb_connect, QOverload<const QString &>::of(&QComboBox::activated), this, &ClientWindow::slot_cbconnect);
     connect(toolConnect, &QToolButton::toggled, this, &ClientWindow::slot_connect);
     connect(toolSeek, &QToolButton::toggled, this, QOverload<bool>::of(&ClientWindow::slot_seek));
