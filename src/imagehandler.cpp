@@ -213,7 +213,7 @@ void ImageHandler::paint_stone_new(QImage &wi, int d, const QColor &col, double 
     double d2 = (double)d / 2.0 - 5e-1;
     double r  = d2 - 2e-1;
     double h, s, v;
-    col.getHsvF((float *)&h, (float *)&s, (float *)&v);
+    col.getHsvF(&h, &s, &v);
 
     // these are the images
     double *intense = new double[d * d];

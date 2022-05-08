@@ -167,6 +167,11 @@ MainWindow::MainWindow(QWidget *parent, go_game_ptr gr, ArchiveHandlerPtr archiv
 {
     setupUi(this);
 
+    connect(slider, &QSlider::valueChanged, this, &MainWindow::sliderChanged);
+    connect(editButton, &QPushButton::clicked, this, qOverload<>(&MainWindow::doEdit));
+    connect(editPosButton, &QPushButton::clicked, this, &MainWindow::doEditPos);
+    connect(scoreButton, &QPushButton::clicked, this, &MainWindow::doRealScore);
+
     anIdListView->setModel(&m_an_id_model);
     gameTreeView->set_board_win(this, gtHeaderView);
     evalGraph->set_board_win(this, &m_an_id_model);

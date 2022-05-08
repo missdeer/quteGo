@@ -251,12 +251,7 @@ void help_about()
 
     txt += "<hr/><p>Visit <a href=\"https://github.com/bernds/q5go\">the Github "
            "repository</a> for new versions.</p>";
-    QString translation = QStringLiteral("<hr/><p>") +
-                          QObject::tr(u8"English translation by: Peter Strempel, "
-                                      u8"Johannes Mesa, Emmanuel B\u00E9ranger",
-                                      "Please set your own language and your "
-                                      "name! Use your own language!") +
-                          QStringLiteral("</p>");
+    QString translation = QString("<hr/><p>") + QObject::tr("Please set your own language and your name! Use your own language!") + QString("</p>");
     txt += translation;
 
     QMessageBox mb;

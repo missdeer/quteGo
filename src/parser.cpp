@@ -20,8 +20,8 @@ Parser::Parser(ClientWindow *cw, qGoIF *qgoif) : m_client_win(cw), m_qgoif(qgoif
     aGame       = new Game;
     aGameInfo   = new GameInfo;
     memory      = 0;
-    memory_str  = {};
-    myname      = {};
+    memory_str  = QString();
+    myname      = QString();
 
     // init
     gsName = GS_UNKNOWN;
@@ -303,7 +303,7 @@ InfoType Parser::cmd1(const QString &line)
 {
     if (memory_str.contains("File") || memory_str.contains("STATS"))
         // if ready this cannont be a help message
-        memory_str = {};
+        memory_str = QString();
     emit signal_message("\n");
     return READY;
 }
@@ -363,7 +363,7 @@ InfoType Parser::cmd5(const QString &line)
 
         if (memory_str.contains(myname + " request"))
         {
-            memory_str = {};
+            memory_str = QString();
             return MESSAGE;
         }
 
@@ -447,13 +447,13 @@ InfoType Parser::cmd8(const QString &line)
     if (memory_str.contains("File"))
     {
         // toggle
-        memory_str = {};
+        memory_str = QString();
         memory     = 0;
     }
     else if (memory != 0 && memory_str == "CHANNEL")
     {
         emit signal_channelinfo(memory, line);
-        memory_str = {};
+        memory_str = QString();
         return IT_OTHER;
     }
 
@@ -581,7 +581,7 @@ InfoType Parser::cmd9(QString &line)
 
         // reset memory
         memory     = 0;
-        memory_str = {};
+        memory_str = QString();
         //				return IT_OTHER;
     }
     // IGS: channelinfo
@@ -717,7 +717,7 @@ InfoType Parser::cmd9(QString &line)
         else if (newline.contains("9x 9"))
         {
             size       = 9;
-            memory_str = {};
+            memory_str = QString();
         }
 
         if (p1_play_white)
@@ -982,7 +982,7 @@ InfoType Parser::cmd9(QString &line)
         m_qgoif->observer_list_end(memory);
 
         memory     = 0;
-        memory_str = {};
+        memory_str = QString();
 
         return KIBITZ;
     }
@@ -1247,7 +1247,7 @@ InfoType Parser::cmd11(const QString &line)
 
         emit signal_kibitz(memory, memory_str, line);
         memory     = 0;
-        memory_str = {};
+        memory_str = QString();
     }
     return KIBITZ;
 }
@@ -1261,7 +1261,7 @@ InfoType Parser::cmd14(const QString &line)
     if (memory_str.contains("File"))
     {
         // toggle
-        memory_str = {};
+        memory_str = QString();
         memory     = 0;
     }
     else if (line.contains("File"))
@@ -1310,7 +1310,7 @@ InfoType Parser::cmd15(const QString &line)
         {
             // continue removing
             emit signal_removestones(0, aGameInfo->nr);
-            memory_str = {};
+            memory_str = QString();
         }
         else if ((!memory_str.isNull() || gsName == IGS || gsName == WING) && (aGameInfo->bname == myname || aGameInfo->wname == myname))
         {
@@ -1325,7 +1325,7 @@ InfoType Parser::cmd15(const QString &line)
             emit signal_gamemove(aGame);
 
             // reset memory
-            memory_str = {};
+            memory_str = QString();
         }
 
         // it's a kind of time info
@@ -1465,7 +1465,7 @@ InfoType Parser::cmd21(const QString &line)
             aGame->brank   = "??";
             aGame->mv      = line.section(' ', 7, 7).remove('}');
             aGame->Sz      = "@";
-            aGame->H       = {};
+            aGame->H       = QString();
             aGame->running = true;
 
             emit signal_game(aGame);
@@ -1531,7 +1531,7 @@ InfoType Parser::cmd21(const QString &line)
         aGame->brank   = matched.captured(5);
         aGame->mv      = "-";
         aGame->Sz      = "-";
-        aGame->H       = {};
+        aGame->H       = QString();
         aGame->running = true;
 
         if (gsName == WING && aGame->wname == aGame->bname)

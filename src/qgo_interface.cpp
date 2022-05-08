@@ -136,7 +136,7 @@ void qGoIF::game_end(qGoBoard *qb, const QString &txt)
     qb->send_kibitz(txt + "\n");
 
     // set correct result entry
-    QString rs          = {};
+    QString rs          = QString();
     QString extended_rs = txt;
 
     if (txt.contains("White forfeits"))
@@ -618,7 +618,7 @@ void qGoIF::slot_komi(const QString &nr, const QString &komi, bool isrequest)
 {
     qGoBoard      *qb;
     static int     move_number_memo = -1;
-    static QString komi_memo        = {};
+    static QString komi_memo        = QString();
 
     // correctness:
     if (komi.isEmpty())
@@ -1095,7 +1095,7 @@ qGoBoard::qGoBoard(qGoIF *qif, int gameid) : m_qgoif(qif), id(gameid)
     // set timer to 1 second
     timer_id        = startTimer(1000);
     game_paused     = false;
-    req_handicap    = {};
+    req_handicap    = QString();
     req_komi        = QString::number(-1);
     bt_i            = -1;
     wt_i            = -1;

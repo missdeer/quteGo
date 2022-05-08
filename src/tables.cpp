@@ -736,8 +736,8 @@ void Account::set_status(Status s)
 void Account::set_offline()
 {
     gsName   = GS_UNKNOWN;
-    svname   = {};
-    acc_name = {};
+    svname   = QString();
+    acc_name = QString();
     status   = Status::offline;
 
     set_caption();
