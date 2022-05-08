@@ -265,7 +265,7 @@ jobs:
         run: |
           git clone --depth=1 https://github.com/oneapi-src/oneapi-ci.git oneapi-ci
           cd oneapi-ci
-          scripts/install_windows.bat $WINDOWS_HPCKIT_URL $WINDOWS_CPP_COMPONENTS
+          scripts/install_windows.bat ${{ env.WINDOWS_HPCKIT_URL }} ${{ env.WINDOWS_CPP_COMPONENTS }}
 
       - name: Set up jom
         shell: cmd
