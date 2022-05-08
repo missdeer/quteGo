@@ -1,5 +1,7 @@
 #include <fstream>
 
+#include <QMessageBox>
+
 #include "analyzedlg.h"
 #include "clientwin.h"
 #include "ui_helpers.h"

@@ -39,7 +39,7 @@ IGSConnection::IGSConnection(QWidget *lvp, QWidget *lvg) : m_lv_p(lvp), m_lv_g(l
 #if 0
 	connect(qsocket, SIGNAL(delayedCloseFinished()), SLOT(OnDelayedCloseFinish()));
 #endif
-    connect(qsocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), [=](QAbstractSocket::SocketError i) {
+    connect(qsocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::errorOccurred), [=](QAbstractSocket::SocketError i) {
         switch (i)
         {
         case QAbstractSocket::ConnectionRefusedError:

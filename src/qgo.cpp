@@ -6,6 +6,7 @@
 #include <QDir>
 #include <QLineEdit>
 #include <QMessageBox>
+#include <QSoundEffect>
 
 #include "qgo.h"
 #include "audio.h"
@@ -40,7 +41,7 @@ void qGo::unused_quit()
 				     tr("At least one board is modified.\n"
 					"If you exit the application now, all changes will be lost!"
 					"\nExit anyway?"),
-				     tr("Yes"), tr("No"), QString::null,
+				     tr("Yes"), tr("No"), {},
 				     1, 0);
 		/* This code never did anything with the message box result.  */
 	}
@@ -76,49 +77,54 @@ void qGo::updateAllBoardSettings()
 
 void qGo::playClick()
 {
-    QSound::play(":/sounds/click.wav");
+    QSoundEffect se;
+    se.setSource(QUrl(":/sounds/click.wav"));
+    se.play();
 }
 
 void qGo::playStoneSound()
 {
     static int idx = 0;
 
+    QSoundEffect se;
     switch (idx % 11)
     {
     default:
-        QSound::play(":/sounds/stone.wav");
+        se.setSource(QUrl(":/sounds/stone.wav"));
         break;
     case 0:
-        QSound::play(":/sounds/stone2.wav");
+        se.setSource(QUrl(":/sounds/stone2.wav"));
         break;
     case 1:
-        QSound::play(":/sounds/stone3.wav");
+        se.setSource(QUrl(":/sounds/stone3.wav"));
         break;
     case 2:
-        QSound::play(":/sounds/stone4.wav");
+        se.setSource(QUrl(":/sounds/stone4.wav"));
         break;
     case 3:
-        QSound::play(":/sounds/stone5.wav");
+        se.setSource(QUrl(":/sounds/stone5.wav"));
         break;
     case 4:
-        QSound::play(":/sounds/stone6.wav");
+        se.setSource(QUrl(":/sounds/stone6.wav"));
         break;
     case 5:
-        QSound::play(":/sounds/stone7.wav");
+        se.setSource(QUrl(":/sounds/stone7.wav"));
         break;
     case 6:
-        QSound::play(":/sounds/stone8.wav");
+        se.setSource(QUrl(":/sounds/stone8.wav"));
         break;
     case 7:
-        QSound::play(":/sounds/stone9.wav");
+        se.setSource(QUrl(":/sounds/stone9.wav"));
         break;
     case 8:
-        QSound::play(":/sounds/stone10.wav");
+        se.setSource(QUrl(":/sounds/stone10.wav"));
         break;
     case 9:
-        QSound::play(":/sounds/stone11.wav");
+        se.setSource(QUrl(":/sounds/stone11.wav"));
         break;
     }
+    se.play();
+
     idx += 1 + rand() % 4;
 }
 
@@ -126,7 +132,9 @@ void qGo::playAutoPlayClick()
 {
     if (setting->readBoolEntry("SOUND_AUTOPLAY"))
     {
-        QSound::play(":/sounds/click.wav");
+        QSoundEffect se;
+        se.setSource(QUrl(":/sounds/click.wav"));
+        se.play();
     }
 }
 
@@ -134,7 +142,9 @@ void qGo::playTalkSound()
 {
     if (setting->readBoolEntry("SOUND_TALK"))
     {
-        QSound::play(":/sounds/talk.wav");
+        QSoundEffect se;
+        se.setSource(QUrl(":/sounds/talk.wav"));
+        se.play();
     }
 }
 
@@ -142,7 +152,9 @@ void qGo::playMatchSound()
 {
     if (setting->readBoolEntry("SOUND_MATCH"))
     {
-        QSound::play(":/sounds/match.wav");
+        QSoundEffect se;
+        se.setSource(QUrl(":/sounds/match.wav"));
+        se.play();
     }
 }
 
@@ -150,7 +162,9 @@ void qGo::playPassSound()
 {
     if (setting->readBoolEntry("SOUND_PASS"))
     {
-        QSound::play(":/sounds/pass.wav");
+        QSoundEffect se;
+        se.setSource(QUrl(":/sounds/pass.wav"));
+        se.play();
     }
 }
 
@@ -158,7 +172,9 @@ void qGo::playGameEndSound()
 {
     if (setting->readBoolEntry("SOUND_GAMEEND"))
     {
-        QSound::play(":/sounds/gameend.wav");
+        QSoundEffect se;
+        se.setSource(QUrl(":/sounds/gameend.wav"));
+        se.play();
     }
 }
 
@@ -166,7 +182,9 @@ void qGo::playTimeSound()
 {
     if (setting->readBoolEntry("SOUND_TIME"))
     {
-        QSound::play(":/sounds/tictoc.wav");
+        QSoundEffect se;
+        se.setSource(QUrl(":/sounds/tictoc.wav"));
+        se.play();
     }
 }
 
@@ -174,7 +192,9 @@ void qGo::playSaySound()
 {
     if (setting->readBoolEntry("SOUND_SAY"))
     {
-        QSound::play(":/sounds/say.wav");
+        QSoundEffect se;
+        se.setSource(QUrl(":/sounds/say.wav"));
+        se.play();
     }
 }
 
@@ -182,7 +202,9 @@ void qGo::playEnterSound()
 {
     if (setting->readBoolEntry("SOUND_ENTER"))
     {
-        QSound::play(":/sounds/enter.wav");
+        QSoundEffect se;
+        se.setSource(QUrl(":/sounds/enter.wav"));
+        se.play();
     }
 }
 
@@ -190,7 +212,9 @@ void qGo::playLeaveSound()
 {
     if (setting->readBoolEntry("SOUND_LEAVE"))
     {
-        QSound::play(":/sounds/leave.wav");
+        QSoundEffect se;
+        se.setSource(QUrl(":/sounds/leave.wav"));
+        se.play();
     }
 }
 
@@ -198,7 +222,9 @@ void qGo::playConnectSound()
 {
     if (setting->readBoolEntry("SOUND_CONNECT"))
     {
-        QSound::play(":/sounds/connect.wav");
+        QSoundEffect se;
+        se.setSource(QUrl(":/sounds/connect.wav"));
+        se.play();
     }
 }
 
@@ -206,7 +232,9 @@ void qGo::playDisConnectSound()
 {
     if (setting->readBoolEntry("SOUND_DISCONNECT"))
     {
-        QSound::play(":/sounds/connect.wav");
+        QSoundEffect se;
+        se.setSource(QUrl(":/sounds/connect.wav"));
+        se.play();
     }
 }
 
@@ -223,12 +251,12 @@ void help_about()
 
     txt += "<hr/><p>Visit <a href=\"https://github.com/bernds/q5go\">the Github "
            "repository</a> for new versions.</p>";
-    QString translation = "<hr/><p>" +
+    QString translation = QStringLiteral("<hr/><p>") +
                           QObject::tr(u8"English translation by: Peter Strempel, "
                                       u8"Johannes Mesa, Emmanuel B\u00E9ranger",
                                       "Please set your own language and your "
                                       "name! Use your own language!") +
-                          "</p>";
+                          QStringLiteral("</p>");
     txt += translation;
 
     QMessageBox mb;

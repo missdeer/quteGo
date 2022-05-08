@@ -6,6 +6,7 @@
 #include <QClipboard>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QSvgWidget>
 #include <QTextEdit>
 #include <QTextStream>
 
@@ -69,7 +70,7 @@ void TextView::delete_cursor_line()
  */
 void TextView::saveMe()
 {
-    QString fileName(QFileDialog::getSaveFileName(this, tr("Save ASCII export"), QString::null, tr("Text Files (*.txt);;All Files (*)")));
+    QString fileName(QFileDialog::getSaveFileName(this, tr("Save ASCII export"), {}, tr("Text Files (*.txt);;All Files (*)")));
 
     if (fileName.isEmpty())
         return;
@@ -130,7 +131,7 @@ void SvgView::set(const QByteArray &qba)
  */
 void SvgView::saveMe()
 {
-    QString fileName(QFileDialog::getSaveFileName(this, tr("Save SVG export"), QString::null, tr("Svg Files (*.txt);;All Files (*)")));
+    QString fileName(QFileDialog::getSaveFileName(this, tr("Save SVG export"), {}, tr("Svg Files (*.txt);;All Files (*)")));
 
     if (fileName.isEmpty())
         return;

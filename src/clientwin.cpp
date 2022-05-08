@@ -698,7 +698,7 @@ void ClientWindow::sendTextToApp(const QString &txt)
         onlineCount    = 0;
         oneSecondTimer = startTimer(1000);
         // init shouts
-        slot_talk("Shouts*", QString::null, false);
+        slot_talk("Shouts*", {}, false);
 
         qgo->playConnectSound();
         break;
@@ -748,7 +748,7 @@ void ClientWindow::sendTextToApp(const QString &txt)
     case STATS:
         // we just received a players name as first line of stats -> create the
         // dialog tab
-        slot_talk(parser->get_statsPlayer()->name, QString::null, true);
+        slot_talk(parser->get_statsPlayer()->name, {}, true);
 
         break;
 
@@ -1612,7 +1612,7 @@ void ClientWindow::slot_playerPopup(int i)
     case 2:
     case 3:
         // talk and stats at the same time
-        slot_talk(player_name, QString::null, true);
+        slot_talk(player_name, {}, true);
         // slot_sendcommand("stats " + lv_popupPlayer->text(1), false);
         break;
 
@@ -1957,10 +1957,8 @@ void ClientWindow::slot_preferences(bool)
 
 void ClientWindow::initActions()
 {
-    void (QComboBox::*cact1)(int)             = &QComboBox::activated;
-    void (QComboBox::*cact2)(const QString &) = &QComboBox::activated;
-    connect(cb_cmdLine, cact1, this, &ClientWindow::slot_cmdactivated_int);
-    connect(cb_cmdLine, cact2, this, &ClientWindow::slot_cmdactivated);
+    connect(cb_cmdLine, QOverload<int>::of(&QComboBox::activated), this, &ClientWindow::slot_cmdactivated_int);
+    // connect(cb_cmdLine, QOverload<const QString &>::of(&QComboBox::activated), this, &ClientWindow::slot_cmdactivated);
 
     ListView_games->setWhatsThis(tr("Table of games\n\n"
                                     "right click to observe\n\n"

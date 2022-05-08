@@ -20,6 +20,7 @@
 #include <QMessageBox>
 #include <QPixmap>
 #include <QPushButton>
+#include <QRegularExpression>
 #include <QSlider>
 #include <QTimer>
 #include <QToolBar>
@@ -1728,8 +1729,8 @@ bool MainWindow::restoreWindowLayout(bool dflt, const QString &scrkey)
     QString s3 = setting->readEntry("BOARDLAYOUT3_" + strKey);
     if (s1.isEmpty() || s2.isEmpty())
         return false;
-    QRegExp verify("^[0-9A-Fa-f]*$");
-    if (!verify.exactMatch(s1) || !verify.exactMatch(s2))
+    QRegularExpression verify("^[0-9A-Fa-f]*$");
+    if (!verify.match(s1).hasMatch() || !verify.match(s2).hasMatch())
         return false;
 
     // do not resize until end of this procedure

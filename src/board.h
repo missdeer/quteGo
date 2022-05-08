@@ -10,6 +10,7 @@
 
 #include <QDateTime>
 #include <QEvent>
+#include <QGraphicsPixmapItem>
 #include <QGraphicsView>
 #include <QMouseEvent>
 #include <QPainter>

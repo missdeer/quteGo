@@ -9,6 +9,8 @@
 
 #include "ui_textview_gui.h"
 
+QT_FORWARD_DECLARE_CLASS(QSvgWidget);
+
 class TextView
     : public QDialog
     , public Ui::TextViewGUI

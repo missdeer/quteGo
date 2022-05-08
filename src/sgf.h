@@ -6,6 +6,8 @@
 #include <string>
 #include <vector>
 
+#include <QTextCodec>
+
 class premature_eof : public std::exception
 {
 };

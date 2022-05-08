@@ -271,7 +271,7 @@ void Setting::write_lists(QTextStream &file)
     int i = 0;
     for (auto &it : m_dbpaths)
     {
-        file << "DBPATH_" + QString::number(i) << " [" << it << "]" << endl;
+        file << "DBPATH_" + QString::number(i) << " [" << it << "]\n";
         i++;
     }
 
@@ -279,24 +279,24 @@ void Setting::write_lists(QTextStream &file)
     for (auto &h : m_hosts)
     {
         QString prefix = "HOST" + QString::number(++i);
-        file << prefix << "a [" << h.title << "]" << endl;
-        file << prefix << "b [" << h.host << "]" << endl;
-        file << prefix << "c [" << h.port << "]" << endl;
-        file << prefix << "d [" << h.login_name << "]" << endl;
-        file << prefix << "e [" << h.password << "]" << endl;
-        file << prefix << "f [" << h.codec << "]" << endl;
+        file << prefix << "a [" << h.title << "]\n";
+        file << prefix << "b [" << h.host << "]\n";
+        file << prefix << "c [" << h.port << "]\n";
+        file << prefix << "d [" << h.login_name << "]\n";
+        file << prefix << "e [" << h.password << "]\n";
+        file << prefix << "f [" << h.codec << "]\n";
     }
 
     i = 0;
     for (auto &e : m_engines)
     {
         QString prefix = "ENGINE" + QString::number(++i);
-        file << prefix << "a [" << e.title << "]" << endl;
-        file << prefix << "b [" << e.path << "]" << endl;
-        file << prefix << "c [" << e.args << "]" << endl;
-        file << prefix << "d [" << e.komi << "]" << endl;
-        file << prefix << "e [" << (e.analysis ? "1" : "0") << "]" << endl;
-        file << prefix << "f [" << e.boardsize << "]" << endl;
+        file << prefix << "a [" << e.title << "]\n";
+        file << prefix << "b [" << e.path << "]\n";
+        file << prefix << "c [" << e.args << "]\n";
+        file << prefix << "d [" << e.komi << "]\n";
+        file << prefix << "e [" << (e.analysis ? "1" : "0") << "]\n";
+        file << prefix << "f [" << e.boardsize << "]\n";
     }
 }
 
@@ -314,7 +314,12 @@ void Setting::loadSettings()
 
     // read file
     QTextStream txt(&file);
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     txt.setCodec(QTextCodec::codecForName("UTF-8"));
+#else
+    txt.setEncoding(QStringConverter::Utf8);
+#endif
     QString s;
     int     pos, pos1, pos2;
     while (!txt.atEnd())
@@ -403,7 +408,7 @@ void Setting::updateFont(QFont &font, QString entry)
             font.setPointSize(n);
             break;
         case 2:
-            font.setWeight(n);
+            // font.setWeight(n);
             break;
         case 3:
             font.setItalic(n);
@@ -458,13 +463,17 @@ void Setting::saveSettings()
         lists_to_entries();
 
         QTextStream txtfile(&file);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         txtfile.setCodec(QTextCodec::codecForName("UTF-8"));
+#else
+        txtfile.setEncoding(QStringConverter::Utf8);
+#endif
         // write list to file: KEY [TXT]
         QMap<QString, QString>::const_iterator i = params.constBegin();
         while (i != params.constEnd())
         {
             if (!i.value().isEmpty() && !i.value().isNull())
-                txtfile << i.key() << " [" << i.value() << "]" << endl;
+                txtfile << i.key() << " [" << i.value() << "]\n";
             ++i;
         }
 
@@ -579,7 +588,7 @@ QString Setting::getLanguage()
     {
         const char *p = getenv("LANG");
         if (p == NULL)
-            return QString::null;
+            return {};
         return QString(p).left(2);
     }
     else

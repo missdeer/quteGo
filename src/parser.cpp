@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-#include <QRegexp>
+#include <QRegularExpression>
 
 #include "parser.h"
 #include "clientwin.h"
@@ -20,8 +20,8 @@ Parser::Parser(ClientWindow *cw, qGoIF *qgoif) : m_client_win(cw), m_qgoif(qgoif
     aGame       = new Game;
     aGameInfo   = new GameInfo;
     memory      = 0;
-    memory_str  = QString::null;
-    myname      = QString::null;
+    memory_str  = {};
+    myname      = {};
 
     // init
     gsName = GS_UNKNOWN;
@@ -141,7 +141,7 @@ InfoType Parser::put_line(const QString &txt)
         if (line.indexOf("Your account name is", 0) != -1)
         {
             buffer = line.right(line.length() - 21);
-            buffer.replace(QRegExp("[\".]"), "");
+            buffer.replace(QRegularExpression("[\".]"), "");
             emit signal_accname(buffer);
             return ACCOUNT;
         }
@@ -303,7 +303,7 @@ InfoType Parser::cmd1(const QString &line)
 {
     if (memory_str.contains("File") || memory_str.contains("STATS"))
         // if ready this cannont be a help message
-        memory_str = QString::null;
+        memory_str = {};
     emit signal_message("\n");
     return READY;
 }
@@ -363,7 +363,7 @@ InfoType Parser::cmd5(const QString &line)
 
         if (memory_str.contains(myname + " request"))
         {
-            memory_str = QString::null;
+            memory_str = {};
             return MESSAGE;
         }
 
@@ -402,33 +402,34 @@ InfoType Parser::cmd7(const QString &line)
 		return IT_OTHER;
 	}
 #endif
-    QRegExp gamesre("\\[\\s*(\\d+)\\s*\\]\\s+"
-                    "([^\\s]+)\\s+\\[\\s*([^\\]\\s]*)\\s*\\]\\s+"
-                    "vs.\\s+"
-                    "([^\\s]+)\\s+\\[\\s*([^\\]\\s]*)\\s*\\]\\s+"
-                    "\\(\\s*(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+([\\d-.]+)\\s+(\\d+)"
-                    "\\s+([^\\s\\)]+)\\)\\s+"
-                    "\\(\\s*(\\d+)\\).*");
+    QRegularExpression gamesre("\\[\\s*(\\d+)\\s*\\]\\s+"
+                               "([^\\s]+)\\s+\\[\\s*([^\\]\\s]*)\\s*\\]\\s+"
+                               "vs.\\s+"
+                               "([^\\s]+)\\s+\\[\\s*([^\\]\\s]*)\\s*\\]\\s+"
+                               "\\(\\s*(\\d+)\\s+(\\d+)\\s+(\\d+)\\s+([\\d-.]+)\\s+(\\d+)"
+                               "\\s+([^\\s\\)]+)\\)\\s+"
+                               "\\(\\s*(\\d+)\\).*");
 
-    if (gamesre.indexIn(line) == -1)
+    auto matched = gamesre.match(line);
+    if (!matched.hasMatch())
     {
         return GAME7;
     }
 
     // get info line
-    aGame->mv = gamesre.cap(6);
-    aGame->Sz = gamesre.cap(7);
-    aGame->H  = gamesre.cap(8);
-    aGame->K  = gamesre.cap(9);
-    aGame->By = gamesre.cap(10);
-    aGame->FR = gamesre.cap(11);
+    aGame->mv = matched.captured(6);
+    aGame->Sz = matched.captured(7);
+    aGame->H  = matched.captured(8);
+    aGame->K  = matched.captured(9);
+    aGame->By = matched.captured(10);
+    aGame->FR = matched.captured(11);
 
-    aGame->nr    = gamesre.cap(1);
-    aGame->wname = gamesre.cap(2);
-    aGame->wrank = gamesre.cap(3);
-    aGame->bname = gamesre.cap(4);
-    aGame->brank = gamesre.cap(5);
-    aGame->ob    = gamesre.cap(12);
+    aGame->nr    = matched.captured(1);
+    aGame->wname = matched.captured(2);
+    aGame->wrank = matched.captured(3);
+    aGame->bname = matched.captured(4);
+    aGame->brank = matched.captured(5);
+    aGame->ob    = matched.captured(12);
 
     // indicate game to be running
     aGame->running    = true;
@@ -446,13 +447,13 @@ InfoType Parser::cmd8(const QString &line)
     if (memory_str.contains("File"))
     {
         // toggle
-        memory_str = QString::null;
+        memory_str = {};
         memory     = 0;
     }
     else if (memory != 0 && memory_str == "CHANNEL")
     {
         emit signal_channelinfo(memory, line);
-        memory_str = QString::null;
+        memory_str = {};
         return IT_OTHER;
     }
 
@@ -580,7 +581,7 @@ InfoType Parser::cmd9(QString &line)
 
         // reset memory
         memory     = 0;
-        memory_str = QString::null;
+        memory_str = {};
         //				return IT_OTHER;
     }
     // IGS: channelinfo
@@ -708,7 +709,7 @@ InfoType Parser::cmd9(QString &line)
             h = newline.section(' ', 3, 3);
 
         // @@@ 10?
-        k = newline.section(' ', 9, 9).remove(QRegExp("\\.$"));
+        k = newline.section(' ', 9, 9).remove(QRegularExpression("\\.$"));
 
         int size = 19;
         if (newline.contains("13x13"))
@@ -716,7 +717,7 @@ InfoType Parser::cmd9(QString &line)
         else if (newline.contains("9x 9"))
         {
             size       = 9;
-            memory_str = QString::null;
+            memory_str = {};
         }
 
         if (p1_play_white)
@@ -733,7 +734,7 @@ InfoType Parser::cmd9(QString &line)
     // respond.
     else if (line.contains("<decline") && line.contains("match"))
     {
-        QRegExp re("<(n?match[^>]*)>");
+        QRegularExpression re("<(n?match[^>]*)>");
         if (re.indexIn(line) == -1)
         {
             return IT_OTHER;
@@ -745,7 +746,7 @@ InfoType Parser::cmd9(QString &line)
     // 9 Creating match [5] with guest17.
     else if (line.contains("Creating match"))
     {
-        QRegExp re("\\[\\s*(\\d+)\\s*\\]\\s+with\\s+([^\\s\\.]+)(?:\\sin.*accepted)"
+        QRegularExpression re("\\[\\s*(\\d+)\\s*\\]\\s+with\\s+([^\\s\\.]+)(?:\\sin.*accepted)"
                    "?\\..*");
         if (re.indexIn(line) == -1)
         {
@@ -760,7 +761,7 @@ InfoType Parser::cmd9(QString &line)
     }
     else if (line.contains("Match") && line.contains("accepted"))
     {
-        QRegExp re("\\[\\s*(\\d+)\\s*\\]\\s+with\\s+([^\\s]+)\\s+.*");
+        QRegularExpression re("\\[\\s*(\\d+)\\s*\\]\\s+with\\s+([^\\s]+)\\s+.*");
         if (re.indexIn(line) == -1)
         {
             return IT_OTHER;
@@ -925,7 +926,7 @@ InfoType Parser::cmd9(QString &line)
     // 9 Setting your . to Banana  [text] (idle: 0 minutes)
     else if (line.contains("Setting your . to"))
     {
-        QRegExp textre("\\[([^\\]]+)]");
+        QRegularExpression textre("\\[([^\\]]+)]");
         if (textre.indexIn(line) != -1)
         {
             QString player = line.section(' ', 4, 4);
@@ -977,7 +978,7 @@ InfoType Parser::cmd9(QString &line)
         m_qgoif->observer_list_end(memory);
 
         memory     = 0;
-        memory_str = QString::null;
+        memory_str = {};
 
         return KIBITZ;
     }
@@ -1242,7 +1243,7 @@ InfoType Parser::cmd11(const QString &line)
 
         emit signal_kibitz(memory, memory_str, line);
         memory     = 0;
-        memory_str = QString::null;
+        memory_str = {};
     }
     return KIBITZ;
 }
@@ -1256,7 +1257,7 @@ InfoType Parser::cmd14(const QString &line)
     if (memory_str.contains("File"))
     {
         // toggle
-        memory_str = QString::null;
+        memory_str = {};
         memory     = 0;
     }
     else if (line.contains("File"))
@@ -1278,7 +1279,7 @@ InfoType Parser::cmd15(const QString &line)
 {
     if (line.contains("Game"))
     {
-        QRegExp gamere("Game\\s+(\\d+)\\s+"
+        QRegularExpression gamere("Game\\s+(\\d+)\\s+"
                        "([^:]+)\\s*:\\s+([^\\s]+)\\s+"
                        "\\(\\s*(\\d+)\\s+(\\d+)\\s+([\\d-]+)\\)\\s+"
                        "vs\\s+([^\\s]+)\\s+"
@@ -1304,7 +1305,7 @@ InfoType Parser::cmd15(const QString &line)
         {
             // continue removing
             emit signal_removestones(0, aGameInfo->nr);
-            memory_str = QString::null;
+            memory_str = {};
         }
         else if ((!memory_str.isNull() || gsName == IGS || gsName == WING) && (aGameInfo->bname == myname || aGameInfo->wname == myname))
         {
@@ -1319,7 +1320,7 @@ InfoType Parser::cmd15(const QString &line)
             emit signal_gamemove(aGame);
 
             // reset memory
-            memory_str = QString::null;
+            memory_str = {};
         }
 
         // it's a kind of time info
@@ -1327,7 +1328,7 @@ InfoType Parser::cmd15(const QString &line)
     }
     else if (line.contains("TIME"))
     {
-        QRegExp timere("TIME:\\s*(\\d+)\\s*:([^:]+)\\([BW]\\):\\s*"
+        QRegularExpression timere("TIME:\\s*(\\d+)\\s*:([^:]+)\\([BW]\\):\\s*"
                        "(\\d+)\\s+(\\d+)/(\\d+)\\s+(\\d+)/(\\d+)\\s+(\\d+)/(\\d+)\\s+.*");
 
         if (!timere.exactMatch(line))
@@ -1361,7 +1362,7 @@ InfoType Parser::cmd15(const QString &line)
     }
     else
     {
-        QRegExp movere("(\\d+)\\s*\\(([BW])\\):\\s*([^\\s].*)");
+        QRegularExpression movere("(\\d+)\\s*\\(([BW])\\):\\s*([^\\s].*)");
 
         if (!movere.exactMatch(line))
         {
@@ -1416,7 +1417,7 @@ InfoType Parser::cmd21(const QString &line)
     if (line.contains(" connected.}"))
     {
         // {guest1381 [NR ] has connected.}
-        QRegExp re("\\{\\s*([^\\s]+)\\s+\\[\\s*([^\\]\\s]+)\\s*\\]");
+        QRegularExpression re("\\{\\s*([^\\s]+)\\s+\\[\\s*([^\\]\\s]+)\\s*\\]");
         if (re.indexIn(line) == -1)
         {
             qDebug() << "parse failure: " << line;
@@ -1456,7 +1457,7 @@ InfoType Parser::cmd21(const QString &line)
             aGame->brank   = "??";
             aGame->mv      = line.section(' ', 7, 7).remove('}');
             aGame->Sz      = "@";
-            aGame->H       = QString::null;
+            aGame->H       = {};
             aGame->running = true;
 
             emit signal_game(aGame);
@@ -1495,7 +1496,7 @@ InfoType Parser::cmd21(const QString &line)
         // {Match 116: xxxx [19k*] vs. yyyy1 [18k*] }
         // {116:xxxx[19k*]yyyy1[18k*]}
         // WING: {Match 41: o4641 [10k*] vs. Urashima [11k*] H:2 Komi:3.5}
-        QRegExp re("\\{[\\w\\s]*(\\d+):\\s*"
+        QRegularExpression re("\\{[\\w\\s]*(\\d+):\\s*"
                    "([\\w\\d]+)\\s*\\[\\s*([^\\s\\]]+)\\s*\\]"
                    "(?:\\s+vs.\\s+)?"
                    "([\\w\\d]+)\\s*\\[\\s*([^\\s\\]]+)\\s*\\]\\s+\\}.*");
@@ -1521,7 +1522,7 @@ InfoType Parser::cmd21(const QString &line)
         aGame->brank   = re.cap(5);
         aGame->mv      = "-";
         aGame->Sz      = "-";
-        aGame->H       = QString::null;
+        aGame->H       = {};
         aGame->running = true;
 
         if (gsName == WING && aGame->wname == aGame->bname)
@@ -1604,10 +1605,10 @@ InfoType Parser::cmd22(const QString &line)
 InfoType Parser::cmd24(const QString &line)
 {
     int     pos;
-    QRegExp re("\\*([^\\*]+)\\*: CLIENT:.*wants handicap\\s+(\\d+), komi\\s+([\\d.-]+)");
+    QRegularExpression re("\\*([^\\*]+)\\*: CLIENT:.*wants handicap\\s+(\\d+), komi\\s+([\\d.-]+)");
     if (re.indexIn(line) == -1)
     {
-        re = QRegExp("-->\\s+([^\\*]+)\\s+CLIENT:.*wants handicap\\s+(\\d+), "
+        re = QRegularExpression("-->\\s+([^\\*]+)\\s+CLIENT:.*wants handicap\\s+(\\d+), "
                      "komi\\s+([\\d.-]+)");
     }
     if (re.indexIn(line) != -1)
@@ -2000,7 +2001,7 @@ InfoType Parser::cmd42(const QString &txt)
     }
     //                        1                   2
     //                        Name                Info
-    QRegExp re = QRegExp("42 ([A-Za-z0-9 ]{,10})  (.{1,14})  "
+    QRegularExpression re = QRegularExpression("42 ([A-Za-z0-9 ]{,10})  (.{1,14})  "
                          //                    3
                          //                    Country
                          "([a-zA-Z][a-zA-Z. /]{,6}|--     )  "
