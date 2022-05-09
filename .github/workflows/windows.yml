@@ -170,7 +170,7 @@ jobs:
         qt_arch: [win64_msvc2019_64]
         msvc_arch: [x64]
         qt_arch_install: [msvc2019_64]
-        clang_link: llvm-win-x64.7z
+        clang_link: [llvm-win-x64.7z]
         include:
           - qt_ver: 5.15.2
             qt_modules: qtmultimedia
