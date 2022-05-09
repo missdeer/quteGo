@@ -11,12 +11,12 @@ on:
       - 'LICENSE'
       - '.github/workflows/windows.yml'
 jobs:
-  macos-qt5:
+  macos-qt:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [macos-latest]
-        qt_ver: [5.15.2]
+        qt_ver: [5.15.2, 6.3.0]
         qt_arch: [clang_64]
     env:
       targetName: q5go
@@ -32,6 +32,8 @@ jobs:
         with:
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
           version: ${{ matrix.qt_ver }}
+          aqtversion: '>=2.1.0'
+          modules: 'all'
       
       - uses: actions/checkout@v2
         with:
@@ -127,53 +129,3 @@ jobs:
           asset_path: ./build/${{ env.targetName }}.dmg
           asset_name: ${{ env.targetName }}.dmg
           asset_content_type: application/applefile
-
-  macos-qt6:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [macos-latest]
-        qt_ver: [6.3.0]
-        qt_arch: [clang_64]
-    env:
-      targetName: q5go
-    steps:
-      - name: Cache Qt
-        id: cache-qt
-        uses: actions/cache@v1  # not v2!
-        with:
-          path: ../Qt
-          key: ${{ matrix.os }}-${{ matrix.qt_arch }}-${{ matrix.qt_ver }}-QtCache
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v2
-        with:
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
-          version: ${{ matrix.qt_ver }}
-          aqtversion: '>=2.1.0'
-          modules: 'all'
-      
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref  }}
-          submodules: true
-          
-      - name: build macos
-        run: |
-          mkdir build
-          cd build
-          qmake -r CONFIG+=release CONFIG+=qtquickcompiler ../${{ env.targetName }}.pro
-          make -j `sysctl -n hw.logicalcpu`
-          cd ..
-          
-      - name: package
-        run: |
-          cd build/src
-          macdeployqt "${{ env.targetName }}.app" -qmldir=. -verbose=1 -dmg
-          pwd && ls -l
-          cd ..
-          
-      - name: Upload artifact
-        uses: actions/upload-artifact@v1.0.0
-        with:
-          name: ${{ env.targetName }}-${{ matrix.os }}-${{ matrix.qt_arch }}-${{ matrix.qt_ver }}
-          path: "build/src/${{ env.targetName }}.dmg"
