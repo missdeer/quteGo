@@ -149,7 +149,8 @@ jobs:
         with:
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
           version: ${{ matrix.qt_ver }}
-          modules: 'qtmultimedia qtcore5compat'
+          aqtversion: '>=2.1.0'
+          modules: 'all'
       
       - uses: actions/checkout@v2
         with:
