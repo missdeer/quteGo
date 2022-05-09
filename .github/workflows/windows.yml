@@ -170,12 +170,13 @@ jobs:
         qt_arch: [win64_msvc2019_64]
         msvc_arch: [x64]
         qt_arch_install: [msvc2019_64]
-        clang_link: [llvm-win-x64.7z]
         include:
           - qt_ver: 5.15.2
             qt_modules: qtmultimedia
+            clang_link: https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.3/LLVM-14.0.3-win64.exe
           - qt_ver: 6.3.0
             qt_modules: "qtmultimedia qt5compat"
+            clang_link: https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.3/LLVM-14.0.3-win64.exe
     env:
       targetName: q5Go
     steps:
@@ -205,8 +206,8 @@ jobs:
         run: |
           mkdir llvm
           cd llvm
-          curl.exe -o LLVM.7z -L ${{ secrets.CLANG_SERVER }}/${{ matrix.clang_link }}
-          7z.exe x LLVM.7z
+          curl.exe -o LLVM.exe -L ${{ matrix.clang_link }}
+          7z.exe x LLVM.exe
           cd ..
       
       - name: Set up jom
@@ -224,7 +225,7 @@ jobs:
           vc_arch: ${{ matrix.msvc_arch }}
         run: |
           call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" %vc_arch%
-          set PATH=%CD%\llvm\;%CD%\jom;%PATH%
+          set PATH=%CD%\llvm\;%CD%\llvm\bin;%CD%\jom;%PATH%
           mkdir build
           cd build
           qmake -r -spec win32-clang-msvc CONFIG+=release CONFIG+=qtquickcompiler ..\q5go.pro
