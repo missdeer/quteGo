@@ -23,10 +23,10 @@ jobs:
     strategy:
       matrix:
         qt_ver: [5.15.2, 6.3.0]
-        qt_target: desktop
-        qt_arch: win64_msvc2019_64
-        msvc_arch: x64
-        qt_arch_install: msvc2019_64
+        qt_target: [desktop]
+        qt_arch: [win64_msvc2019_64]
+        msvc_arch: [x64]
+        qt_arch_install: [msvc2019_64]
         include:
           - qt_ver: 5.15.2
             qt_modules: qtmultimedia
@@ -166,10 +166,10 @@ jobs:
     strategy:
       matrix:
         qt_ver: [5.15.2, 6.3.0]
-        qt_target: desktop
-        qt_arch: win64_msvc2019_64
-        msvc_arch: x64
-        qt_arch_install: msvc2019_64
+        qt_target: [desktop]
+        qt_arch: [win64_msvc2019_64]
+        msvc_arch: [x64]
+        qt_arch_install: [msvc2019_64]
         clang_link: llvm-win-x64.7z
         include:
           - qt_ver: 5.15.2
@@ -254,10 +254,10 @@ jobs:
     strategy:
       matrix:
         qt_ver: [5.15.2, 6.3.0]
-        qt_target: desktop
-        qt_arch: win64_msvc2019_64
-        msvc_arch: x64
-        qt_arch_install: msvc2019_64
+        qt_target: [desktop]
+        qt_arch: [win64_msvc2019_64]
+        msvc_arch: [x64]
+        qt_arch_install: [msvc2019_64]
         include:
           - qt_ver: 5.15.2
             qt_modules: qtmultimedia
