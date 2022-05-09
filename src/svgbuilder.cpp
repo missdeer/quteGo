@@ -16,7 +16,7 @@ void svg_builder::text_at(
     /* A very crude attempt at centering vertically.  */
     int font_yoff = -font_h * 0.17;
 
-    const QString family = fi.family() + ",sans-serif";
+    const QString family = fi.family();
     const QString str    = stroke.isEmpty() ? "none" : stroke;
     m_elts += "<text x=\"" + QString::number(cx);
     m_elts += "\" y=\"" + QString::number(cy + font_h / 2 + font_yoff);
@@ -32,7 +32,7 @@ void svg_builder::fixed_height_text_at(
 {
     int font_h = sidelen;
 
-    const QString family = fi.family() + ",sans-serif";
+    const QString family = fi.family();
     const QString str    = "none";
     m_elts += "<text x=\"" + QString::number(cx);
     if (vcenter)
