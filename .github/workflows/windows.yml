@@ -193,7 +193,7 @@ jobs:
           target: ${{ matrix.qt_target }}
           arch: ${{ matrix.qt_arch }}
           aqtversion: '>=2.1.0'
-          modules: $${{ matrix.qt_modules }}
+          modules: ${{ matrix.qt_modules }}
           
       - uses: actions/checkout@v2
         with:
@@ -280,7 +280,7 @@ jobs:
           target: ${{ matrix.qt_target }}
           arch: ${{ matrix.qt_arch }}
           aqtversion: '>=2.1.0'
-          modules: $${{ matrix.qt_modules }}
+          modules: ${{ matrix.qt_modules }}
 
       - uses: actions/checkout@v2
         with:
