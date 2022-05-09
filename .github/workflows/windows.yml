@@ -23,12 +23,15 @@ jobs:
     strategy:
       matrix:
         qt_ver: [5.15.2, 6.3.0]
-        qt_target: [desktop]
-        qt_arch: [win64_msvc2019_64]
+        qt_target: desktop
+        qt_arch: win64_msvc2019_64
+        msvc_arch: x64
+        qt_arch_install: msvc2019_64
         include:
-          - qt_arch: win64_msvc2019_64
-            msvc_arch: x64
-            qt_arch_install: msvc2019_64
+          - qt_ver: 5.15.2
+            qt_modules: qtmultimedia
+          - qt_ver: 6.3.0
+            qt_modules: "qtmultimedia qt5compat"
     env:
       targetName: q5Go
     steps:
@@ -46,7 +49,7 @@ jobs:
           target: ${{ matrix.qt_target }}
           arch: ${{ matrix.qt_arch }}
           aqtversion: '>=2.1.0'
-          modules: 'all'
+          modules: ${{ matrix.qt_modules }}
           
       - uses: actions/checkout@v2
         with:
@@ -163,13 +166,16 @@ jobs:
     strategy:
       matrix:
         qt_ver: [5.15.2, 6.3.0]
-        qt_target: [desktop]
-        qt_arch: [win64_msvc2019_64]
+        qt_target: desktop
+        qt_arch: win64_msvc2019_64
+        msvc_arch: x64
+        qt_arch_install: msvc2019_64
+        clang_link: llvm-win-x64.7z
         include:
-          - qt_arch: win64_msvc2019_64
-            msvc_arch: x64
-            qt_arch_install: msvc2019_64
-            clang_link: llvm-win-x64.7z
+          - qt_ver: 5.15.2
+            qt_modules: qtmultimedia
+          - qt_ver: 6.3.0
+            qt_modules: "qtmultimedia qt5compat"
     env:
       targetName: q5Go
     steps:
@@ -187,7 +193,7 @@ jobs:
           target: ${{ matrix.qt_target }}
           arch: ${{ matrix.qt_arch }}
           aqtversion: '>=2.1.0'
-          modules: 'all'
+          modules: $${{ matrix.qt_modules }}
           
       - uses: actions/checkout@v2
         with:
@@ -248,12 +254,15 @@ jobs:
     strategy:
       matrix:
         qt_ver: [5.15.2, 6.3.0]
-        qt_target: [desktop]
-        qt_arch: [win64_msvc2019_64]
+        qt_target: desktop
+        qt_arch: win64_msvc2019_64
+        msvc_arch: x64
+        qt_arch_install: msvc2019_64
         include:
-          - qt_arch: win64_msvc2019_64
-            msvc_arch: x64
-            qt_arch_install: msvc2019_64
+          - qt_ver: 5.15.2
+            qt_modules: qtmultimedia
+          - qt_ver: 6.3.0
+            qt_modules: "qtmultimedia qt5compat"
     env:
       targetName: q5Go
     steps:
@@ -271,7 +280,7 @@ jobs:
           target: ${{ matrix.qt_target }}
           arch: ${{ matrix.qt_arch }}
           aqtversion: '>=2.1.0'
-          modules: 'all'
+          modules: $${{ matrix.qt_modules }}
 
       - uses: actions/checkout@v2
         with:
