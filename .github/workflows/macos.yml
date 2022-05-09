@@ -11,7 +11,7 @@ on:
       - 'LICENSE'
       - '.github/workflows/windows.yml'
 jobs:
-  macos-qt5.15:
+  macos-qt5:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
