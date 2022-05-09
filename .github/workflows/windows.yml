@@ -22,7 +22,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        qt_ver: [5.15.2]
+        qt_ver: [5.15.2, 6.3.0]
         qt_target: [desktop]
         qt_arch: [win64_msvc2019_64]
         include:
@@ -45,6 +45,8 @@ jobs:
           version: ${{ matrix.qt_ver }}
           target: ${{ matrix.qt_target }}
           arch: ${{ matrix.qt_arch }}
+          aqtversion: '>=2.1.0'
+          modules: 'all'
           
       - uses: actions/checkout@v2
         with:
@@ -88,7 +90,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
         with:
-          name: ${{ env.targetName }}-${{ matrix.qt_arch }}
+          name: ${{ env.targetName }}-${{ matrix.qt_arch }}-${{ matrix.qt_ver }}
           path: ${{ env.targetName }}-${{ matrix.qt_arch }}
 
       - name: queryReleaseWin
@@ -160,7 +162,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        qt_ver: [5.15.2]
+        qt_ver: [5.15.2, 6.3.0]
         qt_target: [desktop]
         qt_arch: [win64_msvc2019_64]
         include:
@@ -184,6 +186,8 @@ jobs:
           version: ${{ matrix.qt_ver }}
           target: ${{ matrix.qt_target }}
           arch: ${{ matrix.qt_arch }}
+          aqtversion: '>=2.1.0'
+          modules: 'all'
           
       - uses: actions/checkout@v2
         with:
@@ -236,14 +240,14 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
         with:
-          name: ${{ env.targetName }}-${{ matrix.qt_arch }}-clang
+          name: ${{ env.targetName }}-${{ matrix.qt_arch }}-${{ matrix.qt_ver }}-clang
           path: ${{ env.targetName }}-${{ matrix.qt_arch }}-clang
   
   win32-msvc-intel:
     runs-on: windows-latest
     strategy:
       matrix:
-        qt_ver: [5.15.2]
+        qt_ver: [5.15.2, 6.3.0]
         qt_target: [desktop]
         qt_arch: [win64_msvc2019_64]
         include:
@@ -266,6 +270,8 @@ jobs:
           version: ${{ matrix.qt_ver }}
           target: ${{ matrix.qt_target }}
           arch: ${{ matrix.qt_arch }}
+          aqtversion: '>=2.1.0'
+          modules: 'all'
 
       - uses: actions/checkout@v2
         with:
@@ -327,14 +333,14 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
         with:
-          name: ${{ env.targetName }}-${{ matrix.qt_arch }}-intel
+          name: ${{ env.targetName }}-${{ matrix.qt_arch }}-${{ matrix.qt_ver }}-intel
           path: ${{ env.targetName }}-${{ matrix.qt_arch }}-intel
 
   win32-mingw:
     runs-on: windows-latest
     strategy:
       matrix:
-        qt_arch: [mingw64_qt5-gcc, mingw64_qt5-static-gcc, mingw64_qt5-clang]
+        qt_arch: [mingw64_qt5-gcc, mingw64_qt5-static-gcc, mingw64_qt5-clang, mingw64_qt6-gcc, mingw64_qt6-static-gcc, mingw64_qt6-clang]
         include:
           - qt_arch: mingw64_qt5-gcc
             mingw_arch: MINGW64 
@@ -358,6 +364,30 @@ jobs:
             toolchains: clang
             mkspec: win32-clang-g++
             qt_build: qt5
+            qmake: qmake.exe
+            windeployqt: windeployqt.exe
+          - qt_arch: mingw64_qt6-gcc
+            mingw_arch: MINGW64 
+            mingw_prefix: mingw-w64-x86_64
+            toolchains: gcc
+            mkspec: win32-g++
+            qt_build: qt6
+            qmake: qmake.exe
+            windeployqt: windeployqt.exe
+          - qt_arch: mingw64_qt6-static-gcc
+            mingw_arch: MINGW64 
+            mingw_prefix: mingw-w64-x86_64
+            toolchains: gcc
+            mkspec: win32-g++
+            qt_build: qt6-static
+            qmake: /mingw64/qt6-static/bin/qmake.exe
+            windeployqt: ls.exe
+          - qt_arch: mingw64_qt6-clang
+            mingw_arch: MINGW64 
+            mingw_prefix: mingw-w64-x86_64
+            toolchains: clang
+            mkspec: win32-clang-g++
+            qt_build: qt6
             qmake: qmake.exe
             windeployqt: windeployqt.exe
     env:
