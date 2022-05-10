@@ -1566,7 +1566,7 @@ void qGoBoard::set_move(stone_color sc, QString pt, QString mv_nr)
         {
             go_board new_root = new_handicap_board(m_game->boardsize(), 0);
             m_game->replace_root(new_root, black);
-            m_game->set_handicap(0);
+            m_game->set_handicap("0");
             qDebug("set Handicap to 0");
         }
 
