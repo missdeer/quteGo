@@ -81,7 +81,7 @@ go_game_ptr NewVariantGameDialog::create_game_record()
                    ui->playerBlackRkEdit->text().toStdString(),
                    "",
                    QString::number(ui->komiSpin->value()).toStdString(),
-                   0,
+                   "0",
                    ranked::free,
                    "",
                    "",
