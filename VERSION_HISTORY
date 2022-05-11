@@ -1,11 +1,11 @@
-q5Go 0.8.1
+quteGo 0.8.1
  * Adjusted analysis mode to work with the upcoming Leela Zero 0.17.
 
-q5Go 0.8
+quteGo 0.8
 
 These are the major user-visible changes in 0.8:
  * Analyzing games with multiple engines now produces sensible results.
-   q5go remembers winrates for each engine name and komi combination and
+   qutego remembers winrates for each engine name and komi combination and
    displays multiple winrate graphs.
  * For engines with fixed komi, batch analysis can now flip the position
    to effectively analyze with reverse komi.
@@ -35,12 +35,12 @@ Minor fixes and improvements include:
    scoring or editing an off-line copy of an observed game.
  * Loading an SGF file for a game against an engine is now implemented.
 
-q5Go 0.7
+quteGo 0.7
 
 These are major user-visible changes in 0.7:
  * Old SGFs and a few new ones use a move at 20:20 to signal pass which
    caused problems when loading such SGFs.
- * q5go can now read kombilo databases.  There is a new file open dialog
+ * qutego can now read kombilo databases.  There is a new file open dialog
    to select a game from the database; it has preview functionality to
    display game information and allow browsing through the game moves.
  * Visibility of menu, status bar, side bar and slider in the board
@@ -48,7 +48,7 @@ These are major user-visible changes in 0.7:
    option there were have been removed, except for the one to choose
    whether to place the side bar to the left or the right.
 
-q5Go 0.6
+quteGo 0.6
 
 Version 0.6 adds no major new features, but adds a number of smaller fixes
 and refinements:
@@ -68,7 +68,7 @@ and refinements:
  * Better game tree headers on Windows, working around a Qt problem
  * An updated Chinese translation
 
-q5Go 0.5
+quteGo 0.5
 
 Version 0.5 adds the following features:
  * Support for diagrams.  These can be used to either subdivide a game into
@@ -82,23 +82,23 @@ Version 0.5 adds the following features:
    the board window (comments, diagram display, game tree, evaluation
    graph and observer list) now exist in docks and can be freely moved
    around.  It is possible to save and restore these layouts.
- * Most icons have been replaced with larger ones, and q5go now uses a
+ * Most icons have been replaced with larger ones, and qutego now uses a
    Qt feature for better results on high-DPI displays.  This is untested,
    I would appreciate feedback as to how well it works on such devices.
  * The command line options have changed.  They are now processed by
    standard library functions and follow normal conventions as a result.
 
-q5Go 0.4
+quteGo 0.4
 
 Version 0.4 adds the following features:
  * Support for rectangular boards
  * Support for toroidal boards (with an extended view option and
    scrolling)
  * On-line observer lists, which were dropped in the initial versions
-   of q5go, are functioning again
+   of qutego, are functioning again
  * Likewise for move time annotations
 
-q5Go 0.3
+quteGo 0.3
 
 Version 0.3 adds two major new features:
  * Analysis with Leela Zero or compatible programs
@@ -110,7 +110,7 @@ Minor changes and fixes include:
  * When loading SGF files, unrecognized properties are now
    remembered and saved as per the specification
 
-q5Go 0.2
+quteGo 0.2
 
 Version 0.2 is mostly a maintenance release which fixes some issues in 0.1.
  * Fixed a rare crash that occurred when observing an IGS game just as it
@@ -120,7 +120,7 @@ Version 0.2 is mostly a maintenance release which fixes some issues in 0.1.
  * Added support for configuring multiple GTP engines like GnuGo or Leela.
  * Allow loading certain types of invalid SGF files that occur in the wild.
 
-q5Go 0.1
+quteGo 0.1
 
 Ported to Qt5 and replaced a lot of the old qGo code which was in fairly
 poor shape.

@@ -2966,7 +2966,7 @@ fi
 
 
 # Define the identity of the package.
- PACKAGE=q5go
+ PACKAGE=qutego
  VERSION=0.3
 
 

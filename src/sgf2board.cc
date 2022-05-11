@@ -472,7 +472,7 @@ std::shared_ptr<game_record> sgf2record(const sgf &s, QTextCodec *codec)
         throw broken_sgf();
     if (gm != nullptr)
     {
-        if (*gm == "q5go-1")
+        if (*gm == "qutego-1")
             our_extensions = true;
         else if (*gm != "1")
         {
@@ -974,7 +974,7 @@ std::string game_record::to_sgf() const
        So we intentionally pick something that other software won't accept and
        misinterpret.  */
     if (torus != 0)
-        gm = "q5go-1";
+        gm = "qutego-1";
     /* UTF-8 encoding should be guaranteed, since we convert other charsets
        when loading, and Qt uses Unicode internally and toStdString conversions
        guarantee UTF-8.  */

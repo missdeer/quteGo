@@ -3,14 +3,14 @@
  */
 
 /* Name of package */
-#define PACKAGE "q5go"
-#define PACKAGE1 "q5goClient"
+#define PACKAGE "qutego"
+#define PACKAGE1 "qutegoClient"
 
 /* Version number of package */
 #define VERSION "0.8.1"
 
 #define NEWVERSIONWARNING                                                       \
-    "<p>Welcome to version " VERSION " of q5go.</p>\n"                          \
+    "<p>Welcome to version " VERSION " of qutego.</p>\n"                          \
     "<p>This version adds two major features: multi-engine analysis and slide " \
     "export, as well as many small enhancements.</p>"                           \
     "<p>For a full list of changes, please refer to the README.</p>"            \

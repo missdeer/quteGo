@@ -33,7 +33,7 @@ jobs:
           - qt_ver: 6.3.0
             qt_modules: "qtmultimedia qt5compat"
     env:
-      targetName: q5Go
+      targetName: quteGo
     steps:
       - name: Cache Qt
         id: cache-qt
@@ -74,7 +74,7 @@ jobs:
           set PATH=%CD%\jom;%PATH%
           mkdir build
           cd build
-          qmake -r CONFIG+=release CONFIG+=qtquickcompiler ..\q5go.pro
+          qmake -r CONFIG+=release CONFIG+=qtquickcompiler ..\qutego.pro
           if exist %CD%\jom\jom.exe jom.exe -j %NUMBER_OF_PROCESSORS%
           if not exist %CD%\jom\jom.exe nmake
           cd ..
@@ -178,7 +178,7 @@ jobs:
             qt_modules: "qtmultimedia qt5compat"
             clang_link: https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.3/LLVM-14.0.3-win64.exe
     env:
-      targetName: q5Go
+      targetName: quteGo
     steps:
       - name: Cache Qt
         id: cache-qt
@@ -228,7 +228,7 @@ jobs:
           set PATH=%CD%\llvm\;%CD%\llvm\bin;%CD%\jom;%PATH%
           mkdir build
           cd build
-          qmake -r -spec win32-clang-msvc CONFIG+=release CONFIG+=qtquickcompiler ..\q5go.pro
+          qmake -r -spec win32-clang-msvc CONFIG+=release CONFIG+=qtquickcompiler ..\qutego.pro
           if exist %CD%\jom\jom.exe jom.exe -j %NUMBER_OF_PROCESSORS%
           if not exist %CD%\jom\jom.exe nmake
           cd ..
@@ -265,7 +265,7 @@ jobs:
           - qt_ver: 6.3.0
             qt_modules: "qtmultimedia qt5compat"
     env:
-      targetName: q5Go
+      targetName: quteGo
     steps:
       - name: Cache Qt
         id: cache-qt
@@ -323,7 +323,7 @@ jobs:
           set PATH="C:\Program Files (x86)\Intel\oneAPI\compiler\2022.0.3\windows\bin-llvm\";%CD%\jom;%PATH%
           mkdir build
           cd build
-          qmake -r -spec win32-clang-msvc CONFIG+=release CONFIG+=qtquickcompiler ..\q5go.pro
+          qmake -r -spec win32-clang-msvc CONFIG+=release CONFIG+=qtquickcompiler ..\qutego.pro
           if exist %CD%\jom\jom.exe jom.exe -j %NUMBER_OF_PROCESSORS%
           if not exist %CD%\jom\jom.exe nmake
           cd ..
@@ -393,7 +393,7 @@ jobs:
             qmake: qmake6.exe
             windeployqt: windeployqt.exe
     env:
-      targetName: q5Go
+      targetName: quteGo
       
     steps:
       - uses: msys2/setup-msys2@v2

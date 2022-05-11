@@ -19,7 +19,7 @@ jobs:
         qt_ver: [5.15.2, 6.3.0]
         qt_arch: [clang_64]
     env:
-      targetName: q5go
+      targetName: qutego
     steps:
       - name: Cache Qt
         id: cache-qt

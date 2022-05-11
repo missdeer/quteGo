@@ -1,4 +1,4 @@
-## q5Go 0.8.1
+## quteGo 0.8.1
 
 This is a tool for Go players which performs the following functions:
 - SGF editor
@@ -12,7 +12,7 @@ that is fast, easy and convenient to use and does everything you could
 want out of such a tool.  Some of the more unusual features include a
 Go diagram exporting function for sites like lifein19x19.com or
 Sensei's library, as well as SVG vector graphics or slide export.
-q5go also supports some non-standard Go variants.
+qutego also supports some non-standard Go variants.
 
 This program is based on the old Qt3 version of qGo, but ported to Qt5
 and modernized.
@@ -22,7 +22,7 @@ and modernized.
 Version 0.8.1 is just a compatibility fix for the Leela Zero "next" branch
 that will become 0.17.  These are the major user-visible changes in 0.8:
  * Analyzing games with multiple engines now produces sensible results.
-   q5go remembers winrates for each engine name and komi combination and
+   qutego remembers winrates for each engine name and komi combination and
    displays multiple winrate graphs.
  * For engines with fixed komi, batch analysis can now flip the position
    to effectively analyze with reverse komi.
@@ -57,7 +57,7 @@ See VERSION_HISTORY for a history of changes.
 ## Overview of features
 
 ### Analysis mode
-q5Go supports not only play against AI engines, but can also connect to
+quteGo supports not only play against AI engines, but can also connect to
 Leela Zero to use it as an an analysis tool, displaying statistics such
 as win-rates and visit counts, and displaying variations.  This is
 available both for local SGF editing, and for observing on-line games.
@@ -75,13 +75,13 @@ during analysis.
 ![screenshot](screens/new-analysis.png)
 
 It is possible to run analysis with multiple engines, or with different
-komi values.  q5go keeps track of these separately and displays multiple
+komi values.  qutego keeps track of these separately and displays multiple
 evaluation graphs.
 
 ![screenshot](screens/multieval.png)
 
 ### Export
-q5Go allows the user to export board positions as ASCII diagrams suitable
+quteGo allows the user to export board positions as ASCII diagrams suitable
 for Sensei's Library or the lifein19x19.com forums, or in the SVG vector
 graphics format which should be suitable for printing.  In both cases,
 the user can select a sub-area of the board to be shown in the export,
@@ -132,7 +132,7 @@ tries to restore the correct layout whenever a new window is opened.
 
 ### Database support
 
-q5go can access a Kombilo database and search it by player name or
+qutego can access a Kombilo database and search it by player name or
 game event or date. This functions as an alternative file open dialog
 with preview functionality.
 
@@ -140,9 +140,9 @@ with preview functionality.
 
 ### Go variants
 
-q5go supports rectangular and toroidal boards.  Note that the latter
+qutego supports rectangular and toroidal boards.  Note that the latter
 can only be saved in a non-standard SGF format since the specification
-does not allow for it.  When playing on a torus, q5go can be configured
+does not allow for it.  When playing on a torus, qutego can be configured
 to extend the board past its regular dimensions, duplicating parts of
 the position for a better overview.  Also, the board can be dragged
 with the middle mouse button.
@@ -156,11 +156,11 @@ with both axes set to be toroidal.
 
 On Linux, make a build subdirectory, enter it, and run
 ```sh
-  qmake ../src/q5go.pro PREFIX=/where/you/want/to/install
+  qmake ../src/qutego.pro PREFIX=/where/you/want/to/install
 ```
 followed by make and make install.  If the pandoc tool is installed, this
 README.md file will be converted to html and installed, and can then be
 viewed through a menu option.
 
-On Windows, download the Qt tools and import the q5go.pro project file
+On Windows, download the Qt tools and import the qutego.pro project file
 into Qt Creator.

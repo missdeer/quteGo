@@ -152,7 +152,7 @@ void DBDialog::db_model::populate_list()
             QRegularExpression re_full("(\\d\\d\\d\\d)[^\\d](\\d\\d)[^\\d](\\d\\d)");
             QRegularExpression re_noday("(\\d\\d\\d\\d)[^\\d](\\d\\d)");
             QRegularExpression re_year("(\\d\\d\\d\\d)");
-            /* Compatibility with old versions of qGo/q4go/q5go before we corrected
+            /* Compatibility with old versions of qGo/q4go/qutego before we corrected
                that little problem.  */
             QRegularExpression re_compat("^(\\d\\d) (\\d\\d) (\\d\\d\\d\\d)$");
             auto               matched = re_compat.match(date);

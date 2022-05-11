@@ -5575,8 +5575,8 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <translation>归档文件 (*.zip *.rar *.7z)</translation>
     </message>
     <message>
-        <source>q5Go Kifu Libraries (*.qdb)</source>
-        <translation>q5Go棋谱库 (*.qdb)</translation>
+        <source>quteGo Kifu Libraries (*.qdb)</source>
+        <translation>quteGo棋谱库 (*.qdb)</translation>
     </message>
     <message>
         <source>Open SGF file</source>

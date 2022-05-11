@@ -2,7 +2,7 @@
 
 INCLUDES = $(all_includes)
 
-q5go_METASOURCES = AUTO
+qutego_METASOURCES = AUTO
 
 KDE_OPTIONS = qtonly
 
@@ -42,15 +42,15 @@ BUILT_SOURCES = $(FORMHEADERS) $(MOC_CC) $(RCC_CC)
 CLEANFILES = $(BUILT_SOURCES)
 EXTRA_DIST = $(FORMS)
 
-q5go_SOURCES = $(DISTSOURCES) $(DISTHEADERS_MOC) $(DISTHEADERS_NO_MOC)
-nodist_q5go_SOURCES = $(MOC_CC) $(RCC_CC)
+qutego_SOURCES = $(DISTSOURCES) $(DISTHEADERS_MOC) $(DISTHEADERS_NO_MOC)
+nodist_qutego_SOURCES = $(MOC_CC) $(RCC_CC)
 
 ####### kdevelop will overwrite this part!!! (end)############
-bin_PROGRAMS = q5go
+bin_PROGRAMS = qutego
 SUBDIRS = pics translations
 
-q5go_LDFLAGS = $(all_libraries) $(USER_LDFLAGS)
-q5go_LDADD = $(LIBSOCKET) $(LIB_QPE) $(LIB_QT) $(QT5_LIBS)
+qutego_LDFLAGS = $(all_libraries) $(USER_LDFLAGS)
+qutego_LDADD = $(LIBSOCKET) $(LIB_QPE) $(LIB_QT) $(QT5_LIBS)
 
 METASOURCES = AUTO
 

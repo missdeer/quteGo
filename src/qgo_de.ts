@@ -10304,7 +10304,7 @@ If &apos;System default&apos; is selected, qGo will use the standard language of
 
 This change will take effect only after qGo has been restarted.
 
-If your language is not supported, you might consider translating q5go. Please visit https://github.com/bernds/q5go</source>
+If your language is not supported, you might consider translating qutego. Please visit https://github.com/bernds/qutego</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

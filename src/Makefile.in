@@ -54,7 +54,7 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 target_triplet = @target@
-bin_PROGRAMS = q5go$(EXEEXT)
+bin_PROGRAMS = qutego$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -82,7 +82,7 @@ am__objects_1 = analyzedlg.$(OBJEXT) audio.$(OBJEXT) \
 	svgbuilder.$(OBJEXT) tables.$(OBJEXT) telnet.$(OBJEXT) \
 	textview.$(OBJEXT) variantgamedlg.$(OBJEXT)
 am__objects_2 =
-am_q5go_OBJECTS = $(am__objects_1) $(am__objects_2)
+am_qutego_OBJECTS = $(am__objects_1) $(am__objects_2)
 am__objects_3 = analyzedlg.moc.$(OBJEXT) audio.moc.$(OBJEXT) \
 	autodiagsdlg.moc.$(OBJEXT) bitarray.moc.$(OBJEXT) \
 	board.moc.$(OBJEXT) clickableviews.moc.$(OBJEXT) \
@@ -103,11 +103,11 @@ am__objects_3 = analyzedlg.moc.$(OBJEXT) audio.moc.$(OBJEXT) \
 am__objects_4 = $(am__objects_2) $(am__objects_3)
 am__objects_5 = q4go.rcc.$(OBJEXT)
 am__objects_6 = $(am__objects_5)
-nodist_q5go_OBJECTS = $(am__objects_4) $(am__objects_6)
-q5go_OBJECTS = $(am_q5go_OBJECTS) $(nodist_q5go_OBJECTS)
+nodist_qutego_OBJECTS = $(am__objects_4) $(am__objects_6)
+qutego_OBJECTS = $(am_qutego_OBJECTS) $(nodist_qutego_OBJECTS)
 am__DEPENDENCIES_1 =
-q5go_DEPENDENCIES = $(am__DEPENDENCIES_1)
-q5go_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(q5go_LDFLAGS) \
+qutego_DEPENDENCIES = $(am__DEPENDENCIES_1)
+qutego_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(qutego_LDFLAGS) \
 	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/admin/depcomp
@@ -122,8 +122,8 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(q5go_SOURCES) $(nodist_q5go_SOURCES)
-DIST_SOURCES = $(q5go_SOURCES)
+SOURCES = $(qutego_SOURCES) $(nodist_qutego_SOURCES)
+DIST_SOURCES = $(qutego_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
 	html-recursive info-recursive install-data-recursive \
 	install-dvi-recursive install-exec-recursive \
@@ -277,7 +277,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 INCLUDES = $(all_includes)
-q5go_METASOURCES = AUTO
+qutego_METASOURCES = AUTO
 KDE_OPTIONS = qtonly
 DISTHEADERS_MOC = analyzedlg.h audio.h autodiagsdlg.h bitarray.h board.h clickableviews.h \
 	clockview.h dbdialog.h evalgraph.h figuredlg.h gamedialog.h gamestable.h gametree.h helpviewer.h \
@@ -311,11 +311,11 @@ RCC_CC = $(RESOURCES:.qrc=.rcc.cc)
 BUILT_SOURCES = $(FORMHEADERS) $(MOC_CC) $(RCC_CC)
 CLEANFILES = $(BUILT_SOURCES)
 EXTRA_DIST = $(FORMS)
-q5go_SOURCES = $(DISTSOURCES) $(DISTHEADERS_MOC) $(DISTHEADERS_NO_MOC)
-nodist_q5go_SOURCES = $(MOC_CC) $(RCC_CC)
+qutego_SOURCES = $(DISTSOURCES) $(DISTHEADERS_MOC) $(DISTHEADERS_NO_MOC)
+nodist_qutego_SOURCES = $(MOC_CC) $(RCC_CC)
 SUBDIRS = pics translations
-q5go_LDFLAGS = $(all_libraries) $(USER_LDFLAGS)
-q5go_LDADD = $(LIBSOCKET) $(LIB_QPE) $(LIB_QT) $(QT5_LIBS)
+qutego_LDFLAGS = $(all_libraries) $(USER_LDFLAGS)
+qutego_LDADD = $(LIBSOCKET) $(LIB_QPE) $(LIB_QT) $(QT5_LIBS)
 METASOURCES = AUTO
 SUFFIXES = .h .ui .moc.cc .uic.cc .qrc .rcc.cc
 all: $(BUILT_SOURCES)
@@ -393,9 +393,9 @@ uninstall-binPROGRAMS:
 
 clean-binPROGRAMS:
 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
-q5go$(EXEEXT): $(q5go_OBJECTS) $(q5go_DEPENDENCIES) $(EXTRA_q5go_DEPENDENCIES) 
-	@rm -f q5go$(EXEEXT)
-	$(q5go_LINK) $(q5go_OBJECTS) $(q5go_LDADD) $(LIBS)
+qutego$(EXEEXT): $(qutego_OBJECTS) $(qutego_DEPENDENCIES) $(EXTRA_qutego_DEPENDENCIES) 
+	@rm -f qutego$(EXEEXT)
+	$(qutego_LINK) $(qutego_OBJECTS) $(qutego_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)

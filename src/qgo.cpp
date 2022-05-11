@@ -249,7 +249,7 @@ void help_about()
     txt +=
         "<p>" + QObject::tr("GTP code originally from Goliath, thanks to: ") + "PALM Thomas, DINTILHAC Florian, HIVERT Anthony, PIOC Sebastien</p>";
 
-    txt += "<hr/><p>Visit <a href=\"https://github.com/bernds/q5go\">the Github "
+    txt += "<hr/><p>Visit <a href=\"https://github.com/bernds/qutego\">the Github "
            "repository</a> for new versions.</p>";
     QString translation = QString("<hr/><p>") + QObject::tr("Please set your own language and your name! Use your own language!") + QString("</p>");
     txt += translation;

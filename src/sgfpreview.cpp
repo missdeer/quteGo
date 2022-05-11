@@ -23,7 +23,7 @@ SGFPreview::SGFPreview(QWidget *parent, const QString &dir)
         tr("All supported files (*.sgf *.zip *.rar *.7z *.qdb)"),
         tr("SGF files (*.sgf *.SGF)"),
         tr("Archieve files (*.zip *.rar *.7z)"),
-        tr("q5Go Kifu Libraries (*.qdb)"),
+        tr("quteGo Kifu Libraries (*.qdb)"),
         tr("All files (*)"),
     });
     fileDialog->setDirectory(dir);

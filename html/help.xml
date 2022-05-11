@@ -3,7 +3,7 @@
 "docbook/docbookx.dtd">
 <book>
   <bookinfo>
-	<title>q5go</title>
+	<title>qutego</title>
 
 	<copyright>
 	  <year>2011-2019</year>
@@ -19,7 +19,7 @@
   <preface>
 	<title>Introduction</title>
 
-	<para>q5go is a Go client and
+	<para>qutego is a Go client and
 	<link linkend="sgf">SGF</link>
 
 	editor written with the Qt library, available for Linux,
@@ -28,14 +28,14 @@
 	<para>Go is an ancient boardgame, very common in Japan, China
 	and Korea.</para>
 
-	<para>q5go can support translations. Check in the preferences
+	<para>qutego can support translations. Check in the preferences
 	dialog if your language is available. If not, you might
-	consider translating q5go to your language. Read more about
+	consider translating qutego to your language. Read more about
 	<link linkend="language">translations</link>
 
 	in the preferences chapter.</para>
 
-	<para>This manual describes the basic usage of q5go.</para>
+	<para>This manual describes the basic usage of qutego.</para>
 
 	<note>
 	  <para>This manual was written against an older version of
@@ -43,9 +43,9 @@
 	</note>
   </preface>
 
-<!-- Chapter: q5go, the Program -->
+<!-- Chapter: qutego, the Program -->
   <chapter>
-	<title>q5go, the Program</title>
+	<title>qutego, the Program</title>
 
 <!-- Section Launching -->
 	<section>
@@ -56,7 +56,7 @@
 	  is</para>
 
 	  <para>
-	  <userinput>q5go</userinput>
+	  <userinput>qutego</userinput>
 
 	  [options] [
 	  <filename>file</filename>
@@ -130,7 +130,7 @@
 	<section>
 	  <title>Structure</title>
 
-	  <para>q5go has two main windows, one is the client window
+	  <para>qutego has two main windows, one is the client window
 	  the other is the board window. Further, there is the debug window, too, but you may not need
 	  it.</para>
 
@@ -142,7 +142,7 @@
 		<para>While handling the connection to internet,
 		negotiating your match requests or looking for games to
 		observe this is your main window. This window appears on
-		starting the q5go program without any of the options
+		starting the qutego program without any of the options
 		<userinput>-sgf</userinput>
 
 		,
@@ -237,18 +237,18 @@
 		shown with the
 		<userinput>-debug</userinput>
 
-		startup option. However, this will set q5go in a debug
+		startup option. However, this will set qutego in a debug
 		mode, too, which means the program will run
 		slower.</para>
 
 		<para>The debug window is always present but it's maybe
-		hidden. Thus, the debug window a log viewer for q5go.
-		Setting q5go to debug mode means logging more events,
+		hidden. Thus, the debug window a log viewer for qutego.
+		Setting qutego to debug mode means logging more events,
 		especially logging all host responses but some internal
 		messages, too.</para>
 
 		<para>Therefore, only opening the debug window doesn't
-		slow down the q5go program.</para>
+		slow down the qutego program.</para>
 
 		<para>In order to show the debug window there are other
 		options:</para>
@@ -275,7 +275,7 @@
 				  <userinput>-debug</userinput>
 				</entry>
 
-				<entry>when launching q5go</entry>
+				<entry>when launching qutego</entry>
 
 				<entry>DEBUG</entry>
 
@@ -334,13 +334,13 @@
 	<title>Client Window - Usage</title>
 
 	<note>
-	  <para>There are a lot of settings saved when q5go is getting
-	  closed. Thus, by running several instances of q5go the last
-	  closed instance of q5go supersedes the settings.</para>
+	  <para>There are a lot of settings saved when qutego is getting
+	  closed. Thus, by running several instances of qutego the last
+	  closed instance of qutego supersedes the settings.</para>
 
 	  <para>This is different to closing a board window since all
 	  board settings are updated simultaneosly and they are saved
-	  when q5go quits.</para>
+	  when qutego quits.</para>
 	</note>
 
 <!-- Section Menus -->
@@ -430,7 +430,7 @@
 		  <title>Open</title>
 
 		  <para>This will open a stored SGF file into the current
-		  window. q5go will remember which directory you store
+		  window. qutego will remember which directory you store
 		  your SGFs in and return there next time you perform the
 		  Open, Save, or Save As functions during the same
 		  session. The file does not have to have an .sgf
@@ -461,7 +461,7 @@
 		<section>
 		  <title>Export ASCII</title>
 
-		  <para>q5go can also export an SGF position into ASCII
+		  <para>qutego can also export an SGF position into ASCII
 		  format. Simply load the position you want to export and
 		  then select File - Export ASCII. This opens a window to
 		  show you what the exported ASCII file will look like.
@@ -481,7 +481,7 @@
 		  and select File - Export Image. You will be prompted
 		  for a filename to save the image under. Note that this
 		  does not produce a screenshot; it produces an image of
-		  the board position only. q5go supports common image
+		  the board position only. qutego supports common image
 		  formats like png, gif, jpeg, bmp. You can the exported
 		  file to alter in common graphic suits like Gimp or
 		  CorelDraw.</para>
@@ -598,7 +598,7 @@
 	    types of boards, so for example you can disable sounds
 	    when editing an SGF file, but enable them when observing
 	    or playing an on-line match.  Here the visual settings can
-	    be changed. All settings are saved and reloaded when q5go
+	    be changed. All settings are saved and reloaded when qutego
 	    starts up the next time.</para>
 
 	    </section>
@@ -630,7 +630,7 @@
 		  available.</para>
 
 		  <note>
-			<para>You have to restart q5go to let the language
+			<para>You have to restart qutego to let the language
 			change take effect.</para>
 		  </note>
 		  <note>
@@ -723,7 +723,7 @@
 	<section>
 	  <title>Keyboard control</title>
 
-	  <para>q5go offers easy keyboard control to navigate through
+	  <para>qutego offers easy keyboard control to navigate through
 	  a game tree. Most menu items have a keyboard shortcut, as
 	  stated in the menu. The cursor keys offer the basic
 	  navigation: left and right move backwards and forwards
@@ -828,8 +828,8 @@
 
 	  <para>Because an SGF can contain much information -
 	  including but not limited to board setup, markings,
-	  variations, and extensive comments - programs such as q5go
-	  have been created. q5go provides a powerful, easy-to-use
+	  variations, and extensive comments - programs such as qutego
+	  have been created. qutego provides a powerful, easy-to-use
 	  interface for creating, editing and viewing SGF
 	  files.</para>
 	</section>

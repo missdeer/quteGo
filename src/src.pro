@@ -125,9 +125,9 @@ isEmpty(PREFIX) {
 PREFIX = /usr/local
 }
 
-TARGET                = q5go
-DATADIR               = $$PREFIX/share/q5go
-DOCDIR                = $$PREFIX/share/doc/q5go
+TARGET                = qutego
+DATADIR               = $$PREFIX/share/qutego
+DOCDIR                = $$PREFIX/share/doc/qutego
 
 unix:INCLUDEPATH      += .
 win32:INCLUDEPATH     += .
