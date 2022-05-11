@@ -373,10 +373,17 @@ MainWindow::MainWindow(QWidget *parent, go_game_ptr gr, ArchiveHandlerPtr archiv
     connect(commentEdit, &QTextEdit::textChanged, this, &MainWindow::slotUpdateComment);
     connect(commentEdit2, &QLineEdit::returnPressed, this, &MainWindow::slotUpdateComment2);
     connect(archiveItemList, &QListWidget::itemActivated, this, &MainWindow::slotArchiveItemActivated);
+    archiveDock->setVisible(false);
+    archiveDock->toggleViewAction()->setVisible(false);
     if (m_archive)
     {
         auto fileList = m_archive->getSGFFileList();
-        archiveItemList->addItems(fileList);
+        if (!fileList.isEmpty())
+        {
+            archiveDock->setVisible(true);
+            archiveDock->toggleViewAction()->setVisible(true);
+            archiveItemList->addItems(fileList);
+        }
     }
 
     m_allow_text_update_signal = true;
@@ -1307,6 +1314,8 @@ void MainWindow::hide_panes_for_mode()
         }
         diagsDock->setVisible(false);
         diagsDock->toggleViewAction()->setVisible(false);
+        archiveDock->setVisible(false);
+        archiveDock->toggleViewAction()->setVisible(false);
     }
     else
     {
@@ -1315,6 +1324,7 @@ void MainWindow::hide_panes_for_mode()
         treeDock->toggleViewAction()->setVisible(true);
         diagsDock->toggleViewAction()->setVisible(true);
         graphDock->toggleViewAction()->setVisible(true);
+        archiveDock->toggleViewAction()->setVisible(true);
     }
 }
 
