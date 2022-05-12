@@ -677,7 +677,7 @@ int main(int argc, char **argv)
     }
 
     client_window = new ClientWindow(0);
-    client_window->setWindowTitle(PACKAGE1 + QString(" V") + VERSION);
+    client_window->setWindowTitle(PACKAGE1 + QString(" ") + VERSION);
 
 #ifdef OWN_DEBUG_MODE
     // restore size and pos
