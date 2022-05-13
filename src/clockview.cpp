@@ -52,14 +52,14 @@ static QString time_string(const std::string &timeleft, const std::string &stone
 ClockView::ClockView(QWidget *parent) : QGraphicsView(parent)
 {
     setFocusPolicy(Qt::NoFocus);
-    QFontMetrics m(setting->fontClocks);
+    QFontMetrics m(g_setting->fontClocks);
     int          w = width();
     int          h = m.height();
     setMinimumHeight(h);
     setMaximumHeight(h);
     m_scene = new QGraphicsScene(0, 0, w, h, this);
     setScene(m_scene);
-    m_text = m_scene->addText("00:00", setting->fontClocks);
+    m_text = m_scene->addText("00:00", g_setting->fontClocks);
     m_text->setDefaultTextColor(Qt::white);
     update_pos();
 }

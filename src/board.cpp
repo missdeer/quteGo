@@ -38,8 +38,8 @@ BoardView::BoardView(QWidget *parent) : QGraphicsView(parent), m_dims(0, 0, DEFA
 
     m_show_hoshis      = true;
     m_show_figure_caps = false;
-    m_show_coords      = setting->readBoolEntry("BOARD_COORDS");
-    m_sgf_coords       = setting->readBoolEntry("SGF_BOARD_COORDS");
+    m_show_coords      = g_setting->readBoolEntry("BOARD_COORDS");
+    m_sgf_coords       = g_setting->readBoolEntry("SGF_BOARD_COORDS");
 
     setStyleSheet("QGraphicsView { border-style: none; }");
 
@@ -111,7 +111,7 @@ void BoardView::calculateSize()
     double cmargin       = m_show_coords ? 4 * coord_margin : 0;
     int    shown_size_x  = m_crop.width() + 2 * n_dups_h();
     int    shown_size_y  = m_crop.height() + 2 * n_dups_v();
-    double coord_factor  = m_show_coords ? setting->readIntEntry("COORDS_SIZE") / 100.0 : 0;
+    double coord_factor  = m_show_coords ? g_setting->readIntEntry("COORDS_SIZE") / 100.0 : 0;
     double square_size_w = (table_size_x - cmargin) / (shown_size_x + 2 * coord_factor);
     double square_size_h = (table_size_y - cmargin) / (shown_size_y + 2 * coord_factor);
     square_size          = std::min(square_size_w, square_size_h);
@@ -176,8 +176,8 @@ QImage BoardView::background_image()
     int w = canvas->width();
     int h = canvas->height();
 
-    m_wood  = *setting->wood_image();
-    m_table = *setting->table_image();
+    m_wood  = *g_setting->wood_image();
+    m_table = *g_setting->table_image();
 
     // Create pixmap of appropriate size
     // QPixmap all(w, h);
@@ -195,7 +195,7 @@ QImage BoardView::background_image()
     int board_y1 = board_y0 + m_wood_rect.height() - 1;
     painter.drawTiledPixmap(0, 0, w, h, m_table);
     painter.setRenderHint(QPainter::SmoothPixmapTransform);
-    if (setting->readBoolEntry("SKIN_SCALE_WOOD"))
+    if (g_setting->readBoolEntry("SKIN_SCALE_WOOD"))
         painter.drawPixmap(m_wood_rect, m_wood);
     else
         painter.drawTiledPixmap(m_wood_rect, m_wood);
@@ -238,12 +238,12 @@ QImage BoardView::background_image()
     {
         const go_board &b = m_displayed->get_board();
 
-        double coord_factor = setting->readIntEntry("COORDS_SIZE") / 100.0;
+        double coord_factor = g_setting->readIntEntry("COORDS_SIZE") / 100.0;
         double coord_size   = std::max(1.0, square_size * coord_factor);
         // centres the coordinates text within the remaining space at table edge
         const int center = coord_size / 2 + coord_margin;
 
-        QFont f = setting->fontMarks;
+        QFont f = g_setting->fontMarks;
         /* Throughout, we use the "double bounding rect" trick to obtain correct
            results. Experience shows that a single boundingRect call produces too
            narrow a rectangle, and googling shows that this is in fact a known
@@ -382,7 +382,7 @@ void Board::setMode(GameMode mode)
 
 bool Board::show_cursor_p()
 {
-    if (!setting->readBoolEntry("CURSOR") || navIntersectionStatus)
+    if (!g_setting->readBoolEntry("CURSOR") || navIntersectionStatus)
         return false;
 
     if (m_mark_rect || m_request_mark_rect || m_dragging)
@@ -609,7 +609,7 @@ QByteArray BoardView::render_svg(bool do_number, bool coords)
     int    rows         = m_sel.height();
     int    w            = factor * cols + 2 * margin;
     int    h            = factor * rows + 2 * margin;
-    double coord_factor = setting->readIntEntry("COORDS_SIZE") / 100.0;
+    double coord_factor = g_setting->readIntEntry("COORDS_SIZE") / 100.0;
     if (coords)
     {
         if (m_sel.aligned_left(m_dims))
@@ -622,7 +622,7 @@ QByteArray BoardView::render_svg(bool do_number, bool coords)
             h += factor * coord_factor + 2 * coord_margin;
     }
 
-    QFontInfo fi(setting->fontMarks);
+    QFontInfo fi(g_setting->fontMarks);
     int       full_h = h;
     if ((fig_flags & 2) == 0 && !fig_title.isEmpty())
     {
@@ -946,7 +946,7 @@ void BoardView::draw_grid(QPainter &painter, bit_array &grid_hidden, int bm_line
     bool            torus_h = b.torus_h();
     bool            torus_v = b.torus_v();
 
-    int  scaled_w = setting->readBoolEntry("BOARD_LINESCALE") ? (int)square_size / 40 + 1 : 1;
+    int  scaled_w = g_setting->readBoolEntry("BOARD_LINESCALE") ? (int)square_size / 40 + 1 : 1;
     QPen pen(Qt::black);
     pen.setWidth(scaled_w);
     painter.setPen(pen);
@@ -1009,7 +1009,7 @@ void BoardView::draw_grid(QPainter &painter, bit_array &grid_hidden, int bm_line
                 first = m_crop.aligned_left(m_dims) && tx == 0 && !torus_h ? 0 : tx * 2 - 1;
         }
     }
-    if (setting->readBoolEntry("BOARD_LINEWIDEN"))
+    if (g_setting->readBoolEntry("BOARD_LINEWIDEN"))
         pen.setWidth(scaled_w * 2);
     painter.setPen(pen);
 
@@ -1219,7 +1219,7 @@ game_state *Board::analysis_at(int x, int y, int &num, double &primary)
    we have one.  Return the number of moves added.  */
 int Board::extract_analysis(go_board &b)
 {
-    int maxdepth = setting->readIntEntry("ANALYSIS_DEPTH");
+    int maxdepth = g_setting->readIntEntry("ANALYSIS_DEPTH");
 
     int         idx;
     double      primary;
@@ -1261,9 +1261,9 @@ Board::ram_result Board::render_analysis_marks(
     if (!have_analysis())
         return ram_result::none;
 
-    int  analysis_vartype = setting->values.analysis_vartype;
-    int  winrate_for      = setting->values.analysis_winrate;
-    bool hideother        = setting->values.analysis_hideother;
+    int  analysis_vartype = g_setting->values.analysis_vartype;
+    int  winrate_for      = g_setting->values.analysis_winrate;
+    bool hideother        = g_setting->values.analysis_hideother;
 
     int         pv_idx;
     double      primary;
@@ -1332,10 +1332,10 @@ QPixmap BoardView::draw_position(int default_vars_type)
     bool have_figure = m_figure_view && !have_analysis() && m_edit_board == nullptr && m_displayed->has_figure();
     int  print_num   = m_displayed->print_numbering_inherited();
 
-    bool analysis_children = setting->values.analysis_children;
+    bool analysis_children = g_setting->values.analysis_children;
 
     int             var_type     = (have_analysis() && analysis_children) || have_figure ? 0 : default_vars_type;
-    bool            exclude_diag = setting->readBoolEntry("VAR_IGNORE_DIAGS");
+    bool            exclude_diag = g_setting->readBoolEntry("VAR_IGNORE_DIAGS");
     const go_board  child_vars   = m_displayed->child_moves(nullptr, exclude_diag);
     const go_board  sibling_vars = m_displayed->sibling_moves(exclude_diag);
     const go_board &vars         = m_vars_children ? child_vars : sibling_vars;
@@ -1400,7 +1400,7 @@ QPixmap BoardView::draw_position(int default_vars_type)
     /* The factor is the size of a square in svg, it gets scaled later.  It should
        have an optically pleasant relation with the stroke width (2 for marks). */
     double      svg_factor = 30;
-    QFontInfo   fi(setting->fontMarks);
+    QFontInfo   fi(g_setting->fontMarks);
     svg_builder svg(svg_factor * (visx + 2 * dups_x), svg_factor * (visy + 2 * dups_y));
 
     bit_array grid_hidden(bm_linewidth * (visy + 2 * dups_y));
@@ -1446,7 +1446,7 @@ QPixmap BoardView::draw_position(int default_vars_type)
             ram_result rs            = render_analysis_marks(svg, svg_factor, cx, cy, fi, x, y, an_child_mark, v, max_number);
             if (rs == ram_result::none)
             {
-                if (max_number > 0 && v <= max_number - setting->readIntEntry("MOVE_COUNT_MOVE_NUMBER"))
+                if (max_number > 0 && v <= max_number - g_setting->readIntEntry("MOVE_COUNT_MOVE_NUMBER"))
                     v = 0;
                 added = add_mark_svg(svg,
                                      cx,
@@ -1762,8 +1762,8 @@ void Board::mouseMoveEvent(QMouseEvent *e)
         return;
     }
 
-    int x = coord_vis_to_board_x(e->x(), setting->values.clicko_hitbox && m_game_mode == modeMatch);
-    int y = coord_vis_to_board_y(e->y(), setting->values.clicko_hitbox && m_game_mode == modeMatch);
+    int x = coord_vis_to_board_x(e->x(), g_setting->values.clicko_hitbox && m_game_mode == modeMatch);
+    int y = coord_vis_to_board_y(e->y(), g_setting->values.clicko_hitbox && m_game_mode == modeMatch);
 
     // Outside the valid board?
     if (!m_dims.contained(x, y))
@@ -1974,8 +1974,8 @@ void Board::mousePressEvent(QMouseEvent *e)
 
     m_down_x = m_down_y = -1;
 
-    int x = coord_vis_to_board_x(e->x(), setting->values.clicko_hitbox && m_game_mode == modeMatch);
-    int y = coord_vis_to_board_y(e->y(), setting->values.clicko_hitbox && m_game_mode == modeMatch);
+    int x = coord_vis_to_board_x(e->x(), g_setting->values.clicko_hitbox && m_game_mode == modeMatch);
+    int y = coord_vis_to_board_y(e->y(), g_setting->values.clicko_hitbox && m_game_mode == modeMatch);
     if (!m_dims.contained(x, y))
         return;
 
@@ -2113,7 +2113,7 @@ void Board::mousePressEvent(QMouseEvent *e)
         wheelTime = QTime::currentTime();
         // qDebug("Mouse pressed at time %d,%03d",
         // wheelTime.second(),wheelTime.msec());
-        if (setting->values.clicko_delay)
+        if (g_setting->values.clicko_delay)
             wheelTime = wheelTime.addMSecs(250);
         break;
 
@@ -2148,7 +2148,7 @@ int BoardView::n_dups_h()
 {
     const go_board &b = m_displayed->get_board();
     if (!m_figure_view && b.torus_h())
-        return std::min(b.size_x(), setting->values.toroid_dups);
+        return std::min(b.size_x(), g_setting->values.toroid_dups);
     return 0;
 }
 
@@ -2156,7 +2156,7 @@ int BoardView::n_dups_v()
 {
     const go_board &b = m_displayed->get_board();
     if (!m_figure_view && b.torus_v())
-        return std::min(b.size_y(), setting->values.toroid_dups);
+        return std::min(b.size_y(), g_setting->values.toroid_dups);
     return 0;
 }
 

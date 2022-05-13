@@ -72,7 +72,7 @@ void qGo::updateAllBoardSettings()
 {
     for (auto it : main_window_list)
         it->update_settings();
-    setting->engines_changed = false;
+    g_setting->engines_changed = false;
 }
 
 void qGo::playClick()
@@ -130,7 +130,7 @@ void qGo::playStoneSound()
 
 void qGo::playAutoPlayClick()
 {
-    if (setting->readBoolEntry("SOUND_AUTOPLAY"))
+    if (g_setting->readBoolEntry("SOUND_AUTOPLAY"))
     {
         QSoundEffect se;
         se.setSource(QUrl(":/sounds/click.wav"));
@@ -140,7 +140,7 @@ void qGo::playAutoPlayClick()
 
 void qGo::playTalkSound()
 {
-    if (setting->readBoolEntry("SOUND_TALK"))
+    if (g_setting->readBoolEntry("SOUND_TALK"))
     {
         QSoundEffect se;
         se.setSource(QUrl(":/sounds/talk.wav"));
@@ -150,7 +150,7 @@ void qGo::playTalkSound()
 
 void qGo::playMatchSound()
 {
-    if (setting->readBoolEntry("SOUND_MATCH"))
+    if (g_setting->readBoolEntry("SOUND_MATCH"))
     {
         QSoundEffect se;
         se.setSource(QUrl(":/sounds/match.wav"));
@@ -160,7 +160,7 @@ void qGo::playMatchSound()
 
 void qGo::playPassSound()
 {
-    if (setting->readBoolEntry("SOUND_PASS"))
+    if (g_setting->readBoolEntry("SOUND_PASS"))
     {
         QSoundEffect se;
         se.setSource(QUrl(":/sounds/pass.wav"));
@@ -170,7 +170,7 @@ void qGo::playPassSound()
 
 void qGo::playGameEndSound()
 {
-    if (setting->readBoolEntry("SOUND_GAMEEND"))
+    if (g_setting->readBoolEntry("SOUND_GAMEEND"))
     {
         QSoundEffect se;
         se.setSource(QUrl(":/sounds/gameend.wav"));
@@ -180,7 +180,7 @@ void qGo::playGameEndSound()
 
 void qGo::playTimeSound()
 {
-    if (setting->readBoolEntry("SOUND_TIME"))
+    if (g_setting->readBoolEntry("SOUND_TIME"))
     {
         QSoundEffect se;
         se.setSource(QUrl(":/sounds/tictoc.wav"));
@@ -190,7 +190,7 @@ void qGo::playTimeSound()
 
 void qGo::playSaySound()
 {
-    if (setting->readBoolEntry("SOUND_SAY"))
+    if (g_setting->readBoolEntry("SOUND_SAY"))
     {
         QSoundEffect se;
         se.setSource(QUrl(":/sounds/say.wav"));
@@ -200,7 +200,7 @@ void qGo::playSaySound()
 
 void qGo::playEnterSound()
 {
-    if (setting->readBoolEntry("SOUND_ENTER"))
+    if (g_setting->readBoolEntry("SOUND_ENTER"))
     {
         QSoundEffect se;
         se.setSource(QUrl(":/sounds/enter.wav"));
@@ -210,7 +210,7 @@ void qGo::playEnterSound()
 
 void qGo::playLeaveSound()
 {
-    if (setting->readBoolEntry("SOUND_LEAVE"))
+    if (g_setting->readBoolEntry("SOUND_LEAVE"))
     {
         QSoundEffect se;
         se.setSource(QUrl(":/sounds/leave.wav"));
@@ -220,7 +220,7 @@ void qGo::playLeaveSound()
 
 void qGo::playConnectSound()
 {
-    if (setting->readBoolEntry("SOUND_CONNECT"))
+    if (g_setting->readBoolEntry("SOUND_CONNECT"))
     {
         QSoundEffect se;
         se.setSource(QUrl(":/sounds/connect.wav"));
@@ -230,7 +230,7 @@ void qGo::playConnectSound()
 
 void qGo::playDisConnectSound()
 {
-    if (setting->readBoolEntry("SOUND_DISCONNECT"))
+    if (g_setting->readBoolEntry("SOUND_DISCONNECT"))
     {
         QSoundEffect se;
         se.setSource(QUrl(":/sounds/connect.wav"));

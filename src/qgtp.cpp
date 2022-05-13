@@ -612,7 +612,7 @@ void GTP_Eval_Controller::gtp_eval(const QString &s, bool kata_format)
     if (m_pause_updates || m_pause_eval || m_switch_pending)
         return;
 
-    bool prune = setting->readBoolEntry("ANALYSIS_PRUNE");
+    bool prune = g_setting->readBoolEntry("ANALYSIS_PRUNE");
 
     QStringList moves = s.split("info move ", Qt::SkipEmptyParts);
     if (moves.isEmpty())
@@ -620,7 +620,7 @@ void GTP_Eval_Controller::gtp_eval(const QString &s, bool kata_format)
 
     stone_color to_move = m_eval_state->to_move();
 
-    int an_maxmoves = setting->readIntEntry("ANALYSIS_MAXMOVES");
+    int an_maxmoves = g_setting->readIntEntry("ANALYSIS_MAXMOVES");
     int count       = 0;
     m_primary_eval  = 0.5;
     QString primary_move;

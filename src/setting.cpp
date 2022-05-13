@@ -211,15 +211,15 @@ void Setting::extract_lists()
     for (;;)
     {
         QString prefix = "HOST" + QString::number(++i);
-        QString s      = setting->readEntry(prefix + "a");
+        QString s      = g_setting->readEntry(prefix + "a");
         if (s.isNull())
             break;
-        m_hosts.emplace_back(setting->readEntry(prefix + "a"),
-                             setting->readEntry(prefix + "b"),
-                             setting->readIntEntry(prefix + "c"),
-                             setting->readEntry(prefix + "d"),
-                             setting->readEntry(prefix + "e"),
-                             setting->readEntry(prefix + "f"));
+        m_hosts.emplace_back(g_setting->readEntry(prefix + "a"),
+                             g_setting->readEntry(prefix + "b"),
+                             g_setting->readIntEntry(prefix + "c"),
+                             g_setting->readEntry(prefix + "d"),
+                             g_setting->readEntry(prefix + "e"),
+                             g_setting->readEntry(prefix + "f"));
         clearEntry(prefix + "a");
         clearEntry(prefix + "b");
         clearEntry(prefix + "c");
@@ -233,15 +233,15 @@ void Setting::extract_lists()
     for (;;)
     {
         QString prefix = "ENGINE" + QString::number(++i);
-        QString s      = setting->readEntry(prefix + "a");
+        QString s      = g_setting->readEntry(prefix + "a");
         if (s.isNull())
             break;
         m_engines.emplace_back(s,
-                               setting->readEntry(prefix + "b"),
-                               setting->readEntry(prefix + "c"),
-                               setting->readEntry(prefix + "d"),
-                               setting->readBoolEntry(prefix + "e"),
-                               setting->readEntry(prefix + "f"));
+                               g_setting->readEntry(prefix + "b"),
+                               g_setting->readEntry(prefix + "c"),
+                               g_setting->readEntry(prefix + "d"),
+                               g_setting->readBoolEntry(prefix + "e"),
+                               g_setting->readEntry(prefix + "f"));
         clearEntry(prefix + "a");
         clearEntry(prefix + "b");
         clearEntry(prefix + "c");

@@ -202,16 +202,16 @@ void SlideView::view_resized()
 
 void SlideView::update_prefs()
 {
-    slideLinesSpinBox->setValue(setting->readIntEntry("SLIDE_LINES"));
-    slideMarginSpinBox->setValue(setting->readIntEntry("SLIDE_MARGIN"));
-    slideXEdit->setText(QString::number(setting->readIntEntry("SLIDE_X")));
-    slideYEdit->setText(QString::number(setting->readIntEntry("SLIDE_Y")));
-    slideItalicCheckBox->setChecked(setting->readBoolEntry("SLIDE_ITALIC"));
-    slideBoldCheckBox->setChecked(setting->readBoolEntry("SLIDE_BOLD"));
-    slideCoordsCheckBox->setChecked(setting->readBoolEntry("SLIDE_COORDS"));
-    slideWBCheckBox->setChecked(setting->readBoolEntry("SLIDE_WB"));
+    slideLinesSpinBox->setValue(g_setting->readIntEntry("SLIDE_LINES"));
+    slideMarginSpinBox->setValue(g_setting->readIntEntry("SLIDE_MARGIN"));
+    slideXEdit->setText(QString::number(g_setting->readIntEntry("SLIDE_X")));
+    slideYEdit->setText(QString::number(g_setting->readIntEntry("SLIDE_Y")));
+    slideItalicCheckBox->setChecked(g_setting->readBoolEntry("SLIDE_ITALIC"));
+    slideBoldCheckBox->setChecked(g_setting->readBoolEntry("SLIDE_BOLD"));
+    slideCoordsCheckBox->setChecked(g_setting->readBoolEntry("SLIDE_COORDS"));
+    slideWBCheckBox->setChecked(g_setting->readBoolEntry("SLIDE_WB"));
 
-    m_font = setting->fontComments;
+    m_font = g_setting->fontComments;
 
     inputs_changed();
 }
@@ -243,7 +243,7 @@ void SlideView::set_active(game_state *st)
 void SlideView::save_as()
 {
     QString filename =
-        QFileDialog::getSaveFileName(this, tr("Export slide as"), setting->readEntry("LAST_DIR"), tr("Images (*.png *.xpm *.jpg);;All Files (*)"));
+        QFileDialog::getSaveFileName(this, tr("Export slide as"), g_setting->readEntry("LAST_DIR"), tr("Images (*.png *.xpm *.jpg);;All Files (*)"));
     if (filename.isEmpty())
         return;
     QPixmap pm = render_export();
@@ -346,7 +346,7 @@ void SlideView::choose_file()
 {
     QString filename = QFileDialog::getOpenFileName(this,
                                                     tr("Choose file name to serve as template for slides"),
-                                                    setting->readEntry("LAST_DIR"),
+                                                    g_setting->readEntry("LAST_DIR"),
                                                     tr("Images (*.png *.xpm *.jpg);;All Files (*)"));
     if (filename.isEmpty())
         return;

@@ -140,9 +140,9 @@ void GameTree::set_board_win(MainWindow *win, QGraphicsView *header)
 
 void GameTree::update_prefs()
 {
-    m_size = std::max(30, std::min(120, setting->values.gametree_size));
+    m_size = std::max(30, std::min(120, g_setting->values.gametree_size));
 
-    QFont        f = setting->fontStandard;
+    QFont        f = g_setting->fontStandard;
     QFontMetrics fm(f);
 
     int width = 0;
@@ -288,7 +288,7 @@ void GameTree::update(go_game_ptr gr, game_state *active, bool force)
     }
     if (active_changed)
         do_autocollapse();
-    changed |= r->update_visualization(setting->values.gametree_diaghide) || force;
+    changed |= r->update_visualization(g_setting->values.gametree_diaghide) || force;
     if (!changed && !active_changed)
         return;
     m_game = gr;

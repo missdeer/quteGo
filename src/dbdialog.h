@@ -78,6 +78,6 @@ public:
     }
 };
 
-extern DBDialog *db_dialog;
+extern DBDialog *g_dbDialog;
 
 #endif

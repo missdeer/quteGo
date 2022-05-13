@@ -55,12 +55,12 @@ public:
     void playPassSound()
     {
         if (local_stone_sound)
-            qgo->playPassSound();
+            g_quteGo->playPassSound();
     }
     void playClick()
     {
         if (local_stone_sound)
-            qgo->playStoneSound();
+            g_quteGo->playStoneSound();
     }
 };
 
@@ -79,13 +79,12 @@ MainWindow_IGS::~MainWindow_IGS() {}
  *	Playing or Observing
  */
 
-qGoIF::qGoIF(QWidget *p) : QObject()
+qGoIF::qGoIF(QWidget *p) : QObject(p)
 {
-    qgo = new qGo();
+    g_quteGo = new qGo;
 
     ASSERT(qgo);
 
-    parent            = p;
     qgobrd            = 0;
     gsName            = GS_UNKNOWN;
     localBoardCounter = 10000;
@@ -93,7 +92,7 @@ qGoIF::qGoIF(QWidget *p) : QObject()
 
 qGoIF::~qGoIF()
 {
-    delete qgo;
+    delete g_quteGo;
 }
 
 qGoBoard *qGoIF::find_game_id(int id)
@@ -646,7 +645,7 @@ void qGoIF::slot_komi(const QString &nr, const QString &komi, bool isrequest)
             move_number_memo = qb->get_mv_counter();
             komi_memo        = komi;
 
-            if (qb->get_reqKomi() == komi && setting->readBoolEntry("DEFAULT_AUTONEGO"))
+            if (qb->get_reqKomi() == komi && g_setting->readBoolEntry("DEFAULT_AUTONEGO"))
             {
                 if (qb->get_currentKomi() != komi)
                 {
@@ -785,7 +784,7 @@ void qGoIF::slot_kibitz(int num, const QString &who, const QString &msg)
                 name = qb->get_wplayer();
 
             // sound for "say" command
-            qgo->playSaySound();
+            g_quteGo->playSaySound();
         }
     }
 
@@ -817,7 +816,7 @@ void qGoIF::slot_requestDialog(const QString &yes, const QString &no, const QStr
                        Qt::NoButton);
         mb.activateWindow();
         mb.raise();
-        qgo->playPassSound();
+        g_quteGo->playPassSound();
 
         if (mb.exec() == QMessageBox::Yes)
         {
@@ -837,7 +836,7 @@ void qGoIF::slot_requestDialog(const QString &yes, const QString &no, const QStr
                        Qt::NoButton);
         mb.activateWindow();
         mb.raise();
-        qgo->playPassSound();
+        g_quteGo->playPassSound();
 
         if (mb.exec() == QMessageBox::Yes)
         {
@@ -1100,7 +1099,7 @@ qGoBoard::qGoBoard(qGoIF *qif, int gameid) : m_qgoif(qif), id(gameid)
     bt_i            = -1;
     wt_i            = -1;
     stated_mv_count = 0;
-    BY_timer        = setting->readIntEntry("BY_TIMER");
+    BY_timer        = g_setting->readIntEntry("BY_TIMER");
 
 #ifdef SHOW_INTERNAL_TIME
     chk_b = -2;
@@ -1677,7 +1676,7 @@ void qGoBoard::disconnected(bool remove_from_list)
     m_connected = false;
     set_stopTimer();
 
-    qgo->playGameEndSound();
+    g_quteGo->playGameEndSound();
     m_observers.clear();
 
     // set board editable...
@@ -1842,7 +1841,7 @@ void qGoBoard::game_result(const QString &rs, const QString &extended_rs)
 {
     m_game->set_result(rs.toStdString());
     send_kibitz(rs);
-    bool autosave = setting->readBoolEntry(gameMode == modeObserve ? "AUTOSAVE" : "AUTOSAVE_PLAYED");
+    bool autosave = g_setting->readBoolEntry(gameMode == modeObserve ? "AUTOSAVE" : "AUTOSAVE_PLAYED");
 
     /* Note that win can be null - observing a game just as it ends may cause the
        server to send a result without moves (or maybe before, but that is still
@@ -1915,7 +1914,7 @@ void qGoBoard::check_requests()
 {
     // check if handicap requested via negotiation (if activated!)
     // do not set any value while reloading a game
-    if (req_handicap.isNull() || gameMode == modeTeach || setting->readBoolEntry("DEFAULT_AUTONEGO"))
+    if (req_handicap.isNull() || gameMode == modeTeach || g_setting->readBoolEntry("DEFAULT_AUTONEGO"))
         return;
 
     if (m_game->handicap() != req_handicap.toStdString())

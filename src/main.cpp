@@ -28,17 +28,17 @@
 #include "ui_helpers.h"
 #include "variantgamedlg.h"
 
-qGo          *qgo;
-QApplication *qgo_app;
+qGo          *g_quteGo = nullptr;
+QApplication *g_qGoApp = nullptr;
 
-Setting *setting = 0;
+Setting *g_setting = nullptr;
 
-DBDialog *db_dialog;
+DBDialog *g_dbDialog = nullptr;
 
-Debug_Dialog *debug_dialog;
+Debug_Dialog *debug_dialog = nullptr;
 #ifdef OWN_DEBUG_MODE
-static QFile *debug_file {};
-QTextStream  *debug_stream {};
+static QFile *debug_file   = nullptr;
+QTextStream  *debug_stream = nullptr;
 QTextEdit    *debug_view;
 #endif
 
@@ -89,7 +89,7 @@ go_game_ptr new_variant_game_dialog(QWidget *parent)
 
 static void warn_errors(go_game_ptr gr)
 {
-    if (setting->readBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING"))
+    if (g_setting->readBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING"))
         return;
     const sgf_errors &errs = gr->errors();
     if (errs.invalid_structure)
@@ -158,17 +158,17 @@ go_game_ptr record_from_stream(QIODevice &isgf, QTextCodec *codec)
     }
     catch (invalid_boardsize &)
     {
-        if (!setting->readBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING"))
+        if (!g_setting->readBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING"))
             QMessageBox::warning(0, PACKAGE, QObject::tr("Unsupported board size in SGF file."));
     }
     catch (broken_sgf &)
     {
-        if (!setting->readBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING"))
+        if (!g_setting->readBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING"))
             QMessageBox::warning(0, PACKAGE, QObject::tr("Errors found in SGF file."));
     }
     catch (...)
     {
-        if (!setting->readBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING"))
+        if (!g_setting->readBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING"))
             QMessageBox::warning(0, PACKAGE, QObject::tr("Error while trying to load SGF file."));
     }
     return nullptr;
@@ -209,18 +209,18 @@ bool open_window_from_file(const QString &filename, QTextCodec *codec)
 std::tuple<go_game_ptr, ArchiveHandlerPtr> open_file_dialog(QWidget *parent)
 {
     QString fileName;
-    if (setting->readIntEntry("FILESEL") == 1)
+    if (g_setting->readIntEntry("FILESEL") == 1)
     {
         QString    geokey = "FILESEL_GEOM_" + screen_key(parent);
-        SGFPreview file_open_dialog(parent, setting->readEntry("LAST_DIR"));
-        QString    saved = setting->readEntry(geokey);
+        SGFPreview file_open_dialog(parent, g_setting->readEntry("LAST_DIR"));
+        QString    saved = g_setting->readEntry(geokey);
         if (!saved.isEmpty())
         {
             QByteArray geometry = QByteArray::fromHex(saved.toLatin1());
             file_open_dialog.restoreGeometry(geometry);
         }
         int result = file_open_dialog.exec();
-        setting->writeEntry(geokey, QString::fromLatin1(file_open_dialog.saveGeometry().toHex()));
+        g_setting->writeEntry(geokey, QString::fromLatin1(file_open_dialog.saveGeometry().toHex()));
         if (result == QDialog::Accepted)
         {
             /* If the file selector successfully loaded a preview, just use
@@ -246,7 +246,7 @@ std::tuple<go_game_ptr, ArchiveHandlerPtr> open_file_dialog(QWidget *parent)
     {
         fileName = QFileDialog::getOpenFileName(parent,
                                                 QObject::tr("Open SGF file"),
-                                                setting->readEntry("LAST_DIR"),
+                                                g_setting->readEntry("LAST_DIR"),
                                                 QObject::tr("All supported files (*.sgf *.zip *.rar *.7z *.qdb);;All "
                                                             "Files (*)"));
         if (fileName.isEmpty())
@@ -254,7 +254,7 @@ std::tuple<go_game_ptr, ArchiveHandlerPtr> open_file_dialog(QWidget *parent)
     }
     QFileInfo fi(fileName);
     if (fi.exists())
-        setting->writeEntry("LAST_DIR", fi.dir().absolutePath());
+        g_setting->writeEntry("LAST_DIR", fi.dir().absolutePath());
     if (fi.suffix().compare("sgf", Qt::CaseInsensitive))
     {
         auto gr = record_from_file(fileName, nullptr);
@@ -274,22 +274,22 @@ go_game_ptr open_db_dialog(QWidget *parent)
 {
     QString fileName;
     QString geokey = "DBDIALOG_GEOM_" + screen_key(parent);
-    if (db_dialog == nullptr)
+    if (g_dbDialog == nullptr)
     {
-        db_dialog = new DBDialog(nullptr);
+        g_dbDialog = new DBDialog(nullptr);
 
-        QString saved = setting->readEntry(geokey);
+        QString saved = g_setting->readEntry(geokey);
         if (!saved.isEmpty())
         {
             QByteArray geometry = QByteArray::fromHex(saved.toLatin1());
-            db_dialog->restoreGeometry(geometry);
+            g_dbDialog->restoreGeometry(geometry);
         }
     }
-    int result = db_dialog->exec();
-    setting->writeEntry(geokey, QString::fromLatin1(db_dialog->saveGeometry().toHex()));
+    int result = g_dbDialog->exec();
+    g_setting->writeEntry(geokey, QString::fromLatin1(g_dbDialog->saveGeometry().toHex()));
     if (result == QDialog::Accepted)
     {
-        go_game_ptr gr = db_dialog->selected_record();
+        go_game_ptr gr = g_dbDialog->selected_record();
         if (gr != nullptr)
         {
             warn_errors(gr);
@@ -303,18 +303,18 @@ go_game_ptr open_db_dialog(QWidget *parent)
 QString open_filename_dialog(QWidget *parent)
 {
     QString fileName;
-    if (setting->readIntEntry("FILESEL") == 1)
+    if (g_setting->readIntEntry("FILESEL") == 1)
     {
         QString    geokey = "FILESEL_GEOM_" + screen_key(parent);
-        SGFPreview file_open_dialog(parent, setting->readEntry("LAST_DIR"));
-        QString    saved = setting->readEntry(geokey);
+        SGFPreview file_open_dialog(parent, g_setting->readEntry("LAST_DIR"));
+        QString    saved = g_setting->readEntry(geokey);
         if (!saved.isEmpty())
         {
             QByteArray geometry = QByteArray::fromHex(saved.toLatin1());
             file_open_dialog.restoreGeometry(geometry);
         }
         int result = file_open_dialog.exec();
-        setting->writeEntry(geokey, QString::fromLatin1(file_open_dialog.saveGeometry().toHex()));
+        g_setting->writeEntry(geokey, QString::fromLatin1(file_open_dialog.saveGeometry().toHex()));
         if (result == QDialog::Accepted)
         {
             QStringList l = file_open_dialog.selected();
@@ -328,7 +328,7 @@ QString open_filename_dialog(QWidget *parent)
     {
         fileName = QFileDialog::getOpenFileName(parent,
                                                 QObject::tr("Open SGF file"),
-                                                setting->readEntry("LAST_DIR"),
+                                                g_setting->readEntry("LAST_DIR"),
                                                 QObject::tr("All supported files (*.sgf *.zip *.rar *.7z *.qdb);;All "
                                                             "Files (*)"));
         if (fileName.isEmpty())
@@ -336,7 +336,7 @@ QString open_filename_dialog(QWidget *parent)
     }
     QFileInfo fi(fileName);
     if (fi.exists())
-        setting->writeEntry("LAST_DIR", fi.dir().absolutePath());
+        g_setting->writeEntry("LAST_DIR", fi.dir().absolutePath());
     return fileName;
 }
 
@@ -597,7 +597,7 @@ int main(int argc, char **argv)
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QApplication myapp(argc, argv);
-    qgo_app = &myapp;
+    g_qGoApp = &myapp;
 
     QCommandLineParser cmdp;
     QCommandLineOption clo_client {{"c", "client"}, QObject::tr("Show the Go server client window (default if no other arguments)")};
@@ -640,14 +640,14 @@ int main(int argc, char **argv)
     // get application path
     qDebug() << "main:qt->PROGRAM.DIRPATH = " << QApplication::applicationDirPath();
 
-    setting = new Setting();
-    setting->loadSettings();
+    g_setting = new Setting();
+    g_setting->loadSettings();
 
     // Load translation
     QTranslator trans(0);
-    QString     lang = setting->getLanguage();
+    QString     lang = g_setting->getLanguage();
     qDebug() << "Checking for language settings..." << lang;
-    QString tr_dir = setting->getTranslationsDirectory(), loc;
+    QString tr_dir = g_setting->getTranslationsDirectory(), loc;
 
     if (lang.isEmpty())
     {
@@ -738,7 +738,7 @@ int main(int argc, char **argv)
         analyze_dialog = new AnalyzeDialog(nullptr, QString());
     analyze_dialog->setVisible(cmdp.isSet(clo_analysis));
 
-    if (setting->getNewVersionWarning())
+    if (g_setting->getNewVersionWarning())
         help_new_version();
 
     auto retval = myapp.exec();
@@ -756,7 +756,7 @@ int main(int argc, char **argv)
 #ifdef OWN_DEBUG_MODE
     delete debug_dialog;
 #endif
-    delete setting;
+    delete g_setting;
 
     return retval;
 }

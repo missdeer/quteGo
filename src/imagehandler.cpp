@@ -726,23 +726,23 @@ void ImageHandler::ghostImage(QImage *img)
 
 void ImageHandler::stone_params_from_settings()
 {
-    m_b_radius  = 2.05 + (100 - setting->readIntEntry("STONES_BROUND")) / 30.0;
-    m_w_radius  = 2.05 + (100 - setting->readIntEntry("STONES_WROUND")) / 30.0;
-    m_b_spec    = setting->readIntEntry("STONES_BSPEC") / 100.0;
-    m_w_spec    = setting->readIntEntry("STONES_WSPEC") / 100.0;
-    m_b_hard    = 1 + setting->readIntEntry("STONES_BHARD") / 10.0;
-    m_w_hard    = 1 + setting->readIntEntry("STONES_WHARD") / 10.0;
-    m_clamshell = setting->readBoolEntry("STONES_STRIPES");
-    m_b_flat    = setting->readIntEntry("STONES_BFLAT");
-    m_w_flat    = setting->readIntEntry("STONES_WFLAT");
-    m_ambient   = setting->readIntEntry("STONES_AMBIENT") / 100.0;
+    m_b_radius  = 2.05 + (100 - g_setting->readIntEntry("STONES_BROUND")) / 30.0;
+    m_w_radius  = 2.05 + (100 - g_setting->readIntEntry("STONES_WROUND")) / 30.0;
+    m_b_spec    = g_setting->readIntEntry("STONES_BSPEC") / 100.0;
+    m_w_spec    = g_setting->readIntEntry("STONES_WSPEC") / 100.0;
+    m_b_hard    = 1 + g_setting->readIntEntry("STONES_BHARD") / 10.0;
+    m_w_hard    = 1 + g_setting->readIntEntry("STONES_WHARD") / 10.0;
+    m_clamshell = g_setting->readBoolEntry("STONES_STRIPES");
+    m_b_flat    = g_setting->readIntEntry("STONES_BFLAT");
+    m_w_flat    = g_setting->readIntEntry("STONES_WFLAT");
+    m_ambient   = g_setting->readIntEntry("STONES_AMBIENT") / 100.0;
 
-    m_look                  = setting->readIntEntry("STONES_LOOK");
-    m_whiteStonePicturePath = setting->readEntry("STONES_WPICTURE");
-    m_blackStonePicturePath = setting->readEntry("STONES_BPICTURE");
-    m_sizePercent           = setting->readIntEntry("STONES_SIZE_PERCENT");
-    QString wcol            = setting->readEntry("STONES_WCOL");
-    QString bcol            = setting->readEntry("STONES_BCOL");
+    m_look                  = g_setting->readIntEntry("STONES_LOOK");
+    m_whiteStonePicturePath = g_setting->readEntry("STONES_WPICTURE");
+    m_blackStonePicturePath = g_setting->readEntry("STONES_BPICTURE");
+    m_sizePercent           = g_setting->readIntEntry("STONES_SIZE_PERCENT");
+    QString wcol            = g_setting->readEntry("STONES_WCOL");
+    QString bcol            = g_setting->readEntry("STONES_BCOL");
     if (wcol.isEmpty())
         m_w_col = QColor(255, 255, 255, 255);
     else

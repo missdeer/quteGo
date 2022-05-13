@@ -75,8 +75,8 @@ ClientWindow::ClientWindow(QMainWindow *parent) : QMainWindow(parent), seekButto
     gamesListSteadyUpdate  = false;
     playerListSteadyUpdate = false;
     autoAwayMessage        = false;
-    watch                  = ";" + setting->readEntry("WATCH") + ";";
-    exclude                = ";" + setting->readEntry("EXCLUDE") + ";";
+    watch                  = ";" + g_setting->readEntry("WATCH") + ";";
+    exclude                = ";" + g_setting->readEntry("EXCLUDE") + ";";
     // statistics
     bytesIn         = 0;
     bytesOut        = 0;
@@ -110,18 +110,18 @@ ClientWindow::ClientWindow(QMainWindow *parent) : QMainWindow(parent), seekButto
     // Sets toolbar
     initToolBar(); // end add eb 5
 
-    populate_cbconnect(setting->readEntry("ACTIVEHOST"));
+    populate_cbconnect(g_setting->readEntry("ACTIVEHOST"));
 
     // restore players list filters
-    whoBox1->setCurrentIndex(setting->readIntEntry("WHO_1"));
-    whoBox2->setCurrentIndex(setting->readIntEntry("WHO_2"));
-    whoOpenCheck->setChecked(setting->readIntEntry("WHO_CB"));
+    whoBox1->setCurrentIndex(g_setting->readIntEntry("WHO_1"));
+    whoBox2->setCurrentIndex(g_setting->readIntEntry("WHO_2"));
+    whoOpenCheck->setChecked(g_setting->readIntEntry("WHO_CB"));
 
     QString s;
 
     // restore size of client window
     QString scrkey = screen_key(this);
-    s              = setting->readEntry("CLIENTWINDOW_" + scrkey);
+    s              = g_setting->readEntry("CLIENTWINDOW_" + scrkey);
     if (s.length() > 5)
     {
         QPoint p;
@@ -135,7 +135,7 @@ ClientWindow::ClientWindow(QMainWindow *parent) : QMainWindow(parent), seekButto
     }
 
     // restore splitter in client window
-    s = setting->readEntry("CLIENTSPLITTER_" + scrkey);
+    s = g_setting->readEntry("CLIENTSPLITTER_" + scrkey);
     if (s.length() > 5)
     {
         QList<int> w1, h1, w2;
@@ -149,7 +149,7 @@ ClientWindow::ClientWindow(QMainWindow *parent) : QMainWindow(parent), seekButto
     }
 
     // restore size of debug window
-    s = setting->readEntry("DEBUGWINDOW");
+    s = g_setting->readEntry("DEBUGWINDOW");
     if (s.length() > 5)
     {
         view_p.setX(s.section(DELIMITER, 0, 0).toInt());
@@ -164,7 +164,7 @@ ClientWindow::ClientWindow(QMainWindow *parent) : QMainWindow(parent), seekButto
     }
 
     // restore size of preferences window
-    s = setting->readEntry("PREFWINDOW");
+    s = g_setting->readEntry("PREFWINDOW");
     if (s.length() > 5)
     {
         pref_p.setX(s.section(DELIMITER, 0, 0).toInt());
@@ -452,7 +452,7 @@ void ClientWindow::slot_connect(bool b)
         int idx = cb_connect->currentIndex();
         if (idx == -1)
             return;
-        const Host &h = setting->m_hosts[idx];
+        const Host &h = g_setting->m_hosts[idx];
 
         // create instance of telnetConnection
         if (!telnetConnection)
@@ -500,7 +500,7 @@ void ClientWindow::slot_connclosed()
     qDebug("slot_connclosed()");
     qDebug() << statusOnlineTime->text() << " -> slot_connclosed()";
 
-    qgo->playConnectSound();
+    g_quteGo->playConnectSound();
 
     auto saved_list = matchlist;
     matchlist.clear();
@@ -521,36 +521,36 @@ void ClientWindow::slot_connclosed()
 void ClientWindow::saveSettings()
 {
     // save current connection if at least one host exists
-    if (setting->m_hosts.size() > 0)
-        setting->writeEntry("ACTIVEHOST", cb_connect->currentText());
+    if (g_setting->m_hosts.size() > 0)
+        g_setting->writeEntry("ACTIVEHOST", cb_connect->currentText());
 
     QString scrkey = screen_key(this);
-    setting->writeEntry("CLIENTWINDOW_" + scrkey,
+    g_setting->writeEntry("CLIENTWINDOW_" + scrkey,
                         QString::number(pos().x()) + DELIMITER + QString::number(pos().y()) + DELIMITER + QString::number(size().width()) +
                             DELIMITER + QString::number(size().height()));
-    setting->writeEntry("CLIENTSPLITTER_" + scrkey,
+    g_setting->writeEntry("CLIENTSPLITTER_" + scrkey,
                         QString::number(s1->sizes().first()) + DELIMITER + QString::number(s1->sizes().last()) + DELIMITER +
                             QString::number(s2->sizes().first()) + DELIMITER + QString::number(s2->sizes().last()) + DELIMITER +
                             QString::number(s3->sizes().first()) + DELIMITER + QString::number(s3->sizes().last()));
 
     if (debug_dialog->isVisible())
-        setting->writeEntry("DEBUGWINDOW",
+        g_setting->writeEntry("DEBUGWINDOW",
                             QString::number(debug_dialog->pos().x()) + DELIMITER + QString::number(debug_dialog->pos().y()) + DELIMITER +
                                 QString::number(debug_dialog->size().width()) + DELIMITER + QString::number(debug_dialog->size().height()));
 
     if (pref_s.width() > 0)
-        setting->writeEntry("PREFWINDOW",
+        g_setting->writeEntry("PREFWINDOW",
                             QString::number(pref_p.x()) + DELIMITER + QString::number(pref_p.y()) + DELIMITER + QString::number(pref_s.width()) +
                                 DELIMITER + QString::number(pref_s.height()));
 
-    setting->writeBoolEntry("EXTUSERINFO", extUserInfo);
+    g_setting->writeBoolEntry("EXTUSERINFO", extUserInfo);
 
-    setting->writeIntEntry("WHO_1", whoBox1->currentIndex());
-    setting->writeIntEntry("WHO_2", whoBox2->currentIndex());
-    setting->writeBoolEntry("WHO_CB", whoOpenCheck->isChecked());
+    g_setting->writeIntEntry("WHO_1", whoBox1->currentIndex());
+    g_setting->writeIntEntry("WHO_2", whoBox2->currentIndex());
+    g_setting->writeBoolEntry("WHO_CB", whoOpenCheck->isChecked());
 
     // write settings to file
-    setting->saveSettings();
+    g_setting->saveSettings();
 }
 
 // close application
@@ -653,7 +653,7 @@ void ClientWindow::sendTextToApp(const QString &txt)
 
             // we wanted to allow user to disable 'nmatch', but IGS disables 'seek'
             // with nmatch
-            if (1 || setting->readBoolEntry("USE_NMATCH"))
+            if (1 || g_setting->readBoolEntry("USE_NMATCH"))
             {
                 set_sessionparameter("nmatch", true);
                 // temporaary settings to prevent use of Koryo BY on IGS (as opposed to
@@ -711,7 +711,7 @@ void ClientWindow::sendTextToApp(const QString &txt)
         // init shouts
         slot_talk("Shouts*", {}, false);
 
-        qgo->playConnectSound();
+        g_quteGo->playConnectSound();
         break;
 
         // end of 'who'/'user' cmd
@@ -988,7 +988,7 @@ void ClientWindow::populate_cbconnect(const QString &prev_text)
 {
     // refill combobox
     cb_connect->clear();
-    for (auto &h : setting->m_hosts)
+    for (auto &h : g_setting->m_hosts)
     {
         cb_connect->addItem(h.title);
         if (h.title == prev_text)
@@ -997,7 +997,7 @@ void ClientWindow::populate_cbconnect(const QString &prev_text)
             slot_cbconnect(prev_text);
         }
     }
-    if (setting->m_hosts.size() > 0 && cb_connect->currentIndex() == -1)
+    if (g_setting->m_hosts.size() > 0 && cb_connect->currentIndex() == -1)
     {
         cb_connect->setCurrentIndex(0);
         slot_cbconnect(cb_connect->currentText());
@@ -1114,39 +1114,39 @@ void ClientWindow::setColumnsForExtUserInfo()
 // switch between 'who' and 'user' cmds
 void ClientWindow::slot_cbExtUserInfo()
 {
-    extUserInfo = setting->readBoolEntry("EXTUSERINFO");
+    extUserInfo = g_setting->readBoolEntry("EXTUSERINFO");
     setColumnsForExtUserInfo();
 }
 
 void ClientWindow::update_font()
 {
     // lists
-    ListView_players->setFont(setting->fontLists);
-    ListView_games->setFont(setting->fontLists);
+    ListView_players->setFont(g_setting->fontLists);
+    ListView_games->setFont(g_setting->fontLists);
 
     // comment fields
     QTextCursor c = MultiLineEdit2->textCursor();
     MultiLineEdit2->selectAll();
-    MultiLineEdit2->setCurrentFont(setting->fontConsole);
+    MultiLineEdit2->setCurrentFont(g_setting->fontConsole);
     MultiLineEdit2->setTextCursor(c);
-    MultiLineEdit2->setCurrentFont(setting->fontConsole);
+    MultiLineEdit2->setCurrentFont(g_setting->fontConsole);
 
-    MultiLineEdit3->setCurrentFont(setting->fontComments);
-    cb_cmdLine->setFont(setting->fontComments);
+    MultiLineEdit3->setCurrentFont(g_setting->fontComments);
+    cb_cmdLine->setFont(g_setting->fontComments);
 
     // standard
-    setFont(setting->fontStandard);
+    setFont(g_setting->fontStandard);
 
     // init menu
-    viewToolBar->setChecked(setting->readBoolEntry("MAINTOOLBAR"));
-    if (setting->readBoolEntry("MAINMENUBAR"))
+    viewToolBar->setChecked(g_setting->readBoolEntry("MAINTOOLBAR"));
+    if (g_setting->readBoolEntry("MAINMENUBAR"))
     {
         viewMenuBar->setChecked(false);
         viewMenuBar->setChecked(true);
     }
-    viewStatusBar->setChecked(setting->readBoolEntry("MAINSTATUSBAR"));
+    viewStatusBar->setChecked(g_setting->readBoolEntry("MAINSTATUSBAR"));
 
-    extUserInfo = setting->readBoolEntry("EXTUSERINFO");
+    extUserInfo = g_setting->readBoolEntry("EXTUSERINFO");
     setColumnsForExtUserInfo();
 }
 
@@ -1365,7 +1365,7 @@ void ClientWindow::slot_matchrequest(const QString &line, bool myrequest)
         opponent = line.section(' ', 1, 1);
 
         // play sound
-        qgo->playMatchSound();
+        g_quteGo->playMatchSound();
     }
     else
     {
@@ -1466,10 +1466,10 @@ void ClientWindow::slot_matchrequest(const QString &line, bool myrequest)
         dlg->play_nigiri_button->setEnabled(is_nmatch);
 
         // default settings
-        dlg->boardSizeSpin->setValue(setting->readIntEntry("DEFAULT_SIZE"));
-        dlg->timeSpin->setValue(setting->readIntEntry("DEFAULT_TIME"));
-        dlg->byoTimeSpin->setValue(setting->readIntEntry("DEFAULT_BY"));
-        dlg->komiSpin->setValue(setting->readIntEntry("DEFAULT_KOMI") + 0.5);
+        dlg->boardSizeSpin->setValue(g_setting->readIntEntry("DEFAULT_SIZE"));
+        dlg->timeSpin->setValue(g_setting->readIntEntry("DEFAULT_TIME"));
+        dlg->byoTimeSpin->setValue(g_setting->readIntEntry("DEFAULT_BY"));
+        dlg->komiSpin->setValue(g_setting->readIntEntry("DEFAULT_KOMI") + 0.5);
 
         dlg->slot_pbsuggest();
     }
@@ -1548,7 +1548,7 @@ int ClientWindow::toggle_player_state(const char *list, const QString &symbol)
 {
     int change = 0;
     // toggle watch list
-    QString cpy = setting->readEntry(list).simplified() + ";";
+    QString cpy = g_setting->readEntry(list).simplified() + ";";
     QString line;
     QString name;
     bool    found = false;
@@ -1593,7 +1593,7 @@ int ClientWindow::toggle_player_state(const char *list, const QString &symbol)
         }
     }
 
-    setting->writeEntry(list, line);
+    g_setting->writeEntry(list, line);
 
     lv_popupPlayer->update_player(p);
     return change;
@@ -1886,7 +1886,7 @@ void ClientWindow::slot_talk(const QString &name, const QString &text, bool ispl
     // play a sound - not for shouts
     if (((text.startsWith('>') && bonus) || !dlg->lineedit_has_focus()) && !name.contains('*'))
     {
-        qgo->playTalkSound();
+        g_quteGo->playTalkSound();
         dlg->append_to_mle("");
 
         // write time stamp
@@ -1894,7 +1894,7 @@ void ClientWindow::slot_talk(const QString &name, const QString &text, bool ispl
     }
     else if (name == tr("msg*"))
     {
-        qgo->playTalkSound();
+        g_quteGo->playTalkSound();
         dlg->append_to_mle("");
 
         // write time stamp
@@ -2063,8 +2063,8 @@ void ClientWindow::initActions()
     /*
      * Menu Help
      */
-    connect(helpManual, &QAction::triggered, [=](bool) { qgo->openManual(QUrl("index.html")); });
-    connect(helpReadme, &QAction::triggered, [=](bool) { qgo->openManual(QUrl("readme.html")); });
+    connect(helpManual, &QAction::triggered, [=](bool) { g_quteGo->openManual(QUrl("index.html")); });
+    connect(helpReadme, &QAction::triggered, [=](bool) { g_quteGo->openManual(QUrl("readme.html")); });
     /* There isn't actually a manual.  Well, there is, but it's outdated and we
      * don't ship it.  */
     helpManual->setVisible(false);
@@ -2119,7 +2119,7 @@ void ClientWindow::slotFileOpenDB(bool)
 
 Engine *ClientWindow::analysis_engine(int boardsize)
 {
-    for (auto &e : setting->m_engines)
+    for (auto &e : g_setting->m_engines)
     {
         if (e.analysis && e.boardsize.toInt() == boardsize)
             return &e;
@@ -2130,7 +2130,7 @@ Engine *ClientWindow::analysis_engine(int boardsize)
 QList<Engine> ClientWindow::analysis_engines(int boardsize)
 {
     QList<Engine> l;
-    for (auto &e : setting->m_engines)
+    for (auto &e : g_setting->m_engines)
     {
         if (e.analysis && e.boardsize.toInt() == boardsize)
             l.append(e);
@@ -2140,7 +2140,7 @@ QList<Engine> ClientWindow::analysis_engines(int boardsize)
 
 void ClientWindow::slotComputerPlay(bool)
 {
-    if (setting->m_engines.size() == 0)
+    if (g_setting->m_engines.size() == 0)
     {
         QMessageBox::warning(this, PACKAGE, tr("You did not configure any engines!"));
         dlgSetPreferences(3);
@@ -2152,7 +2152,7 @@ void ClientWindow::slotComputerPlay(bool)
         return;
 
     int                          eidx   = dlg.engine_index();
-    const Engine                &engine = setting->m_engines[eidx];
+    const Engine                &engine = g_setting->m_engines[eidx];
     int                          hc     = dlg.handicap();
     game_info                    info   = dlg.create_game_info();
     std::shared_ptr<game_record> gr;
@@ -2176,7 +2176,7 @@ void ClientWindow::slotComputerPlay(bool)
 
 void ClientWindow::slotTwoEnginePlay(bool)
 {
-    if (setting->m_engines.size() == 0)
+    if (g_setting->m_engines.size() == 0)
     {
         QMessageBox::warning(this, PACKAGE, tr("You did not configure any engines!"));
         dlgSetPreferences(3);
@@ -2189,8 +2189,8 @@ void ClientWindow::slotTwoEnginePlay(bool)
 
     int                          w_eidx   = dlg.engine_index(white);
     int                          b_eidx   = dlg.engine_index(black);
-    const Engine                &engine_w = setting->m_engines[w_eidx];
-    const Engine                &engine_b = setting->m_engines[b_eidx];
+    const Engine                &engine_w = g_setting->m_engines[w_eidx];
+    const Engine                &engine_b = g_setting->m_engines[b_eidx];
     int                          hc       = dlg.handicap();
     game_info                    info     = dlg.create_game_info();
     std::shared_ptr<game_record> gr;
@@ -2235,7 +2235,7 @@ void ClientWindow::slotViewStatusBar(bool toggle)
     else
         statusBar()->show();
 
-    setting->writeBoolEntry("MAINSTATUSBAR", toggle);
+    g_setting->writeBoolEntry("MAINSTATUSBAR", toggle);
 
     statusBar()->showMessage(tr("Ready."));
 }
@@ -2248,7 +2248,7 @@ void ClientWindow::slotViewMenuBar(bool toggle)
 	else
 		menuBar->show();
 #endif
-    setting->writeBoolEntry("MAINMENUBAR", toggle);
+    g_setting->writeBoolEntry("MAINMENUBAR", toggle);
 
     statusBar()->showMessage(tr("Ready."));
 }
@@ -2260,7 +2260,7 @@ void ClientWindow::slotViewToolBar(bool toggle)
     else
         Toolbar->show();
 
-    setting->writeBoolEntry("MAINTOOLBAR", toggle);
+    g_setting->writeBoolEntry("MAINTOOLBAR", toggle);
 
     statusBar()->showMessage(tr("Ready."));
 }
@@ -2427,21 +2427,21 @@ void ClientWindow::send_nmatch_range_parameters()
         return;
 
     QString c = "nmatchrange ";
-    c.append(setting->readBoolEntry("NMATCH_BLACK") ? "B" : "");
-    c.append(setting->readBoolEntry("NMATCH_WHITE") ? "W" : "");
-    c.append(setting->readBoolEntry("NMATCH_NIGIRI") ? "N" : "");
+    c.append(g_setting->readBoolEntry("NMATCH_BLACK") ? "B" : "");
+    c.append(g_setting->readBoolEntry("NMATCH_WHITE") ? "W" : "");
+    c.append(g_setting->readBoolEntry("NMATCH_NIGIRI") ? "N" : "");
     c.append(" 0-");
-    c.append(QString::number(setting->readIntEntry("NMATCH_HANDICAP")));
+    c.append(QString::number(g_setting->readIntEntry("NMATCH_HANDICAP")));
     c.append(" ");
-    c.append(QString::number(setting->readIntEntry("DEFAULT_SIZE")));
+    c.append(QString::number(g_setting->readIntEntry("DEFAULT_SIZE")));
     c.append("-19 ");
-    c.append(QString::number(setting->readIntEntry("DEFAULT_TIME") * 60));
+    c.append(QString::number(g_setting->readIntEntry("DEFAULT_TIME") * 60));
     c.append("-");
-    c.append(QString::number(setting->readIntEntry("NMATCH_MAIN_TIME") * 60));
+    c.append(QString::number(g_setting->readIntEntry("NMATCH_MAIN_TIME") * 60));
     c.append(" ");
-    c.append(QString::number(setting->readIntEntry("DEFAULT_BY") * 60));
+    c.append(QString::number(g_setting->readIntEntry("DEFAULT_BY") * 60));
     c.append("-");
-    c.append(QString::number(setting->readIntEntry("NMATCH_BYO_TIME") * 60));
+    c.append(QString::number(g_setting->readIntEntry("NMATCH_BYO_TIME") * 60));
     c.append(" 25-25 0 0 0-0");
 
     sendcommand(c, true);
@@ -2462,27 +2462,27 @@ void ClientWindow::dlgSetPreferences(int tab)
 
 bool ClientWindow::preferencesAccept()
 {
-    if (setting->engines_changed)
+    if (g_setting->engines_changed)
     {
         analyze_dialog->update_engines();
     }
 
     // Update all boards with settings
-    qgo->updateAllBoardSettings();
+    g_quteGo->updateAllBoardSettings();
     update_font();
 
-    if (db_dialog != nullptr)
-        db_dialog->update_prefs();
+    if (g_dbDialog != nullptr)
+        g_dbDialog->update_prefs();
 
-    if (setting->nmatch_settings_modified)
+    if (g_setting->nmatch_settings_modified)
     {
         send_nmatch_range_parameters();
-        setting->nmatch_settings_modified = false;
+        g_setting->nmatch_settings_modified = false;
     }
-    if (setting->hosts_changed)
+    if (g_setting->hosts_changed)
     {
         populate_cbconnect(cb_connect->currentText());
-        setting->hosts_changed = false;
+        g_setting->hosts_changed = false;
     }
     return true; // result;
 }

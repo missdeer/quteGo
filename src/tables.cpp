@@ -372,7 +372,7 @@ void ClientWindow::slot_player(Player *p, bool cmdplayers)
 
             // sound for entering - no sound while "who" cmd is executing
             if (!cmdplayers)
-                qgo->playEnterSound();
+                g_quteGo->playEnterSound();
             else if (p->name == myAccount->acc_name)
                 // it's me
                 // - only possible if 'who'/'user' cmd is executing
@@ -439,7 +439,7 @@ void ClientWindow::slot_player(Player *p, bool cmdplayers)
                 // check if it was a watched player
                 if (lvi->text(6) == "W")
                 {
-                    qgo->playLeaveSound();
+                    g_quteGo->playLeaveSound();
                     myAccount->num_watchedplayers--;
                 }
 
@@ -770,8 +770,8 @@ Talk::Talk(const QString &playername, QWidget *parent, bool isplayer) : QDialog(
     m_name = playername;
 
     // create a new tab
-    MultiLineEdit1->setCurrentFont(setting->fontComments);
-    LineEdit1->setFont(setting->fontComments);
+    MultiLineEdit1->setCurrentFont(g_setting->fontComments);
+    LineEdit1->setFont(g_setting->fontComments);
 
     // do not add a button for shouts* or channels tab
     if (m_name.indexOf('*') != -1 || !isplayer)

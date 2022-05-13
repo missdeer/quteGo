@@ -130,7 +130,7 @@ void DBDialog::db_model::populate_list()
     beginResetModel();
     m_all_entries.clear();
     m_entries.clear();
-    for (auto &it : setting->m_dbpaths)
+    for (auto &it : g_setting->m_dbpaths)
     {
         QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
         QDir         dbdir(it);
@@ -198,9 +198,9 @@ void DBDialog::db_model::populate_list()
 
 void DBDialog::update_prefs()
 {
-    if (!setting->dbpaths_changed)
+    if (!g_setting->dbpaths_changed)
         return;
-    setting->dbpaths_changed = false;
+    g_setting->dbpaths_changed = false;
     m_model.populate_list();
     gameNumLabel->setText(m_model.status_string());
 }

@@ -193,23 +193,23 @@ MainWindow::MainWindow(QWidget *parent, go_game_ptr gr, ArchiveHandlerPtr archiv
     if (!gr->filename().empty())
     {
         QFileInfo fi(QString::fromStdString(gr->filename()));
-        setting->writeEntry("LAST_DIR", fi.dir().absolutePath());
+        g_setting->writeEntry("LAST_DIR", fi.dir().absolutePath());
     }
 
-    local_stone_sound = setting->readBoolEntry(mode == modeMatch                               ? "SOUND_MATCH_BOARD"
-                                               : mode == modeObserve || mode == modeObserveGTP ? "SOUND_OBSERVE"
-                                               : mode == modeComputer                          ? "SOUND_COMPUTER"
-                                                                                               : "SOUND_NORMAL");
+    local_stone_sound = g_setting->readBoolEntry(mode == modeMatch                               ? "SOUND_MATCH_BOARD"
+                                                 : mode == modeObserve || mode == modeObserveGTP ? "SOUND_OBSERVE"
+                                                 : mode == modeComputer                          ? "SOUND_COMPUTER"
+                                                                                                 : "SOUND_NORMAL");
 
     int game_style  = m_game->style();
     m_sgf_var_style = false;
     if (game_style != -1)
     {
-        int allow     = setting->readIntEntry("VAR_SGF_STYLE");
+        int allow     = g_setting->readIntEntry("VAR_SGF_STYLE");
         int our_style = 0;
-        if (setting->readIntEntry("VAR_GHOSTS") == 0)
+        if (g_setting->readIntEntry("VAR_GHOSTS") == 0)
             our_style |= 2;
-        if (!setting->readBoolEntry("VAR_CHILDREN"))
+        if (!g_setting->readBoolEntry("VAR_CHILDREN"))
             our_style |= 1;
         if (our_style == game_style && allow != 1)
         {
@@ -243,10 +243,10 @@ MainWindow::MainWindow(QWidget *parent, go_game_ptr gr, ArchiveHandlerPtr archiv
     /* Only ever shown if this is opened through slot_editBoardInNewWindow.  */
     refreshButton->setVisible(false);
 
-    viewStatusBar->setChecked(setting->readBoolEntry("STATUSBAR"));
-    viewMenuBar->setChecked(setting->readBoolEntry("MENUBAR"));
+    viewStatusBar->setChecked(g_setting->readBoolEntry("STATUSBAR"));
+    viewMenuBar->setChecked(g_setting->readBoolEntry("MENUBAR"));
 
-    if (setting->readBoolEntry("SIDEBAR_LEFT"))
+    if (g_setting->readBoolEntry("SIDEBAR_LEFT"))
         slotViewLeftSidebar();
 
     commentEdit->setWordWrapMode(QTextOption::WordWrap);
@@ -259,7 +259,7 @@ MainWindow::MainWindow(QWidget *parent, go_game_ptr gr, ArchiveHandlerPtr archiv
     normalTools->show();
     scoreTools->hide();
 
-    showSlider = setting->readBoolEntry("SLIDER");
+    showSlider = g_setting->readBoolEntry("SLIDER");
     sliderWidget->setVisible(showSlider);
     slider->setMaximum(SLIDER_INIT);
     sliderRightLabel->setText(QString::number(SLIDER_INIT));
@@ -357,7 +357,7 @@ MainWindow::MainWindow(QWidget *parent, go_game_ptr gr, ArchiveHandlerPtr archiv
        if one was saved.  */
     restoreWindowLayout(true, opener_scrkey);
 
-    int figuremode = setting->readIntEntry("BOARD_DIAGMODE");
+    int figuremode = g_setting->readIntEntry("BOARD_DIAGMODE");
     if (figuremode == 1 && m_game->get_root()->has_figure_recursive())
         figuremode = 2;
     diagsDock->setVisible(figuremode == 2 || mode == modeBatch);
@@ -389,8 +389,8 @@ MainWindow::MainWindow(QWidget *parent, go_game_ptr gr, ArchiveHandlerPtr archiv
     m_allow_text_update_signal = true;
 
     update_analysis(analyzer::disconnected);
-    viewNumbers->setChecked(setting->readBoolEntry("SHOW_MOVE_NUMBER"));
-    slotViewMoveNumbers(setting->readBoolEntry("SHOW_MOVE_NUMBER"));
+    viewNumbers->setChecked(g_setting->readBoolEntry("SHOW_MOVE_NUMBER"));
+    slotViewMoveNumbers(g_setting->readBoolEntry("SHOW_MOVE_NUMBER"));
     main_window_list.push_back(this);
 }
 
@@ -420,10 +420,10 @@ void MainWindow::init_game_record(go_game_ptr gr)
     updateCaption();
     update_game_record();
 
-    bool disable_rect = (b.torus_h() || b.torus_v()) && setting->readIntEntry("TOROID_DUPS") > 0;
+    bool disable_rect = (b.torus_h() || b.torus_v()) && g_setting->readIntEntry("TOROID_DUPS") > 0;
     editRectSelect->setEnabled(!disable_rect);
 
-    int figuremode = setting->readIntEntry("BOARD_DIAGMODE");
+    int figuremode = g_setting->readIntEntry("BOARD_DIAGMODE");
     if (!diagsDock->isVisible() && figuremode == 1 && root->has_figure_recursive())
     {
         diagsDock->show();
@@ -554,67 +554,67 @@ void MainWindow::initActions()
     connect(navBackward, &QAction::triggered, [=]() {
         gfx_board->previous_move();
         if (local_stone_sound)
-            qgo->playStoneSound();
+            g_quteGo->playStoneSound();
     });
     connect(navForward, &QAction::triggered, [=]() {
         gfx_board->next_move();
         if (local_stone_sound)
-            qgo->playStoneSound();
+            g_quteGo->playStoneSound();
     });
     connect(navFirst, &QAction::triggered, [=]() {
         gfx_board->goto_first_move();
         if (local_stone_sound)
-            qgo->playStoneSound();
+            g_quteGo->playStoneSound();
     });
     connect(navLast, &QAction::triggered, [=]() {
         gfx_board->goto_last_move();
         if (local_stone_sound)
-            qgo->playStoneSound();
+            g_quteGo->playStoneSound();
     });
     connect(navPrevVar, &QAction::triggered, [=]() {
         gfx_board->previous_variation();
         if (local_stone_sound)
-            qgo->playStoneSound();
+            g_quteGo->playStoneSound();
     });
     connect(navNextVar, &QAction::triggered, [=]() {
         gfx_board->next_variation();
         if (local_stone_sound)
-            qgo->playStoneSound();
+            g_quteGo->playStoneSound();
     });
     connect(navMainBranch, &QAction::triggered, [=]() {
         gfx_board->goto_main_branch();
         if (local_stone_sound)
-            qgo->playStoneSound();
+            g_quteGo->playStoneSound();
     });
     connect(navStartVar, &QAction::triggered, [=]() {
         gfx_board->goto_var_start();
         if (local_stone_sound)
-            qgo->playStoneSound();
+            g_quteGo->playStoneSound();
     });
     connect(navNextBranch, &QAction::triggered, [=]() {
         gfx_board->goto_next_branch();
         if (local_stone_sound)
-            qgo->playStoneSound();
+            g_quteGo->playStoneSound();
     });
     connect(navPrevComment, &QAction::triggered, [=]() {
         gfx_board->previous_comment();
         if (local_stone_sound)
-            qgo->playStoneSound();
+            g_quteGo->playStoneSound();
     });
     connect(navNextComment, &QAction::triggered, [=]() {
         gfx_board->next_comment();
         if (local_stone_sound)
-            qgo->playStoneSound();
+            g_quteGo->playStoneSound();
     });
     connect(navPrevFigure, &QAction::triggered, [=]() {
         gfx_board->previous_figure();
         if (local_stone_sound)
-            qgo->playStoneSound();
+            g_quteGo->playStoneSound();
     });
     connect(navNextFigure, &QAction::triggered, [=]() {
         gfx_board->next_figure();
         if (local_stone_sound)
-            qgo->playStoneSound();
+            g_quteGo->playStoneSound();
     });
 
     connect(navNthMove, &QAction::triggered, this, &MainWindow::slotNavNthMove);
@@ -668,8 +668,8 @@ void MainWindow::initActions()
     connect(anPlay, &QAction::triggered, this, &MainWindow::slotPlayFromHere);
 
     /* Help menu.  */
-    connect(helpManual, &QAction::triggered, [=](bool) { qgo->openManual(QUrl("index.html")); });
-    connect(helpReadme, &QAction::triggered, [=](bool) { qgo->openManual(QUrl("readme.html")); });
+    connect(helpManual, &QAction::triggered, [=](bool) { g_quteGo->openManual(QUrl("index.html")); });
+    connect(helpReadme, &QAction::triggered, [=](bool) { g_quteGo->openManual(QUrl("readme.html")); });
     /* There isn't actually a manual.  Well, there is, but it's outdated and we
      * don't ship it.  */
     helpManual->setVisible(false);
@@ -945,7 +945,7 @@ bool MainWindow::slotFileSave(bool)
     QString fileName = QString::fromStdString(m_game->filename());
     if (fileName.isEmpty())
     {
-        fileName = setting->readEntry("LAST_DIR");
+        fileName = g_setting->readEntry("LAST_DIR");
         return doSave(fileName, false);
     }
     else
@@ -979,7 +979,7 @@ bool MainWindow::doSave(QString fileName, bool force)
             fileName = get_candidate_filename(fileName, *m_game);
         else if (fileName.isNull() || fileName.isEmpty())
         {
-            QString dir = setting->readEntry("LAST_DIR");
+            QString dir = g_setting->readEntry("LAST_DIR");
 
             fileName = get_candidate_filename(dir, *m_game);
         }
@@ -1092,7 +1092,7 @@ void MainWindow::slotFileExportPic(bool)
     QString filter;
     QString fileName = QFileDialog::getSaveFileName(this,
                                                     tr("Export image as"),
-                                                    setting->readEntry("LAST_DIR"),
+                                                    g_setting->readEntry("LAST_DIR"),
                                                     "PNG (*.png);;BMP (*.bmp);;XPM (*.xpm);;XBM (*.xbm);;PNM (*.pnm);;GIF "
                                                     "(*.gif);;JPG (*.jpg);;MNG (*.mng)",
                                                     &filter);
@@ -1177,7 +1177,7 @@ void MainWindow::slotPlayFromHere(bool)
         return;
 
     int                          eidx     = dlg.engine_index();
-    const Engine                &engine   = setting->m_engines[eidx];
+    const Engine                &engine   = g_setting->m_engines[eidx];
     std::shared_ptr<game_record> gr       = std::make_shared<game_record>(*m_game);
     game_state                  *curr_pos = gfx_board->displayed();
     game_state                  *st       = gr->get_root()->follow_path(curr_pos->path_from_root());
@@ -1393,11 +1393,11 @@ void MainWindow::update_settings()
 {
     update_font();
 
-    viewCoords->setChecked(setting->readBoolEntry("BOARD_COORDS"));
-    gfx_board->set_sgf_coords(setting->readBoolEntry("SGF_BOARD_COORDS"));
+    viewCoords->setChecked(g_setting->readBoolEntry("BOARD_COORDS"));
+    gfx_board->set_sgf_coords(g_setting->readBoolEntry("SGF_BOARD_COORDS"));
 
-    int  ghosts   = setting->readIntEntry("VAR_GHOSTS");
-    bool children = setting->readBoolEntry("VAR_CHILDREN");
+    int  ghosts   = g_setting->readIntEntry("VAR_GHOSTS");
+    bool children = g_setting->readBoolEntry("VAR_CHILDREN");
     int  style    = m_game->style();
 
     /* Should never have the first condition and not the second, but it doesn't
@@ -1430,7 +1430,7 @@ void MainWindow::update_settings()
     slotViewLeftSidebar();
 
     const go_board &b            = m_game->get_root()->get_board();
-    bool            disable_rect = (b.torus_h() || b.torus_v()) && setting->readIntEntry("TOROID_DUPS") > 0;
+    bool            disable_rect = (b.torus_h() || b.torus_v()) && g_setting->readIntEntry("TOROID_DUPS") > 0;
     editRectSelect->setEnabled(!disable_rect);
 
     gameTreeView->update_prefs();
@@ -1438,7 +1438,7 @@ void MainWindow::update_settings()
     if (slideView != nullptr)
         slideView->update_prefs();
 
-    if (setting->engines_changed)
+    if (g_setting->engines_changed)
         populate_engines_menu();
 }
 
@@ -1484,7 +1484,7 @@ void MainWindow::slotSetGameInfo(bool)
 void MainWindow::slotViewMenuBar(bool toggle)
 {
     menuBar()->setVisible(toggle);
-    setting->writeBoolEntry("MENUBAR", toggle);
+    g_setting->writeBoolEntry("MENUBAR", toggle);
 
     statusBar()->showMessage(tr("Ready."));
 }
@@ -1492,7 +1492,7 @@ void MainWindow::slotViewMenuBar(bool toggle)
 void MainWindow::slotViewStatusBar(bool toggle)
 {
     statusBar()->setVisible(toggle);
-    setting->writeBoolEntry("STATUSBAR", toggle);
+    g_setting->writeBoolEntry("STATUSBAR", toggle);
 
     statusBar()->showMessage(tr("Ready."));
 }
@@ -1533,7 +1533,7 @@ void MainWindow::slotViewLeftSidebar()
     mainGridLayout->removeWidget(boardFrame);
     mainGridLayout->removeWidget(toolsFrame);
 
-    if (setting->readBoolEntry("SIDEBAR_LEFT"))
+    if (g_setting->readBoolEntry("SIDEBAR_LEFT"))
     {
         mainGridLayout->addWidget(toolsFrame, 0, 0, 2, 1);
         mainGridLayout->addWidget(boardFrame, 0, 1, 2, 1);
@@ -1548,7 +1548,7 @@ void MainWindow::slotViewLeftSidebar()
 void MainWindow::slotViewSidebar(bool toggle)
 {
     toggleSidebar(toggle);
-    setting->writeBoolEntry("SIDEBAR", toggle);
+    g_setting->writeBoolEntry("SIDEBAR", toggle);
 
     statusBar()->showMessage(tr("Ready."));
 }
@@ -1691,7 +1691,6 @@ QString MainWindow::visible_panes_key()
     v += graphDock->isVisibleTo(this) ? "1" : "0";
     v += commentsDock->isVisibleTo(this) ? "1" : "0";
     v += observersDock->isVisibleTo(this) ? "1" : "0";
-    v += archiveDock->isVisibleTo(this) ? "1" : "0";
     return v;
 }
 
@@ -1702,7 +1701,6 @@ void MainWindow::restore_visibility_from_key(const QString &v)
     graphDock->setVisible(v[2] == '1');
     commentsDock->setVisible(v[3] == '1');
     observersDock->setVisible(v[4] == '1');
-    archiveDock->setVisible(v[5] == '1');
 }
 
 void MainWindow::saveWindowLayout(bool dflt)
@@ -1714,18 +1712,18 @@ void MainWindow::saveWindowLayout(bool dflt)
         strKey += "_" + panesKey;
 
     // store window size, format, comment format
-    setting->writeBoolEntry("BOARDFULLSCREEN_" + strKey, isFullScreen);
+    g_setting->writeBoolEntry("BOARDFULLSCREEN_" + strKey, isFullScreen);
 
     QByteArray v1 = saveState().toHex();
     QByteArray v2 = saveGeometry().toHex();
-    setting->writeEntry("BOARDLAYOUT1_" + strKey, QString::fromLatin1(v1));
-    setting->writeEntry("BOARDLAYOUT2_" + strKey, QString::fromLatin1(v2));
+    g_setting->writeEntry("BOARDLAYOUT1_" + strKey, QString::fromLatin1(v1));
+    g_setting->writeEntry("BOARDLAYOUT2_" + strKey, QString::fromLatin1(v2));
 
     QString v3 = viewStatusBar->isChecked() ? "1" : "0";
     v3 += viewMenuBar->isChecked() ? "1" : "0";
     v3 += viewSlider->isChecked() ? "1" : "0";
     v3 += viewSidebar->isChecked() ? "1" : "0";
-    setting->writeEntry("BOARDLAYOUT3_" + strKey, v3);
+    g_setting->writeEntry("BOARDLAYOUT3_" + strKey, v3);
 
     statusBar()->showMessage(tr("Window size saved.") + " (" + strKey + ")");
 }
@@ -1739,9 +1737,9 @@ bool MainWindow::restoreWindowLayout(bool dflt, const QString &scrkey)
         strKey += "_" + panesKey;
 
     // restore board window
-    QString s1 = setting->readEntry("BOARDLAYOUT1_" + strKey);
-    QString s2 = setting->readEntry("BOARDLAYOUT2_" + strKey);
-    QString s3 = setting->readEntry("BOARDLAYOUT3_" + strKey);
+    QString s1 = g_setting->readEntry("BOARDLAYOUT1_" + strKey);
+    QString s2 = g_setting->readEntry("BOARDLAYOUT2_" + strKey);
+    QString s3 = g_setting->readEntry("BOARDLAYOUT3_" + strKey);
     if (s1.isEmpty() || s2.isEmpty())
         return false;
     QRegularExpression verify("^[0-9A-Fa-f]*$");
@@ -1954,30 +1952,30 @@ void MainWindow::slotUpdateComment2()
 void MainWindow::update_font()
 {
     // editable fields
-    setFont(setting->fontComments);
+    setFont(g_setting->fontComments);
 
     // observer
-    ListView_observers->setFont(setting->fontLists);
+    ListView_observers->setFont(g_setting->fontLists);
 
-    QFont f(setting->fontStandard);
+    QFont f(g_setting->fontStandard);
     f.setBold(true);
     scoreTools->totalBlack->setFont(f);
     scoreTools->totalWhite->setFont(f);
 
-    setFont(setting->fontStandard);
-    normalTools->wtimeView->update_font(setting->fontClocks);
-    normalTools->btimeView->update_font(setting->fontClocks);
+    setFont(g_setting->fontStandard);
+    normalTools->wtimeView->update_font(g_setting->fontClocks);
+    normalTools->btimeView->update_font(g_setting->fontClocks);
 
     QTextCursor c = commentEdit->textCursor();
     commentEdit->selectAll();
-    commentEdit->setCurrentFont(setting->fontComments);
+    commentEdit->setCurrentFont(g_setting->fontComments);
     commentEdit->setTextCursor(c);
-    commentEdit->setCurrentFont(setting->fontComments);
+    commentEdit->setCurrentFont(g_setting->fontComments);
 
-    commentEdit->setFont(setting->fontComments);
-    commentEdit2->setFont(setting->fontComments);
+    commentEdit->setFont(g_setting->fontComments);
+    commentEdit2->setFont(g_setting->fontComments);
 
-    QFontMetrics fm(setting->fontStandard);
+    QFontMetrics fm(g_setting->fontStandard);
     QRect        r             = fm.boundingRect("Variation 12 of 15");
     QRect        r2            = fm.boundingRect("Move 359 (W M19)");
     int          strings_width = std::max(r.width(), r2.width());
@@ -2300,7 +2298,7 @@ void MainWindow::update_figures()
     diagEditButton->setEnabled(have_any);
     diagASCIIButton->setEnabled(have_any);
     diagSVGButton->setEnabled(have_any);
-    if (setting->readBoolEntry("BOARD_DIAGCLEAR"))
+    if (g_setting->readBoolEntry("BOARD_DIAGCLEAR"))
     {
         diagView->setEnabled(have_any);
         if (!have_any)
@@ -2451,7 +2449,7 @@ void MainWindow::setMoveData(game_state &gs, const go_board &b, GameMode mode)
     else
         turnLabel->setText(QObject::tr("White to play"));
 
-    const QStyle *style  = qgo_app->style();
+    const QStyle *style  = g_qGoApp->style();
     int           iconsz = style->pixelMetric(QStyle::PixelMetric::PM_ToolBarIconSize);
 
     QSize sz(iconsz, iconsz);
@@ -2507,7 +2505,7 @@ void MainWindow::doEdit()
 void MainWindow::player_move(stone_color, int, int)
 {
     if (local_stone_sound)
-        qgo->playStoneSound();
+        g_quteGo->playStoneSound();
 }
 
 void MainWindow::doPass()
@@ -2728,7 +2726,7 @@ void MainWindow_GTP::gtp_startup_success(GTP_Process *)
 void MainWindow_GTP::gtp_played_move(GTP_Process *p, int x, int y)
 {
     if (local_stone_sound)
-        qgo->playStoneSound();
+        g_quteGo->playStoneSound();
     stone_color col    = m_game_position->to_move();
     game_state *st     = m_game_position;
     game_state *st_new = st->add_child_move(x, y);
@@ -2858,7 +2856,7 @@ void MainWindow_GTP::enter_scoring()
 void MainWindow_GTP::gtp_played_pass(GTP_Process *p)
 {
     if (local_stone_sound)
-        qgo->playPassSound();
+        g_quteGo->playPassSound();
     game_state *st     = m_game_position;
     stone_color col    = st->to_move();
     game_state *st_new = st->add_child_pass();
@@ -3109,14 +3107,14 @@ void MainWindow::setTimes(
             normalTools->wtimeView->flash(false);
             normalTools->btimeView->flash(timer_cnt % 2 != 0 && warn_black);
             if (warn_black)
-                qgo->playTimeSound();
+                g_quteGo->playTimeSound();
         }
         else if (gfx_board->player_is(white) && warn_white)
         {
             normalTools->btimeView->flash(false);
             normalTools->wtimeView->flash(timer_cnt % 2 != 0 && warn_white);
             if (warn_white)
-                qgo->playTimeSound();
+                g_quteGo->playTimeSound();
         }
     }
     else
@@ -3164,7 +3162,7 @@ void MainWindow::set_eval(const QString &move, double eval, stone_color to_move,
     m_eval_bar->setBrush(QBrush(Qt::black));
     set_eval(to_move == black ? eval : 1 - eval);
 
-    int         winrate_for = setting->readIntEntry("ANALYSIS_WINRATE");
+    int         winrate_for = g_setting->readIntEntry("ANALYSIS_WINRATE");
     stone_color wr_swap_col = winrate_for == 0 ? white : winrate_for == 1 ? black : none;
     if (to_move == wr_swap_col)
         eval = 1 - eval;
@@ -3194,7 +3192,7 @@ void MainWindow::set_2nd_eval(const QString &move, double eval, stone_color to_m
     }
     else
     {
-        int         winrate_for = setting->readIntEntry("ANALYSIS_WINRATE");
+        int         winrate_for = g_setting->readIntEntry("ANALYSIS_WINRATE");
         stone_color wr_swap_col = winrate_for == 0 ? white : winrate_for == 1 ? black : none;
         if (to_move == wr_swap_col)
             eval = 1 - eval;

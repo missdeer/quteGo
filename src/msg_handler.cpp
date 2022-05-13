@@ -13,7 +13,7 @@ void myMessageHandler(QtMsgType type, const QMessageLogContext &, const QString 
     if (debug_stream != nullptr)
         *debug_stream << msg << "\n";
 
-    if (debug_view == nullptr || qgo_app->startingUp() || qgo_app->closingDown())
+    if (debug_view == nullptr || g_qGoApp->startingUp() || g_qGoApp->closingDown())
         return;
 
     // QString msg2 = QString::QString(msg);

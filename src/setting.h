@@ -160,6 +160,6 @@ public:
     }
 };
 
-extern Setting *setting;
+extern Setting *g_setting;
 
 #endif

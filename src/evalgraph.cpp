@@ -116,7 +116,7 @@ void EvalGraph::export_file(bool)
     QString filter;
     QString fileName = QFileDialog::getSaveFileName(this,
                                                     tr("Export evaluation graph image as"),
-                                                    setting->readEntry("LAST_DIR"),
+                                                    g_setting->readEntry("LAST_DIR"),
                                                     "PNG (*.png);;BMP (*.bmp);;XPM (*.xpm);;XBM (*.xbm);;PNM (*.pnm);;GIF "
                                                     "(*.gif);;JPG (*.jpg);;MNG (*.mng)",
                                                     &filter);

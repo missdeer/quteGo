@@ -11,7 +11,7 @@ char skip_whitespace(const IODeviceAdapter &in)
     {
         if (!in.get(nextch))
         {
-            if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+            if (g_setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
                 return nextch;
             else
                 throw premature_eof();
@@ -59,7 +59,7 @@ sgf::node *parse_gametree(const IODeviceAdapter &in, sgf_errors &errs)
                     idstr += nextch;
                 if (!in.get(nextch))
                 {
-                    if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+                    if (g_setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
                         return first_node;
                     else
                         throw premature_eof();
@@ -72,7 +72,7 @@ sgf::node *parse_gametree(const IODeviceAdapter &in, sgf_errors &errs)
                 nextch = skip_whitespace(in);
             if (nextch != '[')
             {
-                if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+                if (g_setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
                     return first_node;
                 else
                     throw broken_sgf();
@@ -88,7 +88,7 @@ sgf::node *parse_gametree(const IODeviceAdapter &in, sgf_errors &errs)
                 {
                     if (!in.get(nextch))
                     {
-                        if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+                        if (g_setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
                             return first_node;
                         else
                             throw premature_eof();
@@ -112,7 +112,7 @@ sgf::node *parse_gametree(const IODeviceAdapter &in, sgf_errors &errs)
 
         if (nextch != '(')
         {
-            if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+            if (g_setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
                 return first_node;
             else
                 throw broken_sgf();
@@ -120,7 +120,7 @@ sgf::node *parse_gametree(const IODeviceAdapter &in, sgf_errors &errs)
 
         if (!prev_node)
         {
-            if (setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
+            if (g_setting->readBoolEntry("IGNORE_SGF_PARSER_ERRORS"))
                 return first_node;
             else
                 throw broken_sgf();

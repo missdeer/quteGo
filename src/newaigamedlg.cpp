@@ -19,7 +19,7 @@ template<class UI> AIGameDlg<UI>::AIGameDlg(QWidget *parent) : QDialog(parent), 
     connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
     connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 
-    int sz = setting->readIntEntry("COMPUTER_SIZE");
+    int sz = g_setting->readIntEntry("COMPUTER_SIZE");
     if (sz > 3 && sz < 26)
         ui->boardsizeSpinBox->setValue(sz);
     // ui->boardsizeSpinBox->setValidator (new QIntValidator (4, 25, this));
@@ -48,7 +48,7 @@ template<class UI> int AIGameDlg<UI>::handicap()
 template<class UI> void AIGameDlg<UI>::get_file_name()
 {
     QString getFileName =
-        QFileDialog::getOpenFileName(this, tr("Choose an SGF file to load"), setting->readEntry("LAST_DIR"), tr("SGF Files (*.sgf);;All Files (*)"));
+        QFileDialog::getOpenFileName(this, tr("Choose an SGF file to load"), g_setting->readEntry("LAST_DIR"), tr("SGF Files (*.sgf);;All Files (*)"));
     if (getFileName.isEmpty())
         return;
 
@@ -57,13 +57,13 @@ template<class UI> void AIGameDlg<UI>::get_file_name()
 
 NewAIGameDlg::NewAIGameDlg(QWidget *parent, bool from_position) : AIGameDlg(parent)
 {
-    for (auto &e : setting->m_engines)
+    for (auto &e : g_setting->m_engines)
         ui->engineComboBox->addItem(e.title);
 
-    int hc = setting->readIntEntry("COMPUTER_HANDICAP");
+    int hc = g_setting->readIntEntry("COMPUTER_HANDICAP");
     ui->handicapSpinBox->setValue(hc);
-    ui->engineColorButton->setChecked(setting->readBoolEntry("COMPUTER_WHITE"));
-    ui->humanPlayerLineEdit->setText(setting->readEntry("HUMAN_NAME"));
+    ui->engineColorButton->setChecked(g_setting->readBoolEntry("COMPUTER_WHITE"));
+    ui->humanPlayerLineEdit->setText(g_setting->readEntry("HUMAN_NAME"));
     if (from_position)
     {
         ui->gameParamsBox->hide();
@@ -114,7 +114,7 @@ game_info NewAIGameDlg::create_game_info()
 
 TwoAIGameDlg::TwoAIGameDlg(QWidget *parent) : AIGameDlg(parent)
 {
-    for (auto &e : setting->m_engines)
+    for (auto &e : g_setting->m_engines)
     {
         ui->engineWComboBox->addItem(e.title);
         ui->engineBComboBox->addItem(e.title);

@@ -18,11 +18,11 @@ AnalyzeDialog::AnalyzeDialog(QWidget *parent, const QString &filename) : QMainWi
         m_last_dir = fi.dir().absolutePath();
     }
     else
-        m_last_dir = setting->readEntry("LAST_DIR");
+        m_last_dir = g_setting->readEntry("LAST_DIR");
     secondsEdit->setValidator(&m_seconds_vald);
     maxlinesEdit->setValidator(&m_lines_vald);
 
-    const QStyle *style  = qgo_app->style();
+    const QStyle *style  = g_qGoApp->style();
     int           iconsz = style->pixelMetric(QStyle::PixelMetric::PM_ToolBarIconSize);
 
     QSize sz(iconsz, iconsz);

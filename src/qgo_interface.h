@@ -283,7 +283,7 @@ class qGoIF : public QObject
     void game_end(qGoBoard *, const QString &txt);
 
 public:
-    qGoIF(QWidget *);
+    explicit qGoIF(QWidget *);
     ~qGoIF();
     //	bool set_observe(QString);
     void set_initIF();
@@ -297,10 +297,6 @@ public:
     }
     void     set_localboard(QString file = {});
     void     set_localgame();
-    QWidget *get_parent()
-    {
-        return parent;
-    }
     void wrapupMatchGame(qGoBoard *, bool);
 
     void window_closing(qGoBoard *);
@@ -347,7 +343,6 @@ private:
     qGoBoard *find_game_id(int);
     qGoBoard *find_game_players(const QString &, const QString &);
 
-    QWidget *parent;
     // actual pointer, for speedup reason
     qGoBoard         *qgobrd;
     QString           myName;

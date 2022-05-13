@@ -42,7 +42,7 @@ private:
 
 class QApplication;
 
-extern qGo          *qgo;
-extern QApplication *qgo_app;
+extern qGo          *g_quteGo;
+extern QApplication *g_qGoApp;
 
 #endif
