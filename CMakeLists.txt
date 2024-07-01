@@ -15,16 +15,9 @@ ELSE(CMAKE_BUILD_TYPE MATCHES Debug)
 ENDIF(CMAKE_BUILD_TYPE MATCHES Debug)
 
 option(AVX2 "Target CPU does support AVX2")
-option(MACOMP "Enables OpenMP on macOS")
 
 set(CURRENT_COMPILER_ID "${CMAKE_CXX_COMPILER_ID}")
 message("Compiler ID is: ${CURRENT_COMPILER_ID}")
-
-if(APPLE)
-    if ("${CURRENT_COMPILER_ID}"  STREQUAL "AppleClang")
-        message(FATAL_ERROR "AppleClang doesn't support OpenMP, please use a custom built LLVM/Clang.")
-    endif()
-endif()
 
 set(CURRENT_SIMULATE_ID "${CMAKE_CXX_SIMULATE_ID}")
 message("Simulate ID is: ${CURRENT_SIMULATE_ID}")
@@ -51,7 +44,7 @@ if(NOT CMAKE_BUILD_TYPE MATCHES Debug)
 endif()
 
 if(WIN32)
-    add_compile_definitions(STRSAFE_NO_DEPRECATE UNICODE)
+    add_compile_definitions(STRSAFE_NO_DEPRECATE UNICODE _UNICODE _USE_MATH_DEFINES)
 endif()
 
 if (MSVC)
@@ -63,5 +56,17 @@ if (MSVC)
 endif()
 
 add_subdirectory(src)
+
+set(QT7z_NO_TEST ON)
 add_subdirectory(src/thirdparty/Qt7z)
+
+set(QTRAR_NO_TEST ON)
 add_subdirectory(src/thirdparty/QtRAR)
+
+target_compile_definitions(qt7z PUBLIC QT7Z_STATIC 
+    QT7Z_STATIC_LINK 
+    WIN_LONG_PATH 
+    _7ZIP_LARGE_PAGES 
+    SUPPORT_DEVICE_FILE
+    )
+target_compile_definitions(qtrar PUBLIC QTRAR_STATIC)

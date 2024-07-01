@@ -16,17 +16,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON) # if you have any .ui files
 set(CMAKE_AUTORCC OFF) # if you have any .qrc files
 
-add_compile_definitions(QT7Z_STATIC 
-    QT7Z_STATIC_LINK 
-    UNICODE 
-    _UNICODE 
-    WIN_LONG_PATH 
-    _7ZIP_LARGE_PAGES 
-    SUPPORT_DEVICE_FILE
-    QTRAR_STATIC
-    QT_THREAD_SUPPORT
-    _USE_MATH_DEFINES
-)
+add_compile_definitions(QT_THREAD_SUPPORT)
 include_directories(${Qt${QT_VERSION_MAJOR}Gui_PRIVATE_INCLUDE_DIRS})
 set(HEADERS 
     analyzedlg.h
@@ -199,6 +189,9 @@ target_link_libraries(${PROJECT_NAME}  PRIVATE  qt7z qtrar
         Qt${QT_VERSION_MAJOR}::Widgets
         Qt${QT_VERSION_MAJOR}::PrintSupport
         )
+IF (WIN32)
+    target_link_libraries(${PROJECT_NAME} PRIVATE AdvApi32 OleAut32 User32 Shell32 PowrProf Ole32 Uuid)
+ENDIF()
 
 IF (Qt6_FOUND)
     target_link_libraries(${PROJECT_NAME}  PRIVATE
