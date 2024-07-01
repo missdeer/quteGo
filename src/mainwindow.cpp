@@ -40,7 +40,7 @@
 #include "setting.h"
 #include "sgf.h"
 #include "slideview.h"
-#include "ui_helpers.h"
+#include "uihelpers.h"
 
 std::list<MainWindow *> main_window_list;
 

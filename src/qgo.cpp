@@ -241,11 +241,11 @@ void qGo::playDisConnectSound()
 void help_about()
 {
     QString txt;
-    txt = u8"<p>Copyright \u00a9 2011-2019\nBernd Schmidt "
-          u8"&lt;bernds_cb1@t-online.de&gt;</p>";
-    txt += u8"<p>Copyright \u00a9 2001-2006\nPeter Strempel "
-           u8"&lt;pstrempel@t-online.de&gt;, Johannes Mesa &lt;frosla@gmx.at&gt;, "
-           u8"Emmanuel B\u00E9ranger &lt;yfh2@hotmail.com&gt;</p>";
+    txt = "<p>Copyright \u00a9 2011-2019\nBernd Schmidt "
+          "&lt;bernds_cb1@t-online.de&gt;</p>";
+    txt += "<p>Copyright \u00a9 2001-2006\nPeter Strempel "
+           "&lt;pstrempel@t-online.de&gt;, Johannes Mesa &lt;frosla@gmx.at&gt;, "
+           "Emmanuel B\u00E9ranger &lt;yfh2@hotmail.com&gt;</p>";
     txt +=
         "<p>" + QObject::tr("GTP code originally from Goliath, thanks to: ") + "PALM Thomas, DINTILHAC Florian, HIVERT Anthony, PIOC Sebastien</p>";
 

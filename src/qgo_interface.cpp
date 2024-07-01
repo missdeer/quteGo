@@ -18,7 +18,7 @@
 #include "misc.h"
 #include "qgo.h"
 #include "tables.h"
-#include "ui_helpers.h"
+#include "uihelpers.h"
 
 #if defined(Q_OS_MACX)
 #    include <CoreFoundation/CFBundle.h>

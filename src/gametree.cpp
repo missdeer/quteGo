@@ -16,7 +16,7 @@
 #include "mainwindow.h"
 #include "setting.h"
 #include "svgbuilder.h"
-#include "ui_helpers.h"
+#include "uihelpers.h"
 
 static QByteArray box_svg = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>"
                             "<svg width=\"160\" height=\"160\">"

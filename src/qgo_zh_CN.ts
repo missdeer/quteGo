@@ -5479,6 +5479,10 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <comment>Board status line: observe GTP mode</comment>
         <translation>观局</translation>
     </message>
+    <message>
+        <source>Please set your own language and your name! Use your own language!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SGFPreview</name>

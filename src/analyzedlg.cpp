@@ -4,7 +4,7 @@
 
 #include "analyzedlg.h"
 #include "clientwin.h"
-#include "ui_helpers.h"
+#include "uihelpers.h"
 
 AnalyzeDialog *analyze_dialog;
 

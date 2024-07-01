@@ -29,7 +29,7 @@
 #include "newaigamedlg.h"
 #include "playertable.h"
 #include "qgo_interface.h"
-#include "ui_helpers.h"
+#include "uihelpers.h"
 
 ClientWindow *client_window;
 

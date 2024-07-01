@@ -27,7 +27,7 @@
 #include "qgo.h"
 #include "setting.h"
 #include "svgbuilder.h"
-#include "ui_helpers.h"
+#include "uihelpers.h"
 
 BoardView::BoardView(QWidget *parent) : QGraphicsView(parent), m_dims(0, 0, DEFAULT_BOARD_SIZE, DEFAULT_BOARD_SIZE), m_hoshis(361)
 {

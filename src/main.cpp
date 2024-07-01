@@ -25,7 +25,7 @@
 #include "setting.h"
 #include "sgf.h"
 #include "sgfpreview.h"
-#include "ui_helpers.h"
+#include "uihelpers.h"
 #include "variantgamedlg.h"
 
 qGo          *g_quteGo = nullptr;
