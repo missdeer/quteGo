@@ -196,6 +196,7 @@ ENDIF()
 IF (Qt6_FOUND)
     target_link_libraries(${PROJECT_NAME}  PRIVATE
             Qt${QT_VERSION_MAJOR}::Core5Compat
+            Qt${QT_VERSION_MAJOR}::SvgWidgets
             )
 ENDIF(Qt6_FOUND)
 
