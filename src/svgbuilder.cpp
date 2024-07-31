@@ -9,7 +9,7 @@
 void svg_builder::text_at(
     double cx, double cy, double sidelen, int len, const QString &txt, const QString &fill, const QFontInfo &fi, const QString &stroke)
 {
-    double real_len = std::max(3.5, (double)std::max(len, txt.length()));
+    double real_len = std::max(3.2, std::max((double)len, (double)txt.length()));
     int font_h = sidelen * 0.8 / (1 + 0.35 * (real_len - 1));
     /* A very crude attempt at centering vertically.  */
     int font_yoff = -font_h * 0.17;
