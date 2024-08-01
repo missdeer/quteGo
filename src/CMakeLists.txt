@@ -191,7 +191,7 @@ target_link_libraries(${PROJECT_NAME}  PRIVATE  qt7z qtrar
         )
 IF (WIN32)
     target_link_libraries(${PROJECT_NAME} PRIVATE AdvApi32 OleAut32 User32 Shell32 PowrProf Ole32 Uuid)
-    if(NOT "${CURRENT_COMPILER_ID}"  STREQUAL "MSVC")
+    if("${CURRENT_COMPILER_ID}" STREQUAL "Clang" AND "${CURRENT_SIMULATE_ID}" STREQUAL "MSVC")
         target_link_options(${PROJECT_NAME} PRIVATE -Wl,-entry:wWinMainCRTStartup)
     endif()
 ENDIF()
