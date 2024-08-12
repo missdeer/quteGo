@@ -435,6 +435,12 @@ void Setting::saveSettings()
     writeEntry("FONT_V2_CLOCK", fontClocks.toString());
     writeEntry("FONT_V2_CONSOLE", fontConsole.toString());
 
+    writeEntry("FONT_MAIN", fontStandard.toString());
+    writeEntry("FONT_MARK", fontMarks.toString());
+    writeEntry("FONT_COMMENT", fontComments.toString());
+    writeEntry("FONT_LIST", fontLists.toString());
+    writeEntry("FONT_CLOCK", fontClocks.toString());
+    writeEntry("FONT_CONSOLE", fontConsole.toString());
 #if 0 /* Enable in a later version when users aren't likely to return to v0.2. \
        */
 	clearEntry ("FONT_MAIN");
