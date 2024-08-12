@@ -255,7 +255,7 @@ std::tuple<go_game_ptr, ArchiveHandlerPtr> open_file_dialog(QWidget *parent)
     QFileInfo fi(fileName);
     if (fi.exists())
         g_setting->writeEntry("LAST_DIR", fi.dir().absolutePath());
-    if (fi.suffix().compare("sgf", Qt::CaseInsensitive))
+    if (fi.suffix().compare("sgf", Qt::CaseInsensitive) == 0)
     {
         auto gr = record_from_file(fileName, nullptr);
         return std::make_tuple(gr, nullptr);
