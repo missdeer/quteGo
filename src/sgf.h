@@ -16,6 +16,10 @@ class broken_sgf : public std::exception
 {
 };
 
+class old_sgf_format : public std::exception
+{
+};
+
 class invalid_boardsize : public std::exception
 {
 };
@@ -66,11 +70,14 @@ public:
                it is one the program understands.  */
             bool handled = false;
 
-            property(std::string &i) : ident(i) {}
-            property(const property &other) : ident(other.ident), values(other.values) {}
-        };
-        typedef std::vector<property> proplist;
-        proplist                      props;
+			property (std::string &i) : ident (i) { }
+			property (const property &other) = default;
+			property (property &&other) = default;
+			property &operator= (property &&other) = default;
+			property &operator= (const property &other) = default;
+		};
+		typedef std::vector<property> proplist;
+		proplist props;
 
         node()
         {
