@@ -39,11 +39,8 @@ static void icopy(unsigned *im, QImage &qim, int w, int h)
 {
     for (int y = 0; y < h; y++)
     {
-        uint *p = (uint *)qim.scanLine(y);
-        for (int x = 0; x < w; x++)
-        {
-            p[x] = im[y * h + x];
-        }
+        uint *p = reinterpret_cast<uint*>(qim.scanLine(y));
+        std::memcpy(p, im + y * w, w * sizeof(uint));
     }
 }
 
