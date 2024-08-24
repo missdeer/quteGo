@@ -1,7 +1,14 @@
 #include "rararchivehandler.h"
+#include "archivehandlerfactory.h"
 #include "thirdparty/QtRAR/src/qtrar.h"
 #include "thirdparty/QtRAR/src/qtrarfile.h"
 #include "thirdparty/QtRAR/src/qtrarfileinfo.h"
+
+namespace
+{
+    bool bRes = ArchiveHandlerFactory::registerArchiveHandler(
+        "rar", [](const QString &archive) -> ArchiveHandler * { return new RarArchiveHandler(archive); });
+} // namespace
 
 RarArchiveHandler::RarArchiveHandler(const QString &archive) : m_archive(archive)
 {

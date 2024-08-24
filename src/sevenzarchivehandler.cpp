@@ -1,5 +1,12 @@
 #include "sevenzarchivehandler.h"
+#include "archivehandlerfactory.h"
 #include "thirdparty/Qt7z/Qt7z/qt7zfileinfo.h"
+
+namespace
+{
+    bool bRes = ArchiveHandlerFactory::registerArchiveHandler(
+        "7z", [](const QString &archive) -> ArchiveHandler * { return new SevenZArchiveHandler(archive); });
+} // namespace
 
 SevenZArchiveHandler::SevenZArchiveHandler(const QString &archive) : m_pkg(archive)
 {

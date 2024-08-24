@@ -1,6 +1,14 @@
 #include <QVector>
 
 #include "ziparchivehandler.h"
+#include "archivehandlerfactory.h"
+
+
+namespace
+{
+    bool bRes = ArchiveHandlerFactory::registerArchiveHandler(
+        "zip", [](const QString &archive) -> ArchiveHandler * { return new ZipArchiveHandler(archive); });
+} // namespace
 
 ZipArchiveHandler::ZipArchiveHandler(const QString &archive) : m_zipReader(archive)
 {

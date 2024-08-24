@@ -3,11 +3,16 @@
 
 #include "archivehandler.h"
 
+using ArchiveHandlerType = ArchiveHandler *(*)(const QString &);
+
 class ArchiveHandlerFactory
 {
 public:
-    ArchiveHandlerFactory();
     static ArchiveHandler *createArchiveHandler(const QString &archive);
+    static bool            registerArchiveHandler(const QString &ext, ArchiveHandlerType handler);
+
+private:
+    static QMap<QString, ArchiveHandlerType> m_handlers;
 };
 
 #endif // ARCHIVEHANDLERFACTORY_H
