@@ -35,7 +35,7 @@ void HelpViewer::set_url(const QUrl &url)
 #if defined(Q_OS_WIN)
     strList << QApplication::applicationDirPath() + "/html";
 #else
-    strList << DOCDIR "/html"
+    strList << QApplication::applicationDirPath() + "/html"
             << "/usr/share/doc/" PACKAGE "/html"
             << "/usr/doc/" PACKAGE "/html"
             << "/usr/local/share/doc/" PACKAGE "/html"

@@ -57,6 +57,7 @@ endif()
 
 add_subdirectory(src)
 
+if (WIN32)
 set(QT7z_NO_TEST ON)
 add_subdirectory(src/thirdparty/Qt7z)
 
@@ -70,3 +71,4 @@ target_compile_definitions(qt7z PUBLIC QT7Z_STATIC
     SUPPORT_DEVICE_FILE
     )
 target_compile_definitions(qtrar PUBLIC QTRAR_STATIC)
+endif()

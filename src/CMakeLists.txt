@@ -68,8 +68,6 @@ set(HEADERS
     audio.h
     archivehandler.h
     ziparchivehandler.h
-    rararchivehandler.h
-    sevenzarchivehandler.h
     archivehandlerfactory.h
     )
 set(SOURCES
@@ -114,8 +112,6 @@ set(SOURCES
     audio.cpp
     archivehandler.cpp
     ziparchivehandler.cpp
-    rararchivehandler.cpp
-    sevenzarchivehandler.cpp
     archivehandlerfactory.cpp
     )
 set(FORMS 
@@ -143,6 +139,18 @@ set(FORMS
 	svgview_gui.ui
     nthmove_gui.ui
     )
+
+if(WIN32)
+    list(APPEND HEADERS 
+    rararchivehandler.h
+    sevenzarchivehandler.h
+    )
+    list(APPEND SOURCES
+    rararchivehandler.cpp
+    sevenzarchivehandler.cpp
+    )
+endif()
+
 qt_add_resources(qrcs q4go.qrc)
 set(TS_FILES
     qgo_zh_CN.ts
@@ -179,7 +187,7 @@ ELSE()
                 )
 ENDIF()
 
-target_link_libraries(${PROJECT_NAME}  PRIVATE  qt7z qtrar
+target_link_libraries(${PROJECT_NAME}  PRIVATE  
         Qt${QT_VERSION_MAJOR}::Network
         Qt${QT_VERSION_MAJOR}::Core
         Qt${QT_VERSION_MAJOR}::Xml
@@ -190,7 +198,7 @@ target_link_libraries(${PROJECT_NAME}  PRIVATE  qt7z qtrar
         Qt${QT_VERSION_MAJOR}::PrintSupport
         )
 IF (WIN32)
-    target_link_libraries(${PROJECT_NAME} PRIVATE AdvApi32 OleAut32 User32 Shell32 PowrProf Ole32 Uuid)
+    target_link_libraries(${PROJECT_NAME} PRIVATE qt7z qtrar AdvApi32 OleAut32 User32 Shell32 PowrProf Ole32 Uuid)
     if("${CURRENT_COMPILER_ID}" STREQUAL "Clang" AND "${CURRENT_SIMULATE_ID}" STREQUAL "MSVC")
         target_link_options(${PROJECT_NAME} PRIVATE -Wl,-entry:wWinMainCRTStartup)
     endif()
