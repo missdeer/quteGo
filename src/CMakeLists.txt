@@ -67,6 +67,7 @@ set(HEADERS
     variantgamedlg.h
     audio.h
     archivehandler.h
+    rararchivehandler.h
     ziparchivehandler.h
     archivehandlerfactory.h
     )
@@ -111,6 +112,7 @@ set(SOURCES
     variantgamedlg.cpp
     audio.cpp
     archivehandler.cpp
+    rararchivehandler.cpp
     ziparchivehandler.cpp
     archivehandlerfactory.cpp
     )
@@ -142,11 +144,9 @@ set(FORMS
 
 if(WIN32)
     list(APPEND HEADERS 
-    rararchivehandler.h
     sevenzarchivehandler.h
     )
     list(APPEND SOURCES
-    rararchivehandler.cpp
     sevenzarchivehandler.cpp
     )
 endif()
@@ -187,7 +187,7 @@ ELSE()
                 )
 ENDIF()
 
-target_link_libraries(${PROJECT_NAME}  PRIVATE  
+target_link_libraries(${PROJECT_NAME}  PRIVATE  qtrar
         Qt${QT_VERSION_MAJOR}::Network
         Qt${QT_VERSION_MAJOR}::Core
         Qt${QT_VERSION_MAJOR}::Xml
@@ -198,7 +198,7 @@ target_link_libraries(${PROJECT_NAME}  PRIVATE
         Qt${QT_VERSION_MAJOR}::PrintSupport
         )
 IF (WIN32)
-    target_link_libraries(${PROJECT_NAME} PRIVATE qt7z qtrar AdvApi32 OleAut32 User32 Shell32 PowrProf Ole32 Uuid)
+    target_link_libraries(${PROJECT_NAME} PRIVATE qt7z  AdvApi32 OleAut32 User32 Shell32 PowrProf Ole32 Uuid)
     if("${CURRENT_COMPILER_ID}" STREQUAL "Clang" AND "${CURRENT_SIMULATE_ID}" STREQUAL "MSVC")
         target_link_options(${PROJECT_NAME} PRIVATE -Wl,-entry:wWinMainCRTStartup)
     endif()
