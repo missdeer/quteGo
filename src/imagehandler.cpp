@@ -39,7 +39,7 @@ static void icopy(unsigned *im, QImage &qim, int w, int h)
 {
     for (int y = 0; y < h; y++)
     {
-        uint *p = reinterpret_cast<uint*>(qim.scanLine(y));
+        uint *p = reinterpret_cast<uint *>(qim.scanLine(y));
         std::memcpy(p, im + y * w, w * sizeof(uint));
     }
 }
@@ -309,9 +309,11 @@ void ImageHandler::paint_black_stone_picture(QImage &img, int size, int idx)
 void ImageHandler::paint_stone_picture(QImage &img, int size, int idx, const QString &path)
 {
     QFileInfo fi(path);
-    QString   suffix   = fi.suffix();
-    QString   baseName = fi.baseName();
-    QChar     lastChar = baseName.at(baseName.length() - 1);
+    if (!fi.exists())
+        return;
+    QString suffix   = fi.suffix();
+    QString baseName = fi.baseName();
+    QChar   lastChar = baseName.at(baseName.length() - 1);
     if (lastChar >= '0' && lastChar <= '9')
         baseName = baseName.left(baseName.length() - 1);
     QString newPath = QString("%1/%2%3.%4").arg(fi.absolutePath(), baseName).arg(idx + 1).arg(suffix);
