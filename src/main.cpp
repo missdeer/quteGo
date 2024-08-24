@@ -264,7 +264,22 @@ std::tuple<go_game_ptr, ArchiveHandlerPtr> open_file_dialog(QWidget *parent)
     if (archive)
     {
         ArchiveHandlerPtr arc(archive);
-        return std::make_tuple(nullptr, arc);
+        // read first file from archive
+        const auto &fileList = archive->getSGFFileList();
+        if (!fileList.isEmpty())
+        {
+            auto device = archive->getSGFContent(fileList.first());
+            if (device)
+            {
+                QByteArray data = device->readAll();
+                device->seek(0);
+                auto* codec    = charset_detect(data);
+                sgf *sgf = load_sgf(*device);
+                auto gr  = sgf2record(*sgf, codec);
+                gr->set_filename(fileList.first().toStdString());
+                return std::make_tuple(gr, arc);
+            }
+        }
     }
 
     return std::make_tuple(nullptr, nullptr);
