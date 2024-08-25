@@ -94,11 +94,19 @@ bool LibArchiveHandler::traverseArchive(const QString &archive, LibArchiveTraver
 
 QString LibArchiveHandler::getEntryName(struct archive_entry *entry)
 {
+#if defined(Q_OS_WIN)
+    if (!m_archivePath.endsWith(".zip", Qt::CaseInsensitive))
+    {
+        const auto *entryPath = archive_entry_pathname_w(entry);
+        return QString::fromWCharArray(entryPath);
+    }
+#endif
     const auto *entryPath = archive_entry_pathname(entry);
+    // TODO: zip archive may have different encoding with system, should add an explicit option to set encoding
     auto       *codec     = QTextCodec::codecForName("GBK");
     if (codec)
     {
         return codec->toUnicode(entryPath);
     }
-    return QString::fromLatin1(entryPath);
+    return QString::fromLocal8Bit(entryPath);
 }
