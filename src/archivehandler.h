@@ -8,8 +8,7 @@
 class ArchiveHandler
 {
 public:
-    ArchiveHandler();
-    virtual ~ArchiveHandler();
+    virtual ~ArchiveHandler() = default;
     virtual const QStringList &getSGFFileList()                       = 0;
     virtual QIODevice         *getSGFContent(const QString &fileName) = 0;
 };

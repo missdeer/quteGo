@@ -56,21 +56,3 @@ if (MSVC)
 endif()
 
 add_subdirectory(src)
-
-
-set(QTRAR_NO_TEST ON)
-
-add_subdirectory(src/thirdparty/QtRAR)
-target_compile_definitions(qtrar PUBLIC QTRAR_STATIC)
-
-if (WIN32)
-set(QT7z_NO_TEST ON)
-add_subdirectory(src/thirdparty/Qt7z)
-
-target_compile_definitions(qt7z PUBLIC QT7Z_STATIC 
-    QT7Z_STATIC_LINK 
-    WIN_LONG_PATH 
-    _7ZIP_LARGE_PAGES 
-    SUPPORT_DEVICE_FILE
-    )
-endif()

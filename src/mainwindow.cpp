@@ -903,8 +903,15 @@ void MainWindow::slotFileOpen(bool)
     m_archive = std::get<1>(res);
     if (m_archive)
     {
+        archiveDock->setVisible(true);
+        archiveDock->toggleViewAction()->setVisible(true);
         auto fileList = m_archive->getSGFFileList();
         archiveItemList->addItems(fileList);
+    } 
+    else
+    {
+        archiveDock->setVisible(false);
+        archiveDock->toggleViewAction()->setVisible(false);
     }
 }
 

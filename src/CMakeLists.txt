@@ -18,6 +18,9 @@ set(CMAKE_AUTORCC OFF) # if you have any .qrc files
 
 add_compile_definitions(QT_THREAD_SUPPORT)
 include_directories(${Qt${QT_VERSION_MAJOR}Gui_PRIVATE_INCLUDE_DIRS})
+
+find_package(LibArchive REQUIRED)
+
 set(HEADERS 
     analyzedlg.h
     autodiagsdlg.h
@@ -67,8 +70,7 @@ set(HEADERS
     variantgamedlg.h
     audio.h
     archivehandler.h
-    rararchivehandler.h
-    ziparchivehandler.h
+    libarchivehandler.h
     archivehandlerfactory.h
     )
 set(SOURCES
@@ -112,8 +114,7 @@ set(SOURCES
     variantgamedlg.cpp
     audio.cpp
     archivehandler.cpp
-    rararchivehandler.cpp
-    ziparchivehandler.cpp
+    libarchivehandler.cpp
     archivehandlerfactory.cpp
     )
 set(FORMS 
@@ -141,15 +142,6 @@ set(FORMS
 	svgview_gui.ui
     nthmove_gui.ui
     )
-
-if(WIN32)
-    list(APPEND HEADERS 
-    sevenzarchivehandler.h
-    )
-    list(APPEND SOURCES
-    sevenzarchivehandler.cpp
-    )
-endif()
 
 qt_add_resources(qrcs q4go.qrc)
 set(TS_FILES
@@ -187,7 +179,7 @@ ELSE()
                 )
 ENDIF()
 
-target_link_libraries(${PROJECT_NAME}  PRIVATE  qtrar
+target_link_libraries(${PROJECT_NAME}  PRIVATE  LibArchive::LibArchive
         Qt${QT_VERSION_MAJOR}::Network
         Qt${QT_VERSION_MAJOR}::Core
         Qt${QT_VERSION_MAJOR}::Xml
@@ -198,7 +190,7 @@ target_link_libraries(${PROJECT_NAME}  PRIVATE  qtrar
         Qt${QT_VERSION_MAJOR}::PrintSupport
         )
 IF (WIN32)
-    target_link_libraries(${PROJECT_NAME} PRIVATE qt7z  AdvApi32 OleAut32 User32 Shell32 PowrProf Ole32 Uuid)
+    target_link_libraries(${PROJECT_NAME} PRIVATE AdvApi32 OleAut32 User32 Shell32 PowrProf Ole32 Uuid)
     if("${CURRENT_COMPILER_ID}" STREQUAL "Clang" AND "${CURRENT_SIMULATE_ID}" STREQUAL "MSVC")
         target_link_options(${PROJECT_NAME} PRIVATE -Wl,-entry:wWinMainCRTStartup)
     endif()

@@ -10,6 +10,15 @@ bool ArchiveHandlerFactory::registerArchiveHandler(const QString &ext, ArchiveHa
     return true;
 }
 
+bool ArchiveHandlerFactory::registerArchiveHandler(const QStringList &extensions, ArchiveHandlerType handler)
+{
+    for (const auto &ext : extensions)
+    {
+        m_handlers[ext] = handler;
+    }
+    return true;
+}
+
 ArchiveHandler *ArchiveHandlerFactory::createArchiveHandler(const QString &archive)
 {
     QFileInfo fi(archive);
