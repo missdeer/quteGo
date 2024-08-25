@@ -6,7 +6,6 @@
 #include <QDir>
 #include <QLineEdit>
 #include <QMessageBox>
-#include <QSoundEffect>
 
 #include "qgo.h"
 #include "audio.h"
@@ -77,53 +76,16 @@ void qGo::updateAllBoardSettings()
 
 void qGo::playClick()
 {
-    QSoundEffect se;
-    se.setSource(QUrl(":/sounds/click.wav"));
-    se.play();
+    soundEffect.setSource(QUrl(":/sounds/click.wav"));
+    soundEffect.play();
 }
 
 void qGo::playStoneSound()
 {
     static int idx = 0;
 
-    QSoundEffect se;
-    switch (idx % 11)
-    {
-    default:
-        se.setSource(QUrl(":/sounds/stone.wav"));
-        break;
-    case 0:
-        se.setSource(QUrl(":/sounds/stone2.wav"));
-        break;
-    case 1:
-        se.setSource(QUrl(":/sounds/stone3.wav"));
-        break;
-    case 2:
-        se.setSource(QUrl(":/sounds/stone4.wav"));
-        break;
-    case 3:
-        se.setSource(QUrl(":/sounds/stone5.wav"));
-        break;
-    case 4:
-        se.setSource(QUrl(":/sounds/stone6.wav"));
-        break;
-    case 5:
-        se.setSource(QUrl(":/sounds/stone7.wav"));
-        break;
-    case 6:
-        se.setSource(QUrl(":/sounds/stone8.wav"));
-        break;
-    case 7:
-        se.setSource(QUrl(":/sounds/stone9.wav"));
-        break;
-    case 8:
-        se.setSource(QUrl(":/sounds/stone10.wav"));
-        break;
-    case 9:
-        se.setSource(QUrl(":/sounds/stone11.wav"));
-        break;
-    }
-    se.play();
+    soundEffect.setSource(QUrl(QStringLiteral(":/sounds/stone%1.wav").arg(idx % 11 +2)));
+    soundEffect.play();
 
     idx += 1 + rand() % 4;
 }
@@ -132,9 +94,8 @@ void qGo::playAutoPlayClick()
 {
     if (g_setting->readBoolEntry("SOUND_AUTOPLAY"))
     {
-        QSoundEffect se;
-        se.setSource(QUrl(":/sounds/click.wav"));
-        se.play();
+        soundEffect.setSource(QUrl(":/sounds/click.wav"));
+        soundEffect.play();
     }
 }
 
@@ -142,9 +103,8 @@ void qGo::playTalkSound()
 {
     if (g_setting->readBoolEntry("SOUND_TALK"))
     {
-        QSoundEffect se;
-        se.setSource(QUrl(":/sounds/talk.wav"));
-        se.play();
+        soundEffect.setSource(QUrl(":/sounds/talk.wav"));
+        soundEffect.play();
     }
 }
 
@@ -152,9 +112,8 @@ void qGo::playMatchSound()
 {
     if (g_setting->readBoolEntry("SOUND_MATCH"))
     {
-        QSoundEffect se;
-        se.setSource(QUrl(":/sounds/match.wav"));
-        se.play();
+        soundEffect.setSource(QUrl(":/sounds/match.wav"));
+        soundEffect.play();
     }
 }
 
@@ -162,9 +121,8 @@ void qGo::playPassSound()
 {
     if (g_setting->readBoolEntry("SOUND_PASS"))
     {
-        QSoundEffect se;
-        se.setSource(QUrl(":/sounds/pass.wav"));
-        se.play();
+        soundEffect.setSource(QUrl(":/sounds/pass.wav"));
+        soundEffect.play();
     }
 }
 
@@ -172,9 +130,8 @@ void qGo::playGameEndSound()
 {
     if (g_setting->readBoolEntry("SOUND_GAMEEND"))
     {
-        QSoundEffect se;
-        se.setSource(QUrl(":/sounds/gameend.wav"));
-        se.play();
+        soundEffect.setSource(QUrl(":/sounds/gameend.wav"));
+        soundEffect.play();
     }
 }
 
@@ -182,9 +139,8 @@ void qGo::playTimeSound()
 {
     if (g_setting->readBoolEntry("SOUND_TIME"))
     {
-        QSoundEffect se;
-        se.setSource(QUrl(":/sounds/tictoc.wav"));
-        se.play();
+        soundEffect.setSource(QUrl(":/sounds/tictoc.wav"));
+        soundEffect.play();
     }
 }
 
@@ -192,9 +148,8 @@ void qGo::playSaySound()
 {
     if (g_setting->readBoolEntry("SOUND_SAY"))
     {
-        QSoundEffect se;
-        se.setSource(QUrl(":/sounds/say.wav"));
-        se.play();
+        soundEffect.setSource(QUrl(":/sounds/say.wav"));
+        soundEffect.play();
     }
 }
 
@@ -202,9 +157,8 @@ void qGo::playEnterSound()
 {
     if (g_setting->readBoolEntry("SOUND_ENTER"))
     {
-        QSoundEffect se;
-        se.setSource(QUrl(":/sounds/enter.wav"));
-        se.play();
+        soundEffect.setSource(QUrl(":/sounds/enter.wav"));
+        soundEffect.play();
     }
 }
 
@@ -212,9 +166,8 @@ void qGo::playLeaveSound()
 {
     if (g_setting->readBoolEntry("SOUND_LEAVE"))
     {
-        QSoundEffect se;
-        se.setSource(QUrl(":/sounds/leave.wav"));
-        se.play();
+        soundEffect.setSource(QUrl(":/sounds/leave.wav"));
+        soundEffect.play();
     }
 }
 
@@ -222,9 +175,8 @@ void qGo::playConnectSound()
 {
     if (g_setting->readBoolEntry("SOUND_CONNECT"))
     {
-        QSoundEffect se;
-        se.setSource(QUrl(":/sounds/connect.wav"));
-        se.play();
+        soundEffect.setSource(QUrl(":/sounds/connect.wav"));
+        soundEffect.play();
     }
 }
 
@@ -232,9 +184,8 @@ void qGo::playDisConnectSound()
 {
     if (g_setting->readBoolEntry("SOUND_DISCONNECT"))
     {
-        QSoundEffect se;
-        se.setSource(QUrl(":/sounds/connect.wav"));
-        se.play();
+        soundEffect.setSource(QUrl(":/sounds/connect.wav"));
+        soundEffect.play();
     }
 }
 

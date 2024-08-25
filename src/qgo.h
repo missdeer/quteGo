@@ -6,6 +6,7 @@
 #define QGO_H
 
 #include <QObject>
+#include <QSoundEffect>
 
 class HelpViewer;
 class QUrl;
@@ -37,6 +38,7 @@ public slots:
     void unused_quit();
 
 private:
+    QSoundEffect soundEffect;
     HelpViewer *helpViewer {};
 };
 
