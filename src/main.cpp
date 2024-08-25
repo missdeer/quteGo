@@ -637,7 +637,7 @@ int main(int argc, char **argv)
     cmdp.process(myapp);
     const QStringList args = cmdp.positionalArguments();
 
-    bool show_client = cmdp.isSet(clo_client) || (args.isEmpty() && !cmdp.isSet(clo_board) && !cmdp.isSet(clo_analysis));
+    bool show_client = cmdp.isSet(clo_client) /*|| (args.isEmpty() && !cmdp.isSet(clo_board) && !cmdp.isSet(clo_analysis))*/;
 
 #ifdef OWN_DEBUG_MODE
     qInstallMessageHandler(myMessageHandler);
@@ -722,7 +722,7 @@ int main(int argc, char **argv)
         else
             not_found << arg;
     }
-    if (cmdp.isSet(clo_board) && !windows_open)
+    if (/*cmdp.isSet(clo_board) &&*/ !windows_open)
     {
         open_local_board(client_window, game_dialog_type::none, QString());
         windows_open = true;
