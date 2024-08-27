@@ -6793,7 +6793,7 @@ Variation </source>
         <translation>子位置</translation>
     </message>
     <message>
-        <location filename="qgo.cpp" line="207"/>
+        <location filename="qgo.cpp" line="211"/>
         <source>GTP code originally from Goliath, thanks to: </source>
         <translation>原始GTP代码来自Goliath，感谢：</translation>
     </message>
@@ -6863,7 +6863,7 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <translation>观局</translation>
     </message>
     <message>
-        <location filename="qgo.cpp" line="211"/>
+        <location filename="qgo.cpp" line="215"/>
         <source>Please set your own language and your name! Use your own language!</source>
         <translation type="unfinished"></translation>
     </message>

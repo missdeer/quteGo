@@ -87,23 +87,23 @@ void qGo::updateAllBoardSettings()
 
 void qGo::playClick()
 {
-    playSound(QCoreApplication::applicationDirPath() + "/sounds/click.wav");
+    playSound(QStringLiteral("/sounds/click.wav"));
 }
 
 void qGo::playStoneSound()
 {
     int index = QRandomGenerator::global()->bounded(1, 12);
     if (index == 1)
-        playSound(QCoreApplication::applicationDirPath() + QStringLiteral("/sounds/stone.wav"));
+        playSound(QStringLiteral("/sounds/stone.wav"));
     else
-        playSound(QCoreApplication::applicationDirPath() + QStringLiteral("/sounds/stone%1.wav").arg(index));
+        playSound(QStringLiteral("/sounds/stone%1.wav").arg(index));
 }
 
 void qGo::playAutoPlayClick()
 {
     if (g_setting->readBoolEntry("SOUND_AUTOPLAY"))
     {
-        playSound(QCoreApplication::applicationDirPath() + "/sounds/click.wav");
+        playSound(QStringLiteral("/sounds/click.wav"));
     }
 }
 
@@ -111,7 +111,7 @@ void qGo::playTalkSound()
 {
     if (g_setting->readBoolEntry("SOUND_TALK"))
     {
-        playSound(QCoreApplication::applicationDirPath() + "/sounds/talk.wav");
+        playSound(QStringLiteral("/sounds/talk.wav"));
     }
 }
 
@@ -119,7 +119,7 @@ void qGo::playMatchSound()
 {
     if (g_setting->readBoolEntry("SOUND_MATCH"))
     {
-        playSound(QCoreApplication::applicationDirPath() + "/sounds/match.wav");
+        playSound(QStringLiteral("/sounds/match.wav"));
     }
 }
 
@@ -127,7 +127,7 @@ void qGo::playPassSound()
 {
     if (g_setting->readBoolEntry("SOUND_PASS"))
     {
-        playSound(QCoreApplication::applicationDirPath() + "/sounds/pass.wav");
+        playSound(QStringLiteral("/sounds/pass.wav"));
     }
 }
 
@@ -135,7 +135,7 @@ void qGo::playGameEndSound()
 {
     if (g_setting->readBoolEntry("SOUND_GAMEEND"))
     {
-        playSound(QCoreApplication::applicationDirPath() + "/sounds/gameend.wav");
+        playSound(QStringLiteral("/sounds/gameend.wav"));
     }
 }
 
@@ -143,7 +143,7 @@ void qGo::playTimeSound()
 {
     if (g_setting->readBoolEntry("SOUND_TIME"))
     {
-        playSound(QCoreApplication::applicationDirPath() + "/sounds/tictoc.wav");
+        playSound(QStringLiteral("/sounds/tictoc.wav"));
     }
 }
 
@@ -151,7 +151,7 @@ void qGo::playSaySound()
 {
     if (g_setting->readBoolEntry("SOUND_SAY"))
     {
-        playSound(QCoreApplication::applicationDirPath() + "/sounds/say.wav");
+        playSound(QStringLiteral("/sounds/say.wav"));
     }
 }
 
@@ -159,7 +159,7 @@ void qGo::playEnterSound()
 {
     if (g_setting->readBoolEntry("SOUND_ENTER"))
     {
-        playSound(QCoreApplication::applicationDirPath() + "/sounds/enter.wav");
+        playSound(QStringLiteral("/sounds/enter.wav"));
     }
 }
 
@@ -167,7 +167,7 @@ void qGo::playLeaveSound()
 {
     if (g_setting->readBoolEntry("SOUND_LEAVE"))
     {
-        playSound(QCoreApplication::applicationDirPath() + "/sounds/leave.wav");
+        playSound(QStringLiteral("/sounds/leave.wav"));
     }
 }
 
@@ -175,7 +175,7 @@ void qGo::playConnectSound()
 {
     if (g_setting->readBoolEntry("SOUND_CONNECT"))
     {
-        playSound(QCoreApplication::applicationDirPath() + "/sounds/connect.wav");
+        playSound(QStringLiteral("/sounds/connect.wav"));
     }
 }
 
@@ -183,13 +183,17 @@ void qGo::playDisConnectSound()
 {
     if (g_setting->readBoolEntry("SOUND_DISCONNECT"))
     {
-        playSound(QCoreApplication::applicationDirPath() + "/sounds/connect.wav");
+        playSound(QStringLiteral("/sounds/connect.wav"));
     }
 }
 
 void qGo::playSound(const QString& sound)
 {
-    m_mediaPlayer->setSource(QUrl::fromLocalFile(sound));
+#if defined(Q_OS_MACX)
+    m_mediaPlayer->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/../Resources" + sound));
+#else
+    m_mediaPlayer->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + sound));
+#endif
     m_mediaPlayer->play();
 }
 
