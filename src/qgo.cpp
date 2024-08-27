@@ -77,6 +77,7 @@ void qGo::updateAllBoardSettings()
 void qGo::playClick()
 {
     soundEffect.setSource(QUrl(":/sounds/click.wav"));
+    soundEffect.setVolume(1.f);
     soundEffect.play();
 }
 
@@ -84,7 +85,8 @@ void qGo::playStoneSound()
 {
     static int idx = 0;
 
-    soundEffect.setSource(QUrl(QStringLiteral(":/sounds/stone%1.wav").arg(idx % 11 +2)));
+    soundEffect.setSource(QUrl(QStringLiteral(":/sounds/stone%1.wav").arg(idx % 11 + 2)));
+    soundEffect.setVolume(1.f);
     soundEffect.play();
 
     idx += 1 + rand() % 4;
@@ -95,6 +97,7 @@ void qGo::playAutoPlayClick()
     if (g_setting->readBoolEntry("SOUND_AUTOPLAY"))
     {
         soundEffect.setSource(QUrl(":/sounds/click.wav"));
+        soundEffect.setVolume(1.f);
         soundEffect.play();
     }
 }
@@ -104,6 +107,7 @@ void qGo::playTalkSound()
     if (g_setting->readBoolEntry("SOUND_TALK"))
     {
         soundEffect.setSource(QUrl(":/sounds/talk.wav"));
+        soundEffect.setVolume(1.f);
         soundEffect.play();
     }
 }
@@ -113,6 +117,7 @@ void qGo::playMatchSound()
     if (g_setting->readBoolEntry("SOUND_MATCH"))
     {
         soundEffect.setSource(QUrl(":/sounds/match.wav"));
+        soundEffect.setVolume(1.f);
         soundEffect.play();
     }
 }
@@ -122,6 +127,7 @@ void qGo::playPassSound()
     if (g_setting->readBoolEntry("SOUND_PASS"))
     {
         soundEffect.setSource(QUrl(":/sounds/pass.wav"));
+        soundEffect.setVolume(1.f);
         soundEffect.play();
     }
 }
@@ -131,6 +137,7 @@ void qGo::playGameEndSound()
     if (g_setting->readBoolEntry("SOUND_GAMEEND"))
     {
         soundEffect.setSource(QUrl(":/sounds/gameend.wav"));
+        soundEffect.setVolume(1.f);
         soundEffect.play();
     }
 }
@@ -140,6 +147,7 @@ void qGo::playTimeSound()
     if (g_setting->readBoolEntry("SOUND_TIME"))
     {
         soundEffect.setSource(QUrl(":/sounds/tictoc.wav"));
+        soundEffect.setVolume(1.f);
         soundEffect.play();
     }
 }
@@ -149,6 +157,7 @@ void qGo::playSaySound()
     if (g_setting->readBoolEntry("SOUND_SAY"))
     {
         soundEffect.setSource(QUrl(":/sounds/say.wav"));
+        soundEffect.setVolume(1.f);
         soundEffect.play();
     }
 }
@@ -158,6 +167,7 @@ void qGo::playEnterSound()
     if (g_setting->readBoolEntry("SOUND_ENTER"))
     {
         soundEffect.setSource(QUrl(":/sounds/enter.wav"));
+        soundEffect.setVolume(1.f);
         soundEffect.play();
     }
 }
@@ -167,6 +177,7 @@ void qGo::playLeaveSound()
     if (g_setting->readBoolEntry("SOUND_LEAVE"))
     {
         soundEffect.setSource(QUrl(":/sounds/leave.wav"));
+        soundEffect.setVolume(1.f);
         soundEffect.play();
     }
 }
@@ -176,6 +187,7 @@ void qGo::playConnectSound()
     if (g_setting->readBoolEntry("SOUND_CONNECT"))
     {
         soundEffect.setSource(QUrl(":/sounds/connect.wav"));
+        soundEffect.setVolume(1.f);
         soundEffect.play();
     }
 }
@@ -185,6 +197,7 @@ void qGo::playDisConnectSound()
     if (g_setting->readBoolEntry("SOUND_DISCONNECT"))
     {
         soundEffect.setSource(QUrl(":/sounds/connect.wav"));
+        soundEffect.setVolume(1.f);
         soundEffect.play();
     }
 }
@@ -192,7 +205,9 @@ void qGo::playDisConnectSound()
 void help_about()
 {
     QString txt;
-    txt = "<p>Copyright \u00a9 2011-2019\nBernd Schmidt "
+    txt = "<p>Copyright \u00a9 2019-2024\nFan Yang "
+           "&lt;me@minidump.info&gt;</p>";
+    txt += "<p>Copyright \u00a9 2011-2019\nBernd Schmidt "
           "&lt;bernds_cb1@t-online.de&gt;</p>";
     txt += "<p>Copyright \u00a9 2001-2006\nPeter Strempel "
            "&lt;pstrempel@t-online.de&gt;, Johannes Mesa &lt;frosla@gmx.at&gt;, "
@@ -200,7 +215,7 @@ void help_about()
     txt +=
         "<p>" + QObject::tr("GTP code originally from Goliath, thanks to: ") + "PALM Thomas, DINTILHAC Florian, HIVERT Anthony, PIOC Sebastien</p>";
 
-    txt += "<hr/><p>Visit <a href=\"https://github.com/bernds/qutego\">the Github "
+    txt += "<hr/><p>Visit <a href=\"https://github.com/missdeer/qutego\">the Github "
            "repository</a> for new versions.</p>";
     QString translation = QString("<hr/><p>") + QObject::tr("Please set your own language and your name! Use your own language!") + QString("</p>");
     txt += translation;
