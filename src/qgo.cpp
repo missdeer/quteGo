@@ -6,6 +6,9 @@
 #include <QDir>
 #include <QLineEdit>
 #include <QMessageBox>
+#include <QMediaPlayer>
+#include <QAudioOutput>
+#include <QRandomGenerator>
 
 #include "qgo.h"
 #include "audio.h"
@@ -21,11 +24,19 @@
 #    include <CoreFoundation/CFString.h>
 #endif // Q_OS_MACX
 
-qGo::qGo() {}
+qGo::qGo()
+{
+    m_mediaPlayer      = new QMediaPlayer;
+    m_mediaAudioOutput = new QAudioOutput;
+    m_mediaAudioOutput->setVolume(1.f);
+    m_mediaPlayer->setAudioOutput(m_mediaAudioOutput);
+}
 
 qGo::~qGo()
 {
     delete helpViewer;
+    delete m_mediaPlayer;
+    delete m_mediaAudioOutput;
 }
 
 /* @@@ check if there is a use case for this, and repair or remove as necessary.
@@ -76,29 +87,23 @@ void qGo::updateAllBoardSettings()
 
 void qGo::playClick()
 {
-    soundEffect.setSource(QUrl(":/sounds/click.wav"));
-    soundEffect.setVolume(1.f);
-    soundEffect.play();
+    playSound(QCoreApplication::applicationDirPath() + "/sounds/click.wav");
 }
 
 void qGo::playStoneSound()
 {
-    static int idx = 0;
-
-    soundEffect.setSource(QUrl(QStringLiteral(":/sounds/stone%1.wav").arg(idx % 11 + 2)));
-    soundEffect.setVolume(1.f);
-    soundEffect.play();
-
-    idx += 1 + rand() % 4;
+    int index = QRandomGenerator::global()->bounded(1, 12);
+    if (index == 1)
+        playSound(QCoreApplication::applicationDirPath() + QStringLiteral("/sounds/stone.wav"));
+    else
+        playSound(QCoreApplication::applicationDirPath() + QStringLiteral("/sounds/stone%1.wav").arg(index));
 }
 
 void qGo::playAutoPlayClick()
 {
     if (g_setting->readBoolEntry("SOUND_AUTOPLAY"))
     {
-        soundEffect.setSource(QUrl(":/sounds/click.wav"));
-        soundEffect.setVolume(1.f);
-        soundEffect.play();
+        playSound(QCoreApplication::applicationDirPath() + "/sounds/click.wav");
     }
 }
 
@@ -106,9 +111,7 @@ void qGo::playTalkSound()
 {
     if (g_setting->readBoolEntry("SOUND_TALK"))
     {
-        soundEffect.setSource(QUrl(":/sounds/talk.wav"));
-        soundEffect.setVolume(1.f);
-        soundEffect.play();
+        playSound(QCoreApplication::applicationDirPath() + "/sounds/talk.wav");
     }
 }
 
@@ -116,9 +119,7 @@ void qGo::playMatchSound()
 {
     if (g_setting->readBoolEntry("SOUND_MATCH"))
     {
-        soundEffect.setSource(QUrl(":/sounds/match.wav"));
-        soundEffect.setVolume(1.f);
-        soundEffect.play();
+        playSound(QCoreApplication::applicationDirPath() + "/sounds/match.wav");
     }
 }
 
@@ -126,9 +127,7 @@ void qGo::playPassSound()
 {
     if (g_setting->readBoolEntry("SOUND_PASS"))
     {
-        soundEffect.setSource(QUrl(":/sounds/pass.wav"));
-        soundEffect.setVolume(1.f);
-        soundEffect.play();
+        playSound(QCoreApplication::applicationDirPath() + "/sounds/pass.wav");
     }
 }
 
@@ -136,9 +135,7 @@ void qGo::playGameEndSound()
 {
     if (g_setting->readBoolEntry("SOUND_GAMEEND"))
     {
-        soundEffect.setSource(QUrl(":/sounds/gameend.wav"));
-        soundEffect.setVolume(1.f);
-        soundEffect.play();
+        playSound(QCoreApplication::applicationDirPath() + "/sounds/gameend.wav");
     }
 }
 
@@ -146,9 +143,7 @@ void qGo::playTimeSound()
 {
     if (g_setting->readBoolEntry("SOUND_TIME"))
     {
-        soundEffect.setSource(QUrl(":/sounds/tictoc.wav"));
-        soundEffect.setVolume(1.f);
-        soundEffect.play();
+        playSound(QCoreApplication::applicationDirPath() + "/sounds/tictoc.wav");
     }
 }
 
@@ -156,9 +151,7 @@ void qGo::playSaySound()
 {
     if (g_setting->readBoolEntry("SOUND_SAY"))
     {
-        soundEffect.setSource(QUrl(":/sounds/say.wav"));
-        soundEffect.setVolume(1.f);
-        soundEffect.play();
+        playSound(QCoreApplication::applicationDirPath() + "/sounds/say.wav");
     }
 }
 
@@ -166,9 +159,7 @@ void qGo::playEnterSound()
 {
     if (g_setting->readBoolEntry("SOUND_ENTER"))
     {
-        soundEffect.setSource(QUrl(":/sounds/enter.wav"));
-        soundEffect.setVolume(1.f);
-        soundEffect.play();
+        playSound(QCoreApplication::applicationDirPath() + "/sounds/enter.wav");
     }
 }
 
@@ -176,9 +167,7 @@ void qGo::playLeaveSound()
 {
     if (g_setting->readBoolEntry("SOUND_LEAVE"))
     {
-        soundEffect.setSource(QUrl(":/sounds/leave.wav"));
-        soundEffect.setVolume(1.f);
-        soundEffect.play();
+        playSound(QCoreApplication::applicationDirPath() + "/sounds/leave.wav");
     }
 }
 
@@ -186,9 +175,7 @@ void qGo::playConnectSound()
 {
     if (g_setting->readBoolEntry("SOUND_CONNECT"))
     {
-        soundEffect.setSource(QUrl(":/sounds/connect.wav"));
-        soundEffect.setVolume(1.f);
-        soundEffect.play();
+        playSound(QCoreApplication::applicationDirPath() + "/sounds/connect.wav");
     }
 }
 
@@ -196,10 +183,14 @@ void qGo::playDisConnectSound()
 {
     if (g_setting->readBoolEntry("SOUND_DISCONNECT"))
     {
-        soundEffect.setSource(QUrl(":/sounds/connect.wav"));
-        soundEffect.setVolume(1.f);
-        soundEffect.play();
+        playSound(QCoreApplication::applicationDirPath() + "/sounds/connect.wav");
     }
+}
+
+void qGo::playSound(const QString& sound)
+{
+    m_mediaPlayer->setSource(QUrl::fromLocalFile(sound));
+    m_mediaPlayer->play();
 }
 
 void help_about()

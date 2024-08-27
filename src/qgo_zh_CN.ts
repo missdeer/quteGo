@@ -6793,7 +6793,7 @@ Variation </source>
         <translation>子位置</translation>
     </message>
     <message>
-        <location filename="qgo.cpp" line="216"/>
+        <location filename="qgo.cpp" line="207"/>
         <source>GTP code originally from Goliath, thanks to: </source>
         <translation>原始GTP代码来自Goliath，感谢：</translation>
     </message>
@@ -6863,7 +6863,7 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <translation>观局</translation>
     </message>
     <message>
-        <location filename="qgo.cpp" line="220"/>
+        <location filename="qgo.cpp" line="211"/>
         <source>Please set your own language and your name! Use your own language!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7792,17 +7792,17 @@ and play the selected number of games per line</source>
 <context>
     <name>qGo</name>
     <message>
-        <location filename="qgo.cpp" line="43"/>
+        <location filename="qgo.cpp" line="54"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="qgo.cpp" line="43"/>
+        <location filename="qgo.cpp" line="54"/>
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="qgo.cpp" line="40"/>
+        <location filename="qgo.cpp" line="51"/>
         <source>At least one board is modified.
 If you exit the application now, all changes will be lost!
 Exit anyway?</source>

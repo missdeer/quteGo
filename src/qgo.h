@@ -6,10 +6,11 @@
 #define QGO_H
 
 #include <QObject>
-#include <QSoundEffect>
 
 class HelpViewer;
 class QUrl;
+class QMediaPlayer;
+class QAudioOutput;
 
 class qGo : public QObject
 {
@@ -38,8 +39,10 @@ public slots:
     void unused_quit();
 
 private:
-    QSoundEffect soundEffect;
-    HelpViewer *helpViewer {};
+    QMediaPlayer *m_mediaPlayer;
+    QAudioOutput *m_mediaAudioOutput;
+    HelpViewer   *helpViewer {};
+    void          playSound(const QString &sound);
 };
 
 class QApplication;
