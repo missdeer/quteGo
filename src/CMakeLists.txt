@@ -207,11 +207,19 @@ set_target_properties(${PROJECT_NAME} PROPERTIES WIN32_EXECUTABLE ON
                                                  MACOSX_BUNDLE ON)
 
 # copy sounds directory to output directory
+IF(APPLE)
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${CMAKE_CURRENT_SOURCE_DIR}/sounds
-    ${CMAKE_CURRENT_BINARY_DIR}/sounds
+      ${CMAKE_CURRENT_SOURCE_DIR}/sounds
+      ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.app/Contents/Resources/sounds
     )
+ELSE()
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+      ${CMAKE_CURRENT_SOURCE_DIR}/sounds
+      ${CMAKE_CURRENT_BINARY_DIR}/sounds
+    )
+ENDIF()
 
 install(TARGETS ${PROJECT_NAME}
     BUNDLE DESTINATION .
