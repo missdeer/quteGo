@@ -1804,22 +1804,25 @@ void Board::wheelEvent(QWheelEvent *e)
     // Windows.
     QPoint numDegrees = e->angleDelta();
     m_cumulative_delta += numDegrees.y();
+    bool moved = false;
     if (m_cumulative_delta < -60) // wheel down to next
     {
         if (e->buttons() == Qt::RightButton || mouseState == Qt::RightButton)
-            next_variation();
+            moved = next_variation();
         else
-            next_move();
+            moved = next_move();
         m_cumulative_delta = 0;
     }
     else if (m_cumulative_delta > 60)
     {
         if (e->buttons() == Qt::RightButton || mouseState == Qt::RightButton)
-            previous_variation();
+            moved = previous_variation();
         else
-            previous_move();
+            moved = previous_move();
         m_cumulative_delta = 0;
     }
+    if (moved)
+        g_quteGo->playStoneSound();
 
     // Delay of 100 msecs to avoid too fast scrolling
     wheelTime = QTime::currentTime();

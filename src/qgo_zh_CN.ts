@@ -305,12 +305,12 @@
 <context>
     <name>Board</name>
     <message>
-        <location filename="board.cpp" line="2000"/>
+        <location filename="board.cpp" line="2003"/>
         <source>Live evaluation: W %1%2 B %3%4 at %5 visits</source>
         <translation>即时评估：白 %1 %2 黑 %3 %4 在 %5 访问</translation>
     </message>
     <message>
-        <location filename="board.cpp" line="2431"/>
+        <location filename="board.cpp" line="2434"/>
         <source>Analysis is supported only for square boards!</source>
         <translation>只支持正方形棋盘的分析！</translation>
     </message>
@@ -6601,50 +6601,50 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
     </message>
     <message>
         <location filename="analyzedlg.cpp" line="554"/>
-        <location filename="board.cpp" line="2408"/>
+        <location filename="board.cpp" line="2411"/>
         <location filename="mainwindow.cpp" line="2913"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
         <location filename="analyzedlg.cpp" line="561"/>
-        <location filename="board.cpp" line="2416"/>
+        <location filename="board.cpp" line="2419"/>
         <location filename="mainwindow.cpp" line="2926"/>
         <source>GTP process exited unexpectedly.</source>
         <translation>GTP进程异常退出。</translation>
     </message>
     <message>
-        <location filename="board.cpp" line="2488"/>
+        <location filename="board.cpp" line="2491"/>
         <source>Edit diagram options...</source>
         <translation>编辑图解选项…</translation>
     </message>
     <message>
-        <location filename="board.cpp" line="2490"/>
+        <location filename="board.cpp" line="2493"/>
         <source>Export &amp;ASCII...</source>
         <translation>导出&amp;ASCII…</translation>
     </message>
     <message>
-        <location filename="board.cpp" line="2491"/>
+        <location filename="board.cpp" line="2494"/>
         <source>Export S&amp;VG...</source>
         <translation>导出S&amp;VG…</translation>
     </message>
     <message>
-        <location filename="board.cpp" line="2495"/>
+        <location filename="board.cpp" line="2498"/>
         <source>&amp;Clear selection</source>
         <translation>清除选择(&amp;C)</translation>
     </message>
     <message>
-        <location filename="board.cpp" line="2496"/>
+        <location filename="board.cpp" line="2499"/>
         <source>&amp;Hide unselected</source>
         <translation>隐藏未选择的(&amp;H)</translation>
     </message>
     <message>
-        <location filename="board.cpp" line="2501"/>
+        <location filename="board.cpp" line="2504"/>
         <source>Make all &amp;visible</source>
         <translation>使所有可见(&amp;V)</translation>
     </message>
     <message>
-        <location filename="board.cpp" line="2503"/>
+        <location filename="board.cpp" line="2506"/>
         <source>C&amp;lear visibility state, inherit from parent</source>
         <translation>清除可见状态，从父节点继承(&amp;L)</translation>
     </message>

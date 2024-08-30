@@ -1178,22 +1178,22 @@ protected:
     go_game_ptr m_game = nullptr;
 
 public:
-    void next_move();
-    void previous_move();
-    void next_figure();
-    void previous_figure();
-    void next_variation();
-    void previous_variation();
-    void next_comment();
-    void previous_comment();
-    void goto_first_move();
-    void goto_last_move();
-    void goto_main_branch();
-    void goto_var_start();
-    void goto_next_branch();
-    void goto_nth_move(int n);
-    void goto_nth_move_in_var(int n);
-    void find_move(int x, int y);
+    bool next_move();
+    bool previous_move();
+    bool next_figure();
+    bool previous_figure();
+    bool next_variation();
+    bool previous_variation();
+    bool next_comment();
+    bool previous_comment();
+    bool goto_first_move();
+    bool goto_last_move();
+    bool goto_main_branch();
+    bool goto_var_start();
+    bool goto_next_branch();
+    bool goto_nth_move(int n);
+    bool goto_nth_move_in_var(int n);
+    bool find_move(int x, int y);
 };
 
 #endif

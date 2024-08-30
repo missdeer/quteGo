@@ -448,53 +448,57 @@ game_state *game_state::follow_path(const std::vector<int> &path)
     return st;
 }
 
-void navigable_observer::next_move()
+bool navigable_observer::next_move()
 {
     game_state *next = m_state->next_move();
     if (next == nullptr)
-        return;
+        return false;
     move_state(next);
+    return true;
 }
 
-void navigable_observer::previous_move()
+bool navigable_observer::previous_move()
 {
     game_state *next = m_state->prev_move();
     if (next == nullptr)
-        return;
+        return false;
     move_state(next);
+    return true;
 }
 
-void navigable_observer::previous_comment()
+bool navigable_observer::previous_comment()
 {
     game_state *st = m_state;
 
     while (st != nullptr)
     {
         st = st->prev_move();
-        if (st != nullptr && st->comment() != "")
+        if (st != nullptr && !st->comment().empty())
         {
             move_state(st);
-            break;
+            return true;
         }
     }
+    return false;
 }
 
-void navigable_observer::next_comment()
+bool navigable_observer::next_comment()
 {
     game_state *st = m_state;
 
     while (st != nullptr)
     {
         st = st->next_move();
-        if (st != nullptr && st->comment() != "")
+        if (st != nullptr && !st->comment().empty())
         {
             move_state(st);
-            break;
+            return true;
         }
     }
+    return false;
 }
 
-void navigable_observer::previous_figure()
+bool navigable_observer::previous_figure()
 {
     game_state *st = m_state;
 
@@ -504,12 +508,13 @@ void navigable_observer::previous_figure()
         if (st != nullptr && st->has_figure())
         {
             move_state(st);
-            break;
+            return true;
         }
     }
+    return false;
 }
 
-void navigable_observer::next_figure()
+bool navigable_observer::next_figure()
 {
     game_state *st = m_state;
 
@@ -519,30 +524,37 @@ void navigable_observer::next_figure()
         if (st != nullptr && st->has_figure())
         {
             move_state(st);
-            break;
+            return true;
         }
     }
+    return false;
 }
 
-void navigable_observer::next_variation()
+bool navigable_observer::next_variation()
 {
     game_state *next = m_state->next_sibling(true);
     if (next == nullptr)
-        return;
-    if (next != m_state)
+        return false;
+    if (next != m_state) {
         move_state(next);
+        return true;
+    }
+    return false;
 }
 
-void navigable_observer::previous_variation()
+bool navigable_observer::previous_variation()
 {
     game_state *next = m_state->prev_sibling(true);
     if (next == nullptr)
-        return;
-    if (next != m_state)
+        return false;
+    if (next != m_state) {
         move_state(next);
+        return true;
+    }
+    return false;
 }
 
-void navigable_observer::goto_first_move()
+bool navigable_observer::goto_first_move()
 {
     game_state *st = m_state;
 
@@ -551,15 +563,18 @@ void navigable_observer::goto_first_move()
         game_state *next = st->prev_move();
         if (next == nullptr)
         {
-            if (st != m_state)
+            if (st != m_state) {
                 move_state(st);
+                return true;
+            }
             break;
         }
         st = next;
     }
+    return false;
 }
 
-void navigable_observer::goto_last_move()
+bool navigable_observer::goto_last_move()
 {
     game_state *st = m_state;
 
@@ -568,15 +583,18 @@ void navigable_observer::goto_last_move()
         game_state *next = st->next_move();
         if (next == nullptr)
         {
-            if (st != m_state)
+            if (st != m_state) {
                 move_state(st);
+                return true;
+            }
             break;
         }
         st = next;
     }
+    return false;
 }
 
-void navigable_observer::find_move(int x, int y)
+bool navigable_observer::find_move(int x, int y)
 {
     game_state *st = m_state;
     if (!st->was_move_p() || st->get_move_x() != x || st->get_move_y() != y)
@@ -586,14 +604,15 @@ void navigable_observer::find_move(int x, int y)
     {
         st = st->next_move();
         if (st == nullptr)
-            return;
+            return false;
         if (st->was_move_p() && st->get_move_x() == x && st->get_move_y() == y)
             break;
     }
     move_state(st);
+    return st != nullptr;
 }
 
-void navigable_observer::goto_nth_move(int n)
+bool navigable_observer::goto_nth_move(int n)
 {
     game_state *st = m_game->get_root();
     while (st->move_number() < n && st->n_children() > 0)
@@ -601,9 +620,10 @@ void navigable_observer::goto_nth_move(int n)
         st = st->next_move(true);
     }
     move_state(st);
+    return st != nullptr;
 }
 
-void navigable_observer::goto_nth_move_in_var(int n)
+bool navigable_observer::goto_nth_move_in_var(int n)
 {
     game_state *st = m_state;
 
@@ -616,9 +636,10 @@ void navigable_observer::goto_nth_move_in_var(int n)
         st = next;
     }
     move_state(st);
+    return st != nullptr;
 }
 
-void navigable_observer::goto_main_branch()
+bool navigable_observer::goto_main_branch()
 {
     game_state *st    = m_state;
     game_state *go_to = st;
@@ -628,15 +649,18 @@ void navigable_observer::goto_main_branch()
             st = go_to = st->prev_sibling(true);
         st = st->prev_move();
     }
-    if (go_to != st)
+    if (go_to != st) {
         move_state(go_to);
+        return true;
+    }
+    return false;
 }
 
-void navigable_observer::goto_var_start()
+bool navigable_observer::goto_var_start()
 {
     game_state *st = m_state->prev_move();
     if (st == nullptr)
-        return;
+        return false;
     /* Walk back, ending either at the root or at a node which has
        more than one sibling.  */
     for (;;)
@@ -649,9 +673,10 @@ void navigable_observer::goto_var_start()
         st = prev;
     }
     move_state(st);
+    return st != nullptr;
 }
 
-void navigable_observer::goto_next_branch()
+bool navigable_observer::goto_next_branch()
 {
     game_state *st = m_state;
     for (;;)
@@ -663,6 +688,7 @@ void navigable_observer::goto_next_branch()
             break;
         st = next;
     }
-    if (st != m_state)
+    if (st != m_state) 
         move_state(st);
+    return st != nullptr;
 }
