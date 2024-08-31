@@ -232,7 +232,7 @@ std::tuple<go_game_ptr, ArchiveHandlerPtr> open_file_dialog(QWidget *parent)
             if (gr != nullptr || archive != nullptr)
             {
                 warn_errors(gr);
-                return std::make_tuple(gr, archive);
+                return {gr, archive};
             }
 
             QStringList l = file_open_dialog.selected();
@@ -240,7 +240,7 @@ std::tuple<go_game_ptr, ArchiveHandlerPtr> open_file_dialog(QWidget *parent)
                 fileName = l.first();
         }
         else
-            return std::make_tuple(nullptr, nullptr);
+            return {nullptr, nullptr};
     }
     else
     {
@@ -250,7 +250,7 @@ std::tuple<go_game_ptr, ArchiveHandlerPtr> open_file_dialog(QWidget *parent)
                                                 QObject::tr("All supported files (*.sgf *.zip *.rar *.7z *.qdb);;All "
                                                             "Files (*)"));
         if (fileName.isEmpty())
-            return std::make_tuple(nullptr, nullptr);
+            return {nullptr, nullptr};
     }
     QFileInfo fi(fileName);
     if (fi.exists())
@@ -258,12 +258,11 @@ std::tuple<go_game_ptr, ArchiveHandlerPtr> open_file_dialog(QWidget *parent)
     if (fi.suffix().compare("sgf", Qt::CaseInsensitive) == 0)
     {
         auto gr = record_from_file(fileName, nullptr);
-        return std::make_tuple(gr, nullptr);
+        return {gr, nullptr};
     }
-    auto archive = ArchiveHandlerFactory::createArchiveHandler(fileName);
+    ArchiveHandlerPtr archive(ArchiveHandlerFactory::createArchiveHandler(fileName));
     if (archive)
     {
-        ArchiveHandlerPtr arc(archive);
         // read first file from archive
         const auto &fileList = archive->getSGFFileList();
         if (!fileList.isEmpty())
@@ -277,12 +276,12 @@ std::tuple<go_game_ptr, ArchiveHandlerPtr> open_file_dialog(QWidget *parent)
                 sgf *sgf = load_sgf(*device);
                 auto gr  = sgf2record(*sgf, codec);
                 gr->set_filename(fileList.first().toStdString());
-                return std::make_tuple(gr, arc);
+                return {gr, archive};
             }
         }
     }
 
-    return std::make_tuple(nullptr, nullptr);
+    return {nullptr, nullptr};
 }
 
 go_game_ptr open_db_dialog(QWidget *parent)

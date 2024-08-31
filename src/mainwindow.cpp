@@ -879,8 +879,7 @@ void MainWindow::slotFileOpen(bool)
         return;
 
     QString     filePath;
-    auto        res = open_file_dialog(this);
-    go_game_ptr gr  = std::get<0>(res);
+    auto        [gr, archive] = open_file_dialog(this);
     if (gr)
     {
         init_game_record(gr);
@@ -888,7 +887,7 @@ void MainWindow::slotFileOpen(bool)
     }
 
     archiveItemList->clear();
-    m_archive = std::get<1>(res);
+    m_archive = archive;
     if (m_archive)
     {
         archiveDock->setVisible(true);
