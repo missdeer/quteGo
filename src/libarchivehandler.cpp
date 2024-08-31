@@ -10,8 +10,10 @@
 
 namespace
 {
-    bool bRes = ArchiveHandlerFactory::registerArchiveHandler(
-        {"zip", "rar", "7z"}, [](const QString &archive) -> ArchiveHandler * { return new LibArchiveHandler(archive); });
+    bool bRes =
+        ArchiveHandlerFactory::registerArchiveHandler({"zip", "rar", "7z"},
+                                                      {QObject::tr("Archieve files (*.zip *.rar *.7z)")},
+                                                      [](const QString &archive) -> ArchiveHandler * { return new LibArchiveHandler(archive); });
 } // namespace
 
 LibArchiveHandler::LibArchiveHandler(const QString &archive) : m_itemListWidget(new ArchiveItemListWidget()), m_archivePath(archive)
@@ -122,11 +124,26 @@ ArchiveItemListWidget *LibArchiveHandler::getArchiveItemListWidget()
     return m_itemListWidget;
 }
 
-void LibArchiveHandler::onItemSelected(const QString &item) {}
+void LibArchiveHandler::onItemSelected(const QString &item)
+{
+    getSGFContent(item);
+    emit currentItemChanged();
+}
 
-void LibArchiveHandler::onItemActivated(QListWidgetItem *item) {}
+void LibArchiveHandler::onItemActivated(QListWidgetItem *item)
+{
+    getSGFContent(item->text());
+    emit itemActivated();
+}
 
 QIODevice *LibArchiveHandler::getCurrentSGFContent()
 {
-    return nullptr;
+    return &m_buffer;
+}
+
+QStringList LibArchiveHandler::getNameFilters()
+{
+    return {
+        tr("Archieve files (*.zip *.rar *.7z)"),
+    };
 }

@@ -19,16 +19,23 @@ SGFPreview::SGFPreview(QWidget *parent, const QString &dir)
     fileDialog     = new QFileDialog(dialogWidget, Qt::Widget);
     fileDialog->setOption(QFileDialog::DontUseNativeDialog, true);
     fileDialog->setWindowFlags(Qt::Widget);
-    fileDialog->setNameFilters({
-        tr("All supported files (*.sgf *.zip *.rar *.7z *.qdb)"),
+    QStringList extensions {"*.sgf"};
+    for (const auto &ext : ArchiveHandlerFactory::extensions())
+    {
+        extensions.append("*." + ext);
+    }
+    QString     allFilter = tr("All supported files (%1)").arg(extensions.join(' '));
+    QStringList nameFilters {
+        allFilter,
         tr("SGF files (*.sgf *.SGF)"),
-        tr("Archieve files (*.zip *.rar *.7z)"),
-        tr("quteGo Kifu Libraries (*.qdb)"),
-        tr("All files (*)"),
-    });
+    };
+    nameFilters.append(ArchiveHandlerFactory::nameFilters());
+    nameFilters.append(tr("All files (*)"));
+
+    fileDialog->setNameFilters(nameFilters);
     fileDialog->setDirectory(dir);
 
-    setWindowTitle(tr("Open SGF file"));
+    setWindowTitle(tr("Open file"));
     l->addWidget(fileDialog);
     l->setContentsMargins(0, 0, 0, 0);
     fileDialog->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);

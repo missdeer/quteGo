@@ -17,6 +17,10 @@ public:
     virtual QIODevice             *getSGFContent(const QString &fileName) = 0;
     virtual QIODevice             *getCurrentSGFContent()                 = 0;
     virtual ArchiveItemListWidget *getArchiveItemListWidget()             = 0;
+    virtual QStringList            getNameFilters()                       = 0;
+signals:
+    void currentItemChanged();
+    void itemActivated();
 };
 
 using ArchiveHandlerPtr = QSharedPointer<ArchiveHandler>;

@@ -20,7 +20,7 @@ public:
     QIODevice             *getSGFContent(const QString &fileName) override;
     QIODevice             *getCurrentSGFContent() override;
     ArchiveItemListWidget *getArchiveItemListWidget() override;
-
+    QStringList            getNameFilters() override;
 private slots:
     void onItemSelected(const QString &item);
     void onItemActivated(QListWidgetItem *item);

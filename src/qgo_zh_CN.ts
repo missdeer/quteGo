@@ -3444,6 +3444,14 @@ Ctrl+点击合拢的节点可展开一级子结点。</translation>
     </message>
 </context>
 <context>
+    <name>LibArchiveHandler</name>
+    <message>
+        <location filename="libarchivehandler.cpp" line="147"/>
+        <source>Archieve files (*.zip *.rar *.7z)</source>
+        <translation type="unfinished">归档文件 (*.zip *.rar *.7z)</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="mainwindow.cpp" line="611"/>
@@ -6947,6 +6955,11 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <source>Please set your own language and your name! Use your own language!</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="libarchivehandler.cpp" line="15"/>
+        <source>Archieve files (*.zip *.rar *.7z)</source>
+        <translation type="unfinished">归档文件 (*.zip *.rar *.7z)</translation>
+    </message>
 </context>
 <context>
     <name>SGFPreview</name>
@@ -7041,39 +7054,29 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <translation>日期</translation>
     </message>
     <message>
-        <location filename="sgfpreview.cpp" line="24"/>
+        <location filename="sgfpreview.cpp" line="27"/>
+        <source>All supported files (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="sgfpreview.cpp" line="30"/>
         <source>SGF files (*.sgf *.SGF)</source>
         <translation>SGF文件 (*.sgf *.SGF)</translation>
     </message>
     <message>
-        <location filename="sgfpreview.cpp" line="27"/>
+        <location filename="sgfpreview.cpp" line="33"/>
         <source>All files (*)</source>
         <translation>所有文件 (*)</translation>
+    </message>
+    <message>
+        <location filename="sgfpreview.cpp" line="38"/>
+        <source>Open file</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="sgfpreview.ui" line="47"/>
         <source>Auto Detect</source>
         <translation>自动检测</translation>
-    </message>
-    <message>
-        <location filename="sgfpreview.cpp" line="23"/>
-        <source>All supported files (*.sgf *.zip *.rar *.7z *.qdb)</source>
-        <translation>所有支持的文件 (*.sgf *.zip *.rar *.7z *.qdb)</translation>
-    </message>
-    <message>
-        <location filename="sgfpreview.cpp" line="25"/>
-        <source>Archieve files (*.zip *.rar *.7z)</source>
-        <translation>归档文件 (*.zip *.rar *.7z)</translation>
-    </message>
-    <message>
-        <location filename="sgfpreview.cpp" line="26"/>
-        <source>quteGo Kifu Libraries (*.qdb)</source>
-        <translation>quteGo棋谱库 (*.qdb)</translation>
-    </message>
-    <message>
-        <location filename="sgfpreview.cpp" line="31"/>
-        <source>Open SGF file</source>
-        <translation>打开SGF文件</translation>
     </message>
     <message>
         <location filename="sgfpreview.ui" line="265"/>
