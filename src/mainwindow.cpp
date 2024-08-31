@@ -373,19 +373,7 @@ MainWindow::MainWindow(QWidget *parent, go_game_ptr gr, ArchiveHandlerPtr archiv
 
     connect(commentEdit, &QTextEdit::textChanged, this, &MainWindow::slotUpdateComment);
     connect(commentEdit2, &QLineEdit::returnPressed, this, &MainWindow::slotUpdateComment2);
-    connect(archiveItemList, &QListWidget::itemActivated, this, &MainWindow::slotArchiveItemActivated);
-    archiveDock->setVisible(false);
-    archiveDock->toggleViewAction()->setVisible(false);
-    if (m_archive)
-    {
-        auto fileList = m_archive->getSGFFileList();
-        if (!fileList.isEmpty())
-        {
-            archiveDock->setVisible(true);
-            archiveDock->toggleViewAction()->setVisible(true);
-            archiveItemList->addItems(fileList);
-        }
-    }
+    adjust_archive_dock();
 
     m_allow_text_update_signal = true;
 
@@ -873,6 +861,30 @@ void MainWindow::slotFileNewVariantGame(bool)
     statusBar()->showMessage(tr("New board prepared."));
 }
 
+void MainWindow::adjust_archive_dock()
+{
+    archiveDock->setVisible(false);
+    archiveDock->toggleViewAction()->setVisible(false);
+    if (m_archive)
+    {
+        auto *pArchiveItemListWidget = m_archive->getArchiveItemListWidget();
+        Q_ASSERT(pArchiveItemListWidget);
+        auto *layout = archiveDockWidgetContainer->layout();
+        Q_ASSERT(layout);
+        QLayoutItem *child;
+        while ((child = layout->takeAt(0)) != nullptr)
+            ;
+        layout->addWidget(pArchiveItemListWidget);
+        if (m_archive->hasSGF())
+        {
+            pArchiveItemListWidget->setParent(archiveDockWidgetContainer);
+            connect(m_archive.get(), &ArchiveHandler::itemActivated, this, &MainWindow::slotArchiveItemActivated);
+            archiveDock->setVisible(true);
+            archiveDock->toggleViewAction()->setVisible(true);
+        }
+    } 
+}
+
 void MainWindow::slotFileOpen(bool)
 {
     if (!checkModified())
@@ -886,20 +898,8 @@ void MainWindow::slotFileOpen(bool)
         setGameMode(modeNormal);
     }
 
-    archiveItemList->clear();
     m_archive = archive;
-    if (m_archive)
-    {
-        archiveDock->setVisible(true);
-        archiveDock->toggleViewAction()->setVisible(true);
-        auto fileList = m_archive->getSGFFileList();
-        archiveItemList->addItems(fileList);
-    } 
-    else
-    {
-        archiveDock->setVisible(false);
-        archiveDock->toggleViewAction()->setVisible(false);
-    }
+    adjust_archive_dock();
 }
 
 void MainWindow::slotFileOpenDB(bool)
@@ -1187,10 +1187,9 @@ void MainWindow::slotDiagChosen(int idx)
     diagCommentView->setText(QString::fromStdString(st->comment()));
 }
 
-void MainWindow::slotArchiveItemActivated(QListWidgetItem *item)
+void MainWindow::slotArchiveItemActivated()
 {
-    auto fileName = item->text();
-    auto iodevice = m_archive->getSGFContent(fileName);
+    auto iodevice = m_archive->getCurrentSGFContent();
     if (iodevice)
     {
         auto data = iodevice->readAll();

@@ -3,10 +3,12 @@
 
 #include <QListWidget>
 #include <QTextCodec>
+#include <QVBoxLayout>
 #include <QVector>
 
 #include "libarchivehandler.h"
 #include "archivehandlerfactory.h"
+
 
 namespace
 {
@@ -18,9 +20,13 @@ namespace
 
 LibArchiveHandler::LibArchiveHandler(const QString &archive) : m_itemListWidget(new ArchiveItemListWidget()), m_archivePath(archive)
 {
+    QVBoxLayout *layout = new QVBoxLayout;
+    m_itemListWidget->setLayout(layout);
     QListWidget *pListWidget = new QListWidget(m_itemListWidget);
     pListWidget->connect(pListWidget, &QListWidget::currentTextChanged, this, &LibArchiveHandler::onItemSelected);
     connect(pListWidget, &QListWidget::itemActivated, this, &LibArchiveHandler::onItemActivated);
+    layout->addWidget(pListWidget);
+    layout->setContentsMargins(0,0,0,0);
     traverseArchive(m_archivePath, [this, pListWidget](struct archive *a, struct archive_entry *entry) {
         QString currentFilePath = getEntryName(entry);
         if (currentFilePath.endsWith(".sgf", Qt::CaseInsensitive))
@@ -146,4 +152,9 @@ QStringList LibArchiveHandler::getNameFilters()
     return {
         tr("Archieve files (*.zip *.rar *.7z)"),
     };
+}
+
+bool LibArchiveHandler::hasSGF()
+{
+    return !m_fileList.empty();
 }

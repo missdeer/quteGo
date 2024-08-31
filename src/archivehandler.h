@@ -18,6 +18,7 @@ public:
     virtual QIODevice             *getCurrentSGFContent()                 = 0;
     virtual ArchiveItemListWidget *getArchiveItemListWidget()             = 0;
     virtual QStringList            getNameFilters()                       = 0;
+    virtual bool                   hasSGF()                               = 0;
 signals:
     void currentItemChanged();
     void itemActivated();

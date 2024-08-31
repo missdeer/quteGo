@@ -840,242 +840,242 @@ After placing and/or undo release button for returning to starting point automat
         <translation>杂项工具栏</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2678"/>
+        <location filename="boardwindow_gui.ui" line="2675"/>
         <source>&amp;Next move</source>
         <translation>下一手(&amp;N)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2681"/>
+        <location filename="boardwindow_gui.ui" line="2678"/>
         <source>Right</source>
         <translation>Right</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2690"/>
+        <location filename="boardwindow_gui.ui" line="2687"/>
         <source>&amp;Previous move</source>
         <translation>上一手(&amp;P)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2693"/>
+        <location filename="boardwindow_gui.ui" line="2690"/>
         <source>Left</source>
         <translation>Left</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2702"/>
+        <location filename="boardwindow_gui.ui" line="2699"/>
         <source>&amp;First move</source>
         <translation>棋局开始(&amp;F)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2705"/>
+        <location filename="boardwindow_gui.ui" line="2702"/>
         <source>Home</source>
         <translation>Home</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2714"/>
+        <location filename="boardwindow_gui.ui" line="2711"/>
         <source>&amp;Last move</source>
         <translation>最后一手(&amp;L)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2717"/>
+        <location filename="boardwindow_gui.ui" line="2714"/>
         <source>End</source>
         <translation>End</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2726"/>
+        <location filename="boardwindow_gui.ui" line="2723"/>
         <source>P&amp;revious variation</source>
         <translation>上一个变化(&amp;R)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2729"/>
+        <location filename="boardwindow_gui.ui" line="2726"/>
         <source>Up</source>
         <translation>Up</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2738"/>
+        <location filename="boardwindow_gui.ui" line="2735"/>
         <source>N&amp;ext variation</source>
         <translation>下一个变化(&amp;E)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2741"/>
+        <location filename="boardwindow_gui.ui" line="2738"/>
         <source>Down</source>
         <translation>Down</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2750"/>
+        <location filename="boardwindow_gui.ui" line="2747"/>
         <source>&amp;Main branch</source>
         <translation>主分支(&amp;M)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2753"/>
+        <location filename="boardwindow_gui.ui" line="2750"/>
         <source>Ins</source>
         <translation>Ins</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2762"/>
+        <location filename="boardwindow_gui.ui" line="2759"/>
         <source>Variation &amp;start</source>
         <translation>变化开始(&amp;S)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2765"/>
+        <location filename="boardwindow_gui.ui" line="2762"/>
         <source>To start of variation</source>
         <translation>开始变化图</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2768"/>
+        <location filename="boardwindow_gui.ui" line="2765"/>
         <source>PgUp</source>
         <translation>PgUp</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2777"/>
+        <location filename="boardwindow_gui.ui" line="2774"/>
         <source>Next &amp;branch</source>
         <translation>下一分支(&amp;B)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2780"/>
+        <location filename="boardwindow_gui.ui" line="2777"/>
         <source>Move to next branch starting a variation</source>
         <translation>跳转到下一分支开始变化图</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2783"/>
+        <location filename="boardwindow_gui.ui" line="2780"/>
         <source>PgDown</source>
         <translation>PgDown</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2792"/>
+        <location filename="boardwindow_gui.ui" line="2789"/>
         <source>Previous &amp;commented move</source>
         <translation>上一处注解(&amp;C)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2795"/>
+        <location filename="boardwindow_gui.ui" line="2792"/>
         <source>Move to the previous move that has a comment</source>
         <translation>跳转到前一评论</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2804"/>
+        <location filename="boardwindow_gui.ui" line="2801"/>
         <source>Next c&amp;ommented move</source>
         <translation>下一处注解(&amp;O)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2807"/>
+        <location filename="boardwindow_gui.ui" line="2804"/>
         <source>Move to the next move that has a comment</source>
         <translation>跳转到下一评论</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2816"/>
+        <location filename="boardwindow_gui.ui" line="2813"/>
         <source>Previous &amp;diagram</source>
         <translation>前一图解(&amp;D)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2819"/>
+        <location filename="boardwindow_gui.ui" line="2816"/>
         <source>nMove to the previous move that starts a diagram</source>
         <translation>跳转到前一图解</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2828"/>
+        <location filename="boardwindow_gui.ui" line="2825"/>
         <source>Next dia&amp;gram</source>
         <translation>下一图解(&amp;G)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2831"/>
+        <location filename="boardwindow_gui.ui" line="2828"/>
         <source>Move to the next move that starts a diagram</source>
         <translation>跳转到下一图解</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2836"/>
+        <location filename="boardwindow_gui.ui" line="2833"/>
         <source>&amp;Go to move...</source>
         <translation>跳转到手数(&amp;G)…</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2839"/>
+        <location filename="boardwindow_gui.ui" line="2836"/>
         <source>Enter a move number and move there</source>
         <translation>输入手数并跳转</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2842"/>
+        <location filename="boardwindow_gui.ui" line="2839"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2851"/>
+        <location filename="boardwindow_gui.ui" line="2848"/>
         <source>Go to clic&amp;ked move</source>
         <translation>跳转到点击的手数</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2854"/>
+        <location filename="boardwindow_gui.ui" line="2851"/>
         <source>Click on an intersection and move to stone played there (if any)</source>
         <translation>点击交叉点并将棋子放在那里</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2863"/>
+        <location filename="boardwindow_gui.ui" line="2860"/>
         <source>Game &amp;information...</source>
         <translation>棋局信息(&amp;I)…</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2866"/>
+        <location filename="boardwindow_gui.ui" line="2863"/>
         <source>Display and edit game information</source>
         <translation>显示并编辑棋局信息</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2869"/>
+        <location filename="boardwindow_gui.ui" line="2866"/>
         <source>Ctrl+I</source>
         <translation>Ctrl+I</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2881"/>
+        <location filename="boardwindow_gui.ui" line="2878"/>
         <source>Place &amp;stone</source>
         <translation>放置棋子(&amp;S)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2884"/>
+        <location filename="boardwindow_gui.ui" line="2881"/>
         <source>&quot;Normal mode, click to place a stone.</source>
         <translation>普通模式，点击放置棋子。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2896"/>
+        <location filename="boardwindow_gui.ui" line="2893"/>
         <source>Set &amp;triangle mark</source>
         <translation>设置三角标记(&amp;T)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2899"/>
+        <location filename="boardwindow_gui.ui" line="2896"/>
         <source>Clicking places a triangle mark.</source>
         <translation>点击放置一个三角标记。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2911"/>
+        <location filename="boardwindow_gui.ui" line="2908"/>
         <source>Set &amp;circle mark</source>
         <translation>设置圆形标记(&amp;C)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2914"/>
+        <location filename="boardwindow_gui.ui" line="2911"/>
         <source>Clicking places a circle mark.</source>
         <translation>点击放置一个圆形标记。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2926"/>
+        <location filename="boardwindow_gui.ui" line="2923"/>
         <source>Set s&amp;quare mark</source>
         <translation>设置方形标记(&amp;Q)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2929"/>
+        <location filename="boardwindow_gui.ui" line="2926"/>
         <source>Clicking places a square mark.</source>
         <translation>点击放置一个方形标记。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2941"/>
+        <location filename="boardwindow_gui.ui" line="2938"/>
         <source>Set cr&amp;oss mark</source>
         <translation>设置叉号标记(&amp;O)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2944"/>
+        <location filename="boardwindow_gui.ui" line="2941"/>
         <source>Clicking places a cross mark.</source>
         <translation>点击放置一个叉号标记。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2956"/>
+        <location filename="boardwindow_gui.ui" line="2953"/>
         <source>Set &amp;letter mark</source>
         <translation>设置字母标记(&amp;L)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2959"/>
+        <location filename="boardwindow_gui.ui" line="2956"/>
         <source>Clicking places a letter mark.
 Hold shift to add a freely editable text mark.
 </source>
@@ -1083,442 +1083,442 @@ Hold shift to add a freely editable text mark.
 按住Shift键添加一个可编辑的文本标记。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2973"/>
+        <location filename="boardwindow_gui.ui" line="2970"/>
         <source>Set &amp;number mark</source>
         <translation>设置数字标记(&amp;N)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2976"/>
+        <location filename="boardwindow_gui.ui" line="2973"/>
         <source>Clicking places a number mark.</source>
         <translation>点击放置一个数字标记。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2985"/>
+        <location filename="boardwindow_gui.ui" line="2982"/>
         <source>&amp;Delete </source>
         <translation>删除(&amp;D)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2988"/>
+        <location filename="boardwindow_gui.ui" line="2985"/>
         <source>Delete this and all following positions.</source>
         <translation>删除这个以及后续所有位置。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="2991"/>
+        <location filename="boardwindow_gui.ui" line="2988"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3003"/>
+        <location filename="boardwindow_gui.ui" line="3000"/>
         <source>Select &amp;rectangle</source>
         <translation>选择矩形(&amp;R)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3006"/>
+        <location filename="boardwindow_gui.ui" line="3003"/>
         <source>Choose a rectangle to export.
 In play or edit mode, click to begin choosing a rectangle to be used when exporting to ASCII or SVG.</source>
         <translation>选择一个矩形导出。
 棋局中或编辑模式，点击开始选择一个矩形并导出到ASCII或SVG。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3010"/>
+        <location filename="boardwindow_gui.ui" line="3007"/>
         <source>R</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3019"/>
+        <location filename="boardwindow_gui.ui" line="3016"/>
         <source>Cle&amp;ar selection</source>
         <translation>清除选择(&amp;A)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3022"/>
+        <location filename="boardwindow_gui.ui" line="3019"/>
         <source>Clear the selected rectangle and select the whole board again.</source>
         <translation>清除选择的矩形并重新选中整个棋盘。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3034"/>
+        <location filename="boardwindow_gui.ui" line="3031"/>
         <source>Start dia&amp;gram here</source>
         <translation>从这里开始图解(&amp;G)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3037"/>
+        <location filename="boardwindow_gui.ui" line="3034"/>
         <source>If selected, the current node starts a diagram.
 Enable diagram display in the View menu to view and edit diagrams.</source>
         <translation>如果选中，从当前节点开始图解。
 允许图解显示在视图菜单，查看和编辑图解。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3041"/>
+        <location filename="boardwindow_gui.ui" line="3038"/>
         <source>G</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3050"/>
+        <location filename="boardwindow_gui.ui" line="3047"/>
         <source>New &amp;board window</source>
         <translation>新建棋盘窗口(&amp;B)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3053"/>
+        <location filename="boardwindow_gui.ui" line="3050"/>
         <source>Ctrl+B</source>
         <translation>Ctrl+B</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3062"/>
+        <location filename="boardwindow_gui.ui" line="3059"/>
         <source>&amp;New game</source>
         <translation>新建棋局(&amp;N)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3065"/>
+        <location filename="boardwindow_gui.ui" line="3062"/>
         <source>Creates a new game on this board.</source>
         <translation>在本棋盘上开始新棋局。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3068"/>
+        <location filename="boardwindow_gui.ui" line="3065"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3077"/>
+        <location filename="boardwindow_gui.ui" line="3074"/>
         <source>New &amp;variant game</source>
         <translation>新建变化棋局(&amp;V)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3080"/>
+        <location filename="boardwindow_gui.ui" line="3077"/>
         <source>Creates a new Go variant game on this board</source>
         <translation>在本棋盘上开始新的围棋变化棋局</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3083"/>
+        <location filename="boardwindow_gui.ui" line="3080"/>
         <source>Ctrl+V</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3092"/>
+        <location filename="boardwindow_gui.ui" line="3089"/>
         <source>&amp;Save</source>
         <translation>保存(&amp;S)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3095"/>
+        <location filename="boardwindow_gui.ui" line="3092"/>
         <source>Save an sgf file.</source>
         <translation>保存成SGF文件。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3098"/>
+        <location filename="boardwindow_gui.ui" line="3095"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3107"/>
+        <location filename="boardwindow_gui.ui" line="3104"/>
         <source>&amp;Open...</source>
         <translation>打开(&amp;O)...</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3110"/>
+        <location filename="boardwindow_gui.ui" line="3107"/>
         <source>Open an sgf file</source>
         <translation>打开SGF文件</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3113"/>
+        <location filename="boardwindow_gui.ui" line="3110"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3122"/>
+        <location filename="boardwindow_gui.ui" line="3119"/>
         <source>Save &amp;as...</source>
         <translation>另存为(&amp;A)…</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3125"/>
+        <location filename="boardwindow_gui.ui" line="3122"/>
         <source>Save a sgf file under a new name.</source>
         <translation>以新名字保存为SGF文件。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3130"/>
+        <location filename="boardwindow_gui.ui" line="3127"/>
         <source>&amp;Close</source>
         <translation>关闭(&amp;C)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3133"/>
+        <location filename="boardwindow_gui.ui" line="3130"/>
         <source>Close this window.</source>
         <translation>关闭本窗口。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3136"/>
+        <location filename="boardwindow_gui.ui" line="3133"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3145"/>
+        <location filename="boardwindow_gui.ui" line="3142"/>
         <source>E&amp;xit</source>
         <translation>退出(&amp;X)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3148"/>
+        <location filename="boardwindow_gui.ui" line="3145"/>
         <source>Quit the application.</source>
         <translation>退出应用程序。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3151"/>
+        <location filename="boardwindow_gui.ui" line="3148"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3159"/>
+        <location filename="boardwindow_gui.ui" line="3156"/>
         <source>Export &amp;ASCII...</source>
         <translation>导出&amp;ASCII…</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3162"/>
+        <location filename="boardwindow_gui.ui" line="3159"/>
         <source>Export ASCII
 Export current board to ASCII diagrams, for use in web forums.</source>
         <translation>导出ASCII
 将当前棋盘导出成ASCII图解，用于网站论坛。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3168"/>
+        <location filename="boardwindow_gui.ui" line="3165"/>
         <source>Export S&amp;VG...</source>
         <translation>导出S&amp;VG…</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3171"/>
+        <location filename="boardwindow_gui.ui" line="3168"/>
         <source>Export SVG
 Export the current board to an SVG vector graphics file</source>
         <translation>导出SVG
 将当前棋盘导出成SVG矢量图形文件</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3180"/>
+        <location filename="boardwindow_gui.ui" line="3177"/>
         <source>Import SGF from clipboard
 Import a complete game in SGF format from the clipboard.</source>
         <translation>从剪贴板导入SGF
 从剪贴板导入一个完整的SGF格式棋局。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3186"/>
+        <location filename="boardwindow_gui.ui" line="3183"/>
         <source>E&amp;xport SGF &amp;to clipboard</source>
         <translation>导出SGF到剪贴板</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3189"/>
+        <location filename="boardwindow_gui.ui" line="3186"/>
         <source>Export SGF to clipboard
 Export a complete game in SGF format to the clipboard.</source>
         <translation>导出SGF到剪贴板
 将完整棋局以SGF格式导出到剪贴板。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3195"/>
+        <location filename="boardwindow_gui.ui" line="3192"/>
         <source>Export &amp;image...</source>
         <translation>导出图像(&amp;I)…</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3198"/>
+        <location filename="boardwindow_gui.ui" line="3195"/>
         <source>Export image
 Take a screen grab of the current board and export it to an image file.</source>
         <translation>导出图像
 将当前棋盘截图并导出成图像文件。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3204"/>
+        <location filename="boardwindow_gui.ui" line="3201"/>
         <source>&amp;Export image to clipboard</source>
         <translation>导出图像到剪贴板(&amp;E)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3207"/>
+        <location filename="boardwindow_gui.ui" line="3204"/>
         <source>Export image to clipboard
 Take a screen grab of the current board position and export it to the clipboard as an image.</source>
         <translation>导出图像到剪贴板
 将当前棋盘截图并以图像格式导出到剪贴板。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3216"/>
+        <location filename="boardwindow_gui.ui" line="3213"/>
         <source>Status bar</source>
         <translation>状态栏</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3224"/>
+        <location filename="boardwindow_gui.ui" line="3221"/>
         <source>Slider</source>
         <translation>滑动条</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3232"/>
+        <location filename="boardwindow_gui.ui" line="3229"/>
         <source>Sidebar</source>
         <translation>侧边栏</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3235"/>
+        <location filename="boardwindow_gui.ui" line="3232"/>
         <source>F9</source>
         <translation>F9</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3247"/>
+        <location filename="boardwindow_gui.ui" line="3244"/>
         <source>&amp;Fullscreen</source>
         <translation>全屏(&amp;F)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3250"/>
+        <location filename="boardwindow_gui.ui" line="3247"/>
         <source>F11</source>
         <translation>F11</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3258"/>
+        <location filename="boardwindow_gui.ui" line="3255"/>
         <source>Move &amp;numbers</source>
         <translation>落子手数(&amp;N)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3270"/>
+        <location filename="boardwindow_gui.ui" line="3267"/>
         <source>&amp;Coordinates</source>
         <translation>坐标(&amp;C)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3273"/>
+        <location filename="boardwindow_gui.ui" line="3270"/>
         <source>F8</source>
         <translation>F8</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3278"/>
+        <location filename="boardwindow_gui.ui" line="3275"/>
         <source>As general default</source>
         <translation>作为通用默认设置</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3283"/>
+        <location filename="boardwindow_gui.ui" line="3280"/>
         <source>For current combination of visible docks</source>
         <translation>当前可见浮动栏组合</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3288"/>
+        <location filename="boardwindow_gui.ui" line="3285"/>
         <source>General &amp;default</source>
         <translation>通用默认(&amp;D)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3293"/>
+        <location filename="boardwindow_gui.ui" line="3290"/>
         <source>For &amp;current combination of visible docks</source>
         <translation>当前可见浮动栏组合(&amp;C)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3296"/>
+        <location filename="boardwindow_gui.ui" line="3293"/>
         <source>L</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3305"/>
+        <location filename="boardwindow_gui.ui" line="3302"/>
         <source>Default &amp;landscape arrangement</source>
         <translation>默认横向排列(&amp;L)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3314"/>
+        <location filename="boardwindow_gui.ui" line="3311"/>
         <source>Default &amp;portrait arrangement</source>
         <translation>默认纵向排列(&amp;P)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3322"/>
+        <location filename="boardwindow_gui.ui" line="3319"/>
         <source>Menu bar</source>
         <translation>菜单栏</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3325"/>
+        <location filename="boardwindow_gui.ui" line="3322"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3334"/>
+        <location filename="boardwindow_gui.ui" line="3331"/>
         <source>&amp;Preferences...</source>
         <translation>首选项(&amp;P)…</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3337"/>
+        <location filename="boardwindow_gui.ui" line="3334"/>
         <source>Bring up the preferences dialog</source>
         <translation>将首选项对话框带到前台</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3340"/>
+        <location filename="boardwindow_gui.ui" line="3337"/>
         <source>Alt+P</source>
         <translation>Alt+P</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3356"/>
+        <location filename="boardwindow_gui.ui" line="3353"/>
         <source>&amp;Mute stone sound</source>
         <translation>静音落子音效(&amp;M)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3361"/>
+        <location filename="boardwindow_gui.ui" line="3358"/>
         <source>&amp;Manual</source>
         <translation>使用手册(&amp;M)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3364"/>
+        <location filename="boardwindow_gui.ui" line="3361"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3369"/>
+        <location filename="boardwindow_gui.ui" line="3366"/>
         <source>&amp;About..</source>
         <translation>关于(&amp;A)…</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3377"/>
+        <location filename="boardwindow_gui.ui" line="3374"/>
         <source>About &amp;Qt...</source>
         <translation>关于&amp;QT...</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3385"/>
+        <location filename="boardwindow_gui.ui" line="3382"/>
         <source>&amp;Connect analysis engine</source>
         <translation>连接分析引擎(&amp;C)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3388"/>
+        <location filename="boardwindow_gui.ui" line="3385"/>
         <source>Connect analysis engine
 Try to find an engine configured as an analysis tool in the engine list and connect to it.</source>
         <translation>连接分析引擎
 尝试在引擎列表中找到配置为分析工具的引擎并连接。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3394"/>
+        <location filename="boardwindow_gui.ui" line="3391"/>
         <source>&amp;Disconnect analysis engine</source>
         <translation>断开分析引擎(&amp;D)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3402"/>
+        <location filename="boardwindow_gui.ui" line="3399"/>
         <source>Pause analysis engine</source>
         <translation>暂停分析引擎</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3405"/>
+        <location filename="boardwindow_gui.ui" line="3402"/>
         <source>Click to pause or unpause the analysis engine</source>
         <translation>点击暂停或继续分析引擎</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3413"/>
+        <location filename="boardwindow_gui.ui" line="3410"/>
         <source>Dia&amp;gram comments</source>
         <translation>图解评论(&amp;G)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3416"/>
+        <location filename="boardwindow_gui.ui" line="3413"/>
         <source>Alt+G</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3421"/>
+        <location filename="boardwindow_gui.ui" line="3418"/>
         <source>View &amp;README</source>
         <translation>查看&amp;README</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3426"/>
+        <location filename="boardwindow_gui.ui" line="3423"/>
         <source>Batch analysis...</source>
         <translation>批量分析…</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3429"/>
+        <location filename="boardwindow_gui.ui" line="3426"/>
         <source>Batch analysis
 Open the batch analysis dialog which allows you to add SGF files to a queue to be analysed by an engine.</source>
         <translation>批量分析
 打开批量分析对话框，将SGF文件添加到队列中让引擎进行分析。</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3435"/>
+        <location filename="boardwindow_gui.ui" line="3432"/>
         <source>A&amp;utomatic diagrams...</source>
         <translation>自动图解(&amp;U)…</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3440"/>
+        <location filename="boardwindow_gui.ui" line="3437"/>
         <source>Open from &amp;database...</source>
         <translation>从数据库打开(&amp;D)…</translation>
     </message>
@@ -1538,27 +1538,27 @@ Open the batch analysis dialog which allows you to add SGF files to a queue to b
         <translation>导入/导出(&amp;X)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3177"/>
+        <location filename="boardwindow_gui.ui" line="3174"/>
         <source>Import SGF &amp;from clipboard</source>
         <translation>从剪贴板导入SGF(&amp;F)</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3445"/>
+        <location filename="boardwindow_gui.ui" line="3442"/>
         <source>S&amp;lide export...</source>
         <translation>导出幻灯片(&amp;L)…</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3448"/>
+        <location filename="boardwindow_gui.ui" line="3445"/>
         <source>Open the slide export dialog</source>
         <translation>打开导出幻灯片对话框</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3453"/>
+        <location filename="boardwindow_gui.ui" line="3450"/>
         <source>Play against engine from current position...</source>
         <translation>从当前位置开始与引擎对局…</translation>
     </message>
     <message>
-        <location filename="boardwindow_gui.ui" line="3456"/>
+        <location filename="boardwindow_gui.ui" line="3453"/>
         <source>Start a game against an engine from the current position</source>
         <translation>从当前位置开始与引擎对局</translation>
     </message>
@@ -3446,7 +3446,7 @@ Ctrl+点击合拢的节点可展开一级子结点。</translation>
 <context>
     <name>LibArchiveHandler</name>
     <message>
-        <location filename="libarchivehandler.cpp" line="147"/>
+        <location filename="libarchivehandler.cpp" line="153"/>
         <source>Archieve files (*.zip *.rar *.7z)</source>
         <translation type="unfinished">归档文件 (*.zip *.rar *.7z)</translation>
     </message>
@@ -3454,17 +3454,17 @@ Ctrl+点击合拢的节点可展开一级子结点。</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="mainwindow.cpp" line="611"/>
+        <location filename="mainwindow.cpp" line="599"/>
         <source>&amp;Autoplay</source>
         <translation>自动打谱(&amp;A)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="615"/>
+        <location filename="mainwindow.cpp" line="603"/>
         <source>Start/Stop autoplaying current game</source>
         <translation>开始/停止自动打谱</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="616"/>
+        <location filename="mainwindow.cpp" line="604"/>
         <source>Autoplay
 
 Start/Stop autoplaying current game.</source>
@@ -3473,17 +3473,17 @@ Start/Stop autoplaying current game.</source>
 开始/停止自动打谱</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="619"/>
+        <location filename="mainwindow.cpp" line="607"/>
         <source>S&amp;wap variations</source>
         <translation>交换变化次序(&amp;W)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="620"/>
+        <location filename="mainwindow.cpp" line="608"/>
         <source>Swap current move with previous variation</source>
         <translation>交换当前一手与上一个变化的次序</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="621"/>
+        <location filename="mainwindow.cpp" line="609"/>
         <source>Swap variations
 
 Swap current move with previous variation.</source>
@@ -3492,60 +3492,60 @@ Swap current move with previous variation.</source>
 交换当前一手与上一个变化的次序</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="741"/>
+        <location filename="mainwindow.cpp" line="729"/>
         <location filename="mainwindow.cpp" line="1068"/>
         <location filename="mainwindow.cpp" line="1081"/>
-        <location filename="mainwindow.cpp" line="1224"/>
-        <location filename="mainwindow.cpp" line="1236"/>
-        <location filename="mainwindow.cpp" line="1483"/>
-        <location filename="mainwindow.cpp" line="1491"/>
-        <location filename="mainwindow.cpp" line="1497"/>
-        <location filename="mainwindow.cpp" line="1503"/>
-        <location filename="mainwindow.cpp" line="1514"/>
-        <location filename="mainwindow.cpp" line="1521"/>
-        <location filename="mainwindow.cpp" line="1547"/>
+        <location filename="mainwindow.cpp" line="1223"/>
+        <location filename="mainwindow.cpp" line="1235"/>
+        <location filename="mainwindow.cpp" line="1482"/>
+        <location filename="mainwindow.cpp" line="1490"/>
+        <location filename="mainwindow.cpp" line="1496"/>
+        <location filename="mainwindow.cpp" line="1502"/>
+        <location filename="mainwindow.cpp" line="1513"/>
+        <location filename="mainwindow.cpp" line="1520"/>
+        <location filename="mainwindow.cpp" line="1546"/>
         <source>Ready.</source>
         <translation>就绪</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="748"/>
+        <location filename="mainwindow.cpp" line="736"/>
         <source>Current move</source>
         <translation>当前落子</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="749"/>
+        <location filename="mainwindow.cpp" line="737"/>
         <source>Move
 Displays the number of the current turn and the last move played.</source>
         <translation>当前手
 显示当前手数及最后一手的行棋方和坐标</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="757"/>
+        <location filename="mainwindow.cpp" line="745"/>
         <source>Brothers / sons</source>
         <translation>兄弟变化数/子变化数</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="758"/>
+        <location filename="mainwindow.cpp" line="746"/>
         <source>Navigation
 Shows the brothers and sons of the current move.</source>
         <translation>导航信息
 显示当前一手兄弟变化数/子变化数</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="765"/>
+        <location filename="mainwindow.cpp" line="753"/>
         <source>Current mode</source>
         <translation>当前模式</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="766"/>
+        <location filename="mainwindow.cpp" line="754"/>
         <source>Mode
 Shows the current mode. &apos;N&apos; for normal mode, &apos;E&apos; for edit mode.</source>
         <translation>模式
 显示当前模式.&apos;一般&apos;代表一般模式,&apos;编辑&apos;代表编辑模式.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="858"/>
-        <location filename="mainwindow.cpp" line="873"/>
+        <location filename="mainwindow.cpp" line="846"/>
+        <location filename="mainwindow.cpp" line="861"/>
         <source>New board prepared.</source>
         <translation>新棋盘准备完毕</translation>
     </message>
@@ -3580,41 +3580,41 @@ Shows the current mode. &apos;N&apos; for normal mode, &apos;E&apos; for edit mo
         <translation>导出图像为 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1262"/>
-        <location filename="mainwindow.cpp" line="1614"/>
-        <location filename="mainwindow.cpp" line="1628"/>
-        <location filename="mainwindow.cpp" line="1652"/>
-        <location filename="mainwindow.cpp" line="1664"/>
+        <location filename="mainwindow.cpp" line="1261"/>
+        <location filename="mainwindow.cpp" line="1613"/>
+        <location filename="mainwindow.cpp" line="1627"/>
+        <location filename="mainwindow.cpp" line="1651"/>
+        <location filename="mainwindow.cpp" line="1663"/>
         <source>Autoplay stopped.</source>
         <translation>自动打谱已停止</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1277"/>
+        <location filename="mainwindow.cpp" line="1276"/>
         <source>Autoplay started.</source>
         <translation>自动打谱已开始</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1286"/>
+        <location filename="mainwindow.cpp" line="1285"/>
         <source>Variations swapped.</source>
         <translation>变化已交换</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1288"/>
+        <location filename="mainwindow.cpp" line="1287"/>
         <source>No previous variation available.</source>
         <translation>不存在上一个变化</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1722"/>
+        <location filename="mainwindow.cpp" line="1721"/>
         <source>Window size saved.</source>
         <translation>窗口大小保存完毕</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1770"/>
+        <location filename="mainwindow.cpp" line="1769"/>
         <source>Window size restored.</source>
         <translation>窗口大小已恢复</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1875"/>
+        <location filename="mainwindow.cpp" line="1874"/>
         <source>You modified the game.
 Do you want to save your changes?</source>
         <translation>您修改了对局
@@ -3637,17 +3637,17 @@ in the preferences.</source>
 可以在首选项对话框里自定义此行为（禁止显示此对话框）。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="781"/>
+        <location filename="mainwindow.cpp" line="769"/>
         <source>Analysis in progress: </source>
         <translation>分析中：</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="783"/>
+        <location filename="mainwindow.cpp" line="771"/>
         <source>Off-line copy: </source>
         <translation>离线复本：</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="802"/>
+        <location filename="mainwindow.cpp" line="790"/>
         <source>vs.</source>
         <translation>对</translation>
     </message>
@@ -3679,93 +3679,93 @@ Do you still want to save it?</source>
         <translation>保存图像失败!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1511"/>
+        <location filename="mainwindow.cpp" line="1510"/>
         <source>Diag. comments</source>
         <translation>图解评论</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1513"/>
+        <location filename="mainwindow.cpp" line="1512"/>
         <source>Comments</source>
         <translation>评论</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2212"/>
+        <location filename="mainwindow.cpp" line="2211"/>
         <source>remaining time / stones</source>
         <translation>剩余时间/手数</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2216"/>
-        <location filename="mainwindow.cpp" line="2220"/>
+        <location filename="mainwindow.cpp" line="2215"/>
+        <location filename="mainwindow.cpp" line="2219"/>
         <source>click to pause/unpause the game</source>
         <translation>点击此处暂停/恢复对局</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2222"/>
+        <location filename="mainwindow.cpp" line="2221"/>
         <source>click to add 1 minute to your opponent&apos;s clock</source>
         <translation>为您的对手增加1分钟</translation>
     </message>
     <message>
+        <location filename="mainwindow.cpp" line="2225"/>
         <location filename="mainwindow.cpp" line="2226"/>
-        <location filename="mainwindow.cpp" line="2227"/>
         <source>Time remaining for this move</source>
         <translation>此一手剩余时间</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2407"/>
+        <location filename="mainwindow.cpp" line="2406"/>
         <source> (Scoring)</source>
         <translation>（点目中）</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="3034"/>
+        <location filename="mainwindow.cpp" line="3033"/>
         <source>White</source>
         <translation>白方</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="3035"/>
+        <location filename="mainwindow.cpp" line="3034"/>
         <source>Black</source>
         <translation>黑方</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2549"/>
+        <location filename="mainwindow.cpp" line="2548"/>
         <source>Black wins with %1</source>
         <translation>黑棋胜%1目</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2553"/>
+        <location filename="mainwindow.cpp" line="2552"/>
         <source>White wins with %1</source>
         <translation>白棋胜%1目</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2567"/>
+        <location filename="mainwindow.cpp" line="2566"/>
         <source>Game result differs from the one stored.
 Overwrite stored game result?</source>
         <translation>棋局结果与保存的不一致。
 覆盖保存的棋局结果？</translation>
     </message>
     <message>
+        <location filename="mainwindow.cpp" line="3173"/>
         <location filename="mainwindow.cpp" line="3174"/>
-        <location filename="mainwindow.cpp" line="3175"/>
         <source>B Win %</source>
         <translation>黑胜%</translation>
     </message>
     <message>
+        <location filename="mainwindow.cpp" line="3178"/>
         <location filename="mainwindow.cpp" line="3179"/>
-        <location filename="mainwindow.cpp" line="3180"/>
         <source>W Win %</source>
         <translation>白胜%</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1769"/>
+        <location filename="mainwindow.cpp" line="1768"/>
         <source> - Press F7 to show menu bar</source>
         <translation>- 按F7显示菜单栏</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1338"/>
+        <location filename="mainwindow.cpp" line="1337"/>
         <source>You did not configure any analysis engine for this boardsize!</source>
         <translation>没有为此棋盘大小配置分析引擎！</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1345"/>
+        <location filename="mainwindow.cpp" line="1344"/>
         <source>Internal error - engine not found.</source>
         <translation>内部错误 - 没有找到引擎。</translation>
     </message>
@@ -3773,81 +3773,81 @@ Overwrite stored game result?</source>
 <context>
     <name>MainWindow_GTP</name>
     <message>
-        <location filename="mainwindow.cpp" line="2823"/>
-        <location filename="mainwindow.cpp" line="2883"/>
+        <location filename="mainwindow.cpp" line="2822"/>
+        <location filename="mainwindow.cpp" line="2882"/>
         <source>Game end</source>
         <translation>对局结束</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2883"/>
+        <location filename="mainwindow.cpp" line="2882"/>
         <source>The computer has resigned the game.</source>
         <translation>电脑已认输。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2731"/>
+        <location filename="mainwindow.cpp" line="2730"/>
         <source>Invalid move by the engine</source>
         <translation>引擎落子无效</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2732"/>
+        <location filename="mainwindow.cpp" line="2731"/>
         <source>An invalid move was played by the engine, game terminated.</source>
         <translation>引擎落子无效，对局结束。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2762"/>
+        <location filename="mainwindow.cpp" line="2761"/>
         <source>Reported score by White: </source>
         <translation>白棋点目：</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2771"/>
+        <location filename="mainwindow.cpp" line="2770"/>
         <source>Reported score by Black: </source>
         <translation>黑棋点目：</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2782"/>
+        <location filename="mainwindow.cpp" line="2781"/>
         <source>Neither program reported a score.
 </source>
         <translation>程序未报告点目。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2804"/>
+        <location filename="mainwindow.cpp" line="2803"/>
         <source>Game #%1:
 </source>
         <translation>对局 #%1:
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2816"/>
+        <location filename="mainwindow.cpp" line="2815"/>
         <source>Wins for White/Black: %1/%2</source>
         <translation>白棋/黑棋胜率：%1/%2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2818"/>
+        <location filename="mainwindow.cpp" line="2817"/>
         <source> Jigo: %1</source>
         <translation>Jigo: %1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2820"/>
+        <location filename="mainwindow.cpp" line="2819"/>
         <source> Disagreements: %1</source>
         <translation>不同意：%1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2823"/>
+        <location filename="mainwindow.cpp" line="2822"/>
         <source>Engine play has completed.</source>
         <translation>引擎对弈结束。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2874"/>
+        <location filename="mainwindow.cpp" line="2873"/>
         <source>B+R</source>
         <translation>黑+R</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2874"/>
+        <location filename="mainwindow.cpp" line="2873"/>
         <source>W+R</source>
         <translation>白+R</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2878"/>
+        <location filename="mainwindow.cpp" line="2877"/>
         <source>Game result: </source>
         <translation>对局结果：</translation>
     </message>
@@ -6573,17 +6573,17 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="mainwindow.cpp" line="437"/>
+        <location filename="mainwindow.cpp" line="425"/>
         <source>free</source>
         <translation>不计分</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="439"/>
+        <location filename="mainwindow.cpp" line="427"/>
         <source>rated</source>
         <translation>计分棋</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="441"/>
+        <location filename="mainwindow.cpp" line="429"/>
         <source>teach</source>
         <translation>教学棋</translation>
     </message>
@@ -6620,84 +6620,84 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="763"/>
-        <location filename="mainwindow.cpp" line="2134"/>
+        <location filename="mainwindow.cpp" line="751"/>
+        <location filename="mainwindow.cpp" line="2133"/>
         <source>N</source>
         <comment>Board status line: normal mode</comment>
         <translation>一般</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2138"/>
+        <location filename="mainwindow.cpp" line="2137"/>
         <source>E</source>
         <comment>Board status line: edit mode</comment>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2142"/>
+        <location filename="mainwindow.cpp" line="2141"/>
         <source>O</source>
         <comment>Board status line: observe mode</comment>
         <translation>观局</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2150"/>
-        <location filename="mainwindow.cpp" line="2154"/>
+        <location filename="mainwindow.cpp" line="2149"/>
+        <location filename="mainwindow.cpp" line="2153"/>
         <source>P</source>
         <comment>Board status line: play mode</comment>
         <translation>对局</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2158"/>
+        <location filename="mainwindow.cpp" line="2157"/>
         <source>T</source>
         <comment>Board status line: teach mode</comment>
         <translation>教学</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2166"/>
+        <location filename="mainwindow.cpp" line="2165"/>
         <source>S</source>
         <comment>Board status line: score mode</comment>
         <translation>点目</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2394"/>
+        <location filename="mainwindow.cpp" line="2393"/>
         <source>Move</source>
         <translation>落子</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2391"/>
+        <location filename="mainwindow.cpp" line="2390"/>
         <source>W</source>
         <translation>白</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2392"/>
+        <location filename="mainwindow.cpp" line="2391"/>
         <source>B</source>
         <translation>黑</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2403"/>
+        <location filename="mainwindow.cpp" line="2402"/>
         <source>Pass</source>
         <translation>虚手</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2443"/>
+        <location filename="mainwindow.cpp" line="2442"/>
         <source>Black to play</source>
         <translation>黑方行棋</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2445"/>
+        <location filename="mainwindow.cpp" line="2444"/>
         <source>White to play</source>
         <translation>白方行棋</translation>
     </message>
     <message>
         <location filename="analyzedlg.cpp" line="554"/>
         <location filename="board.cpp" line="2411"/>
-        <location filename="mainwindow.cpp" line="2901"/>
+        <location filename="mainwindow.cpp" line="2900"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
         <location filename="analyzedlg.cpp" line="561"/>
         <location filename="board.cpp" line="2419"/>
-        <location filename="mainwindow.cpp" line="2914"/>
+        <location filename="mainwindow.cpp" line="2913"/>
         <source>GTP process exited unexpectedly.</source>
         <translation>GTP进程异常退出。</translation>
     </message>
@@ -6854,29 +6854,29 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
         <translation>载入&lt;file&gt;并显示在棋盘窗口中。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2170"/>
+        <location filename="mainwindow.cpp" line="2169"/>
         <source>A</source>
         <comment>Board status line: batch analysis</comment>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2418"/>
+        <location filename="mainwindow.cpp" line="2417"/>
         <source>
 Variation </source>
         <translation>变化</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2418"/>
+        <location filename="mainwindow.cpp" line="2417"/>
         <source> of </source>
         <translation>中的</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2421"/>
+        <location filename="mainwindow.cpp" line="2420"/>
         <source>child position</source>
         <translation>子位置</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2423"/>
+        <location filename="mainwindow.cpp" line="2422"/>
         <source>child positions</source>
         <translation>子位置</translation>
     </message>
@@ -6945,7 +6945,7 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
 分析引擎现在要求设置棋盘大小，已有的项目默认为19.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2146"/>
+        <location filename="mainwindow.cpp" line="2145"/>
         <source>O</source>
         <comment>Board status line: observe GTP mode</comment>
         <translation>观局</translation>
@@ -6956,7 +6956,7 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="libarchivehandler.cpp" line="15"/>
+        <location filename="libarchivehandler.cpp" line="17"/>
         <source>Archieve files (*.zip *.rar *.7z)</source>
         <translation type="unfinished">归档文件 (*.zip *.rar *.7z)</translation>
     </message>

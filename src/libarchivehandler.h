@@ -21,6 +21,7 @@ public:
     QIODevice             *getCurrentSGFContent() override;
     ArchiveItemListWidget *getArchiveItemListWidget() override;
     QStringList            getNameFilters() override;
+    bool                   hasSGF() override;
 private slots:
     void onItemSelected(const QString &item);
     void onItemActivated(QListWidgetItem *item);

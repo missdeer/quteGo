@@ -28,6 +28,7 @@ class QToolBar;
 struct Engine;
 class GameTree;
 class SlideView;
+class QListWidgetItem;
 
 /* This keeps track of analyzer_ids, which are combinations of engine name and
    komi.  The evaluation graph shows one line per id.  */
@@ -98,7 +99,7 @@ class MainWindow
     void populate_engines_menu();
     void start_analysis();
     void update_score_type();
-
+    void adjust_archive_dock();
 public:
     MainWindow(QWidget *parent, go_game_ptr, ArchiveHandlerPtr archive, const QString opener_scrkey = QString(), GameMode mode = modeNormal);
     virtual ~MainWindow();
@@ -241,7 +242,7 @@ public slots:
     void slotDiagASCII(bool);
     void slotDiagSVG(bool);
     void slotDiagChosen(int);
-    void slotArchiveItemActivated(QListWidgetItem *item);
+    void slotArchiveItemActivated();
 
     void slotEngineGroup(bool);
 
