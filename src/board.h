@@ -329,7 +329,10 @@ public:
     virtual void gtp_startup_success(GTP_Process *) override;
     virtual void gtp_exited(GTP_Process *) override;
     virtual void gtp_failure(GTP_Process *, const QString &) override;
-
+    void set_local_stone_sound(bool b)
+    {
+        local_stone_sound = b;
+    }
 protected:
     virtual void mousePressEvent(QMouseEvent *e) override;
     virtual void mouseReleaseEvent(QMouseEvent *) override;
@@ -355,6 +358,7 @@ private:
 
     bool  navIntersectionStatus = false;
     short curX, curY;
+    bool  local_stone_sound;
 };
 
 class FigureView : public BoardView

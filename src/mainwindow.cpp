@@ -200,6 +200,7 @@ MainWindow::MainWindow(QWidget *parent, go_game_ptr gr, ArchiveHandlerPtr archiv
                                                  : mode == modeObserve || mode == modeObserveGTP ? "SOUND_OBSERVE"
                                                  : mode == modeComputer                          ? "SOUND_COMPUTER"
                                                                                                  : "SOUND_NORMAL");
+    gfx_board->set_local_stone_sound(local_stone_sound);                                                                                                 
 
     int game_style  = m_game->style();
     m_sgf_var_style = false;
@@ -552,68 +553,55 @@ void MainWindow::initActions()
 
     /* Navigation menu.  */
     connect(navBackward, &QAction::triggered, [=]() {
-        gfx_board->previous_move();
-        if (local_stone_sound)
+        if (gfx_board->previous_move() && local_stone_sound)
             g_quteGo->playStoneSound();
     });
     connect(navForward, &QAction::triggered, [=]() {
-        gfx_board->next_move();
-        if (local_stone_sound)
+        if (gfx_board->next_move() && local_stone_sound)
             g_quteGo->playStoneSound();
     });
     connect(navFirst, &QAction::triggered, [=]() {
-        gfx_board->goto_first_move();
-        if (local_stone_sound)
+        if (gfx_board->goto_first_move() && local_stone_sound)
             g_quteGo->playStoneSound();
     });
     connect(navLast, &QAction::triggered, [=]() {
-        gfx_board->goto_last_move();
-        if (local_stone_sound)
+        if (gfx_board->goto_last_move() && local_stone_sound)
             g_quteGo->playStoneSound();
     });
     connect(navPrevVar, &QAction::triggered, [=]() {
-        gfx_board->previous_variation();
-        if (local_stone_sound)
+        if (gfx_board->previous_variation() && local_stone_sound)
             g_quteGo->playStoneSound();
     });
     connect(navNextVar, &QAction::triggered, [=]() {
-        gfx_board->next_variation();
-        if (local_stone_sound)
+        if (gfx_board->next_variation() && local_stone_sound)
             g_quteGo->playStoneSound();
     });
     connect(navMainBranch, &QAction::triggered, [=]() {
-        gfx_board->goto_main_branch();
-        if (local_stone_sound)
+        if (gfx_board->goto_main_branch() && local_stone_sound)
             g_quteGo->playStoneSound();
     });
     connect(navStartVar, &QAction::triggered, [=]() {
-        gfx_board->goto_var_start();
-        if (local_stone_sound)
+        if (gfx_board->goto_var_start() && local_stone_sound)
             g_quteGo->playStoneSound();
     });
     connect(navNextBranch, &QAction::triggered, [=]() {
-        gfx_board->goto_next_branch();
-        if (local_stone_sound)
+        if (gfx_board->goto_next_branch() && local_stone_sound)
             g_quteGo->playStoneSound();
     });
     connect(navPrevComment, &QAction::triggered, [=]() {
-        gfx_board->previous_comment();
-        if (local_stone_sound)
+        if (gfx_board->previous_comment() && local_stone_sound)
             g_quteGo->playStoneSound();
     });
     connect(navNextComment, &QAction::triggered, [=]() {
-        gfx_board->next_comment();
-        if (local_stone_sound)
+        if (gfx_board->next_comment() && local_stone_sound)
             g_quteGo->playStoneSound();
     });
     connect(navPrevFigure, &QAction::triggered, [=]() {
-        gfx_board->previous_figure();
-        if (local_stone_sound)
+        if (gfx_board->previous_figure() && local_stone_sound)
             g_quteGo->playStoneSound();
     });
     connect(navNextFigure, &QAction::triggered, [=]() {
-        gfx_board->next_figure();
-        if (local_stone_sound)
+        if (gfx_board->next_figure() && local_stone_sound)
             g_quteGo->playStoneSound();
     });
 
@@ -2036,6 +2024,7 @@ void MainWindow::slot_editBoardInNewWindow(bool)
 void MainWindow::slotSoundToggle(bool toggle)
 {
     local_stone_sound = !toggle;
+    gfx_board->set_local_stone_sound(local_stone_sound);
 }
 
 // set a tab on toolsTabWidget
@@ -3076,7 +3065,11 @@ void MainWindow::setSliderMax(int n)
 void MainWindow::sliderChanged(int n)
 {
     if (sliderSignalToggle)
+    {
+        if (local_stone_sound)
+            g_quteGo->playStoneSound();
         gfx_board->goto_nth_move_in_var(n);
+    }
 }
 
 void MainWindow::toggleSidebar(bool toggle)

@@ -1821,7 +1821,7 @@ void Board::wheelEvent(QWheelEvent *e)
             moved = previous_move();
         m_cumulative_delta = 0;
     }
-    if (moved)
+    if (local_stone_sound && moved)
         g_quteGo->playStoneSound();
 
     // Delay of 100 msecs to avoid too fast scrolling
