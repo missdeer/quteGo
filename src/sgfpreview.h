@@ -24,8 +24,6 @@ class SGFPreview
     void previewSGF(QIODevice &device, const QString &path);
     void reloadPreview();
     void clear();
-    void extractQDB(const QString &path);
-    void previewQDBFile(const QString &package, const QString &item);
     void archiveItemSelected(const QString &item);
     void previewArchiveItem(const QString &item);
 

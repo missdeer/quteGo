@@ -74,10 +74,6 @@ void SGFPreview::clear()
     archiveItemList->clear();
 }
 
-void SGFPreview::extractQDB(const QString &path) {}
-
-void SGFPreview::previewQDBFile(const QString &package, const QString &item) {}
-
 void SGFPreview::archiveItemSelected(const QString &item)
 {
     if (!archiveItemList->isVisible() || item.isEmpty() || fileDialog->selectedFiles().isEmpty())
@@ -88,10 +84,6 @@ void SGFPreview::archiveItemSelected(const QString &item)
         previewArchiveItem(item);
         return;
     }
-
-    QFileInfo fi(fileDialog->selectedFiles()[0]);
-    if (fi.suffix().compare("qdb", Qt::CaseInsensitive) == 0)
-        previewQDBFile(fi.absoluteFilePath(), item);
 }
 
 void SGFPreview::previewArchiveItem(const QString &item)
@@ -130,9 +122,6 @@ void SGFPreview::setPath(const QString &path)
         archiveItemList->addItems(fileList);
         return;
     }
-
-    if (fi.suffix().compare("qdb", Qt::CaseInsensitive) == 0)
-        extractQDB(path);
 }
 
 void SGFPreview::previewSGF(QIODevice &device, const QString &path)

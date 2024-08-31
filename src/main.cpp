@@ -244,11 +244,20 @@ std::tuple<go_game_ptr, ArchiveHandlerPtr> open_file_dialog(QWidget *parent)
     }
     else
     {
-        fileName = QFileDialog::getOpenFileName(parent,
-                                                QObject::tr("Open SGF file"),
-                                                g_setting->readEntry("LAST_DIR"),
-                                                QObject::tr("All supported files (*.sgf *.zip *.rar *.7z *.qdb);;All "
-                                                            "Files (*)"));
+        QStringList extensions {"*.sgf"};
+        for (const auto &ext : ArchiveHandlerFactory::extensions())
+        {
+            extensions.append("*." + ext);
+        }
+        QString     allFilter = QObject::tr("All supported files (%1)").arg(extensions.join(' '));
+        QStringList nameFilters {
+            allFilter,
+            QObject::tr("SGF files (*.sgf *.SGF)"),
+        };
+        nameFilters.append(ArchiveHandlerFactory::nameFilters());
+        nameFilters.append(QObject::tr("All files (*)"));
+
+        fileName = QFileDialog::getOpenFileName(parent, QObject::tr("Open file"), g_setting->readEntry("LAST_DIR"), nameFilters.join(";;"));
         if (fileName.isEmpty())
             return {nullptr, nullptr};
     }

@@ -6604,12 +6604,12 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
 <context>
     <name>QObject</name>
     <message>
-        <location filename="main.cpp" line="375"/>
+        <location filename="main.cpp" line="384"/>
         <source>Black</source>
         <translation>黑棋</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="375"/>
+        <location filename="main.cpp" line="384"/>
         <source>White</source>
         <translation>白棋</translation>
     </message>
@@ -6817,39 +6817,58 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
         <translation>载入SGF文件错误。</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="248"/>
-        <location filename="main.cpp" line="344"/>
+        <location filename="main.cpp" line="252"/>
+        <source>All supported files (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="255"/>
+        <source>SGF files (*.sgf *.SGF)</source>
+        <translation type="unfinished">SGF文件 (*.sgf *.SGF)</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="258"/>
+        <source>All files (*)</source>
+        <translation type="unfinished">所有文件 (*)</translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="260"/>
+        <source>Open file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="main.cpp" line="353"/>
         <source>Open SGF file</source>
         <translation>打开SGF文件</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="617"/>
+        <location filename="main.cpp" line="626"/>
         <source>Show the Go server client window (default if no other arguments)</source>
         <translation>显示围棋服务器的客户端窗口（如果没有其他参数，则默认显示）</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="618"/>
+        <location filename="main.cpp" line="627"/>
         <source>Start up with a board window (ignored if files are loaded).</source>
         <translation>启动后显示棋盘窗口（如果有文件被载入则忽略）。</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="620"/>
+        <location filename="main.cpp" line="629"/>
         <source>Start up with the computer analysis dialog to analyze &lt;file&gt;.</source>
         <translation>启动并开始计算机分析对话框进行分析&lt;file&gt;。</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="620"/>
-        <location filename="main.cpp" line="622"/>
+        <location filename="main.cpp" line="629"/>
+        <location filename="main.cpp" line="631"/>
         <source>file</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="621"/>
+        <location filename="main.cpp" line="630"/>
         <source>Display debug messages in a window</source>
         <translation>在窗口中显示调试消息</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="634"/>
+        <location filename="main.cpp" line="643"/>
         <source>Load &lt;file&gt; and display it in a board window.</source>
         <translation>载入&lt;file&gt;并显示在棋盘窗口中。</translation>
     </message>
@@ -6897,13 +6916,12 @@ reverting to default.</source>
         <translation>无法保存设置到</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="623"/>
+        <location filename="main.cpp" line="632"/>
         <source>Specify text &lt;encoding&gt; of SGF files passed by command line.</source>
         <translation>指定通过命令行传来的SGF文件的文本编码。</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="250"/>
-        <location filename="main.cpp" line="346"/>
+        <location filename="main.cpp" line="355"/>
         <source>All supported files (*.sgf *.zip *.rar *.7z *.qdb);;All Files (*)</source>
         <translation>所有支持的文件 (*.sgf *.zip *.rar *.7z *.qdb);;所有文件 (*)</translation>
     </message>
@@ -6928,12 +6946,12 @@ reverting to default.</source>
         <translation>此SGF包括了棋盘区域外的落子。将被认为是PASS。</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="622"/>
+        <location filename="main.cpp" line="631"/>
         <source>Send debug messages to &lt;file&gt;.</source>
         <translation>发送调试消息到 &lt;file&gt;。</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="733"/>
+        <location filename="main.cpp" line="742"/>
         <source>The following files could not be found:</source>
         <translation>找不到下列文件：</translation>
     </message>
