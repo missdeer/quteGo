@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>669</width>
+    <width>822</width>
     <height>868</height>
    </rect>
   </property>
@@ -85,10 +85,10 @@
      <item>
       <spacer name="Horizontal Spacing2">
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
        <property name="sizeType">
-        <enum>QSizePolicy::Expanding</enum>
+        <enum>QSizePolicy::Policy::Expanding</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -169,7 +169,7 @@
      </item>
     </layout>
    </item>
-   <item row="0" column="0">
+   <item row="0" column="0" colspan="2">
     <widget class="QTabWidget" name="tabWidget">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
@@ -187,7 +187,7 @@
       <string/>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="InterfaceTabWidget">
       <attribute name="title">
@@ -266,7 +266,7 @@
                </size>
               </property>
               <property name="focusPolicy">
-               <enum>Qt::TabFocus</enum>
+               <enum>Qt::FocusPolicy::TabFocus</enum>
               </property>
               <property name="toolTip">
                <string>Select new font</string>
@@ -334,7 +334,7 @@ Select the font for the application.</string>
                </size>
               </property>
               <property name="focusPolicy">
-               <enum>Qt::TabFocus</enum>
+               <enum>Qt::FocusPolicy::TabFocus</enum>
               </property>
               <property name="toolTip">
                <string>Select new font</string>
@@ -402,7 +402,7 @@ Select the font for marks on the board.</string>
                </size>
               </property>
               <property name="focusPolicy">
-               <enum>Qt::TabFocus</enum>
+               <enum>Qt::FocusPolicy::TabFocus</enum>
               </property>
               <property name="toolTip">
                <string>Select new font</string>
@@ -464,7 +464,7 @@ Select font used in all text input/output fields.</string>
                </size>
               </property>
               <property name="focusPolicy">
-               <enum>Qt::TabFocus</enum>
+               <enum>Qt::FocusPolicy::TabFocus</enum>
               </property>
               <property name="toolTip">
                <string>Select new font</string>
@@ -532,7 +532,7 @@ Select the font for lists.</string>
                </size>
               </property>
               <property name="focusPolicy">
-               <enum>Qt::TabFocus</enum>
+               <enum>Qt::FocusPolicy::TabFocus</enum>
               </property>
               <property name="toolTip">
                <string>Select new font</string>
@@ -603,7 +603,7 @@ Select the font for the clocks.</string>
                </size>
               </property>
               <property name="focusPolicy">
-               <enum>Qt::TabFocus</enum>
+               <enum>Qt::FocusPolicy::TabFocus</enum>
               </property>
               <property name="toolTip">
                <string>Select new font</string>
@@ -697,7 +697,7 @@ If your language is not supported, you might consider translating qGo. Please ch
           <item>
            <widget class="QComboBox" name="languageComboBox">
             <property name="focusPolicy">
-             <enum>Qt::TabFocus</enum>
+             <enum>Qt::FocusPolicy::TabFocus</enum>
             </property>
             <item>
              <property name="text">
@@ -947,7 +947,7 @@ You can set the warning time besides</string>
        <item row="4" column="0">
         <spacer name="verticalSpacer_21">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -1071,10 +1071,10 @@ Globally disables all tool tips that would show up if the mouse hovers over a GU
           <item row="5" column="0">
            <spacer name="verticalSpacer_15">
             <property name="orientation">
-             <enum>Qt::Vertical</enum>
+             <enum>Qt::Orientation::Vertical</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Preferred</enum>
+             <enum>QSizePolicy::Policy::Preferred</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -1109,7 +1109,7 @@ Globally disables all tool tips that would show up if the mouse hovers over a GU
              <number>100</number>
             </property>
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
            </widget>
           </item>
@@ -1167,7 +1167,7 @@ Globally disables all tool tips that would show up if the mouse hovers over a GU
             <item>
              <widget class="QComboBox" name="timerComboBox">
               <property name="focusPolicy">
-               <enum>Qt::TabFocus</enum>
+               <enum>Qt::FocusPolicy::TabFocus</enum>
               </property>
               <property name="toolTip">
                <string>Time interval for autoplay</string>
@@ -1409,7 +1409,7 @@ Select how to display all brothers of the current move. Either not at all, or as
           <item row="0" column="1">
            <widget class="QComboBox" name="variationComboBox">
             <property name="focusPolicy">
-             <enum>Qt::TabFocus</enum>
+             <enum>Qt::FocusPolicy::TabFocus</enum>
             </property>
             <item>
              <property name="text">
@@ -1431,10 +1431,10 @@ Select how to display all brothers of the current move. Either not at all, or as
           <item row="5" column="0">
            <spacer name="verticalSpacer_18">
             <property name="orientation">
-             <enum>Qt::Vertical</enum>
+             <enum>Qt::Orientation::Vertical</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Preferred</enum>
+             <enum>QSizePolicy::Policy::Preferred</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -1531,7 +1531,7 @@ child/sibling setting:</string>
                <number>60</number>
               </property>
               <property name="orientation">
-               <enum>Qt::Horizontal</enum>
+               <enum>Qt::Orientation::Horizontal</enum>
               </property>
              </widget>
             </item>
@@ -1550,10 +1550,10 @@ child/sibling setting:</string>
           <item>
            <spacer name="verticalSpacer_17">
             <property name="orientation">
-             <enum>Qt::Vertical</enum>
+             <enum>Qt::Orientation::Vertical</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Preferred</enum>
+             <enum>QSizePolicy::Policy::Preferred</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -1569,10 +1569,10 @@ child/sibling setting:</string>
        <item row="5" column="0">
         <spacer name="verticalSpacer_16">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeType">
-          <enum>QSizePolicy::MinimumExpanding</enum>
+          <enum>QSizePolicy::Policy::MinimumExpanding</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -1615,7 +1615,7 @@ child/sibling setting:</string>
           <item>
            <spacer name="horizontalSpacer_4">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -1720,7 +1720,7 @@ child/sibling setting:</string>
           <item row="0" column="1">
            <widget class="QSlider" name="blackSpecSlider">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
            </widget>
           </item>
@@ -1741,14 +1741,14 @@ child/sibling setting:</string>
           <item row="1" column="1">
            <widget class="QSlider" name="blackHardSlider">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
            </widget>
           </item>
           <item row="2" column="1">
            <widget class="QSlider" name="blackRoundSlider">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
            </widget>
           </item>
@@ -1765,7 +1765,7 @@ child/sibling setting:</string>
              <number>5</number>
             </property>
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
            </widget>
           </item>
@@ -1782,10 +1782,10 @@ child/sibling setting:</string>
        <item row="4" column="0" colspan="3">
         <widget class="SizeGraphicsView" name="stoneView">
          <property name="verticalScrollBarPolicy">
-          <enum>Qt::ScrollBarAlwaysOff</enum>
+          <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
          </property>
          <property name="horizontalScrollBarPolicy">
-          <enum>Qt::ScrollBarAlwaysOff</enum>
+          <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
          </property>
         </widget>
        </item>
@@ -1798,14 +1798,14 @@ child/sibling setting:</string>
           <item row="1" column="1">
            <widget class="QSlider" name="whiteHardSlider">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
            </widget>
           </item>
           <item row="2" column="1">
            <widget class="QSlider" name="whiteRoundSlider">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
            </widget>
           </item>
@@ -1819,7 +1819,7 @@ child/sibling setting:</string>
           <item row="0" column="1">
            <widget class="QSlider" name="whiteSpecSlider">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
            </widget>
           </item>
@@ -1857,7 +1857,7 @@ child/sibling setting:</string>
              <number>5</number>
             </property>
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
            </widget>
           </item>
@@ -1886,7 +1886,7 @@ child/sibling setting:</string>
             <number>100</number>
            </property>
            <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+            <enum>Qt::Orientation::Horizontal</enum>
            </property>
           </widget>
          </item>
@@ -1895,7 +1895,7 @@ child/sibling setting:</string>
        <item row="7" column="1">
         <spacer name="verticalSpacer_151">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -2081,7 +2081,7 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
             <item>
              <spacer name="horizontalSpacer_6">
               <property name="orientation">
-               <enum>Qt::Horizontal</enum>
+               <enum>Qt::Orientation::Horizontal</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
@@ -2163,7 +2163,7 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
              <number>100</number>
             </property>
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="invertedAppearance">
              <bool>false</bool>
@@ -2172,7 +2172,7 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
              <bool>false</bool>
             </property>
             <property name="tickPosition">
-             <enum>QSlider::NoTicks</enum>
+             <enum>QSlider::TickPosition::NoTicks</enum>
             </property>
            </widget>
           </item>
@@ -2189,12 +2189,189 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
        <item row="6" column="0">
         <spacer name="verticalSpacer_20">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabSound">
+      <attribute name="title">
+       <string>Sound</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_9">
+       <item>
+        <widget class="QCheckBox" name="cbAutoReadComment">
+         <property name="text">
+          <string>Read comments automatically</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="gbVoices">
+         <property name="title">
+          <string>Voices</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout_3">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_30">
+            <property name="text">
+             <string>Name</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QComboBox" name="cbVoiceNames"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_31">
+            <property name="text">
+             <string>Short Name</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="edtVoiceShortName">
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_32">
+            <property name="text">
+             <string>Gender</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="lblVoiceGender">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_34">
+            <property name="text">
+             <string>Locale</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QComboBox" name="comboBox"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_35">
+            <property name="text">
+             <string>Suggested Codec</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLabel" name="lblVoiceSuggestedCodec"/>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_37">
+            <property name="text">
+             <string>Friendly Name</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QLabel" name="lblVoiceFriendlyName"/>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="label_39">
+            <property name="text">
+             <string>Status</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLabel" name="lblVoiceStatus"/>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="label_41">
+            <property name="text">
+             <string>Content Category</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QLabel" name="lblVoiceContentCategory"/>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="label_43">
+            <property name="text">
+             <string>Personalities</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QLabel" name="lblVoicePersonalities">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="gbVoiceOptions">
+         <property name="title">
+          <string>Options</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout_5">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_45">
+            <property name="text">
+             <string>Pitch(Hz)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="spVoicePitch"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_46">
+            <property name="text">
+             <string>Rate(%)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QSpinBox" name="spVoiceRate"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_47">
+            <property name="text">
+             <string>Volume(%)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QSpinBox" name="spVoiceVolume"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_13">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>404</height>
           </size>
          </property>
         </spacer>
@@ -2209,10 +2386,10 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
        <item row="4" column="0">
         <spacer name="Spacer8">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeType">
-          <enum>QSizePolicy::Expanding</enum>
+          <enum>QSizePolicy::Policy::Expanding</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -2309,7 +2486,7 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
             <item>
              <spacer name="horizontalSpacer_2">
               <property name="orientation">
-               <enum>Qt::Horizontal</enum>
+               <enum>Qt::Orientation::Horizontal</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
@@ -2362,7 +2539,7 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
           <item row="0" column="2" rowspan="2">
            <widget class="Line" name="line">
             <property name="orientation">
-             <enum>Qt::Vertical</enum>
+             <enum>Qt::Orientation::Vertical</enum>
             </property>
            </widget>
           </item>
@@ -2396,7 +2573,7 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
              <item row="0" column="0">
               <spacer name="horizontalSpacer">
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Orientation::Horizontal</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
@@ -2505,7 +2682,7 @@ Note: 'Delete' concerns saved records.</string>
           <item row="6" column="0">
            <spacer name="verticalSpacer_14">
             <property name="orientation">
-             <enum>Qt::Vertical</enum>
+             <enum>Qt::Orientation::Vertical</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -2794,7 +2971,7 @@ a variation</string>
           <item>
            <widget class="QCheckBox" name="CheckBox_extUserInfo">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="toolTip">
              <string>see more information from users -&gt; slow!</string>
@@ -3008,7 +3185,7 @@ use your login name and password provided by the go server operator after regist
 New users: leave blank!</string>
            </property>
            <property name="echoMode">
-            <enum>QLineEdit::Password</enum>
+            <enum>QLineEdit::EchoMode::Password</enum>
            </property>
           </widget>
          </item>
@@ -3061,7 +3238,7 @@ New users: leave blank!</string>
                         <string>Board size:</string>
                        </property>
                        <property name="alignment">
-                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                        </property>
                        <property name="wordWrap">
                         <bool>false</bool>
@@ -3095,7 +3272,7 @@ New users: leave blank!</string>
                    <item>
                     <spacer name="verticalSpacer_5">
                      <property name="orientation">
-                      <enum>Qt::Vertical</enum>
+                      <enum>Qt::Orientation::Vertical</enum>
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
@@ -3131,7 +3308,7 @@ New users: leave blank!</string>
                         <string>Komi:</string>
                        </property>
                        <property name="alignment">
-                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                        </property>
                        <property name="wordWrap">
                         <bool>false</bool>
@@ -3168,7 +3345,7 @@ New users: leave blank!</string>
                    <item>
                     <spacer name="verticalSpacer_6">
                      <property name="orientation">
-                      <enum>Qt::Vertical</enum>
+                      <enum>Qt::Orientation::Vertical</enum>
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
@@ -3201,10 +3378,10 @@ negotiation</string>
                  <item>
                   <widget class="Line" name="line2">
                    <property name="frameShape">
-                    <enum>QFrame::VLine</enum>
+                    <enum>QFrame::Shape::VLine</enum>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Sunken</enum>
+                    <enum>QFrame::Shadow::Sunken</enum>
                    </property>
                   </widget>
                  </item>
@@ -3240,7 +3417,7 @@ negotiation</string>
 time :</string>
                        </property>
                        <property name="alignment">
-                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                        </property>
                        <property name="wordWrap">
                         <bool>false</bool>
@@ -3252,7 +3429,7 @@ time :</string>
                        <item>
                         <spacer name="verticalSpacer_4">
                          <property name="orientation">
-                          <enum>Qt::Vertical</enum>
+                          <enum>Qt::Orientation::Vertical</enum>
                          </property>
                          <property name="sizeHint" stdset="0">
                           <size>
@@ -3290,7 +3467,7 @@ time :</string>
                        <item>
                         <spacer name="verticalSpacer_3">
                          <property name="orientation">
-                          <enum>Qt::Vertical</enum>
+                          <enum>Qt::Orientation::Vertical</enum>
                          </property>
                          <property name="sizeHint" stdset="0">
                           <size>
@@ -3331,7 +3508,7 @@ time :</string>
 time:</string>
                        </property>
                        <property name="alignment">
-                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                        </property>
                        <property name="wordWrap">
                         <bool>false</bool>
@@ -3343,7 +3520,7 @@ time:</string>
                        <item>
                         <spacer name="verticalSpacer">
                          <property name="orientation">
-                          <enum>Qt::Vertical</enum>
+                          <enum>Qt::Orientation::Vertical</enum>
                          </property>
                          <property name="sizeHint" stdset="0">
                           <size>
@@ -3375,7 +3552,7 @@ time:</string>
                        <item>
                         <spacer name="verticalSpacer_2">
                          <property name="orientation">
-                          <enum>Qt::Vertical</enum>
+                          <enum>Qt::Orientation::Vertical</enum>
                          </property>
                          <property name="sizeHint" stdset="0">
                           <size>
@@ -3401,10 +3578,10 @@ time:</string>
           <item>
            <widget class="Line" name="line2_2">
             <property name="frameShape">
-             <enum>QFrame::VLine</enum>
+             <enum>QFrame::Shape::VLine</enum>
             </property>
             <property name="frameShadow">
-             <enum>QFrame::Sunken</enum>
+             <enum>QFrame::Shadow::Sunken</enum>
             </property>
            </widget>
           </item>
@@ -3447,7 +3624,7 @@ time:</string>
 up to :</string>
                        </property>
                        <property name="alignment">
-                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                        </property>
                        <property name="wordWrap">
                         <bool>false</bool>
@@ -3459,7 +3636,7 @@ up to :</string>
                        <item>
                         <spacer name="verticalSpacer_7">
                          <property name="orientation">
-                          <enum>Qt::Vertical</enum>
+                          <enum>Qt::Orientation::Vertical</enum>
                          </property>
                          <property name="sizeHint" stdset="0">
                           <size>
@@ -3497,7 +3674,7 @@ up to :</string>
                        <item>
                         <spacer name="verticalSpacer_8">
                          <property name="orientation">
-                          <enum>Qt::Vertical</enum>
+                          <enum>Qt::Orientation::Vertical</enum>
                          </property>
                          <property name="sizeHint" stdset="0">
                           <size>
@@ -3538,7 +3715,7 @@ up to :</string>
 up to :</string>
                        </property>
                        <property name="alignment">
-                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                        </property>
                        <property name="wordWrap">
                         <bool>false</bool>
@@ -3550,7 +3727,7 @@ up to :</string>
                        <item>
                         <spacer name="verticalSpacer_9">
                          <property name="orientation">
-                          <enum>Qt::Vertical</enum>
+                          <enum>Qt::Orientation::Vertical</enum>
                          </property>
                          <property name="sizeHint" stdset="0">
                           <size>
@@ -3582,7 +3759,7 @@ up to :</string>
                        <item>
                         <spacer name="verticalSpacer_10">
                          <property name="orientation">
-                          <enum>Qt::Vertical</enum>
+                          <enum>Qt::Orientation::Vertical</enum>
                          </property>
                          <property name="sizeHint" stdset="0">
                           <size>
@@ -3601,10 +3778,10 @@ up to :</string>
                  <item>
                   <widget class="Line" name="line2_3">
                    <property name="frameShape">
-                    <enum>QFrame::VLine</enum>
+                    <enum>QFrame::Shape::VLine</enum>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Sunken</enum>
+                    <enum>QFrame::Shadow::Sunken</enum>
                    </property>
                   </widget>
                  </item>
@@ -3679,7 +3856,7 @@ up to :</string>
 up to :</string>
                        </property>
                        <property name="alignment">
-                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                        </property>
                        <property name="wordWrap">
                         <bool>false</bool>
@@ -3691,7 +3868,7 @@ up to :</string>
                        <item>
                         <spacer name="verticalSpacer_12">
                          <property name="orientation">
-                          <enum>Qt::Vertical</enum>
+                          <enum>Qt::Orientation::Vertical</enum>
                          </property>
                          <property name="sizeHint" stdset="0">
                           <size>
@@ -3726,7 +3903,7 @@ up to :</string>
                        <item>
                         <spacer name="verticalSpacer_11">
                          <property name="orientation">
-                          <enum>Qt::Vertical</enum>
+                          <enum>Qt::Orientation::Vertical</enum>
                          </property>
                          <property name="sizeHint" stdset="0">
                           <size>
@@ -4052,7 +4229,7 @@ up to :</string>
             <font/>
            </property>
            <property name="focusPolicy">
-            <enum>Qt::NoFocus</enum>
+            <enum>Qt::FocusPolicy::NoFocus</enum>
            </property>
            <property name="toolTip">
             <string>Score/Edit</string>
@@ -4069,10 +4246,10 @@ Edit
 Click to get a new, editable offline window.</string>
            </property>
            <property name="frameShape">
-            <enum>QFrame::HLine</enum>
+            <enum>QFrame::Shape::HLine</enum>
            </property>
            <property name="frameShadow">
-            <enum>QFrame::Sunken</enum>
+            <enum>QFrame::Shadow::Sunken</enum>
            </property>
           </widget>
          </item>
@@ -4137,10 +4314,10 @@ Note: don't use a default server name, i.e. '-- Aurora --' etc.</string>
           <item row="0" column="0">
            <spacer name="Spacer3">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Expanding</enum>
+             <enum>QSizePolicy::Policy::Expanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -4320,7 +4497,7 @@ Use a valid hostname or ip address. Instead of typing it one of the predefined h
           <item>
            <widget class="QCheckBox" name="CheckBox_autoSave">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="toolTip">
              <string>check for automatic saving observed games</string>
@@ -4338,10 +4515,10 @@ If checked then when an observed game completes, it is automatically saved in th
           <item>
            <spacer name="spacer12">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Expanding</enum>
+             <enum>QSizePolicy::Policy::Expanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -4354,7 +4531,7 @@ If checked then when an observed game completes, it is automatically saved in th
           <item>
            <widget class="QCheckBox" name="CheckBox_autoSave_Played">
             <property name="focusPolicy">
-             <enum>Qt::NoFocus</enum>
+             <enum>Qt::FocusPolicy::NoFocus</enum>
             </property>
             <property name="toolTip">
              <string>check for automatic saving for your games</string>
@@ -4544,7 +4721,7 @@ others:		guest</string>
        <item row="14" column="0">
         <spacer name="verticalSpacer_19">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -4593,7 +4770,7 @@ Select one of the predefined hosts -- xxx -- and add a title to use it.</string>
          <item>
           <spacer name="horizontalSpacer_5">
            <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+            <enum>Qt::Orientation::Horizontal</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -4644,7 +4821,7 @@ Select one of the predefined hosts -- xxx -- and add a title to use it.</string>
             <item>
              <spacer name="horizontalSpacer_3">
               <property name="orientation">
-               <enum>Qt::Horizontal</enum>
+               <enum>Qt::Orientation::Horizontal</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
@@ -4701,7 +4878,7 @@ Select one of the predefined hosts -- xxx -- and add a title to use it.</string>
           <item row="0" column="3">
            <spacer name="horizontalSpacer_4">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
