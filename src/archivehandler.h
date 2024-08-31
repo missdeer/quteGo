@@ -5,12 +5,18 @@
 #include <QSharedPointer>
 #include <QStringList>
 
-class ArchiveHandler
+#include "archiveitemlistwidget.h"
+
+class ArchiveHandler : public QObject
 {
+    Q_OBJECT
 public:
-    virtual ~ArchiveHandler() = default;
-    virtual const QStringList &getSGFFileList()                       = 0;
-    virtual QIODevice         *getSGFContent(const QString &fileName) = 0;
+    explicit ArchiveHandler(QObject *parent = nullptr) : QObject(parent) {}
+    virtual ~ArchiveHandler()                                             = default;
+    virtual const QStringList     &getSGFFileList()                       = 0;
+    virtual QIODevice             *getSGFContent(const QString &fileName) = 0;
+    virtual QIODevice             *getCurrentSGFContent()                 = 0;
+    virtual ArchiveItemListWidget *getArchiveItemListWidget()             = 0;
 };
 
 using ArchiveHandlerPtr = QSharedPointer<ArchiveHandler>;

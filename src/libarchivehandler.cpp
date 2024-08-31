@@ -1,6 +1,7 @@
 #include <archive.h>
 #include <archive_entry.h>
 
+#include <QListWidget>
 #include <QTextCodec>
 #include <QVector>
 
@@ -13,13 +14,17 @@ namespace
         {"zip", "rar", "7z"}, [](const QString &archive) -> ArchiveHandler * { return new LibArchiveHandler(archive); });
 } // namespace
 
-LibArchiveHandler::LibArchiveHandler(const QString &archive) : m_archivePath(archive)
+LibArchiveHandler::LibArchiveHandler(const QString &archive) : m_itemListWidget(new ArchiveItemListWidget()), m_archivePath(archive)
 {
-    traverseArchive(m_archivePath, [this](struct archive *a, struct archive_entry *entry) {
+    QListWidget *pListWidget = new QListWidget(m_itemListWidget);
+    pListWidget->connect(pListWidget, &QListWidget::currentTextChanged, this, &LibArchiveHandler::onItemSelected);
+    connect(pListWidget, &QListWidget::itemActivated, this, &LibArchiveHandler::onItemActivated);
+    traverseArchive(m_archivePath, [this, pListWidget](struct archive *a, struct archive_entry *entry) {
         QString currentFilePath = getEntryName(entry);
         if (currentFilePath.endsWith(".sgf", Qt::CaseInsensitive))
         {
             m_fileList.append(currentFilePath);
+            pListWidget->addItem(currentFilePath);
         }
         archive_read_data_skip(a);
         return false;
@@ -30,6 +35,7 @@ LibArchiveHandler::~LibArchiveHandler()
 {
     if (m_buffer.isOpen())
         m_buffer.close();
+    delete m_itemListWidget;
 }
 
 const QStringList &LibArchiveHandler::getSGFFileList()
@@ -103,10 +109,24 @@ QString LibArchiveHandler::getEntryName(struct archive_entry *entry)
 #endif
     const auto *entryPath = archive_entry_pathname(entry);
     // TODO: zip archive may have different encoding with system, should add an explicit option to set encoding
-    auto       *codec     = QTextCodec::codecForName("GBK");
+    auto *codec = QTextCodec::codecForName("GBK");
     if (codec)
     {
         return codec->toUnicode(entryPath);
     }
     return QString::fromLocal8Bit(entryPath);
+}
+
+ArchiveItemListWidget *LibArchiveHandler::getArchiveItemListWidget()
+{
+    return m_itemListWidget;
+}
+
+void LibArchiveHandler::onItemSelected(const QString &item) {}
+
+void LibArchiveHandler::onItemActivated(QListWidgetItem *item) {}
+
+QIODevice *LibArchiveHandler::getCurrentSGFContent()
+{
+    return nullptr;
 }

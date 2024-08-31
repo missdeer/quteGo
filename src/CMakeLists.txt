@@ -72,6 +72,7 @@ set(HEADERS
     archivehandler.h
     libarchivehandler.h
     archivehandlerfactory.h
+    archiveitemlistwidget.h
     )
 set(SOURCES
     analyzedlg.cpp
@@ -116,6 +117,7 @@ set(SOURCES
     archivehandler.cpp
     libarchivehandler.cpp
     archivehandlerfactory.cpp
+    archiveitemlistwidget.cpp
     )
 set(FORMS 
     gui_dialog.ui
