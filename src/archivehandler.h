@@ -15,6 +15,7 @@ public:
     virtual ~ArchiveHandler()                                             = default;
     virtual const QStringList     &getSGFFileList()                       = 0;
     virtual QIODevice             *getSGFContent(const QString &fileName) = 0;
+    virtual QIODevice             *getSGFContent(int index)               = 0;
     virtual QIODevice             *getCurrentSGFContent()                 = 0;
     virtual ArchiveItemListWidget *getArchiveItemListWidget()             = 0;
     virtual QStringList            getNameFilters()                       = 0;

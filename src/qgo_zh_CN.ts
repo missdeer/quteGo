@@ -3446,7 +3446,7 @@ Ctrl+点击合拢的节点可展开一级子结点。</translation>
 <context>
     <name>LibArchiveHandler</name>
     <message>
-        <location filename="libarchivehandler.cpp" line="153"/>
+        <location filename="libarchivehandler.cpp" line="160"/>
         <source>Archieve files (*.zip *.rar *.7z)</source>
         <translation type="unfinished">归档文件 (*.zip *.rar *.7z)</translation>
     </message>
@@ -6589,6 +6589,14 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
     </message>
 </context>
 <context>
+    <name>QDBHandler</name>
+    <message>
+        <location filename="sdbhandler.cpp" line="95"/>
+        <source>Archieve files (*.zip *.rar *.7z)</source>
+        <translation type="unfinished">归档文件 (*.zip *.rar *.7z)</translation>
+    </message>
+</context>
+<context>
     <name>QFileDialog</name>
     <message>
         <location filename="newaigamedlg.cpp" line="51"/>
@@ -6977,6 +6985,16 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <location filename="libarchivehandler.cpp" line="17"/>
         <source>Archieve files (*.zip *.rar *.7z)</source>
         <translation type="unfinished">归档文件 (*.zip *.rar *.7z)</translation>
+    </message>
+    <message>
+        <location filename="sdbhandler.cpp" line="13"/>
+        <source>Stonebase database files (*.sdb)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="sdbhandler.cpp" line="15"/>
+        <source>quteGo database files (*.qdb)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

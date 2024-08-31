@@ -82,6 +82,13 @@ QIODevice *LibArchiveHandler::getSGFContent(const QString &fileName)
     return &m_buffer;
 }
 
+QIODevice *LibArchiveHandler::getSGFContent(int index)
+{
+    if (index < 0 || index >= m_fileList.size())
+        return nullptr;
+    return getSGFContent(m_fileList[index]);
+}
+
 bool LibArchiveHandler::traverseArchive(const QString &archive, LibArchiveTraversalCallback callback)
 {
     auto *a = archive_read_new();

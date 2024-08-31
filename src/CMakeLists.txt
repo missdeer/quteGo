@@ -71,6 +71,7 @@ set(HEADERS
     audio.h
     archivehandler.h
     libarchivehandler.h
+    sdbhandler.h
     archivehandlerfactory.h
     archiveitemlistwidget.h
     )
@@ -116,6 +117,7 @@ set(SOURCES
     audio.cpp
     archivehandler.cpp
     libarchivehandler.cpp
+    sdbhandler.cpp
     archivehandlerfactory.cpp
     archiveitemlistwidget.cpp
     )

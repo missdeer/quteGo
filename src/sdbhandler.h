@@ -1,21 +1,17 @@
-#ifndef LIBARCHIVEHANDLER_H
-#define LIBARCHIVEHANDLER_H
-
+#pragma once
 #include <QBuffer>
 
 #include "archivehandler.h"
 
-struct archive;
-struct archive_entry;
 class QListWidgetItem;
-using LibArchiveTraversalCallback = std::function<bool(struct archive *, struct archive_entry *entry)>;
 
-class LibArchiveHandler : public ArchiveHandler
+class QDBHandler : public ArchiveHandler
 {
     Q_OBJECT
 public:
-    explicit LibArchiveHandler(const QString &archive);
-    ~LibArchiveHandler() override;
+    explicit QDBHandler(const QString &archive);
+    QDBHandler();
+    virtual ~QDBHandler();
     const QStringList     &getSGFFileList() override;
     QIODevice             *getSGFContent(const QString &fileName) override;
     QIODevice             *getSGFContent(int index) override;
@@ -33,8 +29,15 @@ private:
     QStringList            m_fileList;
     QBuffer                m_buffer;
 
-    bool    traverseArchive(const QString &archive, LibArchiveTraversalCallback callback);
-    QString getEntryName(struct archive_entry *entry);
+    void setupUi();
+protected:
+    void readDB(const QString &archive);
 };
 
-#endif // LIBARCHIVEHANDLER_H
+class SDBHandler : public QDBHandler
+{
+    Q_OBJECT
+public:
+    explicit SDBHandler(const QString &archive);
+    ~SDBHandler() override = default;
+};
