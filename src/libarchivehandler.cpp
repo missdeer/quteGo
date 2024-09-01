@@ -46,11 +46,6 @@ LibArchiveHandler::~LibArchiveHandler()
     delete m_itemListWidget;
 }
 
-const QStringList &LibArchiveHandler::getSGFFileList()
-{
-    return m_fileList;
-}
-
 QIODevice *LibArchiveHandler::getSGFContent(const QString &fileName)
 {
     traverseArchive(m_archivePath, [this, fileName](struct archive *a, struct archive_entry *entry) {
@@ -152,13 +147,6 @@ void LibArchiveHandler::onItemActivated(QListWidgetItem *item)
 QIODevice *LibArchiveHandler::getCurrentSGFContent()
 {
     return &m_buffer;
-}
-
-QStringList LibArchiveHandler::getNameFilters()
-{
-    return {
-        tr("Archieve files (*.zip *.rar *.7z)"),
-    };
 }
 
 bool LibArchiveHandler::hasSGF()

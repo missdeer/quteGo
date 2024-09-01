@@ -16,12 +16,10 @@ class LibArchiveHandler : public ArchiveHandler
 public:
     explicit LibArchiveHandler(const QString &archive);
     ~LibArchiveHandler() override;
-    const QStringList     &getSGFFileList() override;
     QIODevice             *getSGFContent(const QString &fileName) override;
     QIODevice             *getSGFContent(int index) override;
     QIODevice             *getCurrentSGFContent() override;
     ArchiveItemListWidget *getArchiveItemListWidget() override;
-    QStringList            getNameFilters() override;
     bool                   hasSGF() override;
 private slots:
     void onItemSelected(const QString &item);

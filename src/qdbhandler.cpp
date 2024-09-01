@@ -4,8 +4,9 @@
 #include <QProcess>
 #include <QVBoxLayout>
 
-#include "sdbhandler.h"
+#include "qdbhandler.h"
 #include "archivehandlerfactory.h"
+#include "qdbitemmodel.h"
 
 namespace
 {
@@ -36,9 +37,9 @@ void QDBHandler::setupUi()
     m_itemListWidget    = new ArchiveItemListWidget();
     QVBoxLayout *layout = new QVBoxLayout;
     m_itemListWidget->setLayout(layout);
-    QListWidget *pListWidget = new QListWidget(m_itemListWidget);
-    pListWidget->connect(pListWidget, &QListWidget::currentTextChanged, this, &QDBHandler::onItemSelected);
-    connect(pListWidget, &QListWidget::itemActivated, this, &QDBHandler::onItemActivated);
+    QListView *pListWidget = new QListView(m_itemListWidget);
+    m_pModel               = new QDBItemModel(pListWidget);
+    pListWidget->setModel(m_pModel);
     layout->addWidget(pListWidget);
     layout->setContentsMargins(0, 0, 0, 0);
 }
@@ -46,11 +47,8 @@ void QDBHandler::setupUi()
 void QDBHandler::readDB(const QString &archive)
 {
     m_archivePath = archive;
-}
-
-const QStringList &QDBHandler::getSGFFileList()
-{
-    return m_fileList;
+    Q_ASSERT(m_pModel);
+    m_pModel->loadQDB(archive);
 }
 
 QIODevice *QDBHandler::getSGFContent(const QString &fileName)
@@ -60,9 +58,12 @@ QIODevice *QDBHandler::getSGFContent(const QString &fileName)
 
 QIODevice *QDBHandler::getSGFContent(int index)
 {
-    if (index < 0 || index >= m_fileList.size())
+    if (index < 0 || index >= m_pModel->rowCount())
         return nullptr;
-    return getSGFContent(m_fileList[index]);
+    QByteArray sgf = m_pModel->getSGFContent(index);
+    m_buffer.setData(sgf);
+    m_buffer.seek(0);
+    return &m_buffer;
 }
 
 ArchiveItemListWidget *QDBHandler::getArchiveItemListWidget()
@@ -87,14 +88,7 @@ QIODevice *QDBHandler::getCurrentSGFContent()
     return &m_buffer;
 }
 
-QStringList QDBHandler::getNameFilters()
-{
-    return {
-        tr("Archieve files (*.zip *.rar *.7z)"),
-    };
-}
-
 bool QDBHandler::hasSGF()
 {
-    return !m_fileList.empty();
+    return m_pModel->rowCount() != 0;
 }

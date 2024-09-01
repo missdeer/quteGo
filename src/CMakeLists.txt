@@ -74,6 +74,7 @@ set(HEADERS
     qdbhandler.h
     archivehandlerfactory.h
     archiveitemlistwidget.h
+    qdbitemmodel.h
     )
 set(SOURCES
     analyzedlg.cpp
@@ -120,6 +121,7 @@ set(SOURCES
     qdbhandler.cpp
     archivehandlerfactory.cpp
     archiveitemlistwidget.cpp
+    qdbitemmodel.cpp
     )
 set(FORMS 
     gui_dialog.ui

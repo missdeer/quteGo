@@ -3444,14 +3444,6 @@ Ctrl+点击合拢的节点可展开一级子结点。</translation>
     </message>
 </context>
 <context>
-    <name>LibArchiveHandler</name>
-    <message>
-        <location filename="libarchivehandler.cpp" line="160"/>
-        <source>Archieve files (*.zip *.rar *.7z)</source>
-        <translation type="unfinished">归档文件 (*.zip *.rar *.7z)</translation>
-    </message>
-</context>
-<context>
     <name>MainWindow</name>
     <message>
         <location filename="mainwindow.cpp" line="599"/>
@@ -6589,11 +6581,61 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
     </message>
 </context>
 <context>
-    <name>QDBHandler</name>
+    <name>QDBItemModel</name>
     <message>
-        <location filename="qdbhandler.cpp" line="93"/>
-        <source>Archieve files (*.zip *.rar *.7z)</source>
-        <translation type="unfinished">归档文件 (*.zip *.rar *.7z)</translation>
+        <location filename="qdbitemmodel.cpp" line="118"/>
+        <source>ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qdbitemmodel.cpp" line="120"/>
+        <source>Event Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qdbitemmodel.cpp" line="122"/>
+        <source>Game Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qdbitemmodel.cpp" line="124"/>
+        <source>Black Player</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qdbitemmodel.cpp" line="126"/>
+        <source>Black Rank</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qdbitemmodel.cpp" line="128"/>
+        <source>White Player</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qdbitemmodel.cpp" line="130"/>
+        <source>White Rank</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qdbitemmodel.cpp" line="132"/>
+        <source>Result</source>
+        <translation type="unfinished">结果</translation>
+    </message>
+    <message>
+        <location filename="qdbitemmodel.cpp" line="134"/>
+        <source>Komi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qdbitemmodel.cpp" line="136"/>
+        <source>Move Count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qdbitemmodel.cpp" line="138"/>
+        <source>Commented</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6612,12 +6654,12 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
 <context>
     <name>QObject</name>
     <message>
-        <location filename="main.cpp" line="384"/>
+        <location filename="main.cpp" line="383"/>
         <source>Black</source>
         <translation>黑棋</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="384"/>
+        <location filename="main.cpp" line="383"/>
         <source>White</source>
         <translation>白棋</translation>
     </message>
@@ -6845,38 +6887,38 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="main.cpp" line="353"/>
+        <location filename="main.cpp" line="352"/>
         <source>Open SGF file</source>
         <translation>打开SGF文件</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="626"/>
+        <location filename="main.cpp" line="625"/>
         <source>Show the Go server client window (default if no other arguments)</source>
         <translation>显示围棋服务器的客户端窗口（如果没有其他参数，则默认显示）</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="627"/>
+        <location filename="main.cpp" line="626"/>
         <source>Start up with a board window (ignored if files are loaded).</source>
         <translation>启动后显示棋盘窗口（如果有文件被载入则忽略）。</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="629"/>
+        <location filename="main.cpp" line="628"/>
         <source>Start up with the computer analysis dialog to analyze &lt;file&gt;.</source>
         <translation>启动并开始计算机分析对话框进行分析&lt;file&gt;。</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="629"/>
-        <location filename="main.cpp" line="631"/>
+        <location filename="main.cpp" line="628"/>
+        <location filename="main.cpp" line="630"/>
         <source>file</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="630"/>
+        <location filename="main.cpp" line="629"/>
         <source>Display debug messages in a window</source>
         <translation>在窗口中显示调试消息</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="643"/>
+        <location filename="main.cpp" line="642"/>
         <source>Load &lt;file&gt; and display it in a board window.</source>
         <translation>载入&lt;file&gt;并显示在棋盘窗口中。</translation>
     </message>
@@ -6924,12 +6966,12 @@ reverting to default.</source>
         <translation>无法保存设置到</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="632"/>
+        <location filename="main.cpp" line="631"/>
         <source>Specify text &lt;encoding&gt; of SGF files passed by command line.</source>
         <translation>指定通过命令行传来的SGF文件的文本编码。</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="355"/>
+        <location filename="main.cpp" line="354"/>
         <source>All supported files (*.sgf *.zip *.rar *.7z *.qdb);;All Files (*)</source>
         <translation>所有支持的文件 (*.sgf *.zip *.rar *.7z *.qdb);;所有文件 (*)</translation>
     </message>
@@ -6954,12 +6996,12 @@ reverting to default.</source>
         <translation>此SGF包括了棋盘区域外的落子。将被认为是PASS。</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="631"/>
+        <location filename="main.cpp" line="630"/>
         <source>Send debug messages to &lt;file&gt;.</source>
         <translation>发送调试消息到 &lt;file&gt;。</translation>
     </message>
     <message>
-        <location filename="main.cpp" line="742"/>
+        <location filename="main.cpp" line="741"/>
         <source>The following files could not be found:</source>
         <translation>找不到下列文件：</translation>
     </message>
@@ -6992,7 +7034,7 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="qdbhandler.cpp" line="13"/>
+        <location filename="qdbhandler.cpp" line="14"/>
         <source>quteGo database files (*.qdb)</source>
         <translation type="unfinished"></translation>
     </message>

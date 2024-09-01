@@ -117,9 +117,6 @@ void SGFPreview::setPath(const QString &path)
     if (archiveHandler)
     {
         m_archive.reset(archiveHandler);
-        auto fileList = m_archive->getSGFFileList();
-        archiveItemList->setVisible(!fileList.isEmpty());
-        archiveItemList->addItems(fileList);
         return;
     }
 }
