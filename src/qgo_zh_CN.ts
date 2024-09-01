@@ -6591,7 +6591,7 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
 <context>
     <name>QDBHandler</name>
     <message>
-        <location filename="sdbhandler.cpp" line="95"/>
+        <location filename="qdbhandler.cpp" line="93"/>
         <source>Archieve files (*.zip *.rar *.7z)</source>
         <translation type="unfinished">归档文件 (*.zip *.rar *.7z)</translation>
     </message>
@@ -6992,7 +6992,7 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="sdbhandler.cpp" line="15"/>
+        <location filename="qdbhandler.cpp" line="13"/>
         <source>quteGo database files (*.qdb)</source>
         <translation type="unfinished"></translation>
     </message>

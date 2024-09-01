@@ -71,7 +71,7 @@ set(HEADERS
     audio.h
     archivehandler.h
     libarchivehandler.h
-    sdbhandler.h
+    qdbhandler.h
     archivehandlerfactory.h
     archiveitemlistwidget.h
     )
@@ -117,7 +117,7 @@ set(SOURCES
     audio.cpp
     archivehandler.cpp
     libarchivehandler.cpp
-    sdbhandler.cpp
+    qdbhandler.cpp
     archivehandlerfactory.cpp
     archiveitemlistwidget.cpp
     )
@@ -146,6 +146,11 @@ set(FORMS
 	svgview_gui.ui
     nthmove_gui.ui
     )
+
+IF(WIN32)
+    list(APPEND HEADERS sdbhandler.h)
+    list(APPEND SOURCES sdbhandler.cpp)
+ENDIF()        
 
 qt_add_resources(qrcs q4go.qrc)
 set(TS_FILES
