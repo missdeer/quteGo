@@ -1,15 +1,13 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlRecord>
+#include <QTextCodec>
 
 #include "qdbitemmodel.h"
 
 QDBItemModel::QDBItemModel(QObject *parent) : QAbstractTableModel {parent} {}
 
-QDBItemModel::~QDBItemModel()
-{
-    QSqlDatabase::removeDatabase(QSqlDatabase::defaultConnection);
-}
+QDBItemModel::~QDBItemModel() {}
 
 void QDBItemModel::loadQDB(const QString &filename)
 {
@@ -153,7 +151,11 @@ QByteArray QDBItemModel::getSGFContent(int index)
     QSqlQuery query(sql);
     if (query.next())
     {
-        return query.value(query.record().indexOf("GAMEDATA")).toByteArray();
+        auto content = query.value(query.record().indexOf("GAMEDATA")).toByteArray();
+        // convert from GBK to UTF-8, SGF from sdb is encoded in GBK
+        QTextCodec *codec = QTextCodec::codecForName("GBK");
+        Q_ASSERT(codec);
+        return codec->toUnicode(content).toUtf8();
     }
     return {};
 }

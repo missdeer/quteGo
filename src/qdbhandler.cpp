@@ -14,13 +14,14 @@ namespace
         "qdb", QObject::tr("quteGo database files (*.qdb)"), [](const QString &archive) -> ArchiveHandler * { return new QDBHandler(archive); });
 } // namespace
 
-QDBHandler::QDBHandler(const QString &archive) : m_archivePath(archive)
+QDBHandler::QDBHandler(const QString &archive)
+    : m_itemListWidget(new ArchiveItemListWidget), m_model(new QDBItemModel(m_itemListWidget)), m_archivePath(archive)
 {
     setupUi();
     readDB(m_archivePath);
 }
 
-QDBHandler::QDBHandler()
+QDBHandler::QDBHandler() : m_itemListWidget(new ArchiveItemListWidget), m_model(new QDBItemModel(m_itemListWidget))
 {
     setupUi();
 }
@@ -34,12 +35,10 @@ QDBHandler::~QDBHandler()
 
 void QDBHandler::setupUi()
 {
-    m_itemListWidget    = new ArchiveItemListWidget();
     QVBoxLayout *layout = new QVBoxLayout;
     m_itemListWidget->setLayout(layout);
     QTableView *pTableView = new QTableView(m_itemListWidget);
-    m_pModel               = new QDBItemModel(pTableView);
-    pTableView->setModel(m_pModel);
+    pTableView->setModel(m_model);
     pTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     pTableView->setSelectionMode(QAbstractItemView::SingleSelection);
     layout->addWidget(pTableView);
@@ -49,15 +48,15 @@ void QDBHandler::setupUi()
 void QDBHandler::readDB(const QString &archive)
 {
     m_archivePath = archive;
-    Q_ASSERT(m_pModel);
-    m_pModel->loadQDB(archive);
+    Q_ASSERT(m_model);
+    m_model->loadQDB(archive);
 }
 
 QIODevice *QDBHandler::getSGFContent(int index)
 {
-    if (index < 0 || index >= m_pModel->rowCount())
+    if (index < 0 || index >= m_model->rowCount())
         return nullptr;
-    QByteArray sgf = m_pModel->getSGFContent(index);
+    QByteArray sgf = m_model->getSGFContent(index);
     if (m_buffer.isOpen())
         m_buffer.close();
     m_buffer.setData(sgf);
@@ -78,5 +77,5 @@ QIODevice *QDBHandler::getCurrentSGFContent()
 
 bool QDBHandler::hasSGF()
 {
-    return m_pModel->rowCount() != 0;
+    return m_model->rowCount() != 0;
 }

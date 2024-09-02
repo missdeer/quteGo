@@ -19,7 +19,20 @@ set(CMAKE_AUTORCC OFF) # if you have any .qrc files
 add_compile_definitions(QT_THREAD_SUPPORT)
 include_directories(${Qt${QT_VERSION_MAJOR}Gui_PRIVATE_INCLUDE_DIRS})
 
+find_package(ICU 70.0 COMPONENTS uc i18n REQUIRED)
 find_package(LibArchive REQUIRED)
+find_package(Boost 1.79.0)
+if(Boost_FOUND)
+    #include_directories(${Boost_INCLUDE_DIRS})
+    link_directories(${Boost_LIBRARY_DIRS})
+
+    set(Boost_USE_STATIC_LIBS ON)
+
+    set(Boost_USE_MULTITHREADED ON)
+    if(MSVC)
+      set(Boost_USE_STATIC_RUNTIME ON)
+    endif(MSVC)
+endif(Boost_FOUND)
 
 set(HEADERS 
     analyzedlg.h
@@ -75,6 +88,7 @@ set(HEADERS
     archivehandlerfactory.h
     archiveitemlistwidget.h
     qdbitemmodel.h
+	encodingutils.h
     )
 set(SOURCES
     analyzedlg.cpp
@@ -122,6 +136,7 @@ set(SOURCES
     archivehandlerfactory.cpp
     archiveitemlistwidget.cpp
     qdbitemmodel.cpp
+	encodingutils.cpp
     )
 set(FORMS 
     gui_dialog.ui
@@ -191,6 +206,7 @@ ELSE()
 ENDIF()
 
 target_link_libraries(${PROJECT_NAME}  PRIVATE  LibArchive::LibArchive
+        ICU::uc ICU::i18n
         Qt${QT_VERSION_MAJOR}::Network
         Qt${QT_VERSION_MAJOR}::Core
         Qt${QT_VERSION_MAJOR}::Xml
@@ -214,6 +230,10 @@ IF (Qt6_FOUND)
             )
 ENDIF(Qt6_FOUND)
 
+if(Boost_FOUND)
+  # dont use include_directories, use target_include_directories instead to let lupdate skip boost directories
+  target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIRS})
+endif()
 set_target_properties(${PROJECT_NAME} PROPERTIES WIN32_EXECUTABLE ON
                                                  MACOSX_BUNDLE ON)
 

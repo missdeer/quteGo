@@ -20,7 +20,7 @@ private slots:
 
 private:
     ArchiveItemListWidget *m_itemListWidget;
-    QDBItemModel          *m_pModel;
+    QDBItemModel          *m_model;
     QString                m_archivePath;
     QBuffer                m_buffer;
 
