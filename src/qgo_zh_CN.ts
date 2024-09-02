@@ -6583,57 +6583,57 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
 <context>
     <name>QDBItemModel</name>
     <message>
-        <location filename="qdbitemmodel.cpp" line="118"/>
+        <location filename="qdbitemmodel.cpp" line="123"/>
         <source>ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="qdbitemmodel.cpp" line="120"/>
+        <location filename="qdbitemmodel.cpp" line="125"/>
         <source>Event Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="qdbitemmodel.cpp" line="122"/>
+        <location filename="qdbitemmodel.cpp" line="127"/>
         <source>Game Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="qdbitemmodel.cpp" line="124"/>
+        <location filename="qdbitemmodel.cpp" line="129"/>
         <source>Black Player</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="qdbitemmodel.cpp" line="126"/>
+        <location filename="qdbitemmodel.cpp" line="131"/>
         <source>Black Rank</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="qdbitemmodel.cpp" line="128"/>
+        <location filename="qdbitemmodel.cpp" line="133"/>
         <source>White Player</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="qdbitemmodel.cpp" line="130"/>
+        <location filename="qdbitemmodel.cpp" line="135"/>
         <source>White Rank</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="qdbitemmodel.cpp" line="132"/>
+        <location filename="qdbitemmodel.cpp" line="137"/>
         <source>Result</source>
         <translation type="unfinished">结果</translation>
     </message>
     <message>
-        <location filename="qdbitemmodel.cpp" line="134"/>
+        <location filename="qdbitemmodel.cpp" line="139"/>
         <source>Komi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="qdbitemmodel.cpp" line="136"/>
+        <location filename="qdbitemmodel.cpp" line="141"/>
         <source>Move Count</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="qdbitemmodel.cpp" line="138"/>
+        <location filename="qdbitemmodel.cpp" line="143"/>
         <source>Commented</source>
         <translation type="unfinished"></translation>
     </message>

@@ -37,10 +37,12 @@ void QDBHandler::setupUi()
     m_itemListWidget    = new ArchiveItemListWidget();
     QVBoxLayout *layout = new QVBoxLayout;
     m_itemListWidget->setLayout(layout);
-    QTableView *pListWidget = new QTableView(m_itemListWidget);
-    m_pModel                = new QDBItemModel(pListWidget);
-    pListWidget->setModel(m_pModel);
-    layout->addWidget(pListWidget);
+    QTableView *pTableView = new QTableView(m_itemListWidget);
+    m_pModel               = new QDBItemModel(pTableView);
+    pTableView->setModel(m_pModel);
+    pTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    pTableView->setSelectionMode(QAbstractItemView::SingleSelection);
+    layout->addWidget(pTableView);
     layout->setContentsMargins(0, 0, 0, 0);
 }
 

@@ -24,6 +24,8 @@ void QDBItemModel::loadQDB(const QString &filename)
     if (query.next())
     {
         m_rowCount = query.value(0).toInt();
+        beginInsertRows(QModelIndex(), 0, m_rowCount - 1);
+        endInsertRows();
     }
 }
 
@@ -62,36 +64,39 @@ QVariant QDBItemModel::data(const QModelIndex &index, int role) const
     {
         return {};
     }
-    QString   sql = QStringLiteral("SELECT * FROM go_games WHERE ID=%1;").arg(index.row() + 1);
-    QSqlQuery query(sql);
-    if (!query.next())
+    if (role == Qt::DisplayRole)
     {
-        return {};
-    }
-    switch (index.column())
-    {
-    case 0:
-        return query.value(query.record().indexOf("ID")).toInt();
-    case 1:
-        return query.value(query.record().indexOf("EVENTNAME")).toString();
-    case 2:
-        return query.value(query.record().indexOf("GAMENAME")).toString();
-    case 3:
-        return query.value(query.record().indexOf("BLACKNAME")).toString();
-    case 4:
-        return query.value(query.record().indexOf("BLACKRANK")).toString();
-    case 5:
-        return query.value(query.record().indexOf("WHITENAME")).toString();
-    case 6:
-        return query.value(query.record().indexOf("WHITERANK")).toString();
-    case 7:
-        return query.value(query.record().indexOf("GAMERESULT")).toString();
-    case 8:
-        return query.value(query.record().indexOf("KOMI")).toString();
-    case 9:
-        return query.value(query.record().indexOf("MOVECOUNT")).toInt();
-    case 10:
-        return query.value(query.record().indexOf("COMMENTED")).toBool();
+        QString   sql = QStringLiteral("SELECT * FROM go_games WHERE ID=%1;").arg(index.row() + 1);
+        QSqlQuery query(sql);
+        if (!query.next())
+        {
+            return {};
+        }
+        switch (index.column())
+        {
+        case 0:
+            return query.value(query.record().indexOf("ID")).toInt();
+        case 1:
+            return query.value(query.record().indexOf("EVENTNAME")).toString();
+        case 2:
+            return query.value(query.record().indexOf("GAMENAME")).toString();
+        case 3:
+            return query.value(query.record().indexOf("BLACKNAME")).toString();
+        case 4:
+            return query.value(query.record().indexOf("BLACKRANK")).toString();
+        case 5:
+            return query.value(query.record().indexOf("WHITENAME")).toString();
+        case 6:
+            return query.value(query.record().indexOf("WHITERANK")).toString();
+        case 7:
+            return query.value(query.record().indexOf("GAMERESULT")).toString();
+        case 8:
+            return query.value(query.record().indexOf("KOMI")).toString();
+        case 9:
+            return query.value(query.record().indexOf("MOVECOUNT")).toInt();
+        case 10:
+            return query.value(query.record().indexOf("COMMENTED")).toBool();
+        }
     }
     return {};
 }
