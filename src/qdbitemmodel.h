@@ -24,7 +24,8 @@ public:
     QByteArray                  getSGFContent(int index);
 
 private:
-    int m_rowCount {0};
+    int     m_rowCount {0};
+    QString m_connectionName;
 };
 
 #endif // QDBITEMMODEL_H

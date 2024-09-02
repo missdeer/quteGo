@@ -2,23 +2,34 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QTextCodec>
+#include <QUuid>
 
 #include "qdbitemmodel.h"
+#include "encodingutils.h"
 
 QDBItemModel::QDBItemModel(QObject *parent) : QAbstractTableModel {parent} {}
 
-QDBItemModel::~QDBItemModel() {}
+QDBItemModel::~QDBItemModel()
+{
+    auto db = QSqlDatabase::database(m_connectionName);
+    if (db.isOpen())
+    {
+        db.close();
+    }
+    QSqlDatabase::removeDatabase(m_connectionName);
+}
 
 void QDBItemModel::loadQDB(const QString &filename)
 {
-    auto db = QSqlDatabase::addDatabase("QSQLITE");
+    m_connectionName = QUuid::createUuid().toString();
+    auto db          = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), m_connectionName);
     db.setDatabaseName(filename);
     if (!db.open())
     {
         return;
     }
     QString   sql = QStringLiteral("SELECT COUNT(*) FROM go_games;");
-    QSqlQuery query(sql);
+    QSqlQuery query(sql, db);
     if (query.next())
     {
         m_rowCount = query.value(0).toInt();
@@ -34,7 +45,7 @@ int QDBItemModel::rowCount(const QModelIndex &parent) const
 
 int QDBItemModel::columnCount(const QModelIndex &parent) const
 {
-    return 10;
+    return 11;
 }
 
 QModelIndex QDBItemModel::index(int row, int column, const QModelIndex &parent) const
@@ -64,8 +75,9 @@ QVariant QDBItemModel::data(const QModelIndex &index, int role) const
     }
     if (role == Qt::DisplayRole)
     {
+        auto      db  = QSqlDatabase::database(m_connectionName);
         QString   sql = QStringLiteral("SELECT * FROM go_games WHERE ID=%1;").arg(index.row() + 1);
-        QSqlQuery query(sql);
+        QSqlQuery query(sql, db);
         if (!query.next())
         {
             return {};
@@ -147,15 +159,16 @@ QVariant QDBItemModel::headerData(int section, Qt::Orientation orientation, int 
 
 QByteArray QDBItemModel::getSGFContent(int index)
 {
+    auto      db  = QSqlDatabase::database(m_connectionName);
     QString   sql = QStringLiteral("SELECT GAMEDATA FROM go_games WHERE ID=%1;").arg(index + 1);
-    QSqlQuery query(sql);
+    QSqlQuery query(sql, db);
     if (query.next())
     {
         auto content = query.value(query.record().indexOf("GAMEDATA")).toByteArray();
         // convert from GBK to UTF-8, SGF from sdb is encoded in GBK
-        QTextCodec *codec = QTextCodec::codecForName("GBK");
-        Q_ASSERT(codec);
-        return codec->toUnicode(content).toUtf8();
+        auto [fromConverter, toConverter] = EncodingUtils::prepareConverters(QStringLiteral("GBK"), QStringLiteral("UTF-8"));
+        auto [res, _]                     = EncodingUtils::convertDataEncoding(content, fromConverter, toConverter);
+        return res;
     }
     return {};
 }
