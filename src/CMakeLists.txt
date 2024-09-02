@@ -165,9 +165,12 @@ set(TS_FILES
     translations/quteGo_cz.ts
     translations/quteGo_de.ts
     translations/quteGo_dk.ts
+    translations/quteGo_en_US.ts
     translations/quteGo_es.ts
     translations/quteGo_fr.ts
     translations/quteGo_it.ts
+    translations/quteGo_jp.ts
+    translations/quteGo_kr.ts
     translations/quteGo_la.ts
     translations/quteGo_nl.ts
     translations/quteGo_pl.ts

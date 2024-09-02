@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it">
+<TS version="2.1" language="la" sourcelanguage="en_US">
 <context>
     <name>AnalyzeDialog</name>
     <message>
@@ -80,7 +80,7 @@
         <location line="+48"/>
         <location line="+17"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
         <location line="-51"/>
@@ -419,7 +419,7 @@ Variation 1 of 20
         <location line="+17"/>
         <location line="+373"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
         <location line="-471"/>
@@ -473,7 +473,7 @@ Variation 1 of 20
 Indicates whether it is black&apos;s or white&apos;s turn.</source>
         <translation type="unfinished">Ludendum est
 
-Nigro vel albo motum hunc ostendit. </translation>
+Nigro vel albo motum hunc ostendit.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1694,12 +1694,12 @@ Titulus canalis at nomen utentis est in suggestione</translation>
     <message>
         <location line="+67"/>
         <source> Byoyomi Time : (</source>
-        <translation> Tempus Byoyomi : (</translation>
+        <translation>Tempus Byoyomi : (</translation>
     </message>
     <message>
         <location line="+0"/>
         <source> stones)</source>
-        <translation> lapides)</translation>
+        <translation>lapides)</translation>
     </message>
     <message>
         <location line="+39"/>
@@ -1921,7 +1921,7 @@ Regulam status  excitat aut extinguit.</translation>
     <message>
         <location line="+2"/>
         <source>Room </source>
-        <translation>Camera </translation>
+        <translation>Camera</translation>
     </message>
 </context>
 <context>
@@ -2659,7 +2659,7 @@ Regulam status  excitat aut extinguit.</translation>
     <message>
         <location line="+8"/>
         <source>Ctrl+Q</source>
-        <translation>Ctrl+X</translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -3011,7 +3011,7 @@ Regulam status  excitat aut extinguit.</translation>
         <location line="+17"/>
         <location line="+17"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
         <location line="-37"/>
@@ -3922,7 +3922,7 @@ Correctiones servandae sunt?</translation>
     <message>
         <location line="+7"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
         <location line="+24"/>
@@ -4333,7 +4333,7 @@ Albi puncta komi adicit quod nigro est commoditas primi lapidis collocandi.
         <location line="+20"/>
         <location line="+14"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -6094,7 +6094,7 @@ child/sibling setting:</source>
     <message>
         <location line="+47"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
         <location line="+58"/>
@@ -6616,7 +6616,17 @@ ad :</translation>
 <context>
     <name>QDBItemModel</name>
     <message>
-        <location filename="../qdbitemmodel.cpp" line="+133"/>
+        <location filename="../qdbitemmodel.cpp" line="+108"/>
+        <source>Yes</source>
+        <translation type="unfinished">Sic</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>No</source>
+        <translation type="unfinished">Non</translation>
+    </message>
+    <message>
+        <location line="+25"/>
         <source>ID</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7348,7 +7358,7 @@ You will need to add &apos;%n&quot; somewhere in the template to indicate the po
     <message>
         <location line="+4"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -7949,7 +7959,7 @@ Exire tamen?</translation>
     <message>
         <location line="+444"/>
         <source>komi </source>
-        <translation>komi </translation>
+        <translation>komi</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -7989,8 +7999,7 @@ Do you accept ?
 </source>
         <translation>%1 %2 petit
 
-Accipis ? 
-</translation>
+Accipis ?</translation>
     </message>
 </context>
 </TS>

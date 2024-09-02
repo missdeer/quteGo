@@ -55,7 +55,7 @@
         <location filename="../analyze_gui.ui" line="216"/>
         <location filename="../analyze_gui.ui" line="233"/>
         <source>...</source>
-        <translation></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../analyze_gui.ui" line="182"/>
@@ -1921,7 +1921,7 @@ Enables/disables the statusbar.</source>
     <message>
         <location filename="../clientwin.cpp" line="1498"/>
         <source> stones)</source>
-        <translation> 手)</translation>
+        <translation>手)</translation>
     </message>
     <message>
         <location filename="../clientwin.cpp" line="1106"/>
@@ -2868,8 +2868,7 @@ Enables/disables the statusbar.</source>
 	Open the batch analysis dialog which allows you to add SGF files to a queue to be analysed by an engine.
 	</source>
         <translation>批量分析
-	打开批量分析对话框，将SGF文件添加到队列中让引擎进行分析。
-	</translation>
+	打开批量分析对话框，将SGF文件添加到队列中让引擎进行分析。</translation>
     </message>
     <message>
         <location filename="../clientwindow_gui.ui" line="1499"/>
@@ -3528,7 +3527,7 @@ Shows the brothers and sons of the current move.</source>
         <location filename="../mainwindow.cpp" line="2133"/>
         <source>N</source>
         <comment>Board status line: normal mode</comment>
-        <translation type="unfinished">一般</translation>
+        <translation>普通</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="753"/>
@@ -3576,7 +3575,7 @@ Shows the current mode. &apos;N&apos; for normal mode, &apos;E&apos; for edit mo
     <message>
         <location filename="../mainwindow.cpp" line="1088"/>
         <source>Export image as</source>
-        <translation>导出图像为 </translation>
+        <translation>导出图像为</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="1261"/>
@@ -3691,44 +3690,44 @@ Do you still want to save it?</source>
         <location filename="../mainwindow.cpp" line="2137"/>
         <source>E</source>
         <comment>Board status line: edit mode</comment>
-        <translation type="unfinished">编辑</translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2141"/>
         <source>O</source>
         <comment>Board status line: observe mode</comment>
-        <translation type="unfinished">观局</translation>
+        <translation>观看</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2145"/>
         <source>O</source>
         <comment>Board status line: observe GTP mode</comment>
-        <translation type="unfinished">观局</translation>
+        <translation>观看</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2149"/>
         <location filename="../mainwindow.cpp" line="2153"/>
         <source>P</source>
         <comment>Board status line: play mode</comment>
-        <translation type="unfinished">对局</translation>
+        <translation>对局</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2157"/>
         <source>T</source>
         <comment>Board status line: teach mode</comment>
-        <translation type="unfinished">教学</translation>
+        <translation>教学</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2165"/>
         <source>S</source>
         <comment>Board status line: score mode</comment>
-        <translation type="unfinished">点目</translation>
+        <translation>点目</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2169"/>
         <source>A</source>
         <comment>Board status line: batch analysis</comment>
-        <translation type="unfinished"></translation>
+        <translation>分析</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2211"/>
@@ -3755,22 +3754,22 @@ Do you still want to save it?</source>
     <message>
         <location filename="../mainwindow.cpp" line="2390"/>
         <source>W</source>
-        <translation type="unfinished">白</translation>
+        <translation>白</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2391"/>
         <source>B</source>
-        <translation type="unfinished">黑</translation>
+        <translation>黑</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2393"/>
         <source>Move</source>
-        <translation type="unfinished">落子</translation>
+        <translation>落子</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2402"/>
         <source>Pass</source>
-        <translation type="unfinished">虚手</translation>
+        <translation>虚手</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2406"/>
@@ -3781,32 +3780,32 @@ Do you still want to save it?</source>
         <location filename="../mainwindow.cpp" line="2417"/>
         <source>
 Variation </source>
-        <translation type="unfinished">变化</translation>
+        <translation>变化</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2417"/>
         <source> of </source>
-        <translation type="unfinished">中的</translation>
+        <translation>中的</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2420"/>
         <source>child position</source>
-        <translation type="unfinished">子位置</translation>
+        <translation>子位置</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2422"/>
         <source>child positions</source>
-        <translation type="unfinished">子位置</translation>
+        <translation>子位置</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2442"/>
         <source>Black to play</source>
-        <translation type="unfinished">黑方行棋</translation>
+        <translation>黑方行棋</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2444"/>
         <source>White to play</source>
-        <translation type="unfinished">白方行棋</translation>
+        <translation>白方行棋</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3033"/>
@@ -3947,12 +3946,12 @@ Overwrite stored game result?</source>
     <message>
         <location filename="../mainwindow.cpp" line="2900"/>
         <source>Error</source>
-        <translation type="unfinished">错误</translation>
+        <translation>错误</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="2913"/>
         <source>GTP process exited unexpectedly.</source>
-        <translation type="unfinished">GTP进程异常退出。</translation>
+        <translation>GTP进程异常退出。</translation>
     </message>
 </context>
 <context>
@@ -6250,82 +6249,82 @@ diagram pane shown:</source>
     <message>
         <location filename="../preferences_gui.ui" line="2206"/>
         <source>Sound</source>
-        <translation type="unfinished"></translation>
+        <translation>声音</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="2212"/>
         <source>Read comments automatically</source>
-        <translation type="unfinished"></translation>
+        <translation>自动朗读评论</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="2219"/>
         <source>Voices</source>
-        <translation type="unfinished"></translation>
+        <translation>声音</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="2225"/>
         <source>Name</source>
-        <translation type="unfinished">姓名</translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="2235"/>
         <source>Short Name</source>
-        <translation type="unfinished"></translation>
+        <translation>简称</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="2249"/>
         <source>Gender</source>
-        <translation type="unfinished"></translation>
+        <translation>性别</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="2263"/>
         <source>Locale</source>
-        <translation type="unfinished"></translation>
+        <translation>语言</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="2273"/>
         <source>Suggested Codec</source>
-        <translation type="unfinished"></translation>
+        <translation>建议编码器</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="2283"/>
         <source>Friendly Name</source>
-        <translation type="unfinished"></translation>
+        <translation>友好名称</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="2293"/>
         <source>Status</source>
-        <translation type="unfinished"></translation>
+        <translation>状态</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="2303"/>
         <source>Content Category</source>
-        <translation type="unfinished"></translation>
+        <translation>内容分类</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="2313"/>
         <source>Personalities</source>
-        <translation type="unfinished"></translation>
+        <translation>个性化</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="2330"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>选项</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="2336"/>
         <source>Pitch(Hz)</source>
-        <translation type="unfinished"></translation>
+        <translation>音调(赫兹)</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="2346"/>
         <source>Rate(%)</source>
-        <translation type="unfinished"></translation>
+        <translation>速率(%)</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="2356"/>
         <source>Volume(%)</source>
-        <translation type="unfinished"></translation>
+        <translation>音量(%)</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="2427"/>
@@ -6694,59 +6693,69 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
 <context>
     <name>QDBItemModel</name>
     <message>
+        <location filename="../qdbitemmodel.cpp" line="108"/>
+        <source>Yes</source>
+        <translation>是</translation>
+    </message>
+    <message>
+        <location filename="../qdbitemmodel.cpp" line="108"/>
+        <source>No</source>
+        <translation>否</translation>
+    </message>
+    <message>
         <location filename="../qdbitemmodel.cpp" line="133"/>
         <source>ID</source>
-        <translation type="unfinished"></translation>
+        <translation>序号</translation>
     </message>
     <message>
         <location filename="../qdbitemmodel.cpp" line="135"/>
         <source>Event Name</source>
-        <translation type="unfinished"></translation>
+        <translation>赛事名称</translation>
     </message>
     <message>
         <location filename="../qdbitemmodel.cpp" line="137"/>
         <source>Game Name</source>
-        <translation type="unfinished"></translation>
+        <translation>对局名称</translation>
     </message>
     <message>
         <location filename="../qdbitemmodel.cpp" line="139"/>
         <source>Black Player</source>
-        <translation type="unfinished"></translation>
+        <translation>执黑棋手</translation>
     </message>
     <message>
         <location filename="../qdbitemmodel.cpp" line="141"/>
         <source>Black Rank</source>
-        <translation type="unfinished"></translation>
+        <translation>执黑棋手段位</translation>
     </message>
     <message>
         <location filename="../qdbitemmodel.cpp" line="143"/>
         <source>White Player</source>
-        <translation type="unfinished"></translation>
+        <translation>执白棋手</translation>
     </message>
     <message>
         <location filename="../qdbitemmodel.cpp" line="145"/>
         <source>White Rank</source>
-        <translation type="unfinished"></translation>
+        <translation>执白棋手段位</translation>
     </message>
     <message>
         <location filename="../qdbitemmodel.cpp" line="147"/>
         <source>Result</source>
-        <translation type="unfinished">结果</translation>
+        <translation>结果</translation>
     </message>
     <message>
         <location filename="../qdbitemmodel.cpp" line="149"/>
         <source>Komi</source>
-        <translation type="unfinished"></translation>
+        <translation>贴目</translation>
     </message>
     <message>
         <location filename="../qdbitemmodel.cpp" line="151"/>
         <source>Move Count</source>
-        <translation type="unfinished"></translation>
+        <translation>落子手数</translation>
     </message>
     <message>
         <location filename="../qdbitemmodel.cpp" line="153"/>
         <source>Commented</source>
-        <translation type="unfinished"></translation>
+        <translation>是否评论</translation>
     </message>
 </context>
 <context>
@@ -6754,12 +6763,12 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
     <message>
         <location filename="../newaigamedlg.cpp" line="51"/>
         <source>Choose an SGF file to load</source>
-        <translation type="unfinished">选择一个SGF文件打开</translation>
+        <translation>选择一个SGF文件打开</translation>
     </message>
     <message>
         <location filename="../newaigamedlg.cpp" line="51"/>
         <source>SGF Files (*.sgf);;All Files (*)</source>
-        <translation type="unfinished">SGF (*.sgf);;所有文件 (*)</translation>
+        <translation>SGF 文件(*.sgf);;所有文件 (*)</translation>
     </message>
 </context>
 <context>
@@ -6910,22 +6919,22 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
     <message>
         <location filename="../main.cpp" line="252"/>
         <source>All supported files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>所有支持的文件(%1)</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="255"/>
         <source>SGF files (*.sgf *.SGF)</source>
-        <translation type="unfinished">SGF文件 (*.sgf *.SGF)</translation>
+        <translation>SGF文件 (*.sgf *.SGF)</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="258"/>
         <source>All files (*)</source>
-        <translation type="unfinished">所有文件 (*)</translation>
+        <translation>所有文件 (*)</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="260"/>
         <source>Open file</source>
-        <translation type="unfinished"></translation>
+        <translation>打开文件</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="352"/>
@@ -7029,22 +7038,22 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
     <message>
         <location filename="../qgo.cpp" line="215"/>
         <source>Please set your own language and your name! Use your own language!</source>
-        <translation type="unfinished"></translation>
+        <translation>请设置你自己的语言和姓名！使用你自己的语言！</translation>
     </message>
     <message>
         <location filename="../libarchivehandler.cpp" line="16"/>
         <source>Archieve files (*.zip *.rar *.7z)</source>
-        <translation type="unfinished">归档文件 (*.zip *.rar *.7z)</translation>
+        <translation>归档文件 (*.zip *.rar *.7z)</translation>
     </message>
     <message>
         <location filename="../sdbhandler.cpp" line="13"/>
         <source>Stonebase database files (*.sdb)</source>
-        <translation type="unfinished"></translation>
+        <translation>弈典数据库文件(*.sdb)</translation>
     </message>
     <message>
         <location filename="../qdbhandler.cpp" line="17"/>
         <source>quteGo database files (*.qdb)</source>
-        <translation type="unfinished"></translation>
+        <translation>quteGo数据库文件(*.qdb)</translation>
     </message>
 </context>
 <context>
@@ -7142,7 +7151,7 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
     <message>
         <location filename="../sgfpreview.cpp" line="27"/>
         <source>All supported files (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>所有支持的文件(%1)</translation>
     </message>
     <message>
         <location filename="../sgfpreview.cpp" line="30"/>
@@ -7157,7 +7166,7 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
     <message>
         <location filename="../sgfpreview.cpp" line="38"/>
         <source>Open file</source>
-        <translation type="unfinished"></translation>
+        <translation>打开文件</translation>
     </message>
     <message>
         <location filename="../sgfpreview.ui" line="47"/>
@@ -8073,7 +8082,7 @@ Do you accept ?
 </source>
         <translation>%1 想要 %2
 
-同意吗? </translation>
+同意吗?</translation>
     </message>
 </context>
 </TS>

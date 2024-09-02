@@ -105,7 +105,7 @@ QVariant QDBItemModel::data(const QModelIndex &index, int role) const
         case 9:
             return query.value(query.record().indexOf("MOVECOUNT")).toInt();
         case 10:
-            return query.value(query.record().indexOf("COMMENTED")).toBool();
+            return query.value(query.record().indexOf("COMMENTED")).toBool() ? tr("Yes") : tr("No");
         }
     }
     return {};
