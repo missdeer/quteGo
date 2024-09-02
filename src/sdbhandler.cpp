@@ -1,8 +1,8 @@
 #include <QCoreApplication>
 #include <QDir>
-#include <QListWidget>
+#include <QFileInfo>
 #include <QProcess>
-#include <QVBoxLayout>
+#include <QStandardPaths>
 
 #include "sdbhandler.h"
 #include "archivehandlerfactory.h"
@@ -17,9 +17,13 @@ namespace
 SDBHandler::SDBHandler(const QString &archive) : QDBHandler()
 {
     // convert sdb to qdb
-    QString sdb = QDir::toNativeSeparators(archive);
-    QString qdb = sdb;
-    qdb.replace(sdb.length() - 4, 4, QStringLiteral(".qdb"));
+    QString   sdb = QDir::toNativeSeparators(archive);
+    QFileInfo fi(sdb);
+    QString   dirPath = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/quteGo";
+    QDir      dir(dirPath);
+    if (!dir.exists())
+        dir.mkpath(dirPath);
+    QString qdb     = dir.absoluteFilePath(fi.baseName() + ".qdb");
     QString sdb2qdb = QCoreApplication::applicationDirPath() + QStringLiteral("/sdb2qdb.exe");
     QProcess::execute(sdb2qdb, {QStringLiteral("--convert=") + qdb, sdb});
     // read qdb
