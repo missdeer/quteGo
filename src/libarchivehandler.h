@@ -16,7 +16,6 @@ class LibArchiveHandler : public ArchiveHandler
 public:
     explicit LibArchiveHandler(const QString &archive);
     ~LibArchiveHandler() override;
-    QIODevice             *getSGFContent(const QString &fileName) override;
     QIODevice             *getSGFContent(int index) override;
     QIODevice             *getCurrentSGFContent() override;
     ArchiveItemListWidget *getArchiveItemListWidget() override;
@@ -31,8 +30,9 @@ private:
     QStringList            m_fileList;
     QBuffer                m_buffer;
 
-    bool    traverseArchive(const QString &archive, LibArchiveTraversalCallback callback);
-    QString getEntryName(struct archive_entry *entry);
+    bool       traverseArchive(const QString &archive, LibArchiveTraversalCallback callback);
+    QString    getEntryName(struct archive_entry *entry);
+    QIODevice *getSGFContent(const QString &fileName);
 };
 
 #endif // LIBARCHIVEHANDLER_H

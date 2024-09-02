@@ -88,9 +88,9 @@ void SGFPreview::archiveItemSelected(const QString &item)
 
 void SGFPreview::previewArchiveItem(const QString &item)
 {
-    QIODevice *device = m_archive->getSGFContent(item);
-    if (device)
-        previewSGF(*device, item);
+    //QIODevice *device = m_archive->getSGFContent(item);
+    //if (device)
+    //    previewSGF(*device, item);
 }
 
 QStringList SGFPreview::selected()

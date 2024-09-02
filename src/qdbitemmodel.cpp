@@ -62,7 +62,7 @@ QVariant QDBItemModel::data(const QModelIndex &index, int role) const
     {
         return {};
     }
-    QString   sql = QStringLiteral("SELECT * FROM go_games LIMIT 1 OFFSET %1;").arg(index.row());
+    QString   sql = QStringLiteral("SELECT * FROM go_games WHERE ID=%1;").arg(index.row() + 1);
     QSqlQuery query(sql);
     if (!query.next())
     {
