@@ -614,9 +614,80 @@ void show_batch_analysis()
     analyze_dialog->activateWindow();
 }
 
+QStringList sortUILanguages(const QStringList &languages)
+{
+    QStringList sortedLanguages;
+    QStringList englishLanguages;
+
+    for (const QString &lang : languages)
+    {
+        if (lang.startsWith(QStringLiteral("en")))
+        {
+            englishLanguages << lang;
+        }
+        else
+        {
+            sortedLanguages << lang;
+        }
+    }
+
+    sortedLanguages << englishLanguages;
+    QStringList localeNames;
+    for (const auto &lang : sortedLanguages)
+    {
+        localeNames << QLocale(lang).name();
+    }
+    for (const auto &lang : localeNames)
+    {
+        if (!localeNames.contains(lang))
+            sortedLanguages.append(lang);
+    }
+    return sortedLanguages;
+}
+
+void installTranslator(const QString& preferLang, const QString& preferDir, QTranslator &translator, QTranslator &qtTranslator)
+{
+    QDir translationDir(QCoreApplication::applicationDirPath());
+#if defined(Q_OS_MAC)
+    translationDir.cdUp();
+    translationDir.cd(QStringLiteral("Resources"));
+#endif
+    translationDir.cd(QStringLiteral("translations"));
+    if (!preferDir.isEmpty() && QDir(preferDir).exists())
+    {
+        translationDir = QDir(preferDir);
+    }
+
+    QStringList uiLanguages = sortUILanguages(QLocale::system().uiLanguages());
+    if (!preferLang.isEmpty())
+    {
+        uiLanguages.prepend(QLocale(preferLang).name());
+        uiLanguages.prepend(preferLang);
+    }
+    for (const auto &locale : uiLanguages)
+    {
+        QString qmFileName = QStringLiteral("qgo_%1.qm").arg(locale).replace('-', '_');
+        if (translator.load(qmFileName, translationDir.absolutePath()))
+        {
+            QApplication::installTranslator(&translator);
+
+            qDebug() << "all ui languages:" << uiLanguages << ", locale:" << locale << ", use qm file name:" << qmFileName;
+            if (qtTranslator.load(QStringLiteral("qt_%1.qm").arg(locale).replace('-', '_'), translationDir.absolutePath()))
+            {
+                QApplication::installTranslator(&qtTranslator);
+            }
+            return;
+        }
+
+        qDebug() << "no translation file is matched for " << locale << " from " << translationDir.absolutePath();
+    }
+}
+
 int main(int argc, char **argv)
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
 
     QApplication myapp(argc, argv);
     g_qGoApp = &myapp;
@@ -666,37 +737,13 @@ int main(int argc, char **argv)
     g_setting->loadSettings();
 
     // Load translation
-    QTranslator trans(0);
     QString     lang = g_setting->getLanguage();
     qDebug() << "Checking for language settings..." << lang;
     QString tr_dir = g_setting->getTranslationsDirectory(), loc;
 
-    if (lang.isEmpty())
-    {
-        QLocale locale = QLocale::system();
-        qDebug() << "No language settings found, using system locale %s" << locale.name();
-        loc = QString("qgo_") + locale.language();
-    }
-    else
-    {
-        qDebug() << "Language settings found: " + lang;
-        loc = QString("qgo_") + lang;
-    }
-
-    if (trans.load(loc, tr_dir))
-    {
-        qDebug() << "Translation loaded.";
-        myapp.installTranslator(&trans);
-    }
-    else if (lang != "en" && lang != "C") // Skip warning for en and C default.
-        qWarning() << "Failed to find translation file for " << lang;
-
-    QTranslator qtTrans;
-    if (qtTrans.load("qt_" + lang, tr_dir))
-    {
-        qDebug() << "Qt Translation loaded.";
-        myapp.installTranslator(&qtTrans);
-    }
+    QTranslator translator;
+    QTranslator qtTranslator;
+    installTranslator(lang, tr_dir, translator, qtTranslator);
 
     client_window = new ClientWindow(0);
     client_window->setWindowTitle(PACKAGE1 + QString(" ") + VERSION);

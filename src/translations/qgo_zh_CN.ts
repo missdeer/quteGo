@@ -3524,6 +3524,13 @@ Shows the brothers and sons of the current move.</source>
 显示当前一手兄弟变化数/子变化数</translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="751"/>
+        <location filename="../mainwindow.cpp" line="2133"/>
+        <source>N</source>
+        <comment>Board status line: normal mode</comment>
+        <translation type="unfinished">一般</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="753"/>
         <source>Current mode</source>
         <translation>当前模式</translation>
@@ -3681,6 +3688,49 @@ Do you still want to save it?</source>
         <translation>评论</translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="2137"/>
+        <source>E</source>
+        <comment>Board status line: edit mode</comment>
+        <translation type="unfinished">编辑</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2141"/>
+        <source>O</source>
+        <comment>Board status line: observe mode</comment>
+        <translation type="unfinished">观局</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2145"/>
+        <source>O</source>
+        <comment>Board status line: observe GTP mode</comment>
+        <translation type="unfinished">观局</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2149"/>
+        <location filename="../mainwindow.cpp" line="2153"/>
+        <source>P</source>
+        <comment>Board status line: play mode</comment>
+        <translation type="unfinished">对局</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2157"/>
+        <source>T</source>
+        <comment>Board status line: teach mode</comment>
+        <translation type="unfinished">教学</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2165"/>
+        <source>S</source>
+        <comment>Board status line: score mode</comment>
+        <translation type="unfinished">点目</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2169"/>
+        <source>A</source>
+        <comment>Board status line: batch analysis</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="2211"/>
         <source>remaining time / stones</source>
         <translation>剩余时间/手数</translation>
@@ -3703,9 +3753,60 @@ Do you still want to save it?</source>
         <translation>此一手剩余时间</translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="2390"/>
+        <source>W</source>
+        <translation type="unfinished">白</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2391"/>
+        <source>B</source>
+        <translation type="unfinished">黑</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2393"/>
+        <source>Move</source>
+        <translation type="unfinished">落子</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2402"/>
+        <source>Pass</source>
+        <translation type="unfinished">虚手</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="2406"/>
         <source> (Scoring)</source>
         <translation>（点目中）</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2417"/>
+        <source>
+Variation </source>
+        <translation type="unfinished">变化</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2417"/>
+        <source> of </source>
+        <translation type="unfinished">中的</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2420"/>
+        <source>child position</source>
+        <translation type="unfinished">子位置</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2422"/>
+        <source>child positions</source>
+        <translation type="unfinished">子位置</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2442"/>
+        <source>Black to play</source>
+        <translation type="unfinished">黑方行棋</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2444"/>
+        <source>White to play</source>
+        <translation type="unfinished">白方行棋</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="3033"/>
@@ -3842,6 +3943,16 @@ Overwrite stored game result?</source>
         <location filename="../mainwindow.cpp" line="2877"/>
         <source>Game result: </source>
         <translation>对局结果：</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2900"/>
+        <source>Error</source>
+        <translation type="unfinished">错误</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="2913"/>
+        <source>GTP process exited unexpectedly.</source>
+        <translation type="unfinished">GTP进程异常退出。</translation>
     </message>
 </context>
 <context>
@@ -6670,84 +6781,14 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="751"/>
-        <location filename="../mainwindow.cpp" line="2133"/>
-        <source>N</source>
-        <comment>Board status line: normal mode</comment>
-        <translation>一般</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2137"/>
-        <source>E</source>
-        <comment>Board status line: edit mode</comment>
-        <translation>编辑</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2141"/>
-        <source>O</source>
-        <comment>Board status line: observe mode</comment>
-        <translation>观局</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2149"/>
-        <location filename="../mainwindow.cpp" line="2153"/>
-        <source>P</source>
-        <comment>Board status line: play mode</comment>
-        <translation>对局</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2157"/>
-        <source>T</source>
-        <comment>Board status line: teach mode</comment>
-        <translation>教学</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2165"/>
-        <source>S</source>
-        <comment>Board status line: score mode</comment>
-        <translation>点目</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2393"/>
-        <source>Move</source>
-        <translation>落子</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2390"/>
-        <source>W</source>
-        <translation>白</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2391"/>
-        <source>B</source>
-        <translation>黑</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2402"/>
-        <source>Pass</source>
-        <translation>虚手</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2442"/>
-        <source>Black to play</source>
-        <translation>黑方行棋</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2444"/>
-        <source>White to play</source>
-        <translation>白方行棋</translation>
-    </message>
-    <message>
         <location filename="../analyzedlg.cpp" line="554"/>
         <location filename="../board.cpp" line="2411"/>
-        <location filename="../mainwindow.cpp" line="2900"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
         <location filename="../analyzedlg.cpp" line="561"/>
         <location filename="../board.cpp" line="2419"/>
-        <location filename="../mainwindow.cpp" line="2913"/>
         <source>GTP process exited unexpectedly.</source>
         <translation>GTP进程异常退出。</translation>
     </message>
@@ -6892,62 +6933,35 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
         <translation>打开SGF文件</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="625"/>
+        <location filename="../main.cpp" line="696"/>
         <source>Show the Go server client window (default if no other arguments)</source>
         <translation>显示围棋服务器的客户端窗口（如果没有其他参数，则默认显示）</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="626"/>
+        <location filename="../main.cpp" line="697"/>
         <source>Start up with a board window (ignored if files are loaded).</source>
         <translation>启动后显示棋盘窗口（如果有文件被载入则忽略）。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="628"/>
+        <location filename="../main.cpp" line="699"/>
         <source>Start up with the computer analysis dialog to analyze &lt;file&gt;.</source>
         <translation>启动并开始计算机分析对话框进行分析&lt;file&gt;。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="628"/>
-        <location filename="../main.cpp" line="630"/>
+        <location filename="../main.cpp" line="699"/>
+        <location filename="../main.cpp" line="701"/>
         <source>file</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="629"/>
+        <location filename="../main.cpp" line="700"/>
         <source>Display debug messages in a window</source>
         <translation>在窗口中显示调试消息</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="642"/>
+        <location filename="../main.cpp" line="713"/>
         <source>Load &lt;file&gt; and display it in a board window.</source>
         <translation>载入&lt;file&gt;并显示在棋盘窗口中。</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2169"/>
-        <source>A</source>
-        <comment>Board status line: batch analysis</comment>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2417"/>
-        <source>
-Variation </source>
-        <translation>变化</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2417"/>
-        <source> of </source>
-        <translation>中的</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2420"/>
-        <source>child position</source>
-        <translation>子位置</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2422"/>
-        <source>child positions</source>
-        <translation>子位置</translation>
     </message>
     <message>
         <location filename="../qgo.cpp" line="211"/>
@@ -6966,7 +6980,7 @@ reverting to default.</source>
         <translation>无法保存设置到</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="631"/>
+        <location filename="../main.cpp" line="702"/>
         <source>Specify text &lt;encoding&gt; of SGF files passed by command line.</source>
         <translation>指定通过命令行传来的SGF文件的文本编码。</translation>
     </message>
@@ -6996,12 +7010,12 @@ reverting to default.</source>
         <translation>此SGF包括了棋盘区域外的落子。将被认为是PASS。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="630"/>
+        <location filename="../main.cpp" line="701"/>
         <source>Send debug messages to &lt;file&gt;.</source>
         <translation>发送调试消息到 &lt;file&gt;。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="741"/>
+        <location filename="../main.cpp" line="788"/>
         <source>The following files could not be found:</source>
         <translation>找不到下列文件：</translation>
     </message>
@@ -7011,12 +7025,6 @@ reverting to default.</source>
 Analysis engines now require a board size to be set, assuming 19 for existing entries.</source>
         <translation>引擎设置更新
 分析引擎现在要求设置棋盘大小，已有的项目默认为19.</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="2145"/>
-        <source>O</source>
-        <comment>Board status line: observe GTP mode</comment>
-        <translation>观局</translation>
     </message>
     <message>
         <location filename="../qgo.cpp" line="215"/>

@@ -224,10 +224,10 @@ MainWindow::MainWindow(QWidget *parent, go_game_ptr gr, ArchiveHandlerPtr archiv
         {
             QMessageBox mb(QMessageBox::Question,
                            tr("Choose variation display"),
-                           QString(tr("The SGF file that is being opened uses a different style\n"
+                           tr("The SGF file that is being opened uses a different style\n"
                                       "of variation display.  Use the style found in the file?\n\n"
                                       "You can customize this behaviour (and disable this dialog)\n"
-                                      "in the preferences.")),
+                                      "in the preferences."),
                            QMessageBox::Yes | QMessageBox::No);
             if (mb.exec() == QMessageBox::Yes)
                 m_sgf_var_style = true;
@@ -748,7 +748,7 @@ void MainWindow::initStatusBar()
     // The mode widget
     statusMode = new QLabel(statusBar());
     statusMode->setAlignment(Qt::AlignCenter);
-    statusMode->setText(" " + QObject::tr("N", "Board status line: normal mode") + " ");
+    statusMode->setText(" " + tr("N", "Board status line: normal mode") + " ");
     statusBar()->addPermanentWidget(statusMode);
     statusMode->setToolTip(tr("Current mode"));
     statusMode->setWhatsThis(tr("Mode\nShows the current mode. 'N' for normal mode, 'E' for edit mode."));
@@ -792,7 +792,7 @@ void MainWindow::updateCaption()
         if (rank_b.length() > 0)
             s += " " + rank_b;
     }
-    s += "   " + QString(PACKAGE " " VERSION);
+    s += "   " + QStringLiteral(PACKAGE " " VERSION);
     setWindowTitle(s);
 
     rank_w.truncate(5);
@@ -2130,31 +2130,31 @@ void MainWindow::setGameMode(GameMode mode)
     switch (mode)
     {
     case modeEdit:
-        statusMode->setText(" " + QObject::tr("N", "Board status line: normal mode") + " ");
+        statusMode->setText(" " + tr("N", "Board status line: normal mode") + " ");
         break;
 
     case modeNormal:
-        statusMode->setText(" " + QObject::tr("E", "Board status line: edit mode") + " ");
+        statusMode->setText(" " + tr("E", "Board status line: edit mode") + " ");
         break;
 
     case modeObserve:
-        statusMode->setText(" " + QObject::tr("O", "Board status line: observe mode") + " ");
+        statusMode->setText(" " + tr("O", "Board status line: observe mode") + " ");
         break;
 
     case modeObserveGTP:
-        statusMode->setText(" " + QObject::tr("O", "Board status line: observe GTP mode") + " ");
+        statusMode->setText(" " + tr("O", "Board status line: observe GTP mode") + " ");
         break;
 
     case modeMatch:
-        statusMode->setText(" " + QObject::tr("P", "Board status line: play mode") + " ");
+        statusMode->setText(" " + tr("P", "Board status line: play mode") + " ");
         break;
 
     case modeComputer:
-        statusMode->setText(" " + QObject::tr("P", "Board status line: play mode") + " ");
+        statusMode->setText(" " + tr("P", "Board status line: play mode") + " ");
         break;
 
     case modeTeach:
-        statusMode->setText(" " + QObject::tr("T", "Board status line: teach mode") + " ");
+        statusMode->setText(" " + tr("T", "Board status line: teach mode") + " ");
         break;
 
     case modeScore:
@@ -2162,11 +2162,11 @@ void MainWindow::setGameMode(GameMode mode)
         commentEdit2->setDisabled(true);
         /* fall through */
     case modeScoreRemote:
-        statusMode->setText(" " + QObject::tr("S", "Board status line: score mode") + " ");
+        statusMode->setText(" " + tr("S", "Board status line: score mode") + " ");
         break;
 
     case modeBatch:
-        statusMode->setText(" " + QObject::tr("A", "Board status line: batch analysis") + " ");
+        statusMode->setText(" " + tr("A", "Board status line: batch analysis") + " ");
         break;
     }
 
@@ -2387,10 +2387,10 @@ void MainWindow::setMoveData(game_state &gs, const go_board &b, GameMode mode)
 
     update_figures();
 
-    QString w_str = QObject::tr("W");
-    QString b_str = QObject::tr("B");
+    QString w_str = tr("W");
+    QString b_str = tr("B");
 
-    QString s(QObject::tr("Move") + " ");
+    QString s(tr("Move") + " ");
     s.append(QString::number(move_nr));
     if (move_nr == 0)
     {
@@ -2399,7 +2399,7 @@ void MainWindow::setMoveData(game_state &gs, const go_board &b, GameMode mode)
     else if (gs.was_pass_p())
     {
         s.append(" (" + (to_move == black ? w_str : b_str) + " ");
-        s.append(" " + QObject::tr("Pass") + ")");
+        s.append(" " + tr("Pass") + ")");
     }
     else if (gs.was_score_p())
     {
@@ -2414,12 +2414,12 @@ void MainWindow::setMoveData(game_state &gs, const go_board &b, GameMode mode)
         s.append(QString(QChar(static_cast<const char>('A' + (x < 9 ? x : x + 1)))));
         s.append(QString::number(b.size_y() - y) + ")");
     }
-    s.append(QObject::tr("\nVariation ") + QString::number(var_nr) + QObject::tr(" of ") + QString::number(1 + brothers) + "\n");
+    s.append(tr("\nVariation ") + QString::number(var_nr) + tr(" of ") + QString::number(1 + brothers) + "\n");
     s.append(QString::number(sons) + " ");
     if (sons == 1)
-        s.append(QObject::tr("child position"));
+        s.append(tr("child position"));
     else
-        s.append(QObject::tr("child positions"));
+        s.append(tr("child positions"));
     moveNumLabel->setText(s);
 
     bool warn = false;
@@ -2439,9 +2439,9 @@ void MainWindow::setMoveData(game_state &gs, const go_board &b, GameMode mode)
 #endif
 
     if (to_move == black)
-        turnLabel->setText(QObject::tr("Black to play"));
+        turnLabel->setText(tr("Black to play"));
     else
-        turnLabel->setText(QObject::tr("White to play"));
+        turnLabel->setText(tr("White to play"));
 
     const QStyle *style  = g_qGoApp->style();
     int           iconsz = style->pixelMetric(QStyle::PixelMetric::PM_ToolBarIconSize);
@@ -2897,7 +2897,7 @@ void MainWindow_GTP::gtp_failure(GTP_Process *, const QString &err)
     show();
     setGameMode(modeNormal);
     gfx_board->set_player_colors(true, true);
-    QMessageBox msg(QString(QObject::tr("Error")), err, QMessageBox::Warning, QMessageBox::Ok | QMessageBox::Default, Qt::NoButton, Qt::NoButton);
+    QMessageBox msg(tr("Error"), err, QMessageBox::Warning, QMessageBox::Ok | QMessageBox::Default, Qt::NoButton, Qt::NoButton);
     msg.activateWindow();
     msg.raise();
     msg.exec();
@@ -2910,7 +2910,7 @@ void MainWindow_GTP::gtp_exited(GTP_Process *)
         setGameMode(modeNormal);
         gfx_board->set_player_colors(true, true);
         show();
-        QMessageBox::warning(this, PACKAGE, QObject::tr("GTP process exited unexpectedly."));
+        QMessageBox::warning(this, PACKAGE, tr("GTP process exited unexpectedly."));
     }
 }
 
@@ -3083,7 +3083,7 @@ void MainWindow::setTimes(
 {
     if (!btime.isEmpty())
     {
-        if (bstones != QString("-1"))
+        if (bstones != QStringLiteral("-1"))
             normalTools->btimeView->set_text(btime + " / " + bstones);
         else
             normalTools->btimeView->set_text(btime);
@@ -3091,7 +3091,7 @@ void MainWindow::setTimes(
 
     if (!wtime.isEmpty())
     {
-        if (wstones != QString("-1"))
+        if (wstones != QStringLiteral("-1"))
             normalTools->wtimeView->set_text(wtime + " / " + wstones);
         else
             normalTools->wtimeView->set_text(wtime);

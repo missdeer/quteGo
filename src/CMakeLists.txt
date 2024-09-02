@@ -175,6 +175,15 @@ set(TS_FILES
     translations/qgo_ru.ts
     translations/qgo_tr.ts
     )
+IF(APPLE)
+set_source_files_properties(
+    ${TS_FILES} PROPERTIES OUTPUT_LOCATION 
+      ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.app/Contents/Resources/translations
+  )
+ELSE()
+set_source_files_properties(
+    ${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/translations)
+ENDIF()
 
 IF(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         qt_create_translation(QM_FILES
@@ -246,18 +255,12 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
       ${CMAKE_CURRENT_SOURCE_DIR}/sounds
       ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.app/Contents/Resources/sounds
     )
-set_source_files_properties(
-    ${TS_FILES} PROPERTIES OUTPUT_LOCATION 
-      ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.app/Contents/Resources/translations
-  )
 ELSE()
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
       ${CMAKE_CURRENT_SOURCE_DIR}/sounds
       ${CMAKE_CURRENT_BINARY_DIR}/sounds
     )
-set_source_files_properties(
-    ${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/translations)
 ENDIF()
 
 install(TARGETS ${PROJECT_NAME}

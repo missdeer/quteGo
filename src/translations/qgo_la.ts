@@ -478,7 +478,7 @@ Nigro vel albo motum hunc ostendit. </translation>
     <message>
         <location line="+11"/>
         <source>Black to play</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Niger movens</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -1226,7 +1226,7 @@ Enable diagram display in the View menu to view and edit diagrams.</source>
     <message>
         <location line="+3"/>
         <source>Ctrl+O</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ctrl+O</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -3467,7 +3467,14 @@ Shows the brothers and sons of the current move.</source>
 Fratres filiosque huius motus ostendit.</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+5"/>
+        <location line="+1382"/>
+        <source>N</source>
+        <comment>Board status line: normal mode</comment>
+        <translation type="unfinished">R</translation>
+    </message>
+    <message>
+        <location line="-1380"/>
         <source>Current mode</source>
         <translation>Modus</translation>
     </message>
@@ -3540,7 +3547,50 @@ Do you still want to save it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+699"/>
+        <location line="+625"/>
+        <source>E</source>
+        <comment>Board status line: edit mode</comment>
+        <translation type="unfinished">C</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>O</source>
+        <comment>Board status line: observe mode</comment>
+        <translation type="unfinished">S</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>O</source>
+        <comment>Board status line: observe GTP mode</comment>
+        <translation type="unfinished">S</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <location line="+4"/>
+        <source>P</source>
+        <comment>Board status line: play mode</comment>
+        <translation type="unfinished">Lu</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>T</source>
+        <comment>Board status line: teach mode</comment>
+        <translation type="unfinished">Le</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>S</source>
+        <comment>Board status line: score mode</comment>
+        <translation type="unfinished">Pu</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>A</source>
+        <comment>Board status line: batch analysis</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+42"/>
         <source>remaining time / stones</source>
         <translation type="unfinished">tempus et lapides reliqui</translation>
     </message>
@@ -3562,12 +3612,63 @@ Do you still want to save it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+180"/>
+        <location line="+164"/>
+        <source>W</source>
+        <translation type="unfinished">A</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>B</source>
+        <translation type="unfinished">N</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Move</source>
+        <translation type="unfinished">Motus</translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Pass</source>
+        <translation type="unfinished">Omittere</translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source> (Scoring)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+142"/>
+        <location line="+11"/>
+        <source>
+Variation </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source> of </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>child position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>child positions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Black to play</source>
+        <translation type="unfinished">Niger movens</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>White to play</source>
+        <translation type="unfinished">Albus movens</translation>
+    </message>
+    <message>
+        <location line="+104"/>
         <source>Black wins with %1</source>
         <translation type="unfinished">Niger vincit cum %1</translation>
     </message>
@@ -3765,6 +3866,16 @@ Correctiones servandae sunt?</translation>
     <message>
         <location line="+5"/>
         <source>The computer has resigned the game.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Error</source>
+        <translation type="unfinished">Erratum</translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>GTP process exited unexpectedly.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6487,7 +6598,7 @@ ad :</translation>
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="../mainwindow.cpp" line="-2457"/>
+        <location filename="../mainwindow.cpp" line="-2488"/>
         <source>free</source>
         <translation>gratis</translation>
     </message>
@@ -6671,7 +6782,7 @@ ad :</translation>
         <translation>Albus</translation>
     </message>
     <message>
-        <location line="+242"/>
+        <location line="+313"/>
         <source>Show the Go server client window (default if no other arguments)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6712,7 +6823,7 @@ ad :</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+99"/>
+        <location line="+75"/>
         <source>The following files could not be found:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6725,117 +6836,14 @@ ad :</translation>
     <message>
         <location filename="../analyzedlg.cpp" line="-45"/>
         <location filename="../board.cpp" line="-23"/>
-        <location filename="../mainwindow.cpp" line="+2471"/>
         <source>Error</source>
         <translation>Erratum</translation>
     </message>
     <message>
         <location line="+7"/>
         <location filename="../board.cpp" line="+8"/>
-        <location filename="../mainwindow.cpp" line="+13"/>
         <source>GTP process exited unexpectedly.</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="-2162"/>
-        <location line="+1382"/>
-        <source>N</source>
-        <comment>Board status line: normal mode</comment>
-        <translation>R</translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>E</source>
-        <comment>Board status line: edit mode</comment>
-        <translation>C</translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>O</source>
-        <comment>Board status line: observe mode</comment>
-        <translation>S</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <location line="+4"/>
-        <source>P</source>
-        <comment>Board status line: play mode</comment>
-        <translation>Lu</translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>T</source>
-        <comment>Board status line: teach mode</comment>
-        <translation>Le</translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>S</source>
-        <comment>Board status line: score mode</comment>
-        <translation>Pu</translation>
-    </message>
-    <message>
-        <location line="+228"/>
-        <source>Move</source>
-        <translation>Motus</translation>
-    </message>
-    <message>
-        <location line="-3"/>
-        <source>W</source>
-        <translation>A</translation>
-    </message>
-    <message>
-        <location line="-245"/>
-        <source>O</source>
-        <comment>Board status line: observe GTP mode</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+24"/>
-        <source>A</source>
-        <comment>Board status line: batch analysis</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+222"/>
-        <source>B</source>
-        <translation>N</translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Pass</source>
-        <translation>Omittere</translation>
-    </message>
-    <message>
-        <location line="+15"/>
-        <source>
-Variation </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source> of </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>child position</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>child positions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>Black to play</source>
-        <translation>Niger movens</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>White to play</source>
-        <translation>Albus movens</translation>
     </message>
     <message>
         <location filename="../board.cpp" line="+72"/>
@@ -7861,7 +7869,7 @@ and play the selected number of games per line</source>
 <context>
     <name>an_id_model</name>
     <message>
-        <location filename="../mainwindow.cpp" line="-2284"/>
+        <location filename="../mainwindow.cpp" line="-269"/>
         <source>Engine</source>
         <translation type="unfinished"></translation>
     </message>
