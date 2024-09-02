@@ -9,11 +9,10 @@
 #include "libarchivehandler.h"
 #include "archivehandlerfactory.h"
 
-
 namespace
 {
     bool bRes =
-        ArchiveHandlerFactory::registerArchiveHandler({"zip", "rar", "7z"},
+        ArchiveHandlerFactory::registerArchiveHandler({QStringLiteral("zip"), QStringLiteral("rar"), QStringLiteral("7z")},
                                                       {QObject::tr("Archieve files (*.zip *.rar *.7z)")},
                                                       [](const QString &archive) -> ArchiveHandler * { return new LibArchiveHandler(archive); });
 } // namespace
@@ -26,7 +25,7 @@ LibArchiveHandler::LibArchiveHandler(const QString &archive) : m_itemListWidget(
     pListWidget->connect(pListWidget, &QListWidget::currentTextChanged, this, &LibArchiveHandler::onItemSelected);
     connect(pListWidget, &QListWidget::itemActivated, this, &LibArchiveHandler::onItemActivated);
     layout->addWidget(pListWidget);
-    layout->setContentsMargins(0,0,0,0);
+    layout->setContentsMargins(0, 0, 0, 0);
     traverseArchive(m_archivePath, [this, pListWidget](struct archive *a, struct archive_entry *entry) {
         QString currentFilePath = getEntryName(entry);
         if (currentFilePath.endsWith(".sgf", Qt::CaseInsensitive))
@@ -111,7 +110,7 @@ bool LibArchiveHandler::traverseArchive(const QString &archive, LibArchiveTraver
 QString LibArchiveHandler::getEntryName(struct archive_entry *entry)
 {
 #if defined(Q_OS_WIN)
-    if (!m_archivePath.endsWith(".zip", Qt::CaseInsensitive))
+    if (!m_archivePath.endsWith(QStringLiteral(".zip"), Qt::CaseInsensitive))
     {
         const auto *entryPath = archive_entry_pathname_w(entry);
         return QString::fromWCharArray(entryPath);
