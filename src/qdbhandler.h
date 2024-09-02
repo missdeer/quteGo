@@ -1,7 +1,9 @@
 #pragma once
 #include <QBuffer>
+#include <QTableView>
 
 #include "archivehandler.h"
+
 
 class QListWidgetItem;
 class QDBItemModel;
@@ -17,7 +19,8 @@ public:
     ArchiveItemListWidget *getArchiveItemListWidget() override;
     bool                   hasSGF() override;
 private slots:
-
+    void onItemActivated(const QModelIndex &index);
+    void onCurrentChanged(const QModelIndex &current, const QModelIndex &previous);
 private:
     ArchiveItemListWidget *m_itemListWidget;
     QDBItemModel          *m_model;
@@ -28,4 +31,18 @@ private:
 
 protected:
     void readDB(const QString &archive);
+};
+
+class ArchiveItemTableView : public QTableView
+{
+    Q_OBJECT
+public:
+    using QTableView::QTableView;
+
+    void currentChanged(const QModelIndex &current, const QModelIndex &previous) override;
+
+    void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected) override;
+signals:
+    void archiveItemTableViewCurrentChanged(const QModelIndex &, const QModelIndex &);
+    void archiveItemTableViewSelectionChanged(const QItemSelection &, const QItemSelection &);
 };

@@ -43,6 +43,17 @@ namespace
     };
 } // namespace
 
+void ArchiveItemTableView::currentChanged(const QModelIndex &current, const QModelIndex &previous)
+{
+    QTableView::currentChanged(current, previous);
+    emit archiveItemTableViewCurrentChanged(current, previous);
+}
+void ArchiveItemTableView::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
+{
+    QTableView::selectionChanged(selected, deselected);
+    emit archiveItemTableViewSelectionChanged(selected, deselected);
+}
+
 QDBHandler::QDBHandler(const QString &archive)
     : m_itemListWidget(new ArchiveItemListWidget), m_model(new QDBItemModel(m_itemListWidget)), m_archivePath(archive)
 {
@@ -66,11 +77,13 @@ void QDBHandler::setupUi()
 {
     QVBoxLayout *layout = new QVBoxLayout;
     m_itemListWidget->setLayout(layout);
-    QTableView *pTableView = new QTableView(m_itemListWidget);
+    ArchiveItemTableView *pTableView = new ArchiveItemTableView(m_itemListWidget);
     pTableView->setModel(m_model);
     pTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     pTableView->setSelectionMode(QAbstractItemView::SingleSelection);
     pTableView->setItemDelegate(new TooltipDelegate(pTableView));
+    connect(pTableView, &QTableView::activated, this, &QDBHandler::onItemActivated);
+    connect(pTableView, &ArchiveItemTableView::archiveItemTableViewCurrentChanged, this, &QDBHandler::onCurrentChanged);
     layout->addWidget(pTableView);
     layout->setContentsMargins(0, 0, 0, 0);
 }
@@ -108,4 +121,17 @@ QIODevice *QDBHandler::getCurrentSGFContent()
 bool QDBHandler::hasSGF()
 {
     return m_model->rowCount() != 0;
+}
+
+void QDBHandler::onItemActivated(const QModelIndex &index)
+{
+    getSGFContent(index.row());
+    emit itemActivated();
+}
+
+void QDBHandler::onCurrentChanged(const QModelIndex &current, const QModelIndex &previous)
+{
+    Q_UNUSED(previous);
+    getSGFContent(current.row());
+    emit currentItemChanged();
 }
