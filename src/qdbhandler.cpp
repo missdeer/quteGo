@@ -48,11 +48,6 @@ void ArchiveItemTableView::currentChanged(const QModelIndex &current, const QMod
     QTableView::currentChanged(current, previous);
     emit archiveItemTableViewCurrentChanged(current, previous);
 }
-void ArchiveItemTableView::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
-{
-    QTableView::selectionChanged(selected, deselected);
-    emit archiveItemTableViewSelectionChanged(selected, deselected);
-}
 
 QDBHandler::QDBHandler(const QString &archive)
     : m_itemListWidget(new ArchiveItemListWidget), m_model(new QDBItemModel(m_itemListWidget)), m_archivePath(archive)
