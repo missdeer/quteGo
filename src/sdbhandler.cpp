@@ -23,7 +23,9 @@ SDBHandler::SDBHandler(const QString &archive) : QDBHandler()
     QDir      dir(dirPath);
     if (!dir.exists())
         dir.mkpath(dirPath);
-    QString qdb     = dir.absoluteFilePath(fi.baseName() + ".qdb");
+    QString qdb = dir.absoluteFilePath(fi.baseName() + ".qdb");
+    if (QFile::exists(qdb))
+        QFile::remove(qdb);
     QString sdb2qdb = QCoreApplication::applicationDirPath() + QStringLiteral("/sdb2qdb.exe");
     QProcess::execute(sdb2qdb, {QStringLiteral("--convert=") + qdb, sdb});
     // read qdb
