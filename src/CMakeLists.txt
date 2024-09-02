@@ -160,20 +160,20 @@ ENDIF()
 
 qt_add_resources(qrcs q4go.qrc)
 set(TS_FILES
-    translations/qgo_zh_CN.ts
-    translations/qgo_zh_TW.ts
-    translations/qgo_cz.ts
-    translations/qgo_de.ts
-    translations/qgo_dk.ts
-    translations/qgo_es.ts
-    translations/qgo_fr.ts
-    translations/qgo_it.ts
-    translations/qgo_la.ts
-    translations/qgo_nl.ts
-    translations/qgo_pl.ts
-    translations/qgo_pt.ts
-    translations/qgo_ru.ts
-    translations/qgo_tr.ts
+    translations/quteGo_zh_CN.ts
+    translations/quteGo_zh_TW.ts
+    translations/quteGo_cz.ts
+    translations/quteGo_de.ts
+    translations/quteGo_dk.ts
+    translations/quteGo_es.ts
+    translations/quteGo_fr.ts
+    translations/quteGo_it.ts
+    translations/quteGo_la.ts
+    translations/quteGo_nl.ts
+    translations/quteGo_pl.ts
+    translations/quteGo_pt.ts
+    translations/quteGo_ru.ts
+    translations/quteGo_tr.ts
     )
 IF(APPLE)
 set_source_files_properties(

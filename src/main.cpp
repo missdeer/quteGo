@@ -666,7 +666,7 @@ void installTranslator(const QString& preferLang, const QString& preferDir, QTra
     }
     for (const auto &locale : uiLanguages)
     {
-        QString qmFileName = QStringLiteral("qgo_%1.qm").arg(locale).replace('-', '_');
+        QString qmFileName = QStringLiteral("quteGo_%1.qm").arg(locale).replace('-', '_');
         if (translator.load(qmFileName, translationDir.absolutePath()))
         {
             QApplication::installTranslator(&translator);
