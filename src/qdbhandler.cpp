@@ -1,7 +1,10 @@
 #include <QCoreApplication>
 #include <QDir>
+#include <QHelpEvent>
 #include <QProcess>
+#include <QStyledItemDelegate>
 #include <QTableView>
+#include <QToolTip>
 #include <QVBoxLayout>
 
 #include "qdbhandler.h"
@@ -10,8 +13,34 @@
 
 namespace
 {
-    bool bRes2 = ArchiveHandlerFactory::registerArchiveHandler(
-        "qdb", QObject::tr("quteGo database files (*.qdb)"), [](const QString &archive) -> ArchiveHandler * { return new QDBHandler(archive); });
+    bool bRes2 = ArchiveHandlerFactory::registerArchiveHandler(QStringLiteral("qdb"),
+                                                               QObject::tr("quteGo database files (*.qdb)"),
+                                                               [](const QString &archive) -> ArchiveHandler * { return new QDBHandler(archive); });
+
+    class TooltipDelegate : public QStyledItemDelegate
+    {
+    public:
+        TooltipDelegate(QObject *parent = nullptr) : QStyledItemDelegate(parent) {}
+
+        bool helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override
+        {
+            if (event->type() == QEvent::ToolTip)
+            {
+                if (!view->model()->data(index).toString().isEmpty())
+                {
+                    QRect cellRect = view->visualRect(index);
+                    if (!cellRect.contains(event->pos()))
+                    {
+                        QToolTip::hideText();
+                        return true;
+                    }
+                    QToolTip::showText(event->globalPos(), view->model()->data(index).toString(), view);
+                    return true;
+                }
+            }
+            return QStyledItemDelegate::helpEvent(event, view, option, index);
+        }
+    };
 } // namespace
 
 QDBHandler::QDBHandler(const QString &archive)
@@ -41,6 +70,7 @@ void QDBHandler::setupUi()
     pTableView->setModel(m_model);
     pTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     pTableView->setSelectionMode(QAbstractItemView::SingleSelection);
+    pTableView->setItemDelegate(new TooltipDelegate(pTableView));
     layout->addWidget(pTableView);
     layout->setContentsMargins(0, 0, 0, 0);
 }
