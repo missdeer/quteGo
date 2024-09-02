@@ -160,8 +160,20 @@ ENDIF()
 
 qt_add_resources(qrcs q4go.qrc)
 set(TS_FILES
-    qgo_zh_CN.ts
-    qgo_zh_TW.ts
+    translations/qgo_zh_CN.ts
+    translations/qgo_zh_TW.ts
+    translations/qgo_cz.ts
+    translations/qgo_de.ts
+    translations/qgo_dk.ts
+    translations/qgo_es.ts
+    translations/qgo_fr.ts
+    translations/qgo_it.ts
+    translations/qgo_la.ts
+    translations/qgo_nl.ts
+    translations/qgo_pl.ts
+    translations/qgo_pt.ts
+    translations/qgo_ru.ts
+    translations/qgo_tr.ts
     )
 
 IF(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -234,12 +246,18 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
       ${CMAKE_CURRENT_SOURCE_DIR}/sounds
       ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.app/Contents/Resources/sounds
     )
+set_source_files_properties(
+    ${TS_FILES} PROPERTIES OUTPUT_LOCATION 
+      ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.app/Contents/Resources/translations
+  )
 ELSE()
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
       ${CMAKE_CURRENT_SOURCE_DIR}/sounds
       ${CMAKE_CURRENT_BINARY_DIR}/sounds
     )
+set_source_files_properties(
+    ${TS_FILES} PROPERTIES OUTPUT_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/translations)
 ENDIF()
 
 install(TARGETS ${PROJECT_NAME}
