@@ -188,11 +188,8 @@ void SGFPreview::reloadPreview()
     auto files = fileDialog->selectedFiles();
     if (!files.isEmpty())
     {
-        if (archiveItemListContainer->isVisible())
-        {
-            if (m_archive && m_archive->hasSGF())
-                previewSGF(*m_archive->getCurrentSGFContent(), m_archive->getCurrentSGFName());
-        }
+        if (m_archive && m_archive->hasSGF())
+            previewSGF(*m_archive->getCurrentSGFContent(), m_archive->getCurrentSGFName());
         else
             setPath(files.at(0));
     }
