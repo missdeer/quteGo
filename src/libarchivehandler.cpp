@@ -155,6 +155,11 @@ bool LibArchiveHandler::hasSGF()
     return !m_fileList.empty();
 }
 
+bool LibArchiveHandler::needListView()
+{
+    return m_fileList.size() > 1;
+}
+
 QString LibArchiveHandler::getSGFName(int index)
 {
     if (index < 0 || index >= m_fileList.size())

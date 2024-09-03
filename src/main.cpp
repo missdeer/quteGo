@@ -270,22 +270,19 @@ std::tuple<go_game_ptr, ArchiveHandlerPtr> open_file_dialog(QWidget *parent)
         return {gr, nullptr};
     }
     ArchiveHandlerPtr archive(ArchiveHandlerFactory::createArchiveHandler(fileName));
-    if (archive)
+    if (archive && archive->hasSGF())
     {
         // read first file from archive
-        if (archive->hasSGF())
+        auto device = archive->getSGFContent(0);
+        if (device)
         {
-            auto device = archive->getSGFContent(0);
-            if (device)
-            {
-                QByteArray data = device->readAll();
-                device->seek(0);
-                auto* codec    = charset_detect(data);
-                sgf *sgf = load_sgf(*device);
-                auto gr  = sgf2record(*sgf, codec);
-                // gr->set_filename(fileList.first().toStdString());
-                return {gr, archive};
-            }
+            QByteArray data = device->readAll();
+            device->seek(0);
+            auto* codec    = charset_detect(data);
+            sgf *sgf = load_sgf(*device);
+            auto gr  = sgf2record(*sgf, codec);
+            gr->set_filename(archive->getSGFName(0).toStdString());
+            return {gr, archive};
         }
     }
 

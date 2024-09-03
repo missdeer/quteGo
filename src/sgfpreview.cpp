@@ -94,7 +94,10 @@ QLayout *SGFPreview::takeArhiveItemListWidget()
     Q_ASSERT(pArchiveItemListContainerLayout != nullptr);
     while (pArchiveItemListContainerLayout->takeAt(0) != nullptr)
         ;
-
+    Q_ASSERT(m_archive);
+    auto *pWidget = m_archive->getArchiveItemListWidget();
+    Q_ASSERT(pWidget);
+    pWidget->setParent(nullptr);
     return pArchiveItemListContainerLayout;
 }
 
@@ -120,9 +123,8 @@ void SGFPreview::setPath(const QString &path)
     Q_ASSERT(m_archive);
     auto *pArchiveItemListWidget = m_archive->getArchiveItemListWidget();
     pArchiveItemListContainerLayout->addWidget(pArchiveItemListWidget);
-    if (m_archive->hasSGF())
+    if (m_archive->needListView())
     {
-        pArchiveItemListWidget->setParent(archiveItemListContainer);
         connect(m_archive.get(), &ArchiveHandler::itemActivated, this, &SGFPreview::onArchiveItemActivated);
         connect(m_archive.get(), &ArchiveHandler::currentItemChanged, this, &SGFPreview::onArchiveCurrentItemChanged);
         archiveItemListContainer->setVisible(true);
@@ -134,6 +136,7 @@ void SGFPreview::onArchiveItemActivated()
 {
     Q_ASSERT(m_archive && m_archive->hasSGF());
     previewSGF(*m_archive->getCurrentSGFContent(), m_archive->getCurrentSGFName());
+    accept();
 }
 
 void SGFPreview::onArchiveCurrentItemChanged()

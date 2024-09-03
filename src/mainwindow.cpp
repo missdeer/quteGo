@@ -875,9 +875,8 @@ void MainWindow::adjust_archive_dock()
         while ((child = layout->takeAt(0)) != nullptr)
             ;
         layout->addWidget(pArchiveItemListWidget);
-        if (m_archive->hasSGF())
+        if (m_archive->needListView())
         {
-            pArchiveItemListWidget->setParent(archiveDockWidgetContainer);
             connect(m_archive.get(), &ArchiveHandler::itemActivated, this, &MainWindow::slotArchiveItemActivated);
             archiveDock->setVisible(true);
             archiveDock->toggleViewAction()->setVisible(true);

@@ -22,6 +22,7 @@ public:
     QString                getCurrentSGFName() override;
     ArchiveItemListWidget *getArchiveItemListWidget() override;
     bool                   hasSGF() override;
+    bool                   needListView() override;
 private slots:
     void onItemSelected(const QString &item);
     void onItemActivated(QListWidgetItem *item);

@@ -128,6 +128,11 @@ bool QDBHandler::hasSGF()
     return m_model->rowCount() != 0;
 }
 
+bool QDBHandler::needListView()
+{
+    return m_model->rowCount() > 1;
+}
+
 void QDBHandler::onItemActivated(const QModelIndex &index)
 {
     getSGFContent(index.row());

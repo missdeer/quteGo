@@ -3428,7 +3428,7 @@ in the preferences.</source>
     </message>
     <message>
         <location line="+502"/>
-        <location line="+339"/>
+        <location line="+338"/>
         <location line="+13"/>
         <location line="+142"/>
         <location line="+12"/>
@@ -3443,7 +3443,7 @@ in the preferences.</source>
         <translation>Paratus.</translation>
     </message>
     <message>
-        <location line="-810"/>
+        <location line="-809"/>
         <source>Current move</source>
         <translation>Hic motus</translation>
     </message>
@@ -3468,13 +3468,13 @@ Fratres filiosque huius motus ostendit.</translation>
     </message>
     <message>
         <location line="+5"/>
-        <location line="+1382"/>
+        <location line="+1381"/>
         <source>N</source>
         <comment>Board status line: normal mode</comment>
         <translation type="unfinished">R</translation>
     </message>
     <message>
-        <location line="-1380"/>
+        <location line="-1379"/>
         <source>Current mode</source>
         <translation>Modus</translation>
     </message>
@@ -3501,7 +3501,7 @@ Modum ostendit. &apos;R&apos; rectum, &apos;C&apos; ut corrigere.</translation>
         <translation type="unfinished">vs.</translation>
     </message>
     <message>
-        <location line="+173"/>
+        <location line="+172"/>
         <source>This file had errors during loading and may be corrupt.
 Do you still want to save it?</source>
         <translation type="unfinished"></translation>
@@ -3706,13 +3706,13 @@ Overwrite stored game result?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-2333"/>
+        <location line="-2332"/>
         <location line="+15"/>
         <source>New board prepared.</source>
         <translation>Tabula nova instructa.</translation>
     </message>
     <message>
-        <location line="+61"/>
+        <location line="+60"/>
         <source>SGF</source>
         <translation>SGF</translation>
     </message>
@@ -6598,7 +6598,7 @@ ad :</translation>
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="../mainwindow.cpp" line="-2488"/>
+        <location filename="../mainwindow.cpp" line="-2487"/>
         <source>free</source>
         <translation>gratis</translation>
     </message>
@@ -6772,7 +6772,7 @@ ad :</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+92"/>
+        <location line="+89"/>
         <source>Open SGF file</source>
         <translation type="unfinished"></translation>
     </message>

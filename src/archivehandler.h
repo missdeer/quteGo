@@ -19,6 +19,7 @@ public:
     virtual QString                getCurrentSGFName()        = 0;
     virtual ArchiveItemListWidget *getArchiveItemListWidget() = 0;
     virtual bool                   hasSGF()                   = 0;
+    virtual bool                   needListView()            = 0;
 signals:
     void currentItemChanged();
     void itemActivated();
