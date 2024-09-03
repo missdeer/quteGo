@@ -172,3 +172,23 @@ QByteArray QDBItemModel::getSGFContent(int index)
     }
     return {};
 }
+
+QString QDBItemModel::getSGFName(int index)
+{
+    auto      db  = QSqlDatabase::database(m_connectionName);
+    QString   sql = QStringLiteral("SELECT * FROM go_games WHERE ID=%1;").arg(index + 1);
+    QSqlQuery query(sql, db);
+    if (query.next())
+    {
+        auto eventName = query.value(query.record().indexOf("EVENTNAME")).toString();
+        auto gameName  = query.value(query.record().indexOf("GAMENAME")).toString();
+        if (!eventName.isEmpty() || !gameName.isEmpty())
+            return QStringLiteral("%1 - %2").arg(eventName, gameName);
+        auto blackName = query.value(query.record().indexOf("BLACKNAME")).toString();
+        auto whiteName = query.value(query.record().indexOf("WHITENAME")).toString();
+        if (!blackName.isEmpty() || !whiteName.isEmpty())
+            return QStringLiteral("%1 vs %2").arg(blackName, whiteName);
+    }
+
+    return {};
+}

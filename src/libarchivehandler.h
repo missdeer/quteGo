@@ -18,6 +18,8 @@ public:
     ~LibArchiveHandler() override;
     QIODevice             *getSGFContent(int index) override;
     QIODevice             *getCurrentSGFContent() override;
+    QString                getSGFName(int index) override;
+    QString                getCurrentSGFName() override;
     ArchiveItemListWidget *getArchiveItemListWidget() override;
     bool                   hasSGF() override;
 private slots:
@@ -29,6 +31,7 @@ private:
     QString                m_archivePath;
     QStringList            m_fileList;
     QBuffer                m_buffer;
+    QString                m_currentSGFName;
 
     bool       traverseArchive(const QString &archive, LibArchiveTraversalCallback callback);
     QString    getEntryName(struct archive_entry *entry);

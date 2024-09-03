@@ -7,6 +7,7 @@
 #include "ui_sgfpreview.h"
 
 class QFileDialog;
+class QLayout;
 
 class SGFPreview
     : public QDialog
@@ -24,23 +25,21 @@ class SGFPreview
     void previewSGF(QIODevice &device, const QString &path);
     void reloadPreview();
     void clear();
-    void archiveItemSelected(const QString &item);
-    void previewArchiveItem(const QString &item);
+    QLayout *takeArhiveItemListWidget();
 
 public:
     SGFPreview(QWidget *parent, const QString &dir);
     ~SGFPreview();
     virtual void accept() override;
+    virtual void reject() override;
     QStringList  selected();
 
-    go_game_ptr selected_record()
-    {
-        return m_game;
-    }
-    ArchiveHandlerPtr selected_archive()
-    {
-        return m_archive;
-    }
+    go_game_ptr       selected_record();
+    ArchiveHandlerPtr selected_archive();
+
+private slots:
+    void onArchiveItemActivated();
+    void onArchiveCurrentItemChanged();
 };
 
 #endif

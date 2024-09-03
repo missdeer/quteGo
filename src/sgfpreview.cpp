@@ -1,5 +1,3 @@
-#include <fstream>
-
 #include <QFileDialog>
 #include <QPushButton>
 
@@ -14,8 +12,11 @@ SGFPreview::SGFPreview(QWidget *parent, const QString &dir)
       m_game(m_empty_game)
 {
     setupUi(this);
+    QVBoxLayout* pArchiveItemListContainerLayout = new QVBoxLayout;
+    archiveItemListContainer->setLayout(pArchiveItemListContainerLayout);
+    pArchiveItemListContainerLayout->setContentsMargins(0, 0, 0, 0);
 
-    QVBoxLayout *l = new QVBoxLayout(dialogWidget);
+    QVBoxLayout *pFileDialogContainerLayout = new QVBoxLayout(dialogWidget);
     fileDialog     = new QFileDialog(dialogWidget, Qt::Widget);
     fileDialog->setOption(QFileDialog::DontUseNativeDialog, true);
     fileDialog->setWindowFlags(Qt::Widget);
@@ -36,20 +37,19 @@ SGFPreview::SGFPreview(QWidget *parent, const QString &dir)
     fileDialog->setDirectory(dir);
 
     setWindowTitle(tr("Open file"));
-    l->addWidget(fileDialog);
-    l->setContentsMargins(0, 0, 0, 0);
+    pFileDialogContainerLayout->addWidget(fileDialog);
+    pFileDialogContainerLayout->setContentsMargins(0, 0, 0, 0);
     fileDialog->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     fileDialog->show();
     connect(encodingList, &QComboBox::currentTextChanged, this, &SGFPreview::reloadPreview);
     connect(overwriteSGFEncoding, &QGroupBox::toggled, this, &SGFPreview::reloadPreview);
-    connect(archiveItemList, &QListWidget::currentTextChanged, this, &SGFPreview::archiveItemSelected);
-    connect(archiveItemList, &QListWidget::itemActivated, [=]() { accept(); });
+
     connect(fileDialog, &QFileDialog::currentChanged, this, &SGFPreview::setPath);
     connect(fileDialog, &QFileDialog::accepted, this, &QDialog::accept);
     connect(fileDialog, &QFileDialog::rejected, this, &QDialog::reject);
     boardView->reset_game(m_game);
     boardView->set_show_coords(false);
-    archiveItemList->setVisible(false);
+    archiveItemListContainer->setVisible(false);
 }
 
 SGFPreview::~SGFPreview() {}
@@ -70,32 +70,32 @@ void SGFPreview::clear()
     File_Size->setText("");
     File_Event->setText("");
     File_Round->setText("");
-    archiveItemList->setVisible(false);
-    archiveItemList->clear();
-}
-
-void SGFPreview::archiveItemSelected(const QString &item)
-{
-    if (!archiveItemList->isVisible() || item.isEmpty() || fileDialog->selectedFiles().isEmpty())
-        return;
-
-    if (m_archive)
-    {
-        previewArchiveItem(item);
-        return;
-    }
-}
-
-void SGFPreview::previewArchiveItem(const QString &item)
-{
-    //QIODevice *device = m_archive->getSGFContent(item);
-    //if (device)
-    //    previewSGF(*device, item);
+    archiveItemListContainer->setVisible(false);
 }
 
 QStringList SGFPreview::selected()
 {
     return fileDialog->selectedFiles();
+}
+
+go_game_ptr SGFPreview::selected_record()
+{
+    return m_game;
+}
+
+ArchiveHandlerPtr SGFPreview::selected_archive()
+{
+    return m_archive;
+}
+
+QLayout *SGFPreview::takeArhiveItemListWidget()
+{
+    auto *pArchiveItemListContainerLayout = archiveItemListContainer->layout();
+    Q_ASSERT(pArchiveItemListContainerLayout != nullptr);
+    while (pArchiveItemListContainerLayout->takeAt(0) != nullptr)
+        ;
+
+    return pArchiveItemListContainerLayout;
 }
 
 void SGFPreview::setPath(const QString &path)
@@ -104,28 +104,48 @@ void SGFPreview::setPath(const QString &path)
         return;
 
     clear();
-    QFileInfo fi(path);
-    if (fi.suffix().compare("sgf", Qt::CaseInsensitive) == 0)
+    if (path.endsWith(QStringLiteral(".sgf"), Qt::CaseInsensitive))
     {
-        QFile f(path);
-        if (f.open(QIODevice::ReadOnly))
-            previewSGF(f, path);
-        return;
+        QFile file(path);
+        if (file.open(QIODevice::ReadOnly))
+        {
+            previewSGF(file, path);
+            return;
+        }
     }
 
     auto archiveHandler = ArchiveHandlerFactory::createArchiveHandler(path);
-    if (archiveHandler)
+    m_archive.reset(archiveHandler);
+    auto *pArchiveItemListContainerLayout = takeArhiveItemListWidget();
+    Q_ASSERT(m_archive);
+    auto *pArchiveItemListWidget = m_archive->getArchiveItemListWidget();
+    pArchiveItemListContainerLayout->addWidget(pArchiveItemListWidget);
+    if (m_archive->hasSGF())
     {
-        m_archive.reset(archiveHandler);
-        return;
+        pArchiveItemListWidget->setParent(archiveItemListContainer);
+        connect(m_archive.get(), &ArchiveHandler::itemActivated, this, &SGFPreview::onArchiveItemActivated);
+        connect(m_archive.get(), &ArchiveHandler::currentItemChanged, this, &SGFPreview::onArchiveCurrentItemChanged);
+        archiveItemListContainer->setVisible(true);
+        previewSGF(*m_archive->getCurrentSGFContent(), m_archive->getCurrentSGFName());
     }
+}
+
+void SGFPreview::onArchiveItemActivated()
+{
+    Q_ASSERT(m_archive && m_archive->hasSGF());
+    previewSGF(*m_archive->getCurrentSGFContent(), m_archive->getCurrentSGFName());
+}
+
+void SGFPreview::onArchiveCurrentItemChanged()
+{
+    Q_ASSERT(m_archive && m_archive->hasSGF());
+    previewSGF(*m_archive->getCurrentSGFContent(), m_archive->getCurrentSGFName());
 }
 
 void SGFPreview::previewSGF(QIODevice &device, const QString &path)
 {
     try
     {
-        // IOStreamAdapter adapter (&f);
         QTextCodec *codec = nullptr;
         if (overwriteSGFEncoding->isChecked())
         {
@@ -168,13 +188,10 @@ void SGFPreview::reloadPreview()
     auto files = fileDialog->selectedFiles();
     if (!files.isEmpty())
     {
-        if (archiveItemList->isVisible())
+        if (archiveItemListContainer->isVisible())
         {
-            if (archiveItemList->currentRow() >= 0)
-            {
-                QString item = archiveItemList->currentItem()->text();
-                archiveItemSelected(item);
-            }
+            if (m_archive && m_archive->hasSGF())
+                previewSGF(*m_archive->getCurrentSGFContent(), m_archive->getCurrentSGFName());
         }
         else
             setPath(files.at(0));
@@ -183,5 +200,12 @@ void SGFPreview::reloadPreview()
 
 void SGFPreview::accept()
 {
+    takeArhiveItemListWidget();
     QDialog::accept();
+}
+
+void SGFPreview::reject()
+{
+    takeArhiveItemListWidget();
+    QDialog::reject();
 }

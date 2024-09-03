@@ -4497,7 +4497,7 @@ byo-yomi: e.g. Byo = 7x30s, VII spatia XXX secundorum; si lapis intra XXX secund
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../preferences.cpp" line="+323"/>
+        <location filename="../preferences.cpp" line="+318"/>
         <source>Directory contains no database</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7086,7 +7086,7 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sgfpreview.cpp" line="+27"/>
+        <location filename="../sgfpreview.cpp" line="+28"/>
         <source>All supported files (%1)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7500,7 +7500,7 @@ You will need to add &apos;%n&quot; somewhere in the template to indicate the po
 <context>
     <name>T</name>
     <message>
-        <location filename="../preferences.cpp" line="-221"/>
+        <location filename="../preferences.cpp" line="-216"/>
         <source>Name</source>
         <translation type="unfinished">Nomen</translation>
     </message>

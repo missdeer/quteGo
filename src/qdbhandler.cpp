@@ -113,6 +113,16 @@ QIODevice *QDBHandler::getCurrentSGFContent()
     return &m_buffer;
 }
 
+QString QDBHandler::getSGFName(int index)
+{
+    return m_model->getSGFName(index);
+}
+
+QString QDBHandler::getCurrentSGFName()
+{
+    return m_model->getSGFName(m_currentIndex);
+}
+
 bool QDBHandler::hasSGF()
 {
     return m_model->rowCount() != 0;
@@ -127,6 +137,7 @@ void QDBHandler::onItemActivated(const QModelIndex &index)
 void QDBHandler::onCurrentChanged(const QModelIndex &current, const QModelIndex &previous)
 {
     Q_UNUSED(previous);
+    m_currentIndex = current.row();
     getSGFContent(current.row());
     emit currentItemChanged();
 }

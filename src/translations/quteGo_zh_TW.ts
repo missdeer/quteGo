@@ -4493,234 +4493,234 @@ use &quot;free&quot; command to make game rated or unrated (free)</source>
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../preferences.cpp" line="1064"/>
-        <location filename="../preferences.cpp" line="1149"/>
+        <location filename="../preferences.cpp" line="1059"/>
+        <location filename="../preferences.cpp" line="1144"/>
         <source>Change</source>
         <translation>修改</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1069"/>
-        <location filename="../preferences.cpp" line="1154"/>
+        <location filename="../preferences.cpp" line="1064"/>
+        <location filename="../preferences.cpp" line="1149"/>
         <source>Add</source>
         <translation>加入</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1162"/>
+        <location filename="../preferences.cpp" line="1157"/>
         <source>Stones</source>
         <translation>落子</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1164"/>
+        <location filename="../preferences.cpp" line="1159"/>
         <source>Pass</source>
         <translation>虛手</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1166"/>
+        <location filename="../preferences.cpp" line="1161"/>
         <source>Autoplay</source>
         <translation>自動播放</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1168"/>
+        <location filename="../preferences.cpp" line="1163"/>
         <source>Time</source>
         <translation>時間</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1170"/>
+        <location filename="../preferences.cpp" line="1165"/>
         <source>Talk</source>
         <translation>交談</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1172"/>
+        <location filename="../preferences.cpp" line="1167"/>
         <source>Say</source>
         <translation>發言</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1174"/>
+        <location filename="../preferences.cpp" line="1169"/>
         <source>Match</source>
         <translation>對局</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1176"/>
+        <location filename="../preferences.cpp" line="1171"/>
         <source>Enter</source>
         <translation>進入</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1178"/>
+        <location filename="../preferences.cpp" line="1173"/>
         <source>Game end</source>
         <translation>對局結束</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1180"/>
+        <location filename="../preferences.cpp" line="1175"/>
         <source>Leave</source>
         <translation>離開</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1182"/>
+        <location filename="../preferences.cpp" line="1177"/>
         <source>Disconnect</source>
         <translation>斷線</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1184"/>
+        <location filename="../preferences.cpp" line="1179"/>
         <source>Connect</source>
         <translation>連線</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1190"/>
+        <location filename="../preferences.cpp" line="1185"/>
         <source>All Files (*)</source>
         <translation>所有檔案 (*)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1219"/>
-        <location filename="../preferences.cpp" line="1249"/>
+        <location filename="../preferences.cpp" line="1214"/>
+        <location filename="../preferences.cpp" line="1244"/>
         <source>Images (*.png *.xpm *.jpg)</source>
         <translation>圖像 (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="585"/>
+        <location filename="../preferences.cpp" line="580"/>
         <source>Select white stone base color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="323"/>
+        <location filename="../preferences.cpp" line="318"/>
         <source>Directory contains no database</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="324"/>
+        <location filename="../preferences.cpp" line="319"/>
         <source>The directory could not be added because no kombilo.db file could be found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="334"/>
+        <location filename="../preferences.cpp" line="329"/>
         <source>Directory already in the list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="335"/>
+        <location filename="../preferences.cpp" line="330"/>
         <source>The directory could not be added because it already exists in the list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="351"/>
+        <location filename="../preferences.cpp" line="346"/>
         <source>Overwrite database paths</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="352"/>
+        <location filename="../preferences.cpp" line="347"/>
         <source>This operation replaces existing database paths.
 Do you still want to import from kombilo.cfg?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="592"/>
+        <location filename="../preferences.cpp" line="587"/>
         <source>Select black stone base color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="700"/>
+        <location filename="../preferences.cpp" line="695"/>
         <source>Invalid slide width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="701"/>
-        <location filename="../preferences.cpp" line="710"/>
+        <location filename="../preferences.cpp" line="696"/>
+        <location filename="../preferences.cpp" line="705"/>
         <source>Please enter valid dimensions for slide export (100x100 or larger).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="709"/>
+        <location filename="../preferences.cpp" line="704"/>
         <source>Invalid slide height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="716"/>
+        <location filename="../preferences.cpp" line="711"/>
         <source>Invalid slide dimensions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="716"/>
+        <location filename="../preferences.cpp" line="711"/>
         <source>Slide export dimensions must be wider than they are tall.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="908"/>
-        <location filename="../preferences.cpp" line="921"/>
+        <location filename="../preferences.cpp" line="903"/>
+        <location filename="../preferences.cpp" line="916"/>
         <source>Unsaved data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="909"/>
+        <location filename="../preferences.cpp" line="904"/>
         <source>The engine input fields contain
 potentially unsaved data.
 Really close the preferences?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="922"/>
+        <location filename="../preferences.cpp" line="917"/>
         <source>The host input fields contain
 potentially unsaved data.
 Really close the preferences?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="967"/>
+        <location filename="../preferences.cpp" line="962"/>
         <source>Invalid komi entered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="967"/>
+        <location filename="../preferences.cpp" line="962"/>
         <source>Please enter a valid komi before adding the engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="976"/>
+        <location filename="../preferences.cpp" line="971"/>
         <source>Missing board size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="977"/>
+        <location filename="../preferences.cpp" line="972"/>
         <source>Analysis engines require a board size to be specified.
 If your engine allows multiple board sizes, you need to configure them in separate entires.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="988"/>
+        <location filename="../preferences.cpp" line="983"/>
         <source>Invalid board size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="988"/>
+        <location filename="../preferences.cpp" line="983"/>
         <source>Only a range of 5 to 25 is allowed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1190"/>
+        <location filename="../preferences.cpp" line="1185"/>
         <source>Choose GTP engine path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1219"/>
+        <location filename="../preferences.cpp" line="1214"/>
         <source>Select a goban wood image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1249"/>
+        <location filename="../preferences.cpp" line="1244"/>
         <source>Select a table background image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1278"/>
+        <location filename="../preferences.cpp" line="1273"/>
         <source>Select a white stone image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1278"/>
-        <location filename="../preferences.cpp" line="1307"/>
+        <location filename="../preferences.cpp" line="1273"/>
+        <location filename="../preferences.cpp" line="1302"/>
         <source>Images (*.png *.xpm *.jpg *.svg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1307"/>
+        <location filename="../preferences.cpp" line="1302"/>
         <source>Select a black stone image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6950,17 +6950,17 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="315"/>
+        <location filename="../preferences.cpp" line="310"/>
         <source>Add a database directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="359"/>
+        <location filename="../preferences.cpp" line="354"/>
         <source>Open kombilo.cfg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="359"/>
+        <location filename="../preferences.cpp" line="354"/>
         <source>CFG Files (*.cfg);;All Files (*)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7083,22 +7083,22 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sgfpreview.cpp" line="27"/>
+        <location filename="../sgfpreview.cpp" line="28"/>
         <source>All supported files (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sgfpreview.cpp" line="30"/>
+        <location filename="../sgfpreview.cpp" line="31"/>
         <source>SGF files (*.sgf *.SGF)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sgfpreview.cpp" line="33"/>
+        <location filename="../sgfpreview.cpp" line="34"/>
         <source>All files (*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sgfpreview.cpp" line="38"/>
+        <location filename="../sgfpreview.cpp" line="39"/>
         <source>Open file</source>
         <translation type="unfinished"></translation>
     </message>

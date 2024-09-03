@@ -133,12 +133,14 @@ ArchiveItemListWidget *LibArchiveHandler::getArchiveItemListWidget()
 
 void LibArchiveHandler::onItemSelected(const QString &item)
 {
+    m_currentSGFName = item;
     getSGFContent(item);
     emit currentItemChanged();
 }
 
 void LibArchiveHandler::onItemActivated(QListWidgetItem *item)
 {
+    m_currentSGFName = item->text();
     getSGFContent(item->text());
     emit itemActivated();
 }
@@ -151,4 +153,16 @@ QIODevice *LibArchiveHandler::getCurrentSGFContent()
 bool LibArchiveHandler::hasSGF()
 {
     return !m_fileList.empty();
+}
+
+QString LibArchiveHandler::getSGFName(int index)
+{
+    if (index < 0 || index >= m_fileList.size())
+        return {};
+    return m_fileList[index];
+}
+
+QString LibArchiveHandler::getCurrentSGFName()
+{
+    return m_currentSGFName;
 }

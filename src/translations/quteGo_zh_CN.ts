@@ -4572,236 +4572,236 @@ use &quot;free&quot; command to make game rated or unrated (free)</source>
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../preferences.cpp" line="1064"/>
-        <location filename="../preferences.cpp" line="1149"/>
+        <location filename="../preferences.cpp" line="1059"/>
+        <location filename="../preferences.cpp" line="1144"/>
         <source>Change</source>
         <translation>修改</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1069"/>
-        <location filename="../preferences.cpp" line="1154"/>
+        <location filename="../preferences.cpp" line="1064"/>
+        <location filename="../preferences.cpp" line="1149"/>
         <source>Add</source>
         <translation>加入</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1162"/>
+        <location filename="../preferences.cpp" line="1157"/>
         <source>Stones</source>
         <translation>落子</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1164"/>
+        <location filename="../preferences.cpp" line="1159"/>
         <source>Pass</source>
         <translation>虚手</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1166"/>
+        <location filename="../preferences.cpp" line="1161"/>
         <source>Autoplay</source>
         <translation>自动打谱</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1168"/>
+        <location filename="../preferences.cpp" line="1163"/>
         <source>Time</source>
         <translation>时间</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1170"/>
+        <location filename="../preferences.cpp" line="1165"/>
         <source>Talk</source>
         <translation>交谈</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1172"/>
+        <location filename="../preferences.cpp" line="1167"/>
         <source>Say</source>
         <translation>局内交谈</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1174"/>
+        <location filename="../preferences.cpp" line="1169"/>
         <source>Match</source>
         <translation>对局</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1176"/>
+        <location filename="../preferences.cpp" line="1171"/>
         <source>Enter</source>
         <translation>进入</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1178"/>
+        <location filename="../preferences.cpp" line="1173"/>
         <source>Game end</source>
         <translation>对局结束</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1180"/>
+        <location filename="../preferences.cpp" line="1175"/>
         <source>Leave</source>
         <translation>离开</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1182"/>
+        <location filename="../preferences.cpp" line="1177"/>
         <source>Disconnect</source>
         <translation>断开连接</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1184"/>
+        <location filename="../preferences.cpp" line="1179"/>
         <source>Connect</source>
         <translation>连接</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1190"/>
+        <location filename="../preferences.cpp" line="1185"/>
         <source>All Files (*)</source>
         <translation>所有文件 (*)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1219"/>
-        <location filename="../preferences.cpp" line="1249"/>
+        <location filename="../preferences.cpp" line="1214"/>
+        <location filename="../preferences.cpp" line="1244"/>
         <source>Images (*.png *.xpm *.jpg)</source>
         <translation>图像 (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="585"/>
+        <location filename="../preferences.cpp" line="580"/>
         <source>Select white stone base color</source>
         <translation>选择白棋子基准颜色</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="592"/>
+        <location filename="../preferences.cpp" line="587"/>
         <source>Select black stone base color</source>
         <translation>选择黑棋子基准颜色</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="908"/>
-        <location filename="../preferences.cpp" line="921"/>
+        <location filename="../preferences.cpp" line="903"/>
+        <location filename="../preferences.cpp" line="916"/>
         <source>Unsaved data</source>
         <translation>未保存数据</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="909"/>
+        <location filename="../preferences.cpp" line="904"/>
         <source>The engine input fields contain
 potentially unsaved data.
 Really close the preferences?</source>
         <translation>引擎输入字段可能有未保存数据。确定要关闭首选项吗？</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="922"/>
+        <location filename="../preferences.cpp" line="917"/>
         <source>The host input fields contain
 potentially unsaved data.
 Really close the preferences?</source>
         <translation>主机输入字段可能有未保存数据。确定要关闭首选项吗？</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="967"/>
+        <location filename="../preferences.cpp" line="962"/>
         <source>Invalid komi entered</source>
         <translation>无效的贴目数</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="967"/>
+        <location filename="../preferences.cpp" line="962"/>
         <source>Please enter a valid komi before adding the engine.</source>
         <translation>在添加引擎前请输入有效的贴目数。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="976"/>
+        <location filename="../preferences.cpp" line="971"/>
         <source>Missing board size</source>
         <translation>缺少棋盘大小</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="977"/>
+        <location filename="../preferences.cpp" line="972"/>
         <source>Analysis engines require a board size to be specified.
 If your engine allows multiple board sizes, you need to configure them in separate entires.</source>
         <translation>分析引擎要求指定棋盘大小。
 如果引擎允许多种棋盘大小，则需要分别指定。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="988"/>
+        <location filename="../preferences.cpp" line="983"/>
         <source>Invalid board size</source>
         <translation>无效的棋盘大小</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="988"/>
+        <location filename="../preferences.cpp" line="983"/>
         <source>Only a range of 5 to 25 is allowed.</source>
         <translation>允许的范围是5~25。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1190"/>
+        <location filename="../preferences.cpp" line="1185"/>
         <source>Choose GTP engine path</source>
         <translation>选择GTP引擎路径</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1219"/>
+        <location filename="../preferences.cpp" line="1214"/>
         <source>Select a goban wood image</source>
         <translation>选择棋盘木图像</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1249"/>
+        <location filename="../preferences.cpp" line="1244"/>
         <source>Select a table background image</source>
         <translation>选择桌面背景图像</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1278"/>
+        <location filename="../preferences.cpp" line="1273"/>
         <source>Select a white stone image</source>
         <translation>选择白棋子图像</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1278"/>
-        <location filename="../preferences.cpp" line="1307"/>
+        <location filename="../preferences.cpp" line="1273"/>
+        <location filename="../preferences.cpp" line="1302"/>
         <source>Images (*.png *.xpm *.jpg *.svg)</source>
         <translation>图像 (*.png *.xpm *.jpg *.svg)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1307"/>
+        <location filename="../preferences.cpp" line="1302"/>
         <source>Select a black stone image</source>
         <translation>选择黑棋子图像</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="323"/>
+        <location filename="../preferences.cpp" line="318"/>
         <source>Directory contains no database</source>
         <translation>目录内没有数据库</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="324"/>
+        <location filename="../preferences.cpp" line="319"/>
         <source>The directory could not be added because no kombilo.db file could be found.</source>
         <translation>目录无法添加，因为没有找到kombilo.db文件。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="334"/>
+        <location filename="../preferences.cpp" line="329"/>
         <source>Directory already in the list</source>
         <translation>目录已经在列表中</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="335"/>
+        <location filename="../preferences.cpp" line="330"/>
         <source>The directory could not be added because it already exists in the list.</source>
         <translation>目录无法添加，因为已经在列表中。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="351"/>
+        <location filename="../preferences.cpp" line="346"/>
         <source>Overwrite database paths</source>
         <translation>覆盖数据库路径</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="352"/>
+        <location filename="../preferences.cpp" line="347"/>
         <source>This operation replaces existing database paths.
 Do you still want to import from kombilo.cfg?</source>
         <translation>此操作会替换已存在的数据库路径。
 仍要从kombilo.cfg导入吗？</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="700"/>
+        <location filename="../preferences.cpp" line="695"/>
         <source>Invalid slide width</source>
         <translation>无效的幻灯片宽度</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="701"/>
-        <location filename="../preferences.cpp" line="710"/>
+        <location filename="../preferences.cpp" line="696"/>
+        <location filename="../preferences.cpp" line="705"/>
         <source>Please enter valid dimensions for slide export (100x100 or larger).</source>
         <translation>请输入有效的维度用于幻灯片导出(100x100或更大)。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="709"/>
+        <location filename="../preferences.cpp" line="704"/>
         <source>Invalid slide height</source>
         <translation>无效的幻灯片调试</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="716"/>
+        <location filename="../preferences.cpp" line="711"/>
         <source>Invalid slide dimensions</source>
         <translation>无效的幻灯片维度</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="716"/>
+        <location filename="../preferences.cpp" line="711"/>
         <source>Slide export dimensions must be wider than they are tall.</source>
         <translation>幻灯片导出维度必须宽大于高。</translation>
     </message>
@@ -6999,17 +6999,17 @@ reverting to default.</source>
         <translation>所有支持的文件 (*.sgf *.zip *.rar *.7z *.qdb);;所有文件 (*)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="315"/>
+        <location filename="../preferences.cpp" line="310"/>
         <source>Add a database directory</source>
         <translation>添加数据库目录</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="359"/>
+        <location filename="../preferences.cpp" line="354"/>
         <source>Open kombilo.cfg</source>
         <translation>打开kombilo.cfg</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="359"/>
+        <location filename="../preferences.cpp" line="354"/>
         <source>CFG Files (*.cfg);;All Files (*)</source>
         <translation>CFG文件 (*.cfg);;所有文件 (*)</translation>
     </message>
@@ -7149,22 +7149,22 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <translation>日期</translation>
     </message>
     <message>
-        <location filename="../sgfpreview.cpp" line="27"/>
+        <location filename="../sgfpreview.cpp" line="28"/>
         <source>All supported files (%1)</source>
         <translation>所有支持的文件(%1)</translation>
     </message>
     <message>
-        <location filename="../sgfpreview.cpp" line="30"/>
+        <location filename="../sgfpreview.cpp" line="31"/>
         <source>SGF files (*.sgf *.SGF)</source>
         <translation>SGF文件 (*.sgf *.SGF)</translation>
     </message>
     <message>
-        <location filename="../sgfpreview.cpp" line="33"/>
+        <location filename="../sgfpreview.cpp" line="34"/>
         <source>All files (*)</source>
         <translation>所有文件 (*)</translation>
     </message>
     <message>
-        <location filename="../sgfpreview.cpp" line="38"/>
+        <location filename="../sgfpreview.cpp" line="39"/>
         <source>Open file</source>
         <translation>打开文件</translation>
     </message>

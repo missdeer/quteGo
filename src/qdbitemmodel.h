@@ -22,7 +22,7 @@ public:
     [[nodiscard]] Qt::ItemFlags flags(const QModelIndex &index) const override;
     [[nodiscard]] QVariant      headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
     QByteArray                  getSGFContent(int index);
-
+    QString                     getSGFName(int index);
 private:
     int     m_rowCount {0};
     QString m_connectionName;

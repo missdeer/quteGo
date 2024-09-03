@@ -15,6 +15,8 @@ public:
     virtual ~ArchiveHandler()                                 = default;
     virtual QIODevice             *getSGFContent(int index)   = 0;
     virtual QIODevice             *getCurrentSGFContent()     = 0;
+    virtual QString                getSGFName(int index)      = 0;
+    virtual QString                getCurrentSGFName()        = 0;
     virtual ArchiveItemListWidget *getArchiveItemListWidget() = 0;
     virtual bool                   hasSGF()                   = 0;
 signals:

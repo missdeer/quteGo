@@ -21,12 +21,12 @@
     <layout class="QGridLayout" name="gridLayout_2"/>
    </item>
    <item row="0" column="0" rowspan="4">
-    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,0,0">
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,0">
      <item>
       <widget class="QWidget" name="dialogWidget" native="true"/>
      </item>
      <item>
-      <widget class="QListWidget" name="archiveItemList"/>
+      <widget class="QWidget" name="archiveItemListContainer" native="true"/>
      </item>
      <item>
       <widget class="QGroupBox" name="overwriteSGFEncoding">
@@ -124,7 +124,7 @@
      <item row="1" column="1" colspan="5">
       <widget class="QLabel" name="File_BlackPlayer">
        <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+        <enum>QFrame::Shape::StyledPanel</enum>
        </property>
        <property name="text">
         <string>Black</string>
@@ -147,7 +147,7 @@
         </sizepolicy>
        </property>
        <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+        <enum>QFrame::Shape::StyledPanel</enum>
        </property>
        <property name="text">
         <string>Date</string>
@@ -170,7 +170,7 @@
         </sizepolicy>
        </property>
        <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+        <enum>QFrame::Shape::StyledPanel</enum>
        </property>
        <property name="text">
         <string/>
@@ -186,7 +186,7 @@
         </sizepolicy>
        </property>
        <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+        <enum>QFrame::Shape::StyledPanel</enum>
        </property>
        <property name="text">
         <string>19</string>
@@ -196,7 +196,7 @@
      <item row="0" column="1" colspan="5">
       <widget class="QLabel" name="File_WhitePlayer">
        <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+        <enum>QFrame::Shape::StyledPanel</enum>
        </property>
        <property name="text">
         <string>White</string>
@@ -229,7 +229,7 @@
         </sizepolicy>
        </property>
        <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+        <enum>QFrame::Shape::StyledPanel</enum>
        </property>
        <property name="text">
         <string>6.5</string>
@@ -245,7 +245,7 @@
         </sizepolicy>
        </property>
        <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+        <enum>QFrame::Shape::StyledPanel</enum>
        </property>
        <property name="text">
         <string/>
@@ -272,7 +272,7 @@
      <item row="4" column="1" colspan="3">
       <widget class="QLabel" name="File_Event">
        <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+        <enum>QFrame::Shape::StyledPanel</enum>
        </property>
        <property name="text">
         <string/>
@@ -289,7 +289,7 @@
      <item row="4" column="5">
       <widget class="QLabel" name="File_Round">
        <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+        <enum>QFrame::Shape::StyledPanel</enum>
        </property>
        <property name="text">
         <string/>

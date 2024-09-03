@@ -16,6 +16,8 @@ public:
     virtual ~QDBHandler();
     QIODevice             *getSGFContent(int index) override;
     QIODevice             *getCurrentSGFContent() override;
+    QString                getSGFName(int index) override;
+    QString                getCurrentSGFName() override;
     ArchiveItemListWidget *getArchiveItemListWidget() override;
     bool                   hasSGF() override;
 private slots:
@@ -26,6 +28,7 @@ private:
     QDBItemModel          *m_model;
     QString                m_archivePath;
     QBuffer                m_buffer;
+    int                    m_currentIndex;
 
     void setupUi();
 
