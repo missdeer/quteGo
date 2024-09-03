@@ -916,21 +916,11 @@ void MainWindow::slotFileOpenDB(bool)
 
 QString MainWindow::getFileExtension(const QString &fileName, bool defaultExt)
 {
-    QString filter;
     if (defaultExt)
-        filter = tr("SGF");
-    else
-        filter = "";
-
-    int pos = 0, oldpos = -1, len = fileName.length();
-
-    while ((pos = fileName.indexOf('.', ++pos)) != -1 && pos < len)
-        oldpos = pos;
-
-    if (oldpos != -1)
-        filter = fileName.mid(oldpos + 1, fileName.length() - pos).toUpper();
-
-    return filter;
+        return "SGF";
+    
+    QFileInfo fi(fileName);
+    return fi.suffix().toUpper();
 }
 
 bool MainWindow::slotFileSave(bool)
