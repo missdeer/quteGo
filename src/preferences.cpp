@@ -167,11 +167,6 @@ PreferencesDialog::PreferencesDialog(QWidget *parent)
     connect(whiteStonePicturePathButton, &QPushButton::clicked, this, QOverload<>::of(&PreferencesDialog::slot_getWhiteStonePicturePath));
     connect(stoneSizePercentSlider, &QSlider::valueChanged, this, &PreferencesDialog::slot_stoneSizePercentChanged);
 
-    if (client_window->getPrefSize().width() > 0)
-    {
-        resize(client_window->getPrefSize());
-        move(client_window->getPrefPos());
-    }
     int engine_w = enginelabel_1->width();
     engine_w     = std::max(engine_w, enginelabel_2->width());
     engine_w     = std::max(engine_w, enginelabel_3->width());
