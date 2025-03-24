@@ -20,7 +20,11 @@ SGFPreview::SGFPreview(QWidget *parent, const QString &dir)
     fileDialog     = new QFileDialog(dialogWidget, Qt::Widget);
     fileDialog->setOption(QFileDialog::DontUseNativeDialog, true);
     fileDialog->setWindowFlags(Qt::Widget);
+#if defined(Q_OS_WIN)
     QStringList extensions {"*.sgf"};
+#else
+    QStringList extensions {"*.sgf", "*.SGF"};
+#endif
     for (const auto &ext : ArchiveHandlerFactory::extensions())
     {
         extensions.append("*." + ext);
@@ -28,7 +32,11 @@ SGFPreview::SGFPreview(QWidget *parent, const QString &dir)
     QString     allFilter = tr("All supported files (%1)").arg(extensions.join(' '));
     QStringList nameFilters {
         allFilter,
+#if defined(Q_OS_WIN)
+        tr("SGF files (*.sgf)"),
+#else
         tr("SGF files (*.sgf *.SGF)"),
+#endif
     };
     nameFilters.append(ArchiveHandlerFactory::nameFilters());
     nameFilters.append(tr("All files (*)"));
@@ -94,10 +102,13 @@ QLayout *SGFPreview::takeArhiveItemListWidget()
     Q_ASSERT(pArchiveItemListContainerLayout != nullptr);
     while (pArchiveItemListContainerLayout->takeAt(0) != nullptr)
         ;
-    Q_ASSERT(m_archive);
-    auto *pWidget = m_archive->getArchiveItemListWidget();
-    Q_ASSERT(pWidget);
-    pWidget->setParent(nullptr);
+    if (m_archive)
+    {
+        Q_ASSERT(m_archive);
+        auto *pWidget = m_archive->getArchiveItemListWidget();
+        Q_ASSERT(pWidget);
+        pWidget->setParent(nullptr);
+    }
     return pArchiveItemListContainerLayout;
 }
 
