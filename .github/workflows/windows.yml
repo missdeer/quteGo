@@ -23,33 +23,28 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        qt_ver: [5.15.2, 6.4.2]
+        qt_ver: [5.15.2, 6.9.0]
         qt_target: [desktop]
-        qt_arch: [win64_msvc2019_64]
+        qt_arch: [win64_msvc2022_64]
         msvc_arch: [x64]
-        qt_arch_install: [msvc2019_64]
+        qt_arch_install: [msvc2022_64]
         include:
           - qt_ver: 5.15.2
             qt_modules: qtmultimedia
-          - qt_ver: 6.4.2
+          - qt_ver: 6.9.0
             qt_modules: "qtmultimedia qt5compat"
     env:
       targetName: quteGo
     steps:
-      - name: Cache Qt
-        id: cache-qt
-        uses: actions/cache@v1  # not v2!
-        with:
-          path: ../Qt
-          key: ${{ matrix.qt_arch }}-$${{ matrix.qt_ver }}-QtCache
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
         with:
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
           version: ${{ matrix.qt_ver }}
           target: ${{ matrix.qt_target }}
           arch: ${{ matrix.qt_arch }}
-          aqtversion: '>=2.1.0'
+          cache: 'true'
+          cache-key-prefix: 'install-qt-action-${{ matrix.qt_arch }}-${{ matrix.qt_ver }}'
+          aqtversion: '==3.0.1'
           modules: ${{ matrix.qt_modules }}
           
       - uses: actions/checkout@v2
@@ -166,18 +161,18 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        qt_ver: [5.15.2, 6.4.2]
+        qt_ver: [5.15.2, 6.9.0]
         qt_target: [desktop]
-        qt_arch: [win64_msvc2019_64]
+        qt_arch: [win64_msvc2022_64]
         msvc_arch: [x64]
-        qt_arch_install: [msvc2019_64]
+        qt_arch_install: [msvc2022_64]
+        clang_link: [https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.2/LLVM-20.1.2-win64.exe]
         include:
           - qt_ver: 5.15.2
             qt_modules: qtmultimedia
-            clang_link: https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/LLVM-15.0.7-win64.exe
-          - qt_ver: 6.4.2
+          - qt_ver: 6.9.0
             qt_modules: "qtmultimedia qt5compat"
-            clang_link: https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/LLVM-15.0.7-win64.exe
+            
     env:
       targetName: quteGo
     steps:
@@ -194,7 +189,7 @@ jobs:
           version: ${{ matrix.qt_ver }}
           target: ${{ matrix.qt_target }}
           arch: ${{ matrix.qt_arch }}
-          aqtversion: '>=2.1.0'
+          aqtversion: '>=3.1.0'
           modules: ${{ matrix.qt_modules }}
           
       - uses: actions/checkout@v2
@@ -255,15 +250,15 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        qt_ver: [5.15.2, 6.4.2]
+        qt_ver: [5.15.2, 6.9.0]
         qt_target: [desktop]
-        qt_arch: [win64_msvc2019_64]
+        qt_arch: [win64_msvc2022_64]
         msvc_arch: [x64]
-        qt_arch_install: [msvc2019_64]
+        qt_arch_install: [msvc2022_64]
         include:
           - qt_ver: 5.15.2
             qt_modules: qtmultimedia
-          - qt_ver: 6.4.2
+          - qt_ver: 6.9.0
             qt_modules: "qtmultimedia qt5compat"
     env:
       targetName: quteGo
@@ -281,10 +276,10 @@ jobs:
           version: ${{ matrix.qt_ver }}
           target: ${{ matrix.qt_target }}
           arch: ${{ matrix.qt_arch }}
-          aqtversion: '>=2.1.0'
+          aqtversion: '>=3.1.0'
           modules: ${{ matrix.qt_modules }}
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref  }}
           submodules: true
