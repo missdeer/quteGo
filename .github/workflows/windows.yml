@@ -23,7 +23,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        qt_ver: [5.15.2, 6.9.0]
+        qt_ver: [5.15.2, 6.9.1]
         qt_target: [desktop]
         qt_arch: [win64_msvc2022_64]
         msvc_arch: [x64]
@@ -31,7 +31,7 @@ jobs:
         include:
           - qt_ver: 5.15.2
             qt_modules: qtmultimedia
-          - qt_ver: 6.9.0
+          - qt_ver: 6.9.1
             qt_modules: "qtmultimedia qt5compat"
     env:
       targetName: quteGo
@@ -161,7 +161,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        qt_ver: [5.15.2, 6.9.0]
+        qt_ver: [5.15.2, 6.9.1]
         qt_target: [desktop]
         qt_arch: [win64_msvc2022_64]
         msvc_arch: [x64]
@@ -170,9 +170,10 @@ jobs:
         include:
           - qt_ver: 5.15.2
             qt_modules: qtmultimedia
-          - qt_ver: 6.9.0
+            clang_link: https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.7/LLVM-20.1.7-win64.exe
+          - qt_ver: 6.9.1
             qt_modules: "qtmultimedia qt5compat"
-            
+            clang_link: https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.7/LLVM-20.1.7-win64.exe
     env:
       targetName: quteGo
     steps:
@@ -250,7 +251,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        qt_ver: [5.15.2, 6.9.0]
+        qt_ver: [5.15.2, 6.9.1]
         qt_target: [desktop]
         qt_arch: [win64_msvc2022_64]
         msvc_arch: [x64]
@@ -258,7 +259,7 @@ jobs:
         include:
           - qt_ver: 5.15.2
             qt_modules: qtmultimedia
-          - qt_ver: 6.9.0
+          - qt_ver: 6.9.1
             qt_modules: "qtmultimedia qt5compat"
     env:
       targetName: quteGo
