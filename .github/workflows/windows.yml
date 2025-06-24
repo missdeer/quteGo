@@ -12,11 +12,16 @@ on:
       - '.github/workflows/macos.yml'
 
 env:
-  WINDOWS_BASEKIT_URL: https://registrationcenter-download.intel.com/akdlm/irc_nas/19078/w_BaseKit_p_2023.0.0.25940_offline.exe
-  WINDOWS_HPCKIT_URL: https://registrationcenter-download.intel.com/akdlm/irc_nas/19085/w_HPCKit_p_2023.0.0.25931_offline.exe
-  WINDOWS_CPP_COMPONENTS: intel.oneapi.win.cpp-compiler
-  WINDOWS_DPCPP_COMPONENTS: intel.oneapi.win.dpcpp-compiler
-  COMPILER_VERSION: 2023.0.0
+  WINDOWS_BASEKIT_URL: https://registrationcenter-download.intel.com/akdlm/IRC_NAS/487fd8c3-a3d8-4c22-a903-f8d54c2c57be/intel-oneapi-base-toolkit-2025.1.0.650_offline.exe
+  WINDOWS_HPCKIT_URL: https://registrationcenter-download.intel.com/akdlm/IRC_NAS/0ba263f5-de00-4e91-a780-fdb9e131c1e8/intel-oneapi-hpc-toolkit-2025.1.0.665_offline.exe
+  WINDOWS_CPP_COMPONENTS: intel.oneapi.win.cpp-dpcpp-common
+  WINDOWS_DPCPP_COMPONENTS: intel.oneapi.win.cpp-dpcpp-common
+  CACHE_NUMBER: 5
+  SAMPLES_TAG: 2025.1.0
+  AI_SAMPLES_TAG: 2025.0.0
+  COMPILER_VERSION: 2025.1.0
+  TBB_VERSION: 2022.1.0
+  VS_VER: vs2022  
 
 jobs:
   win32-msvc:
@@ -37,14 +42,14 @@ jobs:
       targetName: quteGo
     steps:
       - name: Install Qt
-        uses: jurplel/install-qt-action@v3
+        uses: jurplel/install-qt-action@v4
         with:
           version: ${{ matrix.qt_ver }}
           target: ${{ matrix.qt_target }}
           arch: ${{ matrix.qt_arch }}
           cache: 'true'
           cache-key-prefix: 'install-qt-action-${{ matrix.qt_arch }}-${{ matrix.qt_ver }}'
-          aqtversion: '==3.0.1'
+          aqtversion: '==3.1.*'
           modules: ${{ matrix.qt_modules }}
           
       - uses: actions/checkout@v2
@@ -166,7 +171,7 @@ jobs:
         qt_arch: [win64_msvc2022_64]
         msvc_arch: [x64]
         qt_arch_install: [msvc2022_64]
-        clang_link: [https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.2/LLVM-20.1.2-win64.exe]
+        clang_link: [https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.7/LLVM-20.1.7-win64.exe]
         include:
           - qt_ver: 5.15.2
             qt_modules: qtmultimedia
@@ -177,16 +182,9 @@ jobs:
     env:
       targetName: quteGo
     steps:
-      - name: Cache Qt
-        id: cache-qt
-        uses: actions/cache@v1  # not v2!
-        with:
-          path: ../Qt
-          key: ${{ matrix.qt_arch }}-$${{ matrix.qt_ver }}-QtCache
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v4
         with:
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
           version: ${{ matrix.qt_ver }}
           target: ${{ matrix.qt_target }}
           arch: ${{ matrix.qt_arch }}
@@ -264,16 +262,9 @@ jobs:
     env:
       targetName: quteGo
     steps:
-      - name: Cache Qt
-        id: cache-qt
-        uses: actions/cache@v1  # not v2!
-        with:
-          path: ../Qt
-          key: ${{ matrix.qt_arch }}-$${{ matrix.qt_ver }}-QtCache
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v4
         with:
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
           version: ${{ matrix.qt_ver }}
           target: ${{ matrix.qt_target }}
           arch: ${{ matrix.qt_arch }}
@@ -285,22 +276,22 @@ jobs:
           ref: ${{ github.head_ref  }}
           submodules: true
 
-      - name: cache install
+      - name: cache intel install
         id: cache-install
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: |
               C:\Program Files (x86)\Intel\oneAPI\setvars-vcvarsall.bat
               C:\Program Files (x86)\Intel\oneAPI\compiler
           key: install-${{ env.CACHE_NUMBER }}-${{ env.WINDOWS_HPCKIT_URL }}-${{ env.WINDOWS_CPP_COMPONENTS }}-compiler-${{ hashFiles('**/scripts/cache_exclude_windows.sh') }}
 
-      - name: install
+      - name: install intel
         if: steps.cache-install.outputs.cache-hit != 'true'
         run: |
           git clone --depth=1 https://github.com/oneapi-src/oneapi-ci.git oneapi-ci
           cd oneapi-ci
           scripts/install_windows.bat ${{ env.WINDOWS_HPCKIT_URL }} ${{ env.WINDOWS_CPP_COMPONENTS }}
-
+          
       - name: Set up jom
         shell: cmd
         run: |
@@ -347,32 +338,8 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        qt_arch: [mingw64_qt5-gcc, mingw64_qt5-static-gcc, mingw64_qt5-clang, mingw64_qt6-gcc, mingw64_qt6-clang]
+        qt_arch: [mingw64_qt6-gcc, mingw64_qt6-clang]
         include:
-          - qt_arch: mingw64_qt5-gcc
-            mingw_arch: MINGW64 
-            mingw_prefix: mingw-w64-x86_64
-            toolchains: gcc
-            mkspec: win32-g++
-            qt_build: qt5
-            qmake: qmake.exe
-            windeployqt: windeployqt.exe
-          - qt_arch: mingw64_qt5-static-gcc
-            mingw_arch: MINGW64 
-            mingw_prefix: mingw-w64-x86_64
-            toolchains: gcc
-            mkspec: win32-g++
-            qt_build: qt5-static
-            qmake: /mingw64/qt5-static/bin/qmake.exe
-            windeployqt: ls.exe
-          - qt_arch: mingw64_qt5-clang
-            mingw_arch: MINGW64 
-            mingw_prefix: mingw-w64-x86_64
-            toolchains: clang
-            mkspec: win32-clang-g++
-            qt_build: qt5
-            qmake: qmake.exe
-            windeployqt: windeployqt.exe
           - qt_arch: mingw64_qt6-gcc
             mingw_arch: MINGW64 
             mingw_prefix: mingw-w64-x86_64
