@@ -233,7 +233,7 @@
     <message>
         <location line="+6"/>
         <source>30</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">30</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -2947,7 +2947,7 @@ Regulam status  excitat aut extinguit.</translation>
     <message>
         <location line="+27"/>
         <source>19</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">19</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -2978,7 +2978,7 @@ Regulam status  excitat aut extinguit.</translation>
     <message>
         <location line="+16"/>
         <source>6.5</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">6.5</translation>
     </message>
     <message>
         <location line="+33"/>
@@ -7048,7 +7048,7 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
     <message>
         <location line="+32"/>
         <source>19</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">19</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -7063,7 +7063,7 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
     <message>
         <location line="+16"/>
         <source>6.5</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">6.5</translation>
     </message>
     <message>
         <location line="+23"/>

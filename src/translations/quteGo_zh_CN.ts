@@ -6758,12 +6758,12 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
     <message>
         <location filename="../newaigamedlg.cpp" line="51"/>
         <source>Choose an SGF file to load</source>
-        <translation>选择一个SGF文件打开</translation>
+        <translation type="unfinished">选择一个SGF文件打开</translation>
     </message>
     <message>
         <location filename="../newaigamedlg.cpp" line="51"/>
         <source>SGF Files (*.sgf);;All Files (*)</source>
-        <translation>SGF 文件(*.sgf);;所有文件 (*)</translation>
+        <translation type="unfinished">SGF (*.sgf);;所有文件 (*)</translation>
     </message>
 </context>
 <context>
