@@ -7088,22 +7088,27 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sgfpreview.cpp" line="28"/>
+        <location filename="../sgfpreview.cpp" line="32"/>
         <source>All supported files (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sgfpreview.cpp" line="31"/>
+        <location filename="../sgfpreview.cpp" line="36"/>
+        <source>SGF files (*.sgf)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sgfpreview.cpp" line="38"/>
         <source>SGF files (*.sgf *.SGF)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sgfpreview.cpp" line="34"/>
+        <location filename="../sgfpreview.cpp" line="42"/>
         <source>All files (*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sgfpreview.cpp" line="39"/>
+        <location filename="../sgfpreview.cpp" line="47"/>
         <source>Open file</source>
         <translation type="unfinished"></translation>
     </message>

@@ -628,13 +628,16 @@ void ImageHandler::init(int size)
     size = size * 9 / 10;
 
     // black stone
-    for (int i = 1; i <= WHITE_STONES_NB; i++)
+    for (int i = 1; i <= BLACK_STONES_NB; i++)
     {
         QImage ib1(size, size, QImage::Format_ARGB32);
         paint_one_stone(ib1, false, size, i - 1);
         stonePixmaps.append(QPixmap::fromImage(ib1, Qt::PreferDither | Qt::DiffuseAlphaDither | Qt::DiffuseDither));
 
-        QImage gb1(ib1);
+        QImage ib2(size, size, QImage::Format_ARGB32);
+        paint_stone_new(ib2, size, m_b_col, m_b_hard, m_b_spec, m_b_flat, m_b_radius, false, 0);
+
+        QImage gb1(ib2);
         ghostImage(&gb1);
         ghostPixmaps.append(QPixmap::fromImage(gb1));
     }
@@ -646,7 +649,10 @@ void ImageHandler::init(int size)
         paint_one_stone(iw1, true, size, i - 1);
         stonePixmaps.append(QPixmap::fromImage(iw1, Qt::PreferDither | Qt::DiffuseAlphaDither | Qt::DiffuseDither));
 
-        QImage gw1(iw1);
+        QImage iw2(size, size, QImage::Format_ARGB32);
+        paint_stone_new(iw2, size, m_w_col, m_w_hard, m_w_spec, m_w_flat, m_w_radius, m_clamshell, i-1);
+
+        QImage gw1(iw2);
         ghostImage(&gw1);
         ghostPixmaps.append(QPixmap::fromImage(gw1));
     }
@@ -671,7 +677,11 @@ void ImageHandler::rescale(int size)
         QImage ib1 = QImage(size, size, QImage::Format_ARGB32);
         paint_one_stone(ib1, false, size, i);
         stonePixmaps[i].convertFromImage(ib1, Qt::PreferDither | Qt::DiffuseAlphaDither | Qt::DiffuseDither);
-        QImage gb1(ib1);
+
+        QImage ib2(size, size, QImage::Format_ARGB32);
+        paint_stone_new(ib2, size, m_b_col, m_b_hard, m_b_spec, m_b_flat, m_b_radius, false, 0);
+
+        QImage gb1(ib2);
         ghostImage(&gb1);
         ghostPixmaps[i].convertFromImage(gb1, Qt::PreferDither | Qt::DiffuseAlphaDither | Qt::DiffuseDither);
     }
@@ -682,7 +692,11 @@ void ImageHandler::rescale(int size)
         QImage iw1 = QImage(size, size, QImage::Format_ARGB32);
         paint_one_stone(iw1, true, size, i);
         stonePixmaps[i + BLACK_STONES_NB].convertFromImage(iw1, Qt::PreferDither | Qt::DiffuseAlphaDither | Qt::DiffuseDither);
-        QImage gw1(iw1);
+
+        QImage iw2(size, size, QImage::Format_ARGB32);
+        paint_stone_new(iw2, size, m_w_col, m_w_hard, m_w_spec, m_w_flat, m_w_radius, m_clamshell, i);
+
+        QImage gw1(iw2);
         ghostImage(&gw1);
         ghostPixmaps[i + BLACK_STONES_NB].convertFromImage(gw1, Qt::PreferDither | Qt::DiffuseAlphaDither | Qt::DiffuseDither);
     }
