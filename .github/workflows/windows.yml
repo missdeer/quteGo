@@ -73,9 +73,8 @@ jobs:
           set PATH=%CD%\jom;%PATH%
           mkdir build
           cd build
-          qmake -r CONFIG+=release CONFIG+=qtquickcompiler ..\qutego.pro
-          if exist %CD%\jom\jom.exe jom.exe -j %NUMBER_OF_PROCESSORS%
-          if not exist %CD%\jom\jom.exe nmake
+          cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=cl -DCMAKE_CXX_COMPILER=cl ..
+          cmake --build . --config Release --parallel --verbose
           cd ..
       - name: package
         env:
@@ -218,9 +217,8 @@ jobs:
           set PATH=%CD%\llvm\;%CD%\llvm\bin;%CD%\jom;%PATH%
           mkdir build
           cd build
-          qmake -r -spec win32-clang-msvc CONFIG+=release CONFIG+=qtquickcompiler ..\qutego.pro
-          if exist %CD%\jom\jom.exe jom.exe -j %NUMBER_OF_PROCESSORS%
-          if not exist %CD%\jom\jom.exe nmake
+          cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=clang-cl -DCMAKE_CXX_COMPILER=clang-cl ..
+          cmake --build . --config Release --parallel --verbose
           cd ..
       - name: package
         env:
@@ -304,9 +302,8 @@ jobs:
           set PATH="C:\Program Files (x86)\Intel\oneAPI\compiler\${{ env.COMPILER_VERSION }}\windows\bin-llvm\";%CD%\jom;%PATH%
           mkdir build
           cd build
-          qmake -r -spec win32-clang-msvc CONFIG+=release CONFIG+=qtquickcompiler ..\qutego.pro
-          if exist %CD%\jom\jom.exe jom.exe -j %NUMBER_OF_PROCESSORS%
-          if not exist %CD%\jom\jom.exe nmake
+          cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=icx -DCMAKE_CXX_COMPILER=icx ..
+          cmake --build . --config Release --parallel --verbose
           cd ..
       - name: package
         env:
@@ -337,6 +334,7 @@ jobs:
             mingw_arch: MINGW64 
             mingw_prefix: mingw-w64-x86_64
             toolchains: gcc
+            toolchainsplusplus: g++
             mkspec: win32-g++
             qt_build: qt6
             qmake: qmake6.exe
@@ -345,6 +343,7 @@ jobs:
             mingw_arch: MINGW64 
             mingw_prefix: mingw-w64-x86_64
             toolchains: clang
+            toolchainsplusplus: clang++
             mkspec: win32-clang-g++
             qt_build: qt6
             qmake: qmake6.exe
@@ -364,19 +363,19 @@ jobs:
           ref: ${{ github.head_ref  }}
           submodules: true
 
-      - name: qmake
+      - name: cmake-configure
         shell: msys2 {0}
         run: |
           mkdir build
           cd build
-          ${{ matrix.qmake }} -r -spec ${{ matrix.mkspec }} CONFIG+=release CONFIG+=qtquickcompiler ..
+          cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=${{ matrix.toolchains }} -DCMAKE_CXX_COMPILER=${{ matrix.toolchainsplusplus }} ..
           cd ..
 
-      - name: mingw32-make
+      - name: cmake-build
         shell: msys2 {0}
         run: |
           cd build
-          mingw32-make.exe -j $NUMBER_OF_PROCESSORS
+          cmake --build . --config Release --parallel --verbose
           cd ..
 
       - name: extract executable
