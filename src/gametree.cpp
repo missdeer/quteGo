@@ -17,6 +17,7 @@
 #include "setting.h"
 #include "svgbuilder.h"
 #include "uihelpers.h"
+#include "imagehandler.h"
 
 static QByteArray box_svg = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>"
                             "<svg width=\"160\" height=\"160\">"
@@ -183,8 +184,13 @@ void GameTree::update_prefs()
     edit.circle_at(ssize - soff / 2, ssize - soff / 2, (ssize / 4) * 0.9, "black", "none");
     edit.circle_at(soff / 2, ssize - soff / 2, (ssize / 4) * 0.9 - 0.5, "white", "black", "1");
     edit.circle_at(ssize - soff / 2, soff / 2, (ssize / 4) * 0.9 - 0.5, "white", "black", "1");
-    m_pm_w    = QPixmap(wstone.to_pixmap(ssize, ssize));
-    m_pm_b    = QPixmap(bstone.to_pixmap(ssize, ssize));
+    ImageHandler *ih = new ImageHandler;
+    ih->init(m_size);
+    const QList<QPixmap> *l = ih->getStonePixmaps();
+    int cnt = l->count();
+    m_pm_w = l->at(cnt-2);
+    m_pm_b = l->at(0);
+    delete ih;
     m_pm_wfig = QPixmap(wfig.to_pixmap(ssize, ssize));
     m_pm_bfig = QPixmap(bfig.to_pixmap(ssize, ssize));
     m_pm_e    = QPixmap(edit.to_pixmap(ssize, ssize));
