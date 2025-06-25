@@ -171,19 +171,7 @@ void GameTree::update_prefs()
     }
     int         ssize = m_size - 2;
     int         soff  = ssize / 2;
-    svg_builder wstone(ssize, ssize);
-    wstone.circle_at(soff, soff, soff * 0.9 - 1, "white", "black", "2");
-    svg_builder bstone(ssize, ssize);
-    bstone.circle_at(soff, soff, soff * 0.9, "black", "none");
-    svg_builder wfig(ssize, ssize);
-    wfig.square_at(soff, soff, ssize * 0.9 - 1, "white", "black");
-    svg_builder bfig(ssize, ssize);
-    bfig.square_at(soff, soff, ssize * 0.9, "black", "none");
-    svg_builder edit(ssize, ssize);
-    edit.circle_at(soff / 2, soff / 2, (ssize / 4) * 0.9, "black", "none");
-    edit.circle_at(ssize - soff / 2, ssize - soff / 2, (ssize / 4) * 0.9, "black", "none");
-    edit.circle_at(soff / 2, ssize - soff / 2, (ssize / 4) * 0.9 - 0.5, "white", "black", "1");
-    edit.circle_at(ssize - soff / 2, soff / 2, (ssize / 4) * 0.9 - 0.5, "white", "black", "1");
+
     ImageHandler *ih = new ImageHandler;
     ih->init(m_size);
     const QList<QPixmap> *l = ih->getStonePixmaps();
@@ -191,9 +179,27 @@ void GameTree::update_prefs()
     m_pm_w = l->at(cnt-2);
     m_pm_b = l->at(0);
     delete ih;
+
+    svg_builder wfig(ssize, ssize);
+    wfig.square_at(soff, soff, ssize * 0.9 - 1, "white", "black");
+    svg_builder bfig(ssize, ssize);
+    bfig.square_at(soff, soff, ssize * 0.9, "black", "none");
     m_pm_wfig = QPixmap(wfig.to_pixmap(ssize, ssize));
     m_pm_bfig = QPixmap(bfig.to_pixmap(ssize, ssize));
-    m_pm_e    = QPixmap(edit.to_pixmap(ssize, ssize));
+
+    svg_builder edit(ssize, ssize);
+    QPixmap m_pm_edit = QPixmap(edit.to_pixmap(ssize, ssize));
+    QPainter editPainter;
+    editPainter.begin(&m_pm_edit);
+    editPainter.drawPixmap(soff / 2 - ssize / 4 * 0.9 + 0.5, soff / 2 - ssize / 4 * 0.9 + 0.5, ssize / 2 * 0.9, ssize / 2 * 0.9, m_pm_b);
+    editPainter.drawPixmap(
+        ssize - soff / 2 - ssize / 4 * 0.9 + 0.5, ssize - soff / 2 - ssize / 4 * 0.9 + 0.5, ssize / 2 * 0.9, ssize / 2 * 0.9, m_pm_b);
+    editPainter.drawPixmap(
+        soff / 2 - ssize / 4 * 0.9 + 0.5, ssize - soff / 2 - ssize / 4 * 0.9 + 0.5, ssize / 2 * 0.9 - 1, ssize / 2 * 0.9 - 1, m_pm_w);
+    editPainter.drawPixmap(
+        ssize - soff / 2 - ssize / 4 * 0.9 + 0.5, soff / 2 - ssize / 4 * 0.9 + 0.5, ssize / 2 * 0.9 - 1, ssize / 2 * 0.9 - 1, m_pm_w);
+    editPainter.end();
+    m_pm_e    = m_pm_edit;
 
     QSvgRenderer renderer(box_svg);
     m_pm_box = QPixmap(ssize, ssize);
