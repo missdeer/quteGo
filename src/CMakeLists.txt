@@ -5,6 +5,11 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
+# Ensure CMP0167 policy is set before find_package calls
+if(POLICY CMP0167)
+    cmake_policy(SET CMP0167 NEW)
+endif()
+
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core LinguistTools)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Widgets Xml Svg Sql Multimedia Network PrintSupport LinguistTools)
 IF (Qt6_FOUND)
@@ -21,7 +26,7 @@ include_directories(${Qt${QT_VERSION_MAJOR}Gui_PRIVATE_INCLUDE_DIRS})
 
 find_package(ICU 70.0 COMPONENTS uc i18n REQUIRED)
 find_package(LibArchive REQUIRED)
-find_package(Boost 1.79.0)
+find_package(Boost 1.79.0 QUIET)
 
 set(HEADERS 
     analyzedlg.h
@@ -220,6 +225,7 @@ ENDIF()
 
 target_link_libraries(${PROJECT_NAME}  PRIVATE  LibArchive::LibArchive
         ICU::uc ICU::i18n
+        Boost::headers
         Qt${QT_VERSION_MAJOR}::Network
         Qt${QT_VERSION_MAJOR}::Core
         Qt${QT_VERSION_MAJOR}::Xml
@@ -243,11 +249,6 @@ IF (Qt6_FOUND)
             )
 ENDIF(Qt6_FOUND)
 
-if(Boost_FOUND)
-  # dont use include_directories, use target_include_directories instead to let lupdate skip boost directories
-  target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIRS})
-  target_link_directories(${PROJECT_NAME} PUBLIC ${Boost_LIBRARY_DIRS})
-endif()
 set_target_properties(${PROJECT_NAME} PROPERTIES WIN32_EXECUTABLE ON
                                                  MACOSX_BUNDLE ON)
 

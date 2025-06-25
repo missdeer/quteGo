@@ -1,4 +1,8 @@
 cmake_minimum_required(VERSION 3.15)
+
+# Set policy for Boost to avoid deprecation warning (affects all subdirectories)
+cmake_policy(SET CMP0167 NEW)
+
 project(quteGoProject VERSION 1.0.0)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
