@@ -48,11 +48,8 @@ if(WIN32)
 endif()
 
 if (MSVC)
-    if("${CURRENT_COMPILER_ID}" STREQUAL "IntelLLVM")
-        add_compile_options(/EHsc)
-    else()
-        add_compile_options(/utf-8)
-    endif()
+    add_compile_options(/EHsc)
+    add_compile_options(/utf-8)
 endif()
 
 add_subdirectory(src)
