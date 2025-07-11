@@ -383,6 +383,14 @@ MainWindow::MainWindow(QWidget *parent, go_game_ptr gr, ArchiveHandlerPtr archiv
     viewNumbers->setChecked(g_setting->readBoolEntry("SHOW_MOVE_NUMBER"));
     slotViewMoveNumbers(g_setting->readBoolEntry("SHOW_MOVE_NUMBER"));
     main_window_list.push_back(this);
+    
+    QTimer::singleShot(1000, [this]{
+        if (m_webdavWidget && m_webdavWidget->onStart()) {
+            if (webdavDock->isVisible()) {
+                webdavDock->setVisible(true);
+            }
+        }
+    });
 }
 
 void MainWindow::init_game_record(go_game_ptr gr)
@@ -890,9 +898,66 @@ void MainWindow::adjust_archive_dock()
 void MainWindow::create_webdav_dock()
 {
     m_webdavWidget = new WebDavWidget(webdavDock);
+
+    connect(m_webdavWidget, &WebDavWidget::storedWebDavFile, this, &MainWindow::onStoredWebDavFile);
+    connect(m_webdavWidget, &WebDavWidget::retrievedWebDavFile, this, &MainWindow::onRetrievedWebDavFile);
+    connect(m_webdavWidget, &WebDavWidget::error, this, [this](auto err) { statusBar()->showMessage(err, 3000); });
+
     webdavDock->setWidget(m_webdavWidget);
     webdavDock->setVisible(true);
     webdavDock->toggleViewAction()->setVisible(true);
+}
+
+void MainWindow::onStoredWebDavFile(QString path)
+{
+
+}
+
+void MainWindow::onRetrievedWebDavFile(QString path, QByteArray content)
+{
+    // store file content to local download directory
+    QString downloadDir = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
+    QString fileName = QFileInfo(path).fileName();
+    QString filePath = downloadDir + "/" + fileName;
+    QFile file(filePath);
+    if (file.open(QIODevice::WriteOnly))
+    {
+        file.write(content);
+        file.close();
+    }
+    if (filePath.endsWith(".sgf", Qt::CaseInsensitive))
+    {
+        auto gr = record_from_file(filePath, nullptr);
+        if (gr)
+        {
+            init_game_record(gr);
+            setGameMode(modeNormal);
+        }
+    }
+    else if (filePath.endsWith(".zip", Qt::CaseInsensitive) || filePath.endsWith(".rar", Qt::CaseInsensitive) || filePath.endsWith(".7z", Qt::CaseInsensitive))
+    {
+        ArchiveHandlerPtr archive(ArchiveHandlerFactory::createArchiveHandler(filePath));
+        if (archive && archive->hasSGF())
+        {
+            // read first file from archive
+            auto device = archive->getSGFContent(0);
+            if (device)
+            {
+                QByteArray data = device->readAll();
+                device->seek(0);
+                auto* codec    = charset_detect(data);
+                sgf *sgf = load_sgf(*device);
+                auto gr  = sgf2record(*sgf, codec); 
+                if (gr)
+                {
+                    init_game_record(gr);
+                    setGameMode(modeNormal);
+                }
+                m_archive = archive;
+                adjust_archive_dock();
+            }
+        }
+    }
 }
 
 void MainWindow::slotFileOpen(bool)

@@ -298,6 +298,10 @@ void PreferencesDialog::update_db_selection()
     dbRemButton->setEnabled(selection);
 }
 
+void PreferencesDialog::slot_test_webdav_connection()
+{
+}
+
 void PreferencesDialog::slot_dbdir(bool)
 {
     QString dir;
@@ -567,6 +571,13 @@ void PreferencesDialog::init_from_settings()
     suppressSGFParserErrorWarningCheckBox->setChecked(g_setting->readBoolEntry("SUPPRESS_SGF_PARSER_ERROR_WARNING"));
     showNumberMoveCountSpinBox->setValue(g_setting->readIntEntry("MOVE_COUNT_MOVE_NUMBER"));
     showMoveNumberGroupBox->setChecked(g_setting->readBoolEntry("SHOW_MOVE_NUMBER"));
+    
+    // WebDAV tab
+    edtWebDAVServerURL->setText(g_setting->readEntry("WEBDAV_SERVER_URL"));
+    edtWebDAVUsername->setText(g_setting->readEntry("WEBDAV_USERNAME"));
+    edtWebDAVPassword->setText(g_setting->readEntry("WEBDAV_PASSWORD"));
+    cbAutoConnectWebDAVAtStartup->setChecked(g_setting->readBoolEntry("WEBDAV_AUTO_CONNECT"));
+    cbRememberLastUsedWebDAVPath->setChecked(g_setting->readBoolEntry("WEBDAV_REMEMBER_LAST_USED_PATH"));
 }
 
 void PreferencesDialog::select_stone_look(bool)
@@ -851,6 +862,13 @@ void PreferencesDialog::slot_apply()
     g_setting->writeBoolEntry("GAMETREE_DIAGHIDE", diagHideCheckBox->isChecked());
 
     g_setting->writeIntEntry("TOROID_DUPS", toroidDupsSpin->text().toInt());
+
+    // WebDAV tab
+    g_setting->writeEntry("WEBDAV_SERVER_URL", edtWebDAVServerURL->text());
+    g_setting->writeEntry("WEBDAV_USERNAME", edtWebDAVUsername->text());
+    g_setting->writeEntry("WEBDAV_PASSWORD", edtWebDAVPassword->text());
+    g_setting->writeBoolEntry("WEBDAV_AUTO_CONNECT", cbAutoConnectWebDAVAtStartup->isChecked());
+    g_setting->writeBoolEntry("WEBDAV_REMEMBER_LAST_USED_PATH", cbRememberLastUsedWebDAVPath->isChecked());
 
     if (m_dbpaths_changed)
     {

@@ -3380,7 +3380,7 @@ Control-click a collapsed node to expand one level of its children.</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="+601"/>
+        <location filename="../mainwindow.cpp" line="+609"/>
         <source>&amp;Autoplay</source>
         <translation>&amp;Sponte ludere</translation>
     </message>
@@ -3418,7 +3418,7 @@ Swap current move with previous variation.</source>
 Hanc et antecedentem variationem permutat.</translation>
     </message>
     <message>
-        <location line="-384"/>
+        <location line="-392"/>
         <source>Choose variation display</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3432,8 +3432,8 @@ in the preferences.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+504"/>
-        <location line="+336"/>
+        <location line="+512"/>
+        <location line="+393"/>
         <location line="+13"/>
         <location line="+142"/>
         <location line="+12"/>
@@ -3448,7 +3448,7 @@ in the preferences.</source>
         <translation>Paratus.</translation>
     </message>
     <message>
-        <location line="-810"/>
+        <location line="-867"/>
         <source>Current move</source>
         <translation>Hic motus</translation>
     </message>
@@ -3473,13 +3473,13 @@ Fratres filiosque huius motus ostendit.</translation>
     </message>
     <message>
         <location line="+5"/>
-        <location line="+1386"/>
+        <location line="+1443"/>
         <source>N</source>
         <comment>Board status line: normal mode</comment>
         <translation type="unfinished">R</translation>
     </message>
     <message>
-        <location line="-1384"/>
+        <location line="-1441"/>
         <source>Current mode</source>
         <translation>Modus</translation>
     </message>
@@ -3506,7 +3506,7 @@ Modum ostendit. &apos;R&apos; rectum, &apos;C&apos; ut corrigere.</translation>
         <translation type="unfinished">vs.</translation>
     </message>
     <message>
-        <location line="+170"/>
+        <location line="+227"/>
         <source>This file had errors during loading and may be corrupt.
 Do you still want to save it?</source>
         <translation type="unfinished"></translation>
@@ -3711,13 +3711,13 @@ Overwrite stored game result?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-2337"/>
+        <location line="-2394"/>
         <location line="+15"/>
         <source>New board prepared.</source>
         <translation>Tabula nova instructa.</translation>
     </message>
     <message>
-        <location line="+117"/>
+        <location line="+174"/>
         <source>SGF Files (*.sgf);;All Files (*)</source>
         <translation>Plicae SGF (*.sgf);;Omnia (*)</translation>
     </message>
@@ -4497,7 +4497,7 @@ byo-yomi: e.g. Byo = 7x30s, VII spatia XXX secundorum; si lapis intra XXX secund
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../preferences.cpp" line="+318"/>
+        <location filename="../preferences.cpp" line="+322"/>
         <source>Directory contains no database</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4528,7 +4528,7 @@ Do you still want to import from kombilo.cfg?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+233"/>
+        <location line="+240"/>
         <source>Select white stone base color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4564,7 +4564,7 @@ Do you still want to import from kombilo.cfg?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+192"/>
+        <location line="+199"/>
         <location line="+13"/>
         <source>Unsaved data</source>
         <translation type="unfinished"></translation>
@@ -4896,7 +4896,7 @@ Select the font for the server console (fixed font preferably).</source>
 Typum (rigidum potius) imperii moderatri eligit.</translation>
     </message>
     <message>
-        <location line="+2008"/>
+        <location line="+2083"/>
         <location line="+1744"/>
         <source>New</source>
         <translation>Novus</translation>
@@ -4938,7 +4938,7 @@ Label &apos;Add&apos; is default. The given entries will be saved under the give
         <translation>Delere</translation>
     </message>
     <message>
-        <location line="-3700"/>
+        <location line="-3775"/>
         <source>Play sound for</source>
         <translation>Soni</translation>
     </message>
@@ -5145,7 +5145,12 @@ Si lingua tua non adest, qGo convertere pondera. qGo domum ade:  http://qgo.sour
         <translation>Tabella</translation>
     </message>
     <message>
-        <location line="+3781"/>
+        <location line="+1439"/>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2417"/>
         <source>Variants</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5247,7 +5252,7 @@ Si lingua tua non adest, qGo convertere pondera. qGo domum ade:  http://qgo.sour
         <translation>Coordinata tabellae ostendere</translation>
     </message>
     <message>
-        <location line="-4042"/>
+        <location line="-4117"/>
         <source>Show a ghost stone at mouse pointer</source>
         <translation>Sub muris indice simulacrum lapidis ostendere</translation>
     </message>
@@ -5515,7 +5520,7 @@ Quomodo omnes fratres huius motus ostendentur elige: non ostenti aut simulacra a
         <translation>Simulacra</translation>
     </message>
     <message>
-        <location line="+962"/>
+        <location line="+1037"/>
         <source>Computer Go</source>
         <translation>Go Computatro</translation>
     </message>
@@ -5668,7 +5673,7 @@ Omnibus moderatris Gois inscriptio porti, quae numerus est, addicta est. &apos;H
         <translation>Nomen:</translation>
     </message>
     <message>
-        <location line="-3448"/>
+        <location line="-3523"/>
         <source>Options for preventing misclicks in online games</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5756,12 +5761,12 @@ diagram pane shown:</source>
     </message>
     <message>
         <location line="+24"/>
-        <location line="+1414"/>
+        <location line="+1489"/>
         <source>Letters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-1390"/>
+        <location line="-1465"/>
         <source>Show as:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6087,7 +6092,37 @@ child/sibling setting:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+71"/>
+        <location line="+27"/>
+        <source>WebDAV</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Server URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Username</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>Connect WebDAV server at startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Remember last used WebDAV path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Test Connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+65"/>
         <source>Computer color:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6321,12 +6356,12 @@ Lineam serbatam cum hoc titulo delet.
 Cave: &apos;Delere&apos; ad lineas serbatas pertinet.</translation>
     </message>
     <message>
-        <location line="-2183"/>
+        <location line="-2258"/>
         <source>Name</source>
         <translation>Nomen</translation>
     </message>
     <message>
-        <location line="+2443"/>
+        <location line="+2518"/>
         <location line="+69"/>
         <source>Host Entries
 
@@ -6598,7 +6633,7 @@ ad :</translation>
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="../mainwindow.cpp" line="-2493"/>
+        <location filename="../mainwindow.cpp" line="-2550"/>
         <source>free</source>
         <translation>gratis</translation>
     </message>
@@ -6926,7 +6961,7 @@ ad :</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="-992"/>
+        <location filename="../preferences.cpp" line="-1006"/>
         <source>Add a database directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7505,7 +7540,7 @@ You will need to add &apos;%n&quot; somewhere in the template to indicate the po
 <context>
     <name>T</name>
     <message>
-        <location filename="../preferences.cpp" line="-216"/>
+        <location filename="../preferences.cpp" line="-220"/>
         <source>Name</source>
         <translation type="unfinished">Nomen</translation>
     </message>
@@ -7884,7 +7919,7 @@ and play the selected number of games per line</source>
 <context>
     <name>WebDavWidget</name>
     <message>
-        <location filename="../webdavwidget.cpp" line="+36"/>
+        <location filename="../webdavwidget.cpp" line="+34"/>
         <source>Connect</source>
         <translation type="unfinished">Conectere</translation>
     </message>
@@ -7939,17 +7974,19 @@ and play the selected number of games per line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+60"/>
+        <location line="+35"/>
+        <location line="+16"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+0"/>
-        <source>No valid WebDav server informations, please set it before connecting.</source>
+        <location line="-16"/>
+        <location line="+16"/>
+        <source>No valid WebDav server information, please set it before connecting.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+194"/>
+        <location line="+200"/>
         <source>New document</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8007,7 +8044,7 @@ and play the selected number of games per line</source>
 <context>
     <name>an_id_model</name>
     <message>
-        <location filename="../mainwindow.cpp" line="-270"/>
+        <location filename="../mainwindow.cpp" line="-278"/>
         <source>Engine</source>
         <translation type="unfinished"></translation>
     </message>

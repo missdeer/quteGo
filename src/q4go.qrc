@@ -67,6 +67,7 @@
     <file>rc/icons/disconnect.png</file>
     <file>rc/icons/refresh.png</file>
     <file>rc/icons/file-new.png</file>
+    <file>rc/icons/file-open.png</file>
     <file>rc/icons/new-dir.png</file>
     <file>rc/icons/up.png</file>
     <file>rc/icons/upload.png</file>

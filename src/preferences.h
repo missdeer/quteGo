@@ -125,6 +125,8 @@ public slots:
     void slot_dbdir(bool);
     void slot_dbcfg(bool);
     void slot_dbrem(bool);
+    
+    void slot_test_webdav_connection();
 
 private:
     void saveSizes();

@@ -3450,17 +3450,17 @@ Ctrl+點選合攏的節點可展開一級子結點。</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="601"/>
+        <location filename="../mainwindow.cpp" line="609"/>
         <source>&amp;Autoplay</source>
         <translation>自動打譜(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="605"/>
+        <location filename="../mainwindow.cpp" line="613"/>
         <source>Start/Stop autoplaying current game</source>
         <translation>開始/停止自動打譜</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="606"/>
+        <location filename="../mainwindow.cpp" line="614"/>
         <source>Autoplay
 
 Start/Stop autoplaying current game.</source>
@@ -3469,17 +3469,17 @@ Start/Stop autoplaying current game.</source>
 開始/停止自動打譜</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="617"/>
         <source>S&amp;wap variations</source>
         <translation>交換變化次序(&amp;W)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="610"/>
+        <location filename="../mainwindow.cpp" line="618"/>
         <source>Swap current move with previous variation</source>
         <translation>交換當前一手與上一個變化的次序</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="611"/>
+        <location filename="../mainwindow.cpp" line="619"/>
         <source>Swap variations
 
 Swap current move with previous variation.</source>
@@ -3488,124 +3488,124 @@ Swap current move with previous variation.</source>
 交換當前一手與上一個變化的次序</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="732"/>
-        <location filename="../mainwindow.cpp" line="1068"/>
-        <location filename="../mainwindow.cpp" line="1081"/>
-        <location filename="../mainwindow.cpp" line="1223"/>
-        <location filename="../mainwindow.cpp" line="1235"/>
-        <location filename="../mainwindow.cpp" line="1485"/>
-        <location filename="../mainwindow.cpp" line="1493"/>
-        <location filename="../mainwindow.cpp" line="1499"/>
-        <location filename="../mainwindow.cpp" line="1505"/>
-        <location filename="../mainwindow.cpp" line="1516"/>
-        <location filename="../mainwindow.cpp" line="1523"/>
-        <location filename="../mainwindow.cpp" line="1549"/>
+        <location filename="../mainwindow.cpp" line="740"/>
+        <location filename="../mainwindow.cpp" line="1133"/>
+        <location filename="../mainwindow.cpp" line="1146"/>
+        <location filename="../mainwindow.cpp" line="1288"/>
+        <location filename="../mainwindow.cpp" line="1300"/>
+        <location filename="../mainwindow.cpp" line="1550"/>
+        <location filename="../mainwindow.cpp" line="1558"/>
+        <location filename="../mainwindow.cpp" line="1564"/>
+        <location filename="../mainwindow.cpp" line="1570"/>
+        <location filename="../mainwindow.cpp" line="1581"/>
+        <location filename="../mainwindow.cpp" line="1588"/>
+        <location filename="../mainwindow.cpp" line="1614"/>
         <source>Ready.</source>
         <translation>就緒</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="739"/>
+        <location filename="../mainwindow.cpp" line="747"/>
         <source>Current move</source>
         <translation>當前落子</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="740"/>
+        <location filename="../mainwindow.cpp" line="748"/>
         <source>Move
 Displays the number of the current turn and the last move played.</source>
         <translation>當前手
 顯示當前手數及最後一手的行棋方和座標</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="748"/>
+        <location filename="../mainwindow.cpp" line="756"/>
         <source>Brothers / sons</source>
         <translation>兄弟變化數/子變化數</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="749"/>
+        <location filename="../mainwindow.cpp" line="757"/>
         <source>Navigation
 Shows the brothers and sons of the current move.</source>
         <translation>導航資訊
 顯示當前一手兄弟變化數/子變化數</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="756"/>
+        <location filename="../mainwindow.cpp" line="764"/>
         <source>Current mode</source>
         <translation>當前模式</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="757"/>
+        <location filename="../mainwindow.cpp" line="765"/>
         <source>Mode
 Shows the current mode. &apos;N&apos; for normal mode, &apos;E&apos; for edit mode.</source>
         <translation>模式
 顯示當前模式.&apos;一般&apos;代表一般模式,&apos;編輯&apos;代表編輯模式.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="849"/>
-        <location filename="../mainwindow.cpp" line="864"/>
+        <location filename="../mainwindow.cpp" line="857"/>
+        <location filename="../mainwindow.cpp" line="872"/>
         <source>New board prepared.</source>
         <translation>新棋盤準備完畢</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="981"/>
+        <location filename="../mainwindow.cpp" line="1046"/>
         <source>SGF Files (*.sgf);;All Files (*)</source>
         <translation>SGF (*.sgf);;所有檔案 (*)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1006"/>
+        <location filename="../mainwindow.cpp" line="1071"/>
         <source>saved.</source>
         <translation>儲存完畢</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1035"/>
+        <location filename="../mainwindow.cpp" line="1100"/>
         <source>SGF imported.</source>
         <translation>SGF匯入完畢.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1042"/>
+        <location filename="../mainwindow.cpp" line="1107"/>
         <source>SGF exported.</source>
         <translation>SGF匯出完畢.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1088"/>
+        <location filename="../mainwindow.cpp" line="1153"/>
         <source>Export image as</source>
         <translation>匯出影像為</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1261"/>
-        <location filename="../mainwindow.cpp" line="1616"/>
-        <location filename="../mainwindow.cpp" line="1630"/>
-        <location filename="../mainwindow.cpp" line="1654"/>
-        <location filename="../mainwindow.cpp" line="1666"/>
+        <location filename="../mainwindow.cpp" line="1326"/>
+        <location filename="../mainwindow.cpp" line="1681"/>
+        <location filename="../mainwindow.cpp" line="1695"/>
+        <location filename="../mainwindow.cpp" line="1719"/>
+        <location filename="../mainwindow.cpp" line="1731"/>
         <source>Autoplay stopped.</source>
         <translation>自動打譜已停止</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1276"/>
+        <location filename="../mainwindow.cpp" line="1341"/>
         <source>Autoplay started.</source>
         <translation>自動打譜已開始</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1285"/>
+        <location filename="../mainwindow.cpp" line="1350"/>
         <source>Variations swapped.</source>
         <translation>變化已交換</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1287"/>
+        <location filename="../mainwindow.cpp" line="1352"/>
         <source>No previous variation available.</source>
         <translation>不存在上一個變化</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1724"/>
+        <location filename="../mainwindow.cpp" line="1789"/>
         <source>Window size saved.</source>
         <translation>視窗大小儲存完畢</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1772"/>
+        <location filename="../mainwindow.cpp" line="1837"/>
         <source>Window size restored.</source>
         <translation>視窗大小已恢復</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1881"/>
+        <location filename="../mainwindow.cpp" line="1946"/>
         <source>You modified the game.
 Do you want to save your changes?</source>
         <translation>您修改了對局
@@ -3628,236 +3628,236 @@ in the preferences.</source>
 可以在首選項對話方塊裡自定義此行為（禁止顯示此對話方塊）。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="754"/>
-        <location filename="../mainwindow.cpp" line="2140"/>
+        <location filename="../mainwindow.cpp" line="762"/>
+        <location filename="../mainwindow.cpp" line="2205"/>
         <source>N</source>
         <comment>Board status line: normal mode</comment>
         <translation type="unfinished">普通</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="772"/>
+        <location filename="../mainwindow.cpp" line="780"/>
         <source>Analysis in progress: </source>
         <translation type="unfinished">分析中：</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="774"/>
+        <location filename="../mainwindow.cpp" line="782"/>
         <source>Off-line copy: </source>
         <translation type="unfinished">離線複本：</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="793"/>
+        <location filename="../mainwindow.cpp" line="801"/>
         <source>vs.</source>
         <translation type="unfinished">對</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="963"/>
+        <location filename="../mainwindow.cpp" line="1028"/>
         <source>This file had errors during loading and may be corrupt.
 Do you still want to save it?</source>
         <translation type="unfinished">檔案載入時發現錯誤，可能已被損壞。
 仍要儲存嗎？</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="981"/>
+        <location filename="../mainwindow.cpp" line="1046"/>
         <source>Save SGF file</source>
         <translation type="unfinished">儲存SGF檔案</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="993"/>
+        <location filename="../mainwindow.cpp" line="1058"/>
         <source>Cannot open SGF file for saving.</source>
         <translation type="unfinished">無法開啟SGF以儲存。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1001"/>
+        <location filename="../mainwindow.cpp" line="1066"/>
         <source>Failed to save SGF file.</source>
         <translation type="unfinished">儲存SGF失敗。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1101"/>
+        <location filename="../mainwindow.cpp" line="1166"/>
         <source>Failed to save image!</source>
         <translation type="unfinished">儲存影像失敗!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1340"/>
+        <location filename="../mainwindow.cpp" line="1405"/>
         <source>You did not configure any analysis engine for this boardsize!</source>
         <translation type="unfinished">沒有為此棋盤大小配置分析引擎！</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1347"/>
+        <location filename="../mainwindow.cpp" line="1412"/>
         <source>Internal error - engine not found.</source>
         <translation type="unfinished">內部錯誤 - 沒有找到引擎。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1513"/>
+        <location filename="../mainwindow.cpp" line="1578"/>
         <source>Diag. comments</source>
         <translation type="unfinished">圖解評論</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1515"/>
+        <location filename="../mainwindow.cpp" line="1580"/>
         <source>Comments</source>
         <translation type="unfinished">評論</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1771"/>
+        <location filename="../mainwindow.cpp" line="1836"/>
         <source> - Press F7 to show menu bar</source>
         <translation type="unfinished">- 按F7顯示選單欄</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2144"/>
+        <location filename="../mainwindow.cpp" line="2209"/>
         <source>E</source>
         <comment>Board status line: edit mode</comment>
         <translation type="unfinished">編輯</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2148"/>
+        <location filename="../mainwindow.cpp" line="2213"/>
         <source>O</source>
         <comment>Board status line: observe mode</comment>
         <translation type="unfinished">觀看</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2152"/>
+        <location filename="../mainwindow.cpp" line="2217"/>
         <source>O</source>
         <comment>Board status line: observe GTP mode</comment>
         <translation type="unfinished">觀看</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2156"/>
-        <location filename="../mainwindow.cpp" line="2160"/>
+        <location filename="../mainwindow.cpp" line="2221"/>
+        <location filename="../mainwindow.cpp" line="2225"/>
         <source>P</source>
         <comment>Board status line: play mode</comment>
         <translation type="unfinished">對局</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2164"/>
+        <location filename="../mainwindow.cpp" line="2229"/>
         <source>T</source>
         <comment>Board status line: teach mode</comment>
         <translation type="unfinished">教學</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2172"/>
+        <location filename="../mainwindow.cpp" line="2237"/>
         <source>S</source>
         <comment>Board status line: score mode</comment>
         <translation type="unfinished">點目</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2176"/>
+        <location filename="../mainwindow.cpp" line="2241"/>
         <source>A</source>
         <comment>Board status line: batch analysis</comment>
         <translation type="unfinished">分析</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2218"/>
+        <location filename="../mainwindow.cpp" line="2283"/>
         <source>remaining time / stones</source>
         <translation type="unfinished">剩餘時間/手數</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2222"/>
-        <location filename="../mainwindow.cpp" line="2226"/>
+        <location filename="../mainwindow.cpp" line="2287"/>
+        <location filename="../mainwindow.cpp" line="2291"/>
         <source>click to pause/unpause the game</source>
         <translation type="unfinished">點選此處暫停/恢復對局</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2228"/>
+        <location filename="../mainwindow.cpp" line="2293"/>
         <source>click to add 1 minute to your opponent&apos;s clock</source>
         <translation type="unfinished">為您的對手增加1分鐘</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2232"/>
-        <location filename="../mainwindow.cpp" line="2233"/>
+        <location filename="../mainwindow.cpp" line="2297"/>
+        <location filename="../mainwindow.cpp" line="2298"/>
         <source>Time remaining for this move</source>
         <translation type="unfinished">此一手剩餘時間</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2397"/>
+        <location filename="../mainwindow.cpp" line="2462"/>
         <source>W</source>
         <translation type="unfinished">白</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2398"/>
+        <location filename="../mainwindow.cpp" line="2463"/>
         <source>B</source>
         <translation type="unfinished">黑</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2400"/>
+        <location filename="../mainwindow.cpp" line="2465"/>
         <source>Move</source>
         <translation type="unfinished">落子</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2409"/>
+        <location filename="../mainwindow.cpp" line="2474"/>
         <source>Pass</source>
         <translation type="unfinished">虛手</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2413"/>
+        <location filename="../mainwindow.cpp" line="2478"/>
         <source> (Scoring)</source>
         <translation type="unfinished">（點目中）</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2424"/>
+        <location filename="../mainwindow.cpp" line="2489"/>
         <source>
 Variation </source>
         <translation type="unfinished">變化</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2424"/>
+        <location filename="../mainwindow.cpp" line="2489"/>
         <source> of </source>
         <translation type="unfinished">中的</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2427"/>
+        <location filename="../mainwindow.cpp" line="2492"/>
         <source>child position</source>
         <translation type="unfinished">子位置</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2429"/>
+        <location filename="../mainwindow.cpp" line="2494"/>
         <source>child positions</source>
         <translation type="unfinished">子位置</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2449"/>
+        <location filename="../mainwindow.cpp" line="2514"/>
         <source>Black to play</source>
         <translation type="unfinished">黑方行棋</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2451"/>
+        <location filename="../mainwindow.cpp" line="2516"/>
         <source>White to play</source>
         <translation type="unfinished">白方行棋</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3040"/>
+        <location filename="../mainwindow.cpp" line="3105"/>
         <source>White</source>
         <translation type="unfinished">白方</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3041"/>
+        <location filename="../mainwindow.cpp" line="3106"/>
         <source>Black</source>
         <translation type="unfinished">黑方</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2555"/>
+        <location filename="../mainwindow.cpp" line="2620"/>
         <source>Black wins with %1</source>
         <translation type="unfinished">黑棋勝%1目</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2559"/>
+        <location filename="../mainwindow.cpp" line="2624"/>
         <source>White wins with %1</source>
         <translation type="unfinished">白棋勝%1目</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2573"/>
+        <location filename="../mainwindow.cpp" line="2638"/>
         <source>Game result differs from the one stored.
 Overwrite stored game result?</source>
         <translation type="unfinished">棋局結果與儲存的不一致。
 覆蓋儲存的棋局結果？</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3180"/>
-        <location filename="../mainwindow.cpp" line="3181"/>
+        <location filename="../mainwindow.cpp" line="3245"/>
+        <location filename="../mainwindow.cpp" line="3246"/>
         <source>B Win %</source>
         <translation type="unfinished">黑勝%</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3185"/>
-        <location filename="../mainwindow.cpp" line="3186"/>
+        <location filename="../mainwindow.cpp" line="3250"/>
+        <location filename="../mainwindow.cpp" line="3251"/>
         <source>W Win %</source>
         <translation type="unfinished">白勝%</translation>
     </message>
@@ -3865,90 +3865,90 @@ Overwrite stored game result?</source>
 <context>
     <name>MainWindow_GTP</name>
     <message>
-        <location filename="../mainwindow.cpp" line="2737"/>
+        <location filename="../mainwindow.cpp" line="2802"/>
         <source>Invalid move by the engine</source>
         <translation type="unfinished">引擎落子無效</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2738"/>
+        <location filename="../mainwindow.cpp" line="2803"/>
         <source>An invalid move was played by the engine, game terminated.</source>
         <translation type="unfinished">引擎落子無效，對局結束。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2768"/>
+        <location filename="../mainwindow.cpp" line="2833"/>
         <source>Reported score by White: </source>
         <translation type="unfinished">白棋點目：</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2777"/>
+        <location filename="../mainwindow.cpp" line="2842"/>
         <source>Reported score by Black: </source>
         <translation type="unfinished">黑棋點目：</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2788"/>
+        <location filename="../mainwindow.cpp" line="2853"/>
         <source>Neither program reported a score.
 </source>
         <translation type="unfinished">程式未報告點目。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2810"/>
+        <location filename="../mainwindow.cpp" line="2875"/>
         <source>Game #%1:
 </source>
         <translation type="unfinished">對局 #%1:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2822"/>
+        <location filename="../mainwindow.cpp" line="2887"/>
         <source>Wins for White/Black: %1/%2</source>
         <translation type="unfinished">白棋/黑棋勝率：%1/%2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2824"/>
+        <location filename="../mainwindow.cpp" line="2889"/>
         <source> Jigo: %1</source>
         <translation type="unfinished">Jigo: %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2826"/>
+        <location filename="../mainwindow.cpp" line="2891"/>
         <source> Disagreements: %1</source>
         <translation type="unfinished">不同意：%1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2829"/>
-        <location filename="../mainwindow.cpp" line="2889"/>
+        <location filename="../mainwindow.cpp" line="2894"/>
+        <location filename="../mainwindow.cpp" line="2954"/>
         <source>Game end</source>
         <translation type="unfinished">對局結束</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2829"/>
+        <location filename="../mainwindow.cpp" line="2894"/>
         <source>Engine play has completed.</source>
         <translation type="unfinished">引擎對弈結束。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2880"/>
+        <location filename="../mainwindow.cpp" line="2945"/>
         <source>B+R</source>
         <translation type="unfinished">黑+R</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2880"/>
+        <location filename="../mainwindow.cpp" line="2945"/>
         <source>W+R</source>
         <translation type="unfinished">白+R</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2884"/>
+        <location filename="../mainwindow.cpp" line="2949"/>
         <source>Game result: </source>
         <translation type="unfinished">對局結果：</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2889"/>
+        <location filename="../mainwindow.cpp" line="2954"/>
         <source>The computer has resigned the game.</source>
         <translation type="unfinished">電腦已認輸。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2907"/>
+        <location filename="../mainwindow.cpp" line="2972"/>
         <source>Error</source>
         <translation type="unfinished">錯誤</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2920"/>
+        <location filename="../mainwindow.cpp" line="2985"/>
         <source>GTP process exited unexpectedly.</source>
         <translation type="unfinished">GTP程序異常退出。</translation>
     </message>
@@ -4571,236 +4571,236 @@ use &quot;free&quot; command to make game rated or unrated (free)</source>
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../preferences.cpp" line="1059"/>
-        <location filename="../preferences.cpp" line="1144"/>
+        <location filename="../preferences.cpp" line="1077"/>
+        <location filename="../preferences.cpp" line="1162"/>
         <source>Change</source>
         <translation>修改</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1064"/>
-        <location filename="../preferences.cpp" line="1149"/>
+        <location filename="../preferences.cpp" line="1082"/>
+        <location filename="../preferences.cpp" line="1167"/>
         <source>Add</source>
         <translation>加入</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1157"/>
+        <location filename="../preferences.cpp" line="1175"/>
         <source>Stones</source>
         <translation>落子</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1159"/>
+        <location filename="../preferences.cpp" line="1177"/>
         <source>Pass</source>
         <translation>虛手</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1161"/>
+        <location filename="../preferences.cpp" line="1179"/>
         <source>Autoplay</source>
         <translation>自動打譜</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1163"/>
+        <location filename="../preferences.cpp" line="1181"/>
         <source>Time</source>
         <translation>時間</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1165"/>
+        <location filename="../preferences.cpp" line="1183"/>
         <source>Talk</source>
         <translation>交談</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1167"/>
+        <location filename="../preferences.cpp" line="1185"/>
         <source>Say</source>
         <translation>局內交談</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1169"/>
+        <location filename="../preferences.cpp" line="1187"/>
         <source>Match</source>
         <translation>對局</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1171"/>
+        <location filename="../preferences.cpp" line="1189"/>
         <source>Enter</source>
         <translation>進入</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1173"/>
+        <location filename="../preferences.cpp" line="1191"/>
         <source>Game end</source>
         <translation>對局結束</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1175"/>
+        <location filename="../preferences.cpp" line="1193"/>
         <source>Leave</source>
         <translation>離開</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1177"/>
+        <location filename="../preferences.cpp" line="1195"/>
         <source>Disconnect</source>
         <translation>斷開連線</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1179"/>
+        <location filename="../preferences.cpp" line="1197"/>
         <source>Connect</source>
         <translation>連線</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1185"/>
+        <location filename="../preferences.cpp" line="1203"/>
         <source>All Files (*)</source>
         <translation>所有檔案 (*)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1214"/>
-        <location filename="../preferences.cpp" line="1244"/>
+        <location filename="../preferences.cpp" line="1232"/>
+        <location filename="../preferences.cpp" line="1262"/>
         <source>Images (*.png *.xpm *.jpg)</source>
         <translation>影像 (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="580"/>
+        <location filename="../preferences.cpp" line="591"/>
         <source>Select white stone base color</source>
         <translation type="unfinished">選擇白棋子基準顏色</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="318"/>
+        <location filename="../preferences.cpp" line="322"/>
         <source>Directory contains no database</source>
         <translation type="unfinished">目錄內沒有資料庫</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="319"/>
+        <location filename="../preferences.cpp" line="323"/>
         <source>The directory could not be added because no kombilo.db file could be found.</source>
         <translation type="unfinished">目錄無法新增，因為沒有找到kombilo.db檔案。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="329"/>
+        <location filename="../preferences.cpp" line="333"/>
         <source>Directory already in the list</source>
         <translation type="unfinished">目錄已經在列表中</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="330"/>
+        <location filename="../preferences.cpp" line="334"/>
         <source>The directory could not be added because it already exists in the list.</source>
         <translation type="unfinished">目錄無法新增，因為已經在列表中。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="346"/>
+        <location filename="../preferences.cpp" line="350"/>
         <source>Overwrite database paths</source>
         <translation type="unfinished">覆蓋資料庫路徑</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="347"/>
+        <location filename="../preferences.cpp" line="351"/>
         <source>This operation replaces existing database paths.
 Do you still want to import from kombilo.cfg?</source>
         <translation type="unfinished">此操作會替換已存在的資料庫路徑。
 仍要從kombilo.cfg匯入嗎？</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="587"/>
+        <location filename="../preferences.cpp" line="598"/>
         <source>Select black stone base color</source>
         <translation type="unfinished">選擇黑棋子基準顏色</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="695"/>
+        <location filename="../preferences.cpp" line="706"/>
         <source>Invalid slide width</source>
         <translation type="unfinished">無效的幻燈片寬度</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="696"/>
-        <location filename="../preferences.cpp" line="705"/>
+        <location filename="../preferences.cpp" line="707"/>
+        <location filename="../preferences.cpp" line="716"/>
         <source>Please enter valid dimensions for slide export (100x100 or larger).</source>
         <translation type="unfinished">請輸入有效的維度用於幻燈片匯出(100x100或更大)。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="704"/>
+        <location filename="../preferences.cpp" line="715"/>
         <source>Invalid slide height</source>
         <translation type="unfinished">無效的幻燈片除錯</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="711"/>
+        <location filename="../preferences.cpp" line="722"/>
         <source>Invalid slide dimensions</source>
         <translation type="unfinished">無效的幻燈片維度</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="711"/>
+        <location filename="../preferences.cpp" line="722"/>
         <source>Slide export dimensions must be wider than they are tall.</source>
         <translation type="unfinished">幻燈片匯出維度必須寬大於高。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="903"/>
-        <location filename="../preferences.cpp" line="916"/>
+        <location filename="../preferences.cpp" line="921"/>
+        <location filename="../preferences.cpp" line="934"/>
         <source>Unsaved data</source>
         <translation type="unfinished">未儲存資料</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="904"/>
+        <location filename="../preferences.cpp" line="922"/>
         <source>The engine input fields contain
 potentially unsaved data.
 Really close the preferences?</source>
         <translation type="unfinished">引擎輸入欄位可能有未儲存資料。確定要關閉首選項嗎？</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="917"/>
+        <location filename="../preferences.cpp" line="935"/>
         <source>The host input fields contain
 potentially unsaved data.
 Really close the preferences?</source>
         <translation type="unfinished">主機輸入欄位可能有未儲存資料。確定要關閉首選項嗎？</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="962"/>
+        <location filename="../preferences.cpp" line="980"/>
         <source>Invalid komi entered</source>
         <translation type="unfinished">無效的貼目數</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="962"/>
+        <location filename="../preferences.cpp" line="980"/>
         <source>Please enter a valid komi before adding the engine.</source>
         <translation type="unfinished">在新增引擎前請輸入有效的貼目數。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="971"/>
+        <location filename="../preferences.cpp" line="989"/>
         <source>Missing board size</source>
         <translation type="unfinished">缺少棋盤大小</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="972"/>
+        <location filename="../preferences.cpp" line="990"/>
         <source>Analysis engines require a board size to be specified.
 If your engine allows multiple board sizes, you need to configure them in separate entires.</source>
         <translation type="unfinished">分析引擎要求指定棋盤大小。
 如果引擎允許多種棋盤大小，則需要分別指定。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="983"/>
+        <location filename="../preferences.cpp" line="1001"/>
         <source>Invalid board size</source>
         <translation type="unfinished">無效的棋盤大小</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="983"/>
+        <location filename="../preferences.cpp" line="1001"/>
         <source>Only a range of 5 to 25 is allowed.</source>
         <translation type="unfinished">允許的範圍是5~25。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1185"/>
+        <location filename="../preferences.cpp" line="1203"/>
         <source>Choose GTP engine path</source>
         <translation type="unfinished">選擇GTP引擎路徑</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1214"/>
+        <location filename="../preferences.cpp" line="1232"/>
         <source>Select a goban wood image</source>
         <translation type="unfinished">選擇棋盤木影像</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1244"/>
+        <location filename="../preferences.cpp" line="1262"/>
         <source>Select a table background image</source>
         <translation type="unfinished">選擇桌面背景影像</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1273"/>
+        <location filename="../preferences.cpp" line="1291"/>
         <source>Select a white stone image</source>
         <translation type="unfinished">選擇白棋子影像</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1273"/>
-        <location filename="../preferences.cpp" line="1302"/>
+        <location filename="../preferences.cpp" line="1291"/>
+        <location filename="../preferences.cpp" line="1320"/>
         <source>Images (*.png *.xpm *.jpg *.svg)</source>
         <translation type="unfinished">影像 (*.png *.xpm *.jpg *.svg)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1302"/>
+        <location filename="../preferences.cpp" line="1320"/>
         <source>Select a black stone image</source>
         <translation type="unfinished">選擇黑棋子影像</translation>
     </message>
@@ -4839,94 +4839,99 @@ If your engine allows multiple board sizes, you need to configure them in separa
         <translation>棋盤</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4789"/>
+        <location filename="../preferences_gui.ui" line="2409"/>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../preferences_gui.ui" line="4864"/>
         <source>Import/Export</source>
         <translation type="unfinished">匯入/匯出</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4801"/>
+        <location filename="../preferences_gui.ui" line="4876"/>
         <source>Kombilo database paths</source>
         <translation type="unfinished">Kombilo資料庫路徑</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4837"/>
+        <location filename="../preferences_gui.ui" line="4912"/>
         <source>Remove</source>
         <translation type="unfinished">刪除</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4844"/>
+        <location filename="../preferences_gui.ui" line="4919"/>
         <source>Add directory...</source>
         <translation type="unfinished">新增目錄…</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4851"/>
+        <location filename="../preferences_gui.ui" line="4926"/>
         <source>Import from kombilo.cfg...</source>
         <translation type="unfinished">從kombilo.cfg匯入…</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4863"/>
+        <location filename="../preferences_gui.ui" line="4938"/>
         <source>Slide export defaults</source>
         <translation type="unfinished">幻燈片匯出預設值</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4909"/>
+        <location filename="../preferences_gui.ui" line="4984"/>
         <source>Exported size:</source>
         <translation type="unfinished">匯出大小：</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4928"/>
-        <location filename="../preferences_gui.ui" line="4954"/>
+        <location filename="../preferences_gui.ui" line="5003"/>
+        <location filename="../preferences_gui.ui" line="5029"/>
         <source>The dimensions used when saving.</source>
         <translation type="unfinished">儲存時使用的維度。</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4935"/>
+        <location filename="../preferences_gui.ui" line="5010"/>
         <source>x</source>
         <translation type="unfinished">x</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4979"/>
+        <location filename="../preferences_gui.ui" line="5054"/>
         <source>Lines of comment text:</source>
         <translation type="unfinished">評論文字行數：</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4986"/>
+        <location filename="../preferences_gui.ui" line="5061"/>
         <source>This controls the font size for the comments display</source>
         <translation type="unfinished">這用於控制評論顯示使用的字型大小</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4996"/>
+        <location filename="../preferences_gui.ui" line="5071"/>
         <source>Comment margin:</source>
         <translation type="unfinished">評論邊緣：</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5013"/>
-        <location filename="../preferences_gui.ui" line="5043"/>
+        <location filename="../preferences_gui.ui" line="5088"/>
+        <location filename="../preferences_gui.ui" line="5118"/>
         <source>Determines how the first paragraph of the comments should be displayed.</source>
         <translation type="unfinished">決定評論第一段如何顯示。</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5016"/>
+        <location filename="../preferences_gui.ui" line="5091"/>
         <source>Bold header</source>
         <translation type="unfinished">頭部加粗</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5023"/>
+        <location filename="../preferences_gui.ui" line="5098"/>
         <source>Choose the color scheme for the comments</source>
         <translation type="unfinished">選擇評論顏色</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5026"/>
+        <location filename="../preferences_gui.ui" line="5101"/>
         <source>White on black text</source>
         <translation type="unfinished">白底黑字</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5036"/>
+        <location filename="../preferences_gui.ui" line="5111"/>
         <source>Coordinates</source>
         <translation>座標</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5033"/>
+        <location filename="../preferences_gui.ui" line="5108"/>
         <source>Show board coordinates</source>
         <translation>顯示棋盤座標</translation>
     </message>
@@ -5310,22 +5315,22 @@ Select the font for the clocks.</source>
 選擇計時器使用的字型</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4597"/>
+        <location filename="../preferences_gui.ui" line="4672"/>
         <source>Special players</source>
         <translation>特殊棋友</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4603"/>
+        <location filename="../preferences_gui.ui" line="4678"/>
         <source>watch players:</source>
         <translation>關注棋友:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4619"/>
+        <location filename="../preferences_gui.ui" line="4694"/>
         <source>players to be colored red</source>
         <translation>顯示為綠色的棋友列表</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4622"/>
+        <location filename="../preferences_gui.ui" line="4697"/>
         <source>add players you want to
 
 - see red coloured and
@@ -5340,12 +5345,12 @@ Use semicolon &quot;;&quot; as delimiter (no spaces)</source>
 使用分號&quot;;&quot;作為分隔符(不允許空白)</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4650"/>
+        <location filename="../preferences_gui.ui" line="4725"/>
         <source>players to be colored green</source>
         <translation>顯示為紅色的棋友列表</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4653"/>
+        <location filename="../preferences_gui.ui" line="4728"/>
         <source>add players you want to
 
 - see green coloured and
@@ -5360,27 +5365,27 @@ Use semicolon &quot;;&quot; as delimiter (no spaces)</source>
 使用分號&quot;;&quot;作為分隔符(不允許空白)</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4634"/>
+        <location filename="../preferences_gui.ui" line="4709"/>
         <source>exclude players:</source>
         <translation>濾除棋友:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2953"/>
+        <location filename="../preferences_gui.ui" line="3028"/>
         <source>IGS</source>
         <translation>IGS</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2989"/>
+        <location filename="../preferences_gui.ui" line="3064"/>
         <source>Extended user info</source>
         <translation>擴充套件的棋友資訊</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2977"/>
+        <location filename="../preferences_gui.ui" line="3052"/>
         <source>see more information from users -&gt; slow!</source>
         <translation>看到更多的棋友資訊 -&gt; 比較慢!</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2941"/>
+        <location filename="../preferences_gui.ui" line="3016"/>
         <source>Go Server</source>
         <translation>圍棋伺服器</translation>
     </message>
@@ -5390,8 +5395,8 @@ Use semicolon &quot;;&quot; as delimiter (no spaces)</source>
         <translation>名稱</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4668"/>
-        <location filename="../preferences_gui.ui" line="4737"/>
+        <location filename="../preferences_gui.ui" line="4743"/>
+        <location filename="../preferences_gui.ui" line="4812"/>
         <source>Host Entries
 
 Select &apos;New&apos; to clear input fields. After filling in at least Title and Host use Add/Change.
@@ -5408,17 +5413,17 @@ Select one of the predefined hosts -- xxx -- and add a title to use it.</source>
 選擇一條預定義的伺服器資訊模板 -- xxx -- 新增標題即成為新的伺服器條目.</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4272"/>
+        <location filename="../preferences_gui.ui" line="4347"/>
         <source>Title:</source>
         <translation>標題:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4282"/>
+        <location filename="../preferences_gui.ui" line="4357"/>
         <source>title, e.g.: guest account at NNGS</source>
         <translation>標題, 例如: guest account at NNGS</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4285"/>
+        <location filename="../preferences_gui.ui" line="4360"/>
         <source>unique title, e.g.:
 
 guest account at NNGS
@@ -5440,20 +5445,20 @@ xyz
 (最好也不要使用中文)</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3045"/>
-        <location filename="../preferences_gui.ui" line="4440"/>
+        <location filename="../preferences_gui.ui" line="3120"/>
+        <location filename="../preferences_gui.ui" line="4515"/>
         <source>Host:</source>
         <translation>主機:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3055"/>
-        <location filename="../preferences_gui.ui" line="4450"/>
+        <location filename="../preferences_gui.ui" line="3130"/>
+        <location filename="../preferences_gui.ui" line="4525"/>
         <source>hostname, e.g.: nngs.cosmic.org</source>
         <translation>主機名稱, 例如: nngs.cosmic.org</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3058"/>
-        <location filename="../preferences_gui.ui" line="4453"/>
+        <location filename="../preferences_gui.ui" line="3133"/>
+        <location filename="../preferences_gui.ui" line="4528"/>
         <source>hostname
 
 Use a valid hostname or ip address. Instead of typing it one of the predefined hosts can be chosen:
@@ -5480,19 +5485,19 @@ Use a valid hostname or ip address. Instead of typing it one of the predefined h
 -- WING --</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3010"/>
-        <location filename="../preferences_gui.ui" line="3089"/>
+        <location filename="../preferences_gui.ui" line="3085"/>
+        <location filename="../preferences_gui.ui" line="3164"/>
         <source>Port:</source>
         <translation>埠:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3020"/>
-        <location filename="../preferences_gui.ui" line="3099"/>
+        <location filename="../preferences_gui.ui" line="3095"/>
+        <location filename="../preferences_gui.ui" line="3174"/>
         <source>port address, e.g.: 9696</source>
         <translation>埠地址, 例如: 9696</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3102"/>
+        <location filename="../preferences_gui.ui" line="3177"/>
         <source>port address, e.g.: 9696
 
 Port address is defined for each go server. It&apos;s a fixed number. See Host for predefined server names.</source>
@@ -5501,21 +5506,21 @@ Port address is defined for each go server. It&apos;s a fixed number. See Host f
 每個圍棋伺服器都有固定的埠地址.可參看預定義伺服器模板給出的埠地址.</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2732"/>
-        <location filename="../preferences_gui.ui" line="3127"/>
-        <location filename="../preferences_gui.ui" line="4695"/>
+        <location filename="../preferences_gui.ui" line="2807"/>
+        <location filename="../preferences_gui.ui" line="3202"/>
+        <location filename="../preferences_gui.ui" line="4770"/>
         <source>Name:</source>
         <translation>使用者名稱:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3137"/>
-        <location filename="../preferences_gui.ui" line="4705"/>
+        <location filename="../preferences_gui.ui" line="3212"/>
+        <location filename="../preferences_gui.ui" line="4780"/>
         <source>use your login name; if unregistered use a unique name like &apos;hotdog17&apos; (NNGS, CWS) or guest (other servers)</source>
         <translation>輸入您登入伺服器的使用者名稱;如果未註冊可使用像&apos;hotdog17&apos;(NNGS, CWS; 伺服器上要求唯一)或&apos;guest&apos;(其他伺服器)這樣的使用者名稱.</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3140"/>
-        <location filename="../preferences_gui.ui" line="4708"/>
+        <location filename="../preferences_gui.ui" line="3215"/>
+        <location filename="../preferences_gui.ui" line="4783"/>
         <source>name
 
 Registered users: 
@@ -5534,17 +5539,17 @@ NNGS, CWS: 使用唯一名稱如 &apos;hotdog17&apos;
 其他:  guest</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3167"/>
+        <location filename="../preferences_gui.ui" line="3242"/>
         <source>Password:</source>
         <translation>密碼:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3177"/>
+        <location filename="../preferences_gui.ui" line="3252"/>
         <source>your password; if unregistered: blank field</source>
         <translation>您的密碼; 如果未註冊請留空</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3180"/>
+        <location filename="../preferences_gui.ui" line="3255"/>
         <source>password
 
 Registered users: 
@@ -5559,12 +5564,12 @@ New users: leave blank!</source>
 未註冊的使用者: 留空</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4235"/>
+        <location filename="../preferences_gui.ui" line="4310"/>
         <source>Score/Edit</source>
         <translation>點目/編輯</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4238"/>
+        <location filename="../preferences_gui.ui" line="4313"/>
         <source>Score
 
 Left click on a group to mark it as dead.
@@ -5585,14 +5590,14 @@ Click to get a new, editable offline window.</source>
 點選後彈出新棋盤,可以離線編輯.編輯</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2620"/>
-        <location filename="../preferences_gui.ui" line="4364"/>
+        <location filename="../preferences_gui.ui" line="2695"/>
+        <location filename="../preferences_gui.ui" line="4439"/>
         <source>New</source>
         <translation>新建</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2615"/>
-        <location filename="../preferences_gui.ui" line="4359"/>
+        <location filename="../preferences_gui.ui" line="2690"/>
+        <location filename="../preferences_gui.ui" line="4434"/>
         <source>New
 
 clear form; doesn&apos;t make any changes to the entries</source>
@@ -5601,14 +5606,14 @@ clear form; doesn&apos;t make any changes to the entries</source>
 清除輸入; 不修改任何條目</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2654"/>
-        <location filename="../preferences_gui.ui" line="4398"/>
+        <location filename="../preferences_gui.ui" line="2729"/>
+        <location filename="../preferences_gui.ui" line="4473"/>
         <source>Add</source>
         <translation>新增</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2647"/>
-        <location filename="../preferences_gui.ui" line="4391"/>
+        <location filename="../preferences_gui.ui" line="2722"/>
+        <location filename="../preferences_gui.ui" line="4466"/>
         <source>Add or Change
 
 Label &apos;Change &apos; appears when title is not unique, i.e. the saved entries with that title will be superseded by the current entries.
@@ -5621,14 +5626,14 @@ Label &apos;Add&apos; is default. The given entries will be saved under the give
 否則此處為&apos;新增&apos;按鈕,點選它將新增新的條目</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2671"/>
-        <location filename="../preferences_gui.ui" line="4415"/>
+        <location filename="../preferences_gui.ui" line="2746"/>
+        <location filename="../preferences_gui.ui" line="4490"/>
         <source>Delete</source>
         <translation>刪除</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2664"/>
-        <location filename="../preferences_gui.ui" line="4408"/>
+        <location filename="../preferences_gui.ui" line="2739"/>
+        <location filename="../preferences_gui.ui" line="4483"/>
         <source>Delete
 
 Deletes the saved entries with same Title.
@@ -5641,33 +5646,33 @@ Note: &apos;Delete&apos; concerns saved records.</source>
 注: &apos;刪除&apos;僅涉及已儲存的條目</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2405"/>
-        <location filename="../preferences_gui.ui" line="3197"/>
+        <location filename="../preferences_gui.ui" line="2480"/>
+        <location filename="../preferences_gui.ui" line="3272"/>
         <source>Default games settings</source>
         <translation>預設對局設定</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2437"/>
-        <location filename="../preferences_gui.ui" line="2798"/>
-        <location filename="../preferences_gui.ui" line="3238"/>
+        <location filename="../preferences_gui.ui" line="2512"/>
+        <location filename="../preferences_gui.ui" line="2873"/>
+        <location filename="../preferences_gui.ui" line="3313"/>
         <source>Board size:</source>
         <translation>棋盤大小:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2414"/>
-        <location filename="../preferences_gui.ui" line="2510"/>
-        <location filename="../preferences_gui.ui" line="3410"/>
-        <location filename="../preferences_gui.ui" line="3451"/>
-        <location filename="../preferences_gui.ui" line="3620"/>
-        <location filename="../preferences_gui.ui" line="3658"/>
+        <location filename="../preferences_gui.ui" line="2489"/>
+        <location filename="../preferences_gui.ui" line="2585"/>
+        <location filename="../preferences_gui.ui" line="3485"/>
+        <location filename="../preferences_gui.ui" line="3526"/>
+        <location filename="../preferences_gui.ui" line="3695"/>
+        <location filename="../preferences_gui.ui" line="3733"/>
         <source>Playing time</source>
         <translation>對局時間</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3504"/>
-        <location filename="../preferences_gui.ui" line="3542"/>
-        <location filename="../preferences_gui.ui" line="3711"/>
-        <location filename="../preferences_gui.ui" line="3749"/>
+        <location filename="../preferences_gui.ui" line="3579"/>
+        <location filename="../preferences_gui.ui" line="3617"/>
+        <location filename="../preferences_gui.ui" line="3786"/>
+        <location filename="../preferences_gui.ui" line="3824"/>
         <source>Additional time for 25 moves; after 25 moves the byoyomi time starts again and again</source>
         <translation>25手的讀秒時間;25手之後,讀秒重新開始.</translation>
     </message>
@@ -5718,39 +5723,39 @@ You can set the warning time besides</source>
         <translation>設定在讀秒結束前幾秒開始發出警告</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2434"/>
-        <location filename="../preferences_gui.ui" line="2453"/>
-        <location filename="../preferences_gui.ui" line="2529"/>
-        <location filename="../preferences_gui.ui" line="3235"/>
-        <location filename="../preferences_gui.ui" line="3257"/>
-        <location filename="../preferences_gui.ui" line="3852"/>
-        <location filename="../preferences_gui.ui" line="3890"/>
+        <location filename="../preferences_gui.ui" line="2509"/>
+        <location filename="../preferences_gui.ui" line="2528"/>
+        <location filename="../preferences_gui.ui" line="2604"/>
+        <location filename="../preferences_gui.ui" line="3310"/>
+        <location filename="../preferences_gui.ui" line="3332"/>
+        <location filename="../preferences_gui.ui" line="3927"/>
+        <location filename="../preferences_gui.ui" line="3965"/>
         <source>board size</source>
         <translation>棋盤大小</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3308"/>
+        <location filename="../preferences_gui.ui" line="3383"/>
         <source>Komi:</source>
         <translation>貼目:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3305"/>
-        <location filename="../preferences_gui.ui" line="3327"/>
+        <location filename="../preferences_gui.ui" line="3380"/>
+        <location filename="../preferences_gui.ui" line="3402"/>
         <source>Komi: added to white&apos;s result</source>
         <translation>貼目: 加到白棋的點目結果</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3330"/>
+        <location filename="../preferences_gui.ui" line="3405"/>
         <source>.5</source>
         <translation>.5</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3361"/>
+        <location filename="../preferences_gui.ui" line="3436"/>
         <source>allow client to negotiate automatic</source>
         <translation>允許程式自動協商</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3364"/>
+        <location filename="../preferences_gui.ui" line="3439"/>
         <source>Automatic Negotiation
 
 Allow client to negotiate komi automatic.
@@ -5778,12 +5783,12 @@ Be careful: it may be annoying if opponent does not want to accept your defaults
         <translation>棋盤</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2383"/>
+        <location filename="../preferences_gui.ui" line="2458"/>
         <source>Computer Go</source>
         <translation>計算機對弈</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2417"/>
+        <location filename="../preferences_gui.ui" line="2492"/>
         <source>Handicap :</source>
         <translation>讓子:</translation>
     </message>
@@ -5814,7 +5819,7 @@ If you press to enter a move on the board, the move will not be acknowledged if 
 如果您在棋盤上點下滑鼠後再鬆開的時間間隔太短(可能您的手顫動了一下),將不作為一次有效的落子.</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2980"/>
+        <location filename="../preferences_gui.ui" line="3055"/>
         <source>If checked then additional information is requested from server.
 
 &apos;user&apos; cmd instead of &apos;who&apos;, thus, info string, won/lost, country and language settings are available.
@@ -5831,17 +5836,17 @@ On IGS only.</source>
 僅限於IGS.</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4479"/>
+        <location filename="../preferences_gui.ui" line="4554"/>
         <source>Autosave</source>
         <translation>自動儲存</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4503"/>
+        <location filename="../preferences_gui.ui" line="4578"/>
         <source>check for automatic saving observed games</source>
         <translation>選中此項以自動儲存觀看的對局</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4506"/>
+        <location filename="../preferences_gui.ui" line="4581"/>
         <source>Autosave
 
 If checked then when an observed game completes, it is automatically saved in the working directory</source>
@@ -5850,17 +5855,17 @@ If checked then when an observed game completes, it is automatically saved in th
 如果選中此項,則您觀看的對局結束時將被自動儲存至工作目錄.</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4511"/>
+        <location filename="../preferences_gui.ui" line="4586"/>
         <source>observed games</source>
         <translation>觀看的棋局</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4545"/>
+        <location filename="../preferences_gui.ui" line="4620"/>
         <source>played games</source>
         <translation>自己的棋局</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4540"/>
+        <location filename="../preferences_gui.ui" line="4615"/>
         <source>Autosave
 
 If checked then when a game you played completes, it is automatically saved in the working directory</source>
@@ -5913,81 +5918,81 @@ If the picture is not set, or unvalid, a default picture is used by qgo</source>
         <translation>10</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4569"/>
+        <location filename="../preferences_gui.ui" line="4644"/>
         <source>Codec:</source>
         <translation>編碼:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4537"/>
+        <location filename="../preferences_gui.ui" line="4612"/>
         <source>check for automatic saving for your games</source>
         <translation>選中此項以自動儲存您的對局</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3205"/>
+        <location filename="../preferences_gui.ui" line="3280"/>
         <source>All servers settings</source>
         <translation>所有伺服器設定</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3371"/>
+        <location filename="../preferences_gui.ui" line="3446"/>
         <source>Automatic komi 
 negotiation</source>
         <translation>自動協商貼目</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3416"/>
+        <location filename="../preferences_gui.ui" line="3491"/>
         <source>Main 
 time :</source>
         <translation>基本用時:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3507"/>
+        <location filename="../preferences_gui.ui" line="3582"/>
         <source>Byoyomi
 time:</source>
         <translation>讀秒時間:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3593"/>
+        <location filename="../preferences_gui.ui" line="3668"/>
         <source>IGS &apos;nmatch&apos; specific settings</source>
         <translation>IGS特有的&apos;nmatch&apos;命令設定</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3623"/>
+        <location filename="../preferences_gui.ui" line="3698"/>
         <source>Main time 
 up to :</source>
         <translation>基本用時
 上限:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3714"/>
+        <location filename="../preferences_gui.ui" line="3789"/>
         <source>Byo time
 up to :</source>
         <translation>讀秒
 上限:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3795"/>
+        <location filename="../preferences_gui.ui" line="3870"/>
         <source>Play as :</source>
         <translation>執子:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2866"/>
-        <location filename="../preferences_gui.ui" line="3810"/>
+        <location filename="../preferences_gui.ui" line="2941"/>
+        <location filename="../preferences_gui.ui" line="3885"/>
         <source>Black</source>
         <translation>黑棋</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2871"/>
-        <location filename="../preferences_gui.ui" line="3817"/>
+        <location filename="../preferences_gui.ui" line="2946"/>
+        <location filename="../preferences_gui.ui" line="3892"/>
         <source>White</source>
         <translation>白棋</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3824"/>
+        <location filename="../preferences_gui.ui" line="3899"/>
         <source>Nigiri</source>
         <translation>猜先</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3855"/>
+        <location filename="../preferences_gui.ui" line="3930"/>
         <source>Handicap 
 up to :</source>
         <translation>讓子上限:</translation>
@@ -6110,7 +6115,7 @@ up to :</source>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="1426"/>
-        <location filename="../preferences_gui.ui" line="2840"/>
+        <location filename="../preferences_gui.ui" line="2915"/>
         <source>Letters</source>
         <translation type="unfinished">字母</translation>
     </message>
@@ -6508,141 +6513,171 @@ diagram pane shown:</source>
         <translation type="unfinished">音量(%)</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2427"/>
+        <location filename="../preferences_gui.ui" line="2383"/>
+        <source>WebDAV</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../preferences_gui.ui" line="2389"/>
+        <source>Server URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../preferences_gui.ui" line="2399"/>
+        <source>Username</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../preferences_gui.ui" line="2423"/>
+        <source>Connect WebDAV server at startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../preferences_gui.ui" line="2430"/>
+        <source>Remember last used WebDAV path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../preferences_gui.ui" line="2437"/>
+        <source>Test Connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../preferences_gui.ui" line="2502"/>
         <source>Computer color:</source>
         <translation type="unfinished">計算機顏色：</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2474"/>
+        <location filename="../preferences_gui.ui" line="2549"/>
         <source>...</source>
         <translation type="unfinished">...</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2532"/>
+        <location filename="../preferences_gui.ui" line="2607"/>
         <source>Default human player name:</source>
         <translation type="unfinished">預設人類玩家姓名：</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2552"/>
+        <location filename="../preferences_gui.ui" line="2627"/>
         <source>Go Engines</source>
         <translation type="unfinished">圍棋引擎</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2612"/>
+        <location filename="../preferences_gui.ui" line="2687"/>
         <source>Clear the engine form.</source>
         <translation type="unfinished">清除引擎表單。</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2644"/>
-        <location filename="../preferences_gui.ui" line="4388"/>
+        <location filename="../preferences_gui.ui" line="2719"/>
+        <location filename="../preferences_gui.ui" line="4463"/>
         <source>Add or change the current entry.</source>
         <translation type="unfinished">新增或修改當前條目。</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2661"/>
-        <location filename="../preferences_gui.ui" line="4405"/>
+        <location filename="../preferences_gui.ui" line="2736"/>
+        <location filename="../preferences_gui.ui" line="4480"/>
         <source>Delete the current entry.</source>
         <translation type="unfinished">刪除當前條目。</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2700"/>
+        <location filename="../preferences_gui.ui" line="2775"/>
         <source>Executable:</source>
         <translation type="unfinished">可執行檔案：</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2710"/>
+        <location filename="../preferences_gui.ui" line="2785"/>
         <source>The path to the GTP engine&apos;s executable.</source>
         <translation type="unfinished">GTP引擎可執行檔案路徑。</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2742"/>
+        <location filename="../preferences_gui.ui" line="2817"/>
         <source>The name of the engine by which it is selected in the new computer game dialog</source>
         <translation type="unfinished">引擎名稱，當選中時會顯示在新建計算機對局對話方塊中</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2751"/>
+        <location filename="../preferences_gui.ui" line="2826"/>
         <source>Use for analysis (LZ or compatible)</source>
         <translation type="unfinished">用於分析（LZ或相容的）</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2760"/>
+        <location filename="../preferences_gui.ui" line="2835"/>
         <source>Fixed komi:</source>
         <translation type="unfinished">固定貼目：</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2777"/>
+        <location filename="../preferences_gui.ui" line="2852"/>
         <source>Arguments:</source>
         <translation type="unfinished">引數：</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2787"/>
+        <location filename="../preferences_gui.ui" line="2862"/>
         <source>Any command line arguments that should be passed at startup.</source>
         <translation type="unfinished">任何要傳給程式啟動的命令列引數</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2826"/>
+        <location filename="../preferences_gui.ui" line="2901"/>
         <source>Analysis</source>
         <translation type="unfinished">分析</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2832"/>
+        <location filename="../preferences_gui.ui" line="2907"/>
         <source>Show variations as:</source>
         <translation type="unfinished">顯示變化為：</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2845"/>
+        <location filename="../preferences_gui.ui" line="2920"/>
         <source>Percentage difference</source>
         <translation type="unfinished">百分比變化</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2850"/>
+        <location filename="../preferences_gui.ui" line="2925"/>
         <source>Absolute percentage</source>
         <translation type="unfinished">絕對百分比</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2858"/>
+        <location filename="../preferences_gui.ui" line="2933"/>
         <source>Winning percentages shown for:</source>
         <translation type="unfinished">勝率百分比顯示：</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2876"/>
+        <location filename="../preferences_gui.ui" line="2951"/>
         <source>Side to move</source>
         <translation type="unfinished">可移動側邊</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2886"/>
+        <location filename="../preferences_gui.ui" line="2961"/>
         <source>Max. variation depth:
 (0 is unlimited)</source>
         <translation type="unfinished">最大變化嘗試：
 （0為無限制）</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2901"/>
+        <location filename="../preferences_gui.ui" line="2976"/>
         <source>Max. moves shown:
 (0 is unlimited)</source>
         <translation type="unfinished">最多顯示落子手數：
 （0為無限制）</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2914"/>
+        <location filename="../preferences_gui.ui" line="2989"/>
         <source>Override variation display settings
 (show child moves as circles when analysing)</source>
         <translation type="unfinished">覆蓋變化顯示設定
 （當分析時將子落子手數顯示為圓形）</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2922"/>
+        <location filename="../preferences_gui.ui" line="2997"/>
         <source>Hide other moves when showing
 a variation</source>
         <translation type="unfinished">當顯示變化時隱藏其他落子</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2930"/>
+        <location filename="../preferences_gui.ui" line="3005"/>
         <source>Don&apos;t display moves with few visits</source>
         <translation type="unfinished">當訪問數很少時不顯示落子</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3023"/>
+        <location filename="../preferences_gui.ui" line="3098"/>
         <source>port address, e.g.: 9696
 
 Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</source>
@@ -6651,22 +6686,22 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
 注意：請勿使用預設伺服器名稱，例如 &apos;-- Aurora ---&apos;等等。</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4356"/>
+        <location filename="../preferences_gui.ui" line="4431"/>
         <source>Clear the server form.</source>
         <translation type="unfinished">清除伺服器表單。</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4751"/>
+        <location filename="../preferences_gui.ui" line="4826"/>
         <source>Variants</source>
         <translation type="unfinished">變化</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4759"/>
+        <location filename="../preferences_gui.ui" line="4834"/>
         <source>Duplicates shown either side of toroidal boards:</source>
         <translation type="unfinished">重複顯示圓形棋盤的兩邊：</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5046"/>
+        <location filename="../preferences_gui.ui" line="5121"/>
         <source>Italic header</source>
         <translation type="unfinished">頭部斜體</translation>
     </message>
@@ -6674,17 +6709,17 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="../mainwindow.cpp" line="427"/>
+        <location filename="../mainwindow.cpp" line="435"/>
         <source>free</source>
         <translation>不計分</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="429"/>
+        <location filename="../mainwindow.cpp" line="437"/>
         <source>rated</source>
         <translation>計分棋</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="431"/>
+        <location filename="../mainwindow.cpp" line="439"/>
         <source>teach</source>
         <translation>教學棋</translation>
     </message>
@@ -7030,17 +7065,17 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <translation type="unfinished">歸檔檔案 (*.zip *.rar *.7z)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="310"/>
+        <location filename="../preferences.cpp" line="314"/>
         <source>Add a database directory</source>
         <translation type="unfinished">新增資料庫目錄</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="354"/>
+        <location filename="../preferences.cpp" line="358"/>
         <source>Open kombilo.cfg</source>
         <translation type="unfinished">開啟kombilo.cfg</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="354"/>
+        <location filename="../preferences.cpp" line="358"/>
         <source>CFG Files (*.cfg);;All Files (*)</source>
         <translation type="unfinished">CFG檔案 (*.cfg);;所有檔案 (*)</translation>
     </message>
@@ -7965,122 +8000,124 @@ and play the selected number of games per line</source>
 <context>
     <name>WebDavWidget</name>
     <message>
-        <location filename="../webdavwidget.cpp" line="36"/>
+        <location filename="../webdavwidget.cpp" line="34"/>
         <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="39"/>
+        <location filename="../webdavwidget.cpp" line="37"/>
         <source>New Document</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="43"/>
+        <location filename="../webdavwidget.cpp" line="41"/>
         <source>New Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="47"/>
+        <location filename="../webdavwidget.cpp" line="45"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="51"/>
+        <location filename="../webdavwidget.cpp" line="49"/>
         <source>Remove</source>
         <translation type="unfinished">刪除</translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="55"/>
+        <location filename="../webdavwidget.cpp" line="53"/>
         <source>Upload Document</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="59"/>
+        <location filename="../webdavwidget.cpp" line="57"/>
         <source>Refresh</source>
         <translation type="unfinished">更新</translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="63"/>
+        <location filename="../webdavwidget.cpp" line="61"/>
         <source>Goto Parent Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="67"/>
+        <location filename="../webdavwidget.cpp" line="65"/>
         <source>Disconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="74"/>
+        <location filename="../webdavwidget.cpp" line="72"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="75"/>
+        <location filename="../webdavwidget.cpp" line="73"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="135"/>
+        <location filename="../webdavwidget.cpp" line="108"/>
+        <location filename="../webdavwidget.cpp" line="124"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="135"/>
-        <source>No valid WebDav server informations, please set it before connecting.</source>
+        <location filename="../webdavwidget.cpp" line="108"/>
+        <location filename="../webdavwidget.cpp" line="124"/>
+        <source>No valid WebDav server information, please set it before connecting.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="329"/>
+        <location filename="../webdavwidget.cpp" line="324"/>
         <source>New document</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="329"/>
+        <location filename="../webdavwidget.cpp" line="324"/>
         <source>Please input new document name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="341"/>
+        <location filename="../webdavwidget.cpp" line="336"/>
         <source>New directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="341"/>
+        <location filename="../webdavwidget.cpp" line="336"/>
         <source>Please input new directory name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="354"/>
+        <location filename="../webdavwidget.cpp" line="349"/>
         <source>Renaming %1 to...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="354"/>
+        <location filename="../webdavwidget.cpp" line="349"/>
         <source>Please input new name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="386"/>
+        <location filename="../webdavwidget.cpp" line="381"/>
         <source>Select files to upload</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="396"/>
+        <location filename="../webdavwidget.cpp" line="391"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="396"/>
+        <location filename="../webdavwidget.cpp" line="391"/>
         <source>Do you want to remove file %1 ? It can&apos;t be recovered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="448"/>
+        <location filename="../webdavwidget.cpp" line="443"/>
         <source>Notice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../webdavwidget.cpp" line="448"/>
+        <location filename="../webdavwidget.cpp" line="443"/>
         <source>File %1 has been removed.</source>
         <translation type="unfinished"></translation>
     </message>

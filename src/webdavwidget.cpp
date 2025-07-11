@@ -4,7 +4,6 @@
 #include <QHeaderView>
 #include <QInputDialog>
 #include <QMessageBox>
-#include <QSettings>
 #include <QTableWidget>
 #include <QToolBar>
 #include <QUrl>
@@ -13,16 +12,15 @@
 
 #include "webdavwidget.h"
 #include "networkreplyhelper.h"
+#include "setting.h"
 
-const QString SETTINGS_WEBDAV_SECTION = "WebDav";
+const QString SETTINGS_WEBDAV_SERVERRUL = "WEBDAV_SERVER_URL";
+const QString SETTINGS_WEBDAV_USERNAME  = "WEBDAV_USERNAME";
+const QString SETTINGS_WEBDAV_PASSWORD  = "WEBDAV_PASSWORD";
 
-const QString SETTINGS_WEBDAV_SERVERRUL = "webdav_server_url";
-const QString SETTINGS_WEBDAV_USERNAME  = "webdav_username";
-const QString SETTINGS_WEBDAV_PASSWORD  = "webdav_password";
-
-const QString SETTINGS_WEBDAV_AUTOCONNECT  = "webdav_autoconnect";
-const QString SETTINGS_WEBDAV_REMEMBERPATH = "webdav_rememberpath";
-const QString SETTINGS_WEBDAV_LASTPATH     = "webdav_lastpath";
+const QString SETTINGS_WEBDAV_AUTOCONNECT          = "WEBDAV_AUTO_CONNECT";
+const QString SETTINGS_WEBDAV_REMEMBERLASTUSEDPATH = "WEBDAV_REMEMBER_LAST_USED_PATH";
+const QString SETTINGS_WEBDAV_LASTPATH             = "WEBDAV_LAST_USED_PATH";
 
 WebDavWidget::WebDavWidget(QWidget *parent) : QWidget(parent), m_tableWidget(new QTableWidget(0, 2, this))
 {
@@ -90,11 +88,8 @@ WebDavWidget::WebDavWidget(QWidget *parent) : QWidget(parent), m_tableWidget(new
 
 bool WebDavWidget::onStart()
 {
-    QSettings settings;
-    settings.beginGroup(SETTINGS_WEBDAV_SECTION);
-    bool bAutoConnect = settings.value(SETTINGS_WEBDAV_AUTOCONNECT, true).toBool();
-    m_serverUrl       = settings.value(SETTINGS_WEBDAV_SERVERRUL).toString();
-    settings.endGroup();
+    bool bAutoConnect = g_setting->readBoolEntry(SETTINGS_WEBDAV_AUTOCONNECT);
+    m_serverUrl       = g_setting->readEntry(SETTINGS_WEBDAV_SERVERRUL);
 
     if (bAutoConnect)
     {
@@ -106,13 +101,11 @@ bool WebDavWidget::onStart()
 
 void WebDavWidget::onConnectActionTriggered()
 {
-    QSettings settings;
-    settings.beginGroup(SETTINGS_WEBDAV_SECTION);
-    m_serverUrl = settings.value(SETTINGS_WEBDAV_SERVERRUL).toString();
-    settings.endGroup();
+    m_serverUrl = g_setting->readEntry(SETTINGS_WEBDAV_SERVERRUL);
 
     if (m_serverUrl.isEmpty())
     {
+        QMessageBox::warning(this, tr("Warning"), tr("No valid WebDav server information, please set it before connecting."));
         return;
     }
 
@@ -121,18 +114,14 @@ void WebDavWidget::onConnectActionTriggered()
 
 void WebDavWidget::doConnect()
 {
-    QSettings settings;
-    settings.beginGroup(SETTINGS_WEBDAV_SECTION);
-    m_serverUrl        = settings.value(SETTINGS_WEBDAV_SERVERRUL).toString();
-    m_currentPath      = settings.value(SETTINGS_WEBDAV_LASTPATH).toString();
-    auto username      = settings.value(SETTINGS_WEBDAV_USERNAME).toString();
-    auto password      = settings.value(SETTINGS_WEBDAV_PASSWORD).toString();
-    bool bRememberPath = settings.value(SETTINGS_WEBDAV_REMEMBERPATH, true).toBool();
-    settings.endGroup();
+    m_serverUrl        = g_setting->readEntry(SETTINGS_WEBDAV_SERVERRUL);
+    auto username      = g_setting->readEntry(SETTINGS_WEBDAV_USERNAME);
+    auto password      = g_setting->readEntry(SETTINGS_WEBDAV_PASSWORD);
+    bool bRememberPath = g_setting->readBoolEntry(SETTINGS_WEBDAV_REMEMBERLASTUSEDPATH);
 
     if (m_serverUrl.isEmpty())
     {
-        QMessageBox::warning(this, tr("Warning"), tr("No valid WebDav server informations, please set it before connecting."));
+        QMessageBox::warning(this, tr("Warning"), tr("No valid WebDav server information, please set it before connecting."));
         return;
     }
 
@@ -155,10 +144,7 @@ void WebDavWidget::saveLastPathToSettings()
 {
     if (!m_currentPath.isEmpty())
     {
-        QSettings settings;
-        settings.beginGroup(SETTINGS_WEBDAV_SECTION);
-        settings.setValue(SETTINGS_WEBDAV_LASTPATH, m_currentPath);
-        settings.endGroup();
+        g_setting->writeEntry(SETTINGS_WEBDAV_LASTPATH, m_currentPath);
     }
 }
 
@@ -214,6 +200,15 @@ void WebDavWidget::onWebDavDirParserFinished()
     m_tableWidget->setRowCount(0);
     for (auto &item : list)
     {
+        if (!item.isDir())
+        {
+            // only list .sgf/.zip/.rar/.7z files and directories
+            if (!item.name().endsWith(".sgf", Qt::CaseInsensitive) && !item.name().endsWith(".zip", Qt::CaseInsensitive) &&
+                !item.name().endsWith(".rar", Qt::CaseInsensitive) && !item.name().endsWith(".7z", Qt::CaseInsensitive))
+            {
+                continue;
+            }
+        }
         int row = m_tableWidget->rowCount();
         m_tableWidget->insertRow(row);
 

@@ -248,6 +248,9 @@ public slots:
 
     void slotEngineGroup(bool);
 
+    void onRetrievedWebDavFile(QString path, QByteArray content);
+    void onStoredWebDavFile(QString path);
+    
     virtual void doPass();
     virtual void doCountDone();
     virtual void doUndo();
