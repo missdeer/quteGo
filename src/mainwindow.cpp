@@ -41,6 +41,7 @@
 #include "sgf.h"
 #include "slideview.h"
 #include "uihelpers.h"
+#include "webdavwidget.h"
 
 std::list<MainWindow *> main_window_list;
 
@@ -240,6 +241,7 @@ MainWindow::MainWindow(QWidget *parent, go_game_ptr gr, ArchiveHandlerPtr archiv
     initMenuBar(mode);
     initToolBar();
     initStatusBar();
+    create_webdav_dock();
 
     /* Only ever shown if this is opened through slot_editBoardInNewWindow.  */
     refreshButton->setVisible(false);
@@ -348,8 +350,8 @@ MainWindow::MainWindow(QWidget *parent, go_game_ptr gr, ArchiveHandlerPtr archiv
        where someone seems to have the same issue, also involving a QGraphicsView,
        and the following is an adpatation of the suggested workaround. This should
        be removed once we can assume Qt 5.12 and the bug is indeed fixed.  */
-    resizeDocks({diagsDock, treeDock, commentsDock, observersDock, graphDock, archiveDock}, {0, 0, 0, 0, 0, 0}, Qt::Horizontal);
-    resizeDocks({diagsDock, treeDock, commentsDock, observersDock, graphDock, archiveDock}, {0, 0, 0, 0, 0, 0}, Qt::Vertical);
+    resizeDocks({diagsDock, treeDock, commentsDock, observersDock, graphDock, archiveDock, webdavDock}, {0, 0, 0, 0, 0, 0, 0, 0}, Qt::Horizontal);
+    resizeDocks({diagsDock, treeDock, commentsDock, observersDock, graphDock, archiveDock, webdavDock}, {0, 0, 0, 0, 0, 0, 0, 0}, Qt::Vertical);
 #endif
     /* Order of operations here: restore a default layout if the user saved one.
        We need to have the game mode variable set for this. Then, choose
@@ -697,6 +699,7 @@ void MainWindow::initMenuBar(GameMode mode)
     viewMenu->insertAction(view_first, graphDock->toggleViewAction());
     viewMenu->insertAction(view_first, treeDock->toggleViewAction());
     viewMenu->insertAction(view_first, archiveDock->toggleViewAction());
+    viewMenu->insertAction(view_first, webdavDock->toggleViewAction());
 
     helpMenu->addSeparator();
     helpMenu->addAction(whatsThis);
@@ -882,6 +885,14 @@ void MainWindow::adjust_archive_dock()
             archiveDock->toggleViewAction()->setVisible(true);
         }
     } 
+}
+
+void MainWindow::create_webdav_dock()
+{
+    m_webdavWidget = new WebDavWidget(webdavDock);
+    webdavDock->setWidget(m_webdavWidget);
+    webdavDock->setVisible(true);
+    webdavDock->toggleViewAction()->setVisible(true);
 }
 
 void MainWindow::slotFileOpen(bool)
@@ -1298,6 +1309,8 @@ void MainWindow::hide_panes_for_mode()
         diagsDock->toggleViewAction()->setVisible(false);
         archiveDock->setVisible(false);
         archiveDock->toggleViewAction()->setVisible(false);
+        webdavDock->setVisible(false);
+        webdavDock->toggleViewAction()->setVisible(false);
     }
     else
     {
@@ -1307,6 +1320,7 @@ void MainWindow::hide_panes_for_mode()
         diagsDock->toggleViewAction()->setVisible(true);
         graphDock->toggleViewAction()->setVisible(true);
         archiveDock->toggleViewAction()->setVisible(true);
+        webdavDock->toggleViewAction()->setVisible(true);
     }
 }
 
@@ -1773,12 +1787,14 @@ void MainWindow::defaultPortraitLayout()
     removeDockWidget(commentsDock);
     removeDockWidget(observersDock);
     removeDockWidget(archiveDock);
+    removeDockWidget(webdavDock);
     addDockWidget(Qt::BottomDockWidgetArea, graphDock);
     splitDockWidget(graphDock, diagsDock, Qt::Vertical);
     splitDockWidget(diagsDock, commentsDock, Qt::Horizontal);
     splitDockWidget(commentsDock, observersDock, Qt::Horizontal);
     splitDockWidget(commentsDock, treeDock, Qt::Horizontal);
     splitDockWidget(commentsDock, archiveDock, Qt::Horizontal);
+    splitDockWidget(commentsDock, webdavDock, Qt::Horizontal);
     restore_visibility_from_key(panesKey);
     hide_panes_for_mode();
     setFocus();
@@ -1797,12 +1813,14 @@ void MainWindow::defaultLandscapeLayout()
     removeDockWidget(commentsDock);
     removeDockWidget(observersDock);
     removeDockWidget(archiveDock);
+    removeDockWidget(webdavDock);
     addDockWidget(Qt::BottomDockWidgetArea, treeDock);
     addDockWidget(Qt::RightDockWidgetArea, diagsDock);
     splitDockWidget(diagsDock, commentsDock, Qt::Horizontal);
     splitDockWidget(diagsDock, graphDock, Qt::Vertical);
     splitDockWidget(commentsDock, observersDock, Qt::Vertical);
     splitDockWidget(commentsDock, archiveDock, Qt::Vertical);
+    splitDockWidget(commentsDock, webdavDock, Qt::Vertical);
     restore_visibility_from_key(panesKey);
     hide_panes_for_mode();
     setFocus();

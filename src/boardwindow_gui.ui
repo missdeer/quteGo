@@ -2005,7 +2005,7 @@ After placing and/or undo release button for returning to starting point automat
      <x>0</x>
      <y>0</y>
      <width>1192</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="fileMenu">
@@ -2665,6 +2665,15 @@ After placing and/or undo release button for returning to starting point automat
      </property>
     </layout>
    </widget>
+  </widget>
+  <widget class="QDockWidget" name="webdavDock">
+   <property name="windowTitle">
+    <string>WebDav</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2"/>
   </widget>
   <action name="navForward">
    <property name="icon">

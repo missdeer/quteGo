@@ -63,6 +63,15 @@
     <file>images/exit.png</file>
     <file>images/pause.png</file>
     <file>images/trash.png</file>
+    <file>rc/icons/connect.png</file>
+    <file>rc/icons/disconnect.png</file>
+    <file>rc/icons/refresh.png</file>
+    <file>rc/icons/file-new.png</file>
+    <file>rc/icons/new-dir.png</file>
+    <file>rc/icons/up.png</file>
+    <file>rc/icons/upload.png</file>
+    <file>rc/icons/remove.png</file>
+    <file>rc/icons/rename.png</file>
   </qresource>
   <qresource prefix="/TalkGui">
     <file>images/talk/image0.png</file>

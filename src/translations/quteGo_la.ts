@@ -850,7 +850,12 @@ After placing and/or undo release button for returning to starting point automat
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+24"/>
+        <source>WebDav</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
         <source>&amp;Next move</source>
         <translation type="unfinished">Motus &amp;sequens</translation>
     </message>
@@ -1196,7 +1201,7 @@ Enable diagram display in the View menu to view and edit diagrams.</source>
     <message>
         <location line="+3"/>
         <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ctrl+V</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -2198,7 +2203,7 @@ Regulam status  excitat aut extinguit.</translation>
     <message>
         <location line="+6"/>
         <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ctrl+V</translation>
     </message>
     <message>
         <location line="+37"/>
@@ -2907,12 +2912,12 @@ Regulam status  excitat aut extinguit.</translation>
     <message>
         <location line="+25"/>
         <source>UTF-8</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">UTF-8</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>GB18030</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">GB18030</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -2927,7 +2932,7 @@ Regulam status  excitat aut extinguit.</translation>
     <message>
         <location line="+5"/>
         <source>ISO-2022-JP</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ISO-2022-JP</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -3283,7 +3288,7 @@ Displays evaluation data found in the game record.</source>
 <context>
     <name>GameTree</name>
     <message>
-        <location filename="../gametree.cpp" line="+107"/>
+        <location filename="../gametree.cpp" line="+108"/>
         <source>The game tree.
 Click nodes to move to them, click empty areas to drag.
 Shift-click or middle-click nodes to collapse or expand their sub-variations.
@@ -3291,7 +3296,7 @@ Control-click a collapsed node to expand one level of its children.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+382"/>
+        <location line="+393"/>
         <source>&amp;Auto collapse on/off</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3375,7 +3380,7 @@ Control-click a collapsed node to expand one level of its children.</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="+599"/>
+        <location filename="../mainwindow.cpp" line="+601"/>
         <source>&amp;Autoplay</source>
         <translation>&amp;Sponte ludere</translation>
     </message>
@@ -3413,7 +3418,7 @@ Swap current move with previous variation.</source>
 Hanc et antecedentem variationem permutat.</translation>
     </message>
     <message>
-        <location line="-383"/>
+        <location line="-384"/>
         <source>Choose variation display</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3427,12 +3432,12 @@ in the preferences.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+502"/>
-        <location line="+328"/>
+        <location line="+504"/>
+        <location line="+336"/>
         <location line="+13"/>
         <location line="+142"/>
         <location line="+12"/>
-        <location line="+247"/>
+        <location line="+250"/>
         <location line="+8"/>
         <location line="+6"/>
         <location line="+6"/>
@@ -3443,7 +3448,7 @@ in the preferences.</source>
         <translation>Paratus.</translation>
     </message>
     <message>
-        <location line="-799"/>
+        <location line="-810"/>
         <source>Current move</source>
         <translation>Hic motus</translation>
     </message>
@@ -3468,13 +3473,13 @@ Fratres filiosque huius motus ostendit.</translation>
     </message>
     <message>
         <location line="+5"/>
-        <location line="+1371"/>
+        <location line="+1386"/>
         <source>N</source>
         <comment>Board status line: normal mode</comment>
         <translation type="unfinished">R</translation>
     </message>
     <message>
-        <location line="-1369"/>
+        <location line="-1384"/>
         <source>Current mode</source>
         <translation>Modus</translation>
     </message>
@@ -3501,7 +3506,7 @@ Modum ostendit. &apos;R&apos; rectum, &apos;C&apos; ut corrigere.</translation>
         <translation type="unfinished">vs.</translation>
     </message>
     <message>
-        <location line="+162"/>
+        <location line="+170"/>
         <source>This file had errors during loading and may be corrupt.
 Do you still want to save it?</source>
         <translation type="unfinished"></translation>
@@ -3527,7 +3532,7 @@ Do you still want to save it?</source>
         <translation type="unfinished">Imaginem servare nequivi!</translation>
     </message>
     <message>
-        <location line="+236"/>
+        <location line="+239"/>
         <source>You did not configure any analysis engine for this boardsize!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3547,7 +3552,7 @@ Do you still want to save it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+625"/>
+        <location line="+629"/>
         <source>E</source>
         <comment>Board status line: edit mode</comment>
         <translation type="unfinished">C</translation>
@@ -3706,13 +3711,13 @@ Overwrite stored game result?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-2322"/>
+        <location line="-2337"/>
         <location line="+15"/>
         <source>New board prepared.</source>
         <translation>Tabula nova instructa.</translation>
     </message>
     <message>
-        <location line="+109"/>
+        <location line="+117"/>
         <source>SGF Files (*.sgf);;All Files (*)</source>
         <translation>Plicae SGF (*.sgf);;Omnia (*)</translation>
     </message>
@@ -3738,7 +3743,7 @@ Overwrite stored game result?</source>
     </message>
     <message>
         <location line="+173"/>
-        <location line="+352"/>
+        <location line="+355"/>
         <location line="+14"/>
         <location line="+24"/>
         <location line="+12"/>
@@ -3746,7 +3751,7 @@ Overwrite stored game result?</source>
         <translation>Sponte ludere conclusum.</translation>
     </message>
     <message>
-        <location line="-387"/>
+        <location line="-390"/>
         <source>Autoplay started.</source>
         <translation>Sponte ludere inceptum.</translation>
     </message>
@@ -3761,7 +3766,7 @@ Overwrite stored game result?</source>
         <translation>Variatio antecedens non datur.</translation>
     </message>
     <message>
-        <location line="+434"/>
+        <location line="+437"/>
         <source>Window size saved.</source>
         <translation>Amplitudo fenestrae servata.</translation>
     </message>
@@ -3776,7 +3781,7 @@ Overwrite stored game result?</source>
         <translation>Amplitudo fenestrae collecta.</translation>
     </message>
     <message>
-        <location line="+105"/>
+        <location line="+109"/>
         <source>You modified the game.
 Do you want to save your changes?</source>
         <translation>Certatio correcta.
@@ -4201,7 +4206,7 @@ Correctiones servandae sunt?</translation>
     <message>
         <location line="+42"/>
         <source>x</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">x</translation>
     </message>
     <message>
         <location line="+31"/>
@@ -4461,7 +4466,7 @@ byo-yomi: e.g. Byo = 7x30s, VII spatia XXX secundorum; si lapis intra XXX secund
     <message>
         <location line="+0"/>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">X</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -5193,7 +5198,7 @@ Si lingua tua non adest, qGo convertere pondera. qGo domum ade:  http://qgo.sour
     <message>
         <location line="-19"/>
         <source>x</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">x</translation>
     </message>
     <message>
         <location line="+44"/>
@@ -6593,7 +6598,7 @@ ad :</translation>
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="../mainwindow.cpp" line="-2477"/>
+        <location filename="../mainwindow.cpp" line="-2493"/>
         <source>free</source>
         <translation>gratis</translation>
     </message>
@@ -6988,12 +6993,12 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
     <message>
         <location line="+5"/>
         <source>UTF-8</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">UTF-8</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>GB18030</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">GB18030</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -7008,7 +7013,7 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
     <message>
         <location line="+5"/>
         <source>ISO-2022-JP</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ISO-2022-JP</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -7269,7 +7274,7 @@ Please verify the filename pattern is correct.</source>
     <message>
         <location line="-19"/>
         <source>x</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">x</translation>
     </message>
     <message>
         <location line="+44"/>
@@ -7877,9 +7882,132 @@ and play the selected number of games per line</source>
     </message>
 </context>
 <context>
+    <name>WebDavWidget</name>
+    <message>
+        <location filename="../webdavwidget.cpp" line="+36"/>
+        <source>Connect</source>
+        <translation type="unfinished">Conectere</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>New Document</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>New Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Upload Document</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Refresh</source>
+        <translation type="unfinished">Quaerere</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Goto Parent Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Disconnect</source>
+        <translation type="unfinished">Disconectere</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Name</source>
+        <translation type="unfinished">Nomen</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+60"/>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>No valid WebDav server informations, please set it before connecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+194"/>
+        <source>New document</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Please input new document name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>New directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Please input new directory name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Renaming %1 to...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Please input new name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+32"/>
+        <source>Select files to upload</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Confirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Do you want to remove file %1 ? It can&apos;t be recovered.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+52"/>
+        <source>Notice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>File %1 has been removed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>an_id_model</name>
     <message>
-        <location filename="../mainwindow.cpp" line="-269"/>
+        <location filename="../mainwindow.cpp" line="-270"/>
         <source>Engine</source>
         <translation type="unfinished"></translation>
     </message>

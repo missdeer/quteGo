@@ -1,0 +1,3 @@
+[submodule "thirdparty/QtWebDAV"]
+	path = thirdparty/QtWebDAV
+	url = https://github.com/QtWebDAV/QtWebDAV.git

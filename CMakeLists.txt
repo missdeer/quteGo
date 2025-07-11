@@ -56,4 +56,5 @@ if (MSVC)
     add_compile_options(/utf-8)
 endif()
 
+add_subdirectory(thirdparty)
 add_subdirectory(src)

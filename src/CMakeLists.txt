@@ -27,6 +27,7 @@ include_directories(${Qt${QT_VERSION_MAJOR}Gui_PRIVATE_INCLUDE_DIRS})
 find_package(ICU 70.0 COMPONENTS uc i18n REQUIRED)
 find_package(LibArchive REQUIRED)
 find_package(Boost 1.79.0 QUIET)
+find_package(ZLIB REQUIRED)
 
 set(HEADERS 
     analyzedlg.h
@@ -83,6 +84,8 @@ set(HEADERS
     archiveitemlistwidget.h
     qdbitemmodel.h
     encodingutils.h
+    webdavwidget.h
+    networkreplyhelper.h
     )
 set(SOURCES
     analyzedlg.cpp
@@ -131,6 +134,8 @@ set(SOURCES
     archiveitemlistwidget.cpp
     qdbitemmodel.cpp
     encodingutils.cpp
+    webdavwidget.cpp
+    networkreplyhelper.cpp
     )
 set(FORMS 
     gui_dialog.ui
@@ -224,8 +229,10 @@ ELSE()
 ENDIF()
 
 target_link_libraries(${PROJECT_NAME}  PRIVATE  LibArchive::LibArchive
+        ZLIB::ZLIB
         ICU::uc ICU::i18n
         Boost::headers
+        QtWebDAV
         Qt${QT_VERSION_MAJOR}::Network
         Qt${QT_VERSION_MAJOR}::Core
         Qt${QT_VERSION_MAJOR}::Xml

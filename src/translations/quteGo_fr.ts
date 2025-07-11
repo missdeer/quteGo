@@ -854,699 +854,704 @@ Après avoir placé une pierre et/ou une anullation, libérer le bouton retourne
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2675"/>
+        <location filename="../boardwindow_gui.ui" line="2671"/>
+        <source>WebDav</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../boardwindow_gui.ui" line="2684"/>
         <source>&amp;Next move</source>
         <translation type="unfinished">Va au coup &amp;suivant</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2678"/>
+        <location filename="../boardwindow_gui.ui" line="2687"/>
         <source>Right</source>
         <translation type="unfinished">Droit</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2687"/>
+        <location filename="../boardwindow_gui.ui" line="2696"/>
         <source>&amp;Previous move</source>
         <translation type="unfinished">Va au coup &amp;précédent</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2690"/>
+        <location filename="../boardwindow_gui.ui" line="2699"/>
         <source>Left</source>
         <translation type="unfinished">Gauche</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2699"/>
+        <location filename="../boardwindow_gui.ui" line="2708"/>
         <source>&amp;First move</source>
         <translation type="unfinished">&amp;Reviens au premier coup</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2702"/>
+        <location filename="../boardwindow_gui.ui" line="2711"/>
         <source>Home</source>
         <translation type="unfinished">Début</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2711"/>
+        <location filename="../boardwindow_gui.ui" line="2720"/>
         <source>&amp;Last move</source>
         <translation type="unfinished">Va au &amp;dernier coup</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2714"/>
+        <location filename="../boardwindow_gui.ui" line="2723"/>
         <source>End</source>
         <translation type="unfinished">Fin</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2723"/>
+        <location filename="../boardwindow_gui.ui" line="2732"/>
         <source>P&amp;revious variation</source>
         <translation type="unfinished">Reviens à la &amp;variation précédente</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2726"/>
+        <location filename="../boardwindow_gui.ui" line="2735"/>
         <source>Up</source>
         <translation type="unfinished">Haut</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2735"/>
+        <location filename="../boardwindow_gui.ui" line="2744"/>
         <source>N&amp;ext variation</source>
         <translation type="unfinished">Vers la variation s&amp;uivante</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2738"/>
+        <location filename="../boardwindow_gui.ui" line="2747"/>
         <source>Down</source>
         <translation type="unfinished">Bas</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2747"/>
+        <location filename="../boardwindow_gui.ui" line="2756"/>
         <source>&amp;Main branch</source>
         <translation type="unfinished">&amp;Branche principale</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2750"/>
+        <location filename="../boardwindow_gui.ui" line="2759"/>
         <source>Ins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2759"/>
+        <location filename="../boardwindow_gui.ui" line="2768"/>
         <source>Variation &amp;start</source>
         <translation type="unfinished">Déb&amp;ut de variation</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2762"/>
+        <location filename="../boardwindow_gui.ui" line="2771"/>
         <source>To start of variation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2765"/>
+        <location filename="../boardwindow_gui.ui" line="2774"/>
         <source>PgUp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2774"/>
+        <location filename="../boardwindow_gui.ui" line="2783"/>
         <source>Next &amp;branch</source>
         <translation type="unfinished">Branche suiva&amp;nte</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2777"/>
+        <location filename="../boardwindow_gui.ui" line="2786"/>
         <source>Move to next branch starting a variation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2780"/>
+        <location filename="../boardwindow_gui.ui" line="2789"/>
         <source>PgDown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2789"/>
+        <location filename="../boardwindow_gui.ui" line="2798"/>
         <source>Previous &amp;commented move</source>
         <translation type="unfinished">Coup &amp;commenté précédent</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2792"/>
+        <location filename="../boardwindow_gui.ui" line="2801"/>
         <source>Move to the previous move that has a comment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2801"/>
+        <location filename="../boardwindow_gui.ui" line="2810"/>
         <source>Next c&amp;ommented move</source>
         <translation type="unfinished">Coup c&amp;ommenté suivant</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2804"/>
+        <location filename="../boardwindow_gui.ui" line="2813"/>
         <source>Move to the next move that has a comment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2813"/>
+        <location filename="../boardwindow_gui.ui" line="2822"/>
         <source>Previous &amp;diagram</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2816"/>
+        <location filename="../boardwindow_gui.ui" line="2825"/>
         <source>nMove to the previous move that starts a diagram</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2825"/>
+        <location filename="../boardwindow_gui.ui" line="2834"/>
         <source>Next dia&amp;gram</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2828"/>
+        <location filename="../boardwindow_gui.ui" line="2837"/>
         <source>Move to the next move that starts a diagram</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2833"/>
+        <location filename="../boardwindow_gui.ui" line="2842"/>
         <source>&amp;Go to move...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2836"/>
+        <location filename="../boardwindow_gui.ui" line="2845"/>
         <source>Enter a move number and move there</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2839"/>
+        <location filename="../boardwindow_gui.ui" line="2848"/>
         <source>Ctrl+G</source>
         <translation type="unfinished">Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2848"/>
+        <location filename="../boardwindow_gui.ui" line="2857"/>
         <source>Go to clic&amp;ked move</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2851"/>
+        <location filename="../boardwindow_gui.ui" line="2860"/>
         <source>Click on an intersection and move to stone played there (if any)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2860"/>
+        <location filename="../boardwindow_gui.ui" line="2869"/>
         <source>Game &amp;information...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2863"/>
+        <location filename="../boardwindow_gui.ui" line="2872"/>
         <source>Display and edit game information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2866"/>
+        <location filename="../boardwindow_gui.ui" line="2875"/>
         <source>Ctrl+I</source>
         <translation type="unfinished">Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2878"/>
+        <location filename="../boardwindow_gui.ui" line="2887"/>
         <source>Place &amp;stone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2881"/>
+        <location filename="../boardwindow_gui.ui" line="2890"/>
         <source>&quot;Normal mode, click to place a stone.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2893"/>
+        <location filename="../boardwindow_gui.ui" line="2902"/>
         <source>Set &amp;triangle mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2896"/>
+        <location filename="../boardwindow_gui.ui" line="2905"/>
         <source>Clicking places a triangle mark.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2908"/>
+        <location filename="../boardwindow_gui.ui" line="2917"/>
         <source>Set &amp;circle mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2911"/>
+        <location filename="../boardwindow_gui.ui" line="2920"/>
         <source>Clicking places a circle mark.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2923"/>
+        <location filename="../boardwindow_gui.ui" line="2932"/>
         <source>Set s&amp;quare mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2926"/>
+        <location filename="../boardwindow_gui.ui" line="2935"/>
         <source>Clicking places a square mark.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2938"/>
+        <location filename="../boardwindow_gui.ui" line="2947"/>
         <source>Set cr&amp;oss mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2941"/>
+        <location filename="../boardwindow_gui.ui" line="2950"/>
         <source>Clicking places a cross mark.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2953"/>
+        <location filename="../boardwindow_gui.ui" line="2962"/>
         <source>Set &amp;letter mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2956"/>
+        <location filename="../boardwindow_gui.ui" line="2965"/>
         <source>Clicking places a letter mark.
 Hold shift to add a freely editable text mark.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2970"/>
+        <location filename="../boardwindow_gui.ui" line="2979"/>
         <source>Set &amp;number mark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2973"/>
+        <location filename="../boardwindow_gui.ui" line="2982"/>
         <source>Clicking places a number mark.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2982"/>
+        <location filename="../boardwindow_gui.ui" line="2991"/>
         <source>&amp;Delete </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2985"/>
+        <location filename="../boardwindow_gui.ui" line="2994"/>
         <source>Delete this and all following positions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="2988"/>
+        <location filename="../boardwindow_gui.ui" line="2997"/>
         <source>Ctrl+D</source>
         <translation type="unfinished">Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3000"/>
+        <location filename="../boardwindow_gui.ui" line="3009"/>
         <source>Select &amp;rectangle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3003"/>
+        <location filename="../boardwindow_gui.ui" line="3012"/>
         <source>Choose a rectangle to export.
 In play or edit mode, click to begin choosing a rectangle to be used when exporting to ASCII or SVG.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3007"/>
+        <location filename="../boardwindow_gui.ui" line="3016"/>
         <source>R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3016"/>
+        <location filename="../boardwindow_gui.ui" line="3025"/>
         <source>Cle&amp;ar selection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3019"/>
+        <location filename="../boardwindow_gui.ui" line="3028"/>
         <source>Clear the selected rectangle and select the whole board again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3031"/>
+        <location filename="../boardwindow_gui.ui" line="3040"/>
         <source>Start dia&amp;gram here</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3034"/>
+        <location filename="../boardwindow_gui.ui" line="3043"/>
         <source>If selected, the current node starts a diagram.
 Enable diagram display in the View menu to view and edit diagrams.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3038"/>
+        <location filename="../boardwindow_gui.ui" line="3047"/>
         <source>G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3047"/>
+        <location filename="../boardwindow_gui.ui" line="3056"/>
         <source>New &amp;board window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3050"/>
+        <location filename="../boardwindow_gui.ui" line="3059"/>
         <source>Ctrl+B</source>
         <translation type="unfinished">Ctrl+B</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3059"/>
+        <location filename="../boardwindow_gui.ui" line="3068"/>
         <source>&amp;New game</source>
         <translation type="unfinished">&amp;Nouvelle partie</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3062"/>
+        <location filename="../boardwindow_gui.ui" line="3071"/>
         <source>Creates a new game on this board.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3065"/>
+        <location filename="../boardwindow_gui.ui" line="3074"/>
         <source>Ctrl+N</source>
         <translation type="unfinished">Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3074"/>
+        <location filename="../boardwindow_gui.ui" line="3083"/>
         <source>New &amp;variant game</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3077"/>
+        <location filename="../boardwindow_gui.ui" line="3086"/>
         <source>Creates a new Go variant game on this board</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3080"/>
+        <location filename="../boardwindow_gui.ui" line="3089"/>
         <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ctrl+V</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3089"/>
+        <location filename="../boardwindow_gui.ui" line="3098"/>
         <source>&amp;Save</source>
         <translation type="unfinished">&amp;Enregistrer</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3092"/>
+        <location filename="../boardwindow_gui.ui" line="3101"/>
         <source>Save an sgf file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3095"/>
+        <location filename="../boardwindow_gui.ui" line="3104"/>
         <source>Ctrl+S</source>
         <translation type="unfinished">Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3104"/>
+        <location filename="../boardwindow_gui.ui" line="3113"/>
         <source>&amp;Open...</source>
         <translation type="unfinished">&amp;Ouvrir...</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3107"/>
+        <location filename="../boardwindow_gui.ui" line="3116"/>
         <source>Open an sgf file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3110"/>
+        <location filename="../boardwindow_gui.ui" line="3119"/>
         <source>Ctrl+O</source>
         <translation type="unfinished">Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3119"/>
+        <location filename="../boardwindow_gui.ui" line="3128"/>
         <source>Save &amp;as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3122"/>
+        <location filename="../boardwindow_gui.ui" line="3131"/>
         <source>Save a sgf file under a new name.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3127"/>
+        <location filename="../boardwindow_gui.ui" line="3136"/>
         <source>&amp;Close</source>
         <translation type="unfinished">&amp;Fermer</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3130"/>
+        <location filename="../boardwindow_gui.ui" line="3139"/>
         <source>Close this window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3133"/>
+        <location filename="../boardwindow_gui.ui" line="3142"/>
         <source>Ctrl+W</source>
         <translation type="unfinished">Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3142"/>
+        <location filename="../boardwindow_gui.ui" line="3151"/>
         <source>E&amp;xit</source>
         <translation type="unfinished">&amp;Quitter</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3145"/>
+        <location filename="../boardwindow_gui.ui" line="3154"/>
         <source>Quit the application.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3148"/>
+        <location filename="../boardwindow_gui.ui" line="3157"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished">Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3156"/>
+        <location filename="../boardwindow_gui.ui" line="3165"/>
         <source>Export &amp;ASCII...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3159"/>
+        <location filename="../boardwindow_gui.ui" line="3168"/>
         <source>Export ASCII
 Export current board to ASCII diagrams, for use in web forums.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3165"/>
+        <location filename="../boardwindow_gui.ui" line="3174"/>
         <source>Export S&amp;VG...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3168"/>
+        <location filename="../boardwindow_gui.ui" line="3177"/>
         <source>Export SVG
 Export the current board to an SVG vector graphics file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3174"/>
+        <location filename="../boardwindow_gui.ui" line="3183"/>
         <source>Import SGF &amp;from clipboard</source>
         <translation type="unfinished">Importer &amp;SGF depuis le presse-papier</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3437"/>
+        <location filename="../boardwindow_gui.ui" line="3446"/>
         <source>Open from &amp;database...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3442"/>
+        <location filename="../boardwindow_gui.ui" line="3451"/>
         <source>S&amp;lide export...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3445"/>
+        <location filename="../boardwindow_gui.ui" line="3454"/>
         <source>Open the slide export dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3450"/>
+        <location filename="../boardwindow_gui.ui" line="3459"/>
         <source>Play against engine from current position...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3453"/>
+        <location filename="../boardwindow_gui.ui" line="3462"/>
         <source>Start a game against an engine from the current position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3177"/>
+        <location filename="../boardwindow_gui.ui" line="3186"/>
         <source>Import SGF from clipboard
 Import a complete game in SGF format from the clipboard.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3183"/>
+        <location filename="../boardwindow_gui.ui" line="3192"/>
         <source>E&amp;xport SGF &amp;to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3186"/>
+        <location filename="../boardwindow_gui.ui" line="3195"/>
         <source>Export SGF to clipboard
 Export a complete game in SGF format to the clipboard.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3192"/>
+        <location filename="../boardwindow_gui.ui" line="3201"/>
         <source>Export &amp;image...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3195"/>
+        <location filename="../boardwindow_gui.ui" line="3204"/>
         <source>Export image
 Take a screen grab of the current board and export it to an image file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3201"/>
+        <location filename="../boardwindow_gui.ui" line="3210"/>
         <source>&amp;Export image to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3204"/>
+        <location filename="../boardwindow_gui.ui" line="3213"/>
         <source>Export image to clipboard
 Take a screen grab of the current board position and export it to the clipboard as an image.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3213"/>
+        <location filename="../boardwindow_gui.ui" line="3222"/>
         <source>Status bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3221"/>
+        <location filename="../boardwindow_gui.ui" line="3230"/>
         <source>Slider</source>
         <translation type="unfinished">Curseur</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3229"/>
+        <location filename="../boardwindow_gui.ui" line="3238"/>
         <source>Sidebar</source>
         <translation type="unfinished">Barre de coté</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3232"/>
+        <location filename="../boardwindow_gui.ui" line="3241"/>
         <source>F9</source>
         <translation type="unfinished">F9</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3244"/>
+        <location filename="../boardwindow_gui.ui" line="3253"/>
         <source>&amp;Fullscreen</source>
         <translation type="unfinished">Plein écr&amp;an</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3247"/>
+        <location filename="../boardwindow_gui.ui" line="3256"/>
         <source>F11</source>
         <translation type="unfinished">F11</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3255"/>
+        <location filename="../boardwindow_gui.ui" line="3264"/>
         <source>Move &amp;numbers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3267"/>
+        <location filename="../boardwindow_gui.ui" line="3276"/>
         <source>&amp;Coordinates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3270"/>
+        <location filename="../boardwindow_gui.ui" line="3279"/>
         <source>F8</source>
         <translation type="unfinished">F8</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3275"/>
+        <location filename="../boardwindow_gui.ui" line="3284"/>
         <source>As general default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3280"/>
+        <location filename="../boardwindow_gui.ui" line="3289"/>
         <source>For current combination of visible docks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3285"/>
+        <location filename="../boardwindow_gui.ui" line="3294"/>
         <source>General &amp;default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3290"/>
+        <location filename="../boardwindow_gui.ui" line="3299"/>
         <source>For &amp;current combination of visible docks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3293"/>
+        <location filename="../boardwindow_gui.ui" line="3302"/>
         <source>L</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3302"/>
+        <location filename="../boardwindow_gui.ui" line="3311"/>
         <source>Default &amp;landscape arrangement</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3311"/>
+        <location filename="../boardwindow_gui.ui" line="3320"/>
         <source>Default &amp;portrait arrangement</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3319"/>
+        <location filename="../boardwindow_gui.ui" line="3328"/>
         <source>Menu bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3322"/>
+        <location filename="../boardwindow_gui.ui" line="3331"/>
         <source>F7</source>
         <translation type="unfinished">F7</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3331"/>
+        <location filename="../boardwindow_gui.ui" line="3340"/>
         <source>&amp;Preferences...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3334"/>
+        <location filename="../boardwindow_gui.ui" line="3343"/>
         <source>Bring up the preferences dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3337"/>
+        <location filename="../boardwindow_gui.ui" line="3346"/>
         <source>Alt+P</source>
         <translation type="unfinished">Alt+P</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3353"/>
+        <location filename="../boardwindow_gui.ui" line="3362"/>
         <source>&amp;Mute stone sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3358"/>
+        <location filename="../boardwindow_gui.ui" line="3367"/>
         <source>&amp;Manual</source>
         <translation type="unfinished">&amp;Manuel</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3361"/>
+        <location filename="../boardwindow_gui.ui" line="3370"/>
         <source>F1</source>
         <translation type="unfinished">F1</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3366"/>
+        <location filename="../boardwindow_gui.ui" line="3375"/>
         <source>&amp;About..</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3374"/>
+        <location filename="../boardwindow_gui.ui" line="3383"/>
         <source>About &amp;Qt...</source>
         <translation type="unfinished">A propos de &amp;Qt...</translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3382"/>
+        <location filename="../boardwindow_gui.ui" line="3391"/>
         <source>&amp;Connect analysis engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3385"/>
+        <location filename="../boardwindow_gui.ui" line="3394"/>
         <source>Connect analysis engine
 Try to find an engine configured as an analysis tool in the engine list and connect to it.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3391"/>
+        <location filename="../boardwindow_gui.ui" line="3400"/>
         <source>&amp;Disconnect analysis engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3399"/>
+        <location filename="../boardwindow_gui.ui" line="3408"/>
         <source>Pause analysis engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3402"/>
+        <location filename="../boardwindow_gui.ui" line="3411"/>
         <source>Click to pause or unpause the analysis engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3410"/>
+        <location filename="../boardwindow_gui.ui" line="3419"/>
         <source>Dia&amp;gram comments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3413"/>
+        <location filename="../boardwindow_gui.ui" line="3422"/>
         <source>Alt+G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3418"/>
+        <location filename="../boardwindow_gui.ui" line="3427"/>
         <source>View &amp;README</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3423"/>
+        <location filename="../boardwindow_gui.ui" line="3432"/>
         <source>Batch analysis...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3426"/>
+        <location filename="../boardwindow_gui.ui" line="3435"/>
         <source>Batch analysis
 Open the batch analysis dialog which allows you to add SGF files to a queue to be analysed by an engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../boardwindow_gui.ui" line="3432"/>
+        <location filename="../boardwindow_gui.ui" line="3441"/>
         <source>A&amp;utomatic diagrams...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2811,7 +2816,7 @@ ajoute / enlève de la liste d&apos;exclusion : similaire à la liste d&apos;obs
     <message>
         <location filename="../clientwindow_gui.ui" line="1433"/>
         <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ctrl+V</translation>
     </message>
     <message>
         <location filename="../clientwindow_gui.ui" line="1453"/>
@@ -2912,12 +2917,12 @@ ajoute / enlève de la liste d&apos;exclusion : similaire à la liste d&apos;obs
     <message>
         <location filename="../dbdialog_gui.ui" line="223"/>
         <source>UTF-8</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">UTF-8</translation>
     </message>
     <message>
         <location filename="../dbdialog_gui.ui" line="228"/>
         <source>GB18030</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">GB18030</translation>
     </message>
     <message>
         <location filename="../dbdialog_gui.ui" line="233"/>
@@ -2932,7 +2937,7 @@ ajoute / enlève de la liste d&apos;exclusion : similaire à la liste d&apos;obs
     <message>
         <location filename="../dbdialog_gui.ui" line="243"/>
         <source>ISO-2022-JP</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ISO-2022-JP</translation>
     </message>
     <message>
         <location filename="../dbdialog_gui.ui" line="248"/>
@@ -3288,7 +3293,7 @@ Displays evaluation data found in the game record.</source>
 <context>
     <name>GameTree</name>
     <message>
-        <location filename="../gametree.cpp" line="107"/>
+        <location filename="../gametree.cpp" line="108"/>
         <source>The game tree.
 Click nodes to move to them, click empty areas to drag.
 Shift-click or middle-click nodes to collapse or expand their sub-variations.
@@ -3296,7 +3301,7 @@ Control-click a collapsed node to expand one level of its children.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gametree.cpp" line="489"/>
+        <location filename="../gametree.cpp" line="501"/>
         <source>&amp;Auto collapse on/off</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3380,17 +3385,17 @@ Control-click a collapsed node to expand one level of its children.</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="599"/>
+        <location filename="../mainwindow.cpp" line="601"/>
         <source>&amp;Autoplay</source>
         <translation>Déroulement &amp;automatique</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="603"/>
+        <location filename="../mainwindow.cpp" line="605"/>
         <source>Start/Stop autoplaying current game</source>
         <translation>Démarre/Arrête le déroulement automatique</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="604"/>
+        <location filename="../mainwindow.cpp" line="606"/>
         <source>Autoplay
 
 Start/Stop autoplaying current game.</source>
@@ -3399,17 +3404,17 @@ Start/Stop autoplaying current game.</source>
 Démarre/Arrête le déroulement automatique.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="607"/>
+        <location filename="../mainwindow.cpp" line="609"/>
         <source>S&amp;wap variations</source>
         <translation>Ec&amp;hange les variations</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="608"/>
+        <location filename="../mainwindow.cpp" line="610"/>
         <source>Swap current move with previous variation</source>
         <translation>Echange le coup actuel avec la variation précédente</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="611"/>
         <source>Swap variations
 
 Swap current move with previous variation.</source>
@@ -3418,76 +3423,76 @@ Swap current move with previous variation.</source>
 Echange le coup actuel avec la variation précédente.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="729"/>
-        <location filename="../mainwindow.cpp" line="1057"/>
-        <location filename="../mainwindow.cpp" line="1070"/>
-        <location filename="../mainwindow.cpp" line="1212"/>
-        <location filename="../mainwindow.cpp" line="1224"/>
-        <location filename="../mainwindow.cpp" line="1471"/>
-        <location filename="../mainwindow.cpp" line="1479"/>
+        <location filename="../mainwindow.cpp" line="732"/>
+        <location filename="../mainwindow.cpp" line="1068"/>
+        <location filename="../mainwindow.cpp" line="1081"/>
+        <location filename="../mainwindow.cpp" line="1223"/>
+        <location filename="../mainwindow.cpp" line="1235"/>
         <location filename="../mainwindow.cpp" line="1485"/>
-        <location filename="../mainwindow.cpp" line="1491"/>
-        <location filename="../mainwindow.cpp" line="1502"/>
-        <location filename="../mainwindow.cpp" line="1509"/>
-        <location filename="../mainwindow.cpp" line="1535"/>
+        <location filename="../mainwindow.cpp" line="1493"/>
+        <location filename="../mainwindow.cpp" line="1499"/>
+        <location filename="../mainwindow.cpp" line="1505"/>
+        <location filename="../mainwindow.cpp" line="1516"/>
+        <location filename="../mainwindow.cpp" line="1523"/>
+        <location filename="../mainwindow.cpp" line="1549"/>
         <source>Ready.</source>
         <translation>Prêt.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1710"/>
+        <location filename="../mainwindow.cpp" line="1724"/>
         <source>Window size saved.</source>
         <translation>Taille de la fenêtre enregistrée.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1250"/>
-        <location filename="../mainwindow.cpp" line="1602"/>
+        <location filename="../mainwindow.cpp" line="1261"/>
         <location filename="../mainwindow.cpp" line="1616"/>
-        <location filename="../mainwindow.cpp" line="1640"/>
-        <location filename="../mainwindow.cpp" line="1652"/>
+        <location filename="../mainwindow.cpp" line="1630"/>
+        <location filename="../mainwindow.cpp" line="1654"/>
+        <location filename="../mainwindow.cpp" line="1666"/>
         <source>Autoplay stopped.</source>
         <translation>Déroulement automatique arrêté.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1265"/>
+        <location filename="../mainwindow.cpp" line="1276"/>
         <source>Autoplay started.</source>
         <translation>Déroulement automatique démarrer.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1274"/>
+        <location filename="../mainwindow.cpp" line="1285"/>
         <source>Variations swapped.</source>
         <translation>Variations échangées.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1276"/>
+        <location filename="../mainwindow.cpp" line="1287"/>
         <source>No previous variation available.</source>
         <translation>Pas de variation précédente.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1863"/>
+        <location filename="../mainwindow.cpp" line="1881"/>
         <source>You modified the game.
 Do you want to save your changes?</source>
         <translation>Vous avez modifié la partie.
 Voulez vous enregistrer les changements?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="736"/>
+        <location filename="../mainwindow.cpp" line="739"/>
         <source>Current move</source>
         <translation>Coup actuel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="737"/>
+        <location filename="../mainwindow.cpp" line="740"/>
         <source>Move
 Displays the number of the current turn and the last move played.</source>
         <translation>Coup
 Affiche le numéro du coup en cours et le dernier coup joué.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="745"/>
+        <location filename="../mainwindow.cpp" line="748"/>
         <source>Brothers / sons</source>
         <translation>Variations / Branches</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="746"/>
+        <location filename="../mainwindow.cpp" line="749"/>
         <source>Navigation
 Shows the brothers and sons of the current move.</source>
         <translation>Navigation
@@ -3495,12 +3500,12 @@ Shows the brothers and sons of the current move.</source>
 Affiche les variations et les branches du coup actuel.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="753"/>
+        <location filename="../mainwindow.cpp" line="756"/>
         <source>Current mode</source>
         <translation>Mode actuel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="754"/>
+        <location filename="../mainwindow.cpp" line="757"/>
         <source>Mode
 Shows the current mode. &apos;N&apos; for normal mode, &apos;E&apos; for edit mode.</source>
         <translation>Mode
@@ -3508,55 +3513,55 @@ Shows the current mode. &apos;N&apos; for normal mode, &apos;E&apos; for edit mo
 Affiche le mode actuel. &apos;N&apos; pour le mode normal, &apos;E&apos; pour le mode édition.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="970"/>
+        <location filename="../mainwindow.cpp" line="981"/>
         <source>SGF Files (*.sgf);;All Files (*)</source>
         <translation>Fichiers SGF (*.sgf);;Fichiers (*)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="995"/>
+        <location filename="../mainwindow.cpp" line="1006"/>
         <source>saved.</source>
         <translation>Enregistré.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1077"/>
+        <location filename="../mainwindow.cpp" line="1088"/>
         <source>Export image as</source>
         <translation>Exporter l&apos;image sous</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1024"/>
+        <location filename="../mainwindow.cpp" line="1035"/>
         <source>SGF imported.</source>
         <translation>Importer SGF.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1031"/>
+        <location filename="../mainwindow.cpp" line="1042"/>
         <source>SGF exported.</source>
         <translation>SGF exporté.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="846"/>
-        <location filename="../mainwindow.cpp" line="861"/>
+        <location filename="../mainwindow.cpp" line="849"/>
+        <location filename="../mainwindow.cpp" line="864"/>
         <source>New board prepared.</source>
         <translation>nouveau plateau en préparation.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1758"/>
+        <location filename="../mainwindow.cpp" line="1772"/>
         <source>Window size restored.</source>
         <translation>Taille de la fenêtre restaurée.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="751"/>
-        <location filename="../mainwindow.cpp" line="2122"/>
+        <location filename="../mainwindow.cpp" line="754"/>
+        <location filename="../mainwindow.cpp" line="2140"/>
         <source>N</source>
         <comment>Board status line: normal mode</comment>
         <translation type="unfinished">N</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="226"/>
+        <location filename="../mainwindow.cpp" line="227"/>
         <source>Choose variation display</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="227"/>
+        <location filename="../mainwindow.cpp" line="228"/>
         <source>The SGF file that is being opened uses a different style
 of variation display.  Use the style found in the file?
 
@@ -3565,227 +3570,227 @@ in the preferences.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="769"/>
+        <location filename="../mainwindow.cpp" line="772"/>
         <source>Analysis in progress: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="771"/>
+        <location filename="../mainwindow.cpp" line="774"/>
         <source>Off-line copy: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="790"/>
+        <location filename="../mainwindow.cpp" line="793"/>
         <source>vs.</source>
         <translation type="unfinished">vs.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="952"/>
+        <location filename="../mainwindow.cpp" line="963"/>
         <source>This file had errors during loading and may be corrupt.
 Do you still want to save it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="970"/>
+        <location filename="../mainwindow.cpp" line="981"/>
         <source>Save SGF file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="982"/>
+        <location filename="../mainwindow.cpp" line="993"/>
         <source>Cannot open SGF file for saving.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="990"/>
+        <location filename="../mainwindow.cpp" line="1001"/>
         <source>Failed to save SGF file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1090"/>
+        <location filename="../mainwindow.cpp" line="1101"/>
         <source>Failed to save image!</source>
         <translation type="unfinished">Impossible d&apos;enregistrer l&apos;image!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1326"/>
+        <location filename="../mainwindow.cpp" line="1340"/>
         <source>You did not configure any analysis engine for this boardsize!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1333"/>
+        <location filename="../mainwindow.cpp" line="1347"/>
         <source>Internal error - engine not found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1499"/>
+        <location filename="../mainwindow.cpp" line="1513"/>
         <source>Diag. comments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1501"/>
+        <location filename="../mainwindow.cpp" line="1515"/>
         <source>Comments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1757"/>
+        <location filename="../mainwindow.cpp" line="1771"/>
         <source> - Press F7 to show menu bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2126"/>
+        <location filename="../mainwindow.cpp" line="2144"/>
         <source>E</source>
         <comment>Board status line: edit mode</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2130"/>
+        <location filename="../mainwindow.cpp" line="2148"/>
         <source>O</source>
         <comment>Board status line: observe mode</comment>
         <translation type="unfinished">O</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2134"/>
+        <location filename="../mainwindow.cpp" line="2152"/>
         <source>O</source>
         <comment>Board status line: observe GTP mode</comment>
         <translation type="unfinished">O</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2138"/>
-        <location filename="../mainwindow.cpp" line="2142"/>
+        <location filename="../mainwindow.cpp" line="2156"/>
+        <location filename="../mainwindow.cpp" line="2160"/>
         <source>P</source>
         <comment>Board status line: play mode</comment>
         <translation type="unfinished">J</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2146"/>
+        <location filename="../mainwindow.cpp" line="2164"/>
         <source>T</source>
         <comment>Board status line: teach mode</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2154"/>
+        <location filename="../mainwindow.cpp" line="2172"/>
         <source>S</source>
         <comment>Board status line: score mode</comment>
         <translation type="unfinished">S</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2158"/>
+        <location filename="../mainwindow.cpp" line="2176"/>
         <source>A</source>
         <comment>Board status line: batch analysis</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2200"/>
+        <location filename="../mainwindow.cpp" line="2218"/>
         <source>remaining time / stones</source>
         <translation type="unfinished">temps / coups restants</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2204"/>
-        <location filename="../mainwindow.cpp" line="2208"/>
+        <location filename="../mainwindow.cpp" line="2222"/>
+        <location filename="../mainwindow.cpp" line="2226"/>
         <source>click to pause/unpause the game</source>
         <translation type="unfinished">cliquer pour pause/reprise de la partie</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2210"/>
+        <location filename="../mainwindow.cpp" line="2228"/>
         <source>click to add 1 minute to your opponent&apos;s clock</source>
         <translation type="unfinished">cliquetez pour ajouter 1 minute à l&apos;horloge de votre adversaire</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2214"/>
-        <location filename="../mainwindow.cpp" line="2215"/>
+        <location filename="../mainwindow.cpp" line="2232"/>
+        <location filename="../mainwindow.cpp" line="2233"/>
         <source>Time remaining for this move</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2379"/>
+        <location filename="../mainwindow.cpp" line="2397"/>
         <source>W</source>
         <translation type="unfinished">B</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2380"/>
+        <location filename="../mainwindow.cpp" line="2398"/>
         <source>B</source>
         <translation type="unfinished">N</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2382"/>
+        <location filename="../mainwindow.cpp" line="2400"/>
         <source>Move</source>
         <translation type="unfinished">Coup</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2391"/>
+        <location filename="../mainwindow.cpp" line="2409"/>
         <source>Pass</source>
         <translation type="unfinished">Passer</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2395"/>
+        <location filename="../mainwindow.cpp" line="2413"/>
         <source> (Scoring)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2406"/>
+        <location filename="../mainwindow.cpp" line="2424"/>
         <source>
 Variation </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2406"/>
+        <location filename="../mainwindow.cpp" line="2424"/>
         <source> of </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2409"/>
+        <location filename="../mainwindow.cpp" line="2427"/>
         <source>child position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2411"/>
+        <location filename="../mainwindow.cpp" line="2429"/>
         <source>child positions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2431"/>
+        <location filename="../mainwindow.cpp" line="2449"/>
         <source>Black to play</source>
         <translation type="unfinished">A noir de jouer</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2433"/>
+        <location filename="../mainwindow.cpp" line="2451"/>
         <source>White to play</source>
         <translation type="unfinished">A blanc de jouer</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3022"/>
+        <location filename="../mainwindow.cpp" line="3040"/>
         <source>White</source>
         <translation type="unfinished">Blanc</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3023"/>
+        <location filename="../mainwindow.cpp" line="3041"/>
         <source>Black</source>
         <translation type="unfinished">Noir</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2537"/>
+        <location filename="../mainwindow.cpp" line="2555"/>
         <source>Black wins with %1</source>
         <translation type="unfinished">Noir gagne de %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2541"/>
+        <location filename="../mainwindow.cpp" line="2559"/>
         <source>White wins with %1</source>
         <translation type="unfinished">Blanc gagne de %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2555"/>
+        <location filename="../mainwindow.cpp" line="2573"/>
         <source>Game result differs from the one stored.
 Overwrite stored game result?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3162"/>
-        <location filename="../mainwindow.cpp" line="3163"/>
+        <location filename="../mainwindow.cpp" line="3180"/>
+        <location filename="../mainwindow.cpp" line="3181"/>
         <source>B Win %</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3167"/>
-        <location filename="../mainwindow.cpp" line="3168"/>
+        <location filename="../mainwindow.cpp" line="3185"/>
+        <location filename="../mainwindow.cpp" line="3186"/>
         <source>W Win %</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3793,90 +3798,90 @@ Overwrite stored game result?</source>
 <context>
     <name>MainWindow_GTP</name>
     <message>
-        <location filename="../mainwindow.cpp" line="2719"/>
+        <location filename="../mainwindow.cpp" line="2737"/>
         <source>Invalid move by the engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2720"/>
+        <location filename="../mainwindow.cpp" line="2738"/>
         <source>An invalid move was played by the engine, game terminated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2750"/>
+        <location filename="../mainwindow.cpp" line="2768"/>
         <source>Reported score by White: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2759"/>
+        <location filename="../mainwindow.cpp" line="2777"/>
         <source>Reported score by Black: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2770"/>
+        <location filename="../mainwindow.cpp" line="2788"/>
         <source>Neither program reported a score.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2792"/>
+        <location filename="../mainwindow.cpp" line="2810"/>
         <source>Game #%1:
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2804"/>
+        <location filename="../mainwindow.cpp" line="2822"/>
         <source>Wins for White/Black: %1/%2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2806"/>
+        <location filename="../mainwindow.cpp" line="2824"/>
         <source> Jigo: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2808"/>
+        <location filename="../mainwindow.cpp" line="2826"/>
         <source> Disagreements: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2811"/>
-        <location filename="../mainwindow.cpp" line="2871"/>
+        <location filename="../mainwindow.cpp" line="2829"/>
+        <location filename="../mainwindow.cpp" line="2889"/>
         <source>Game end</source>
         <translation type="unfinished">Partie terminée</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2811"/>
+        <location filename="../mainwindow.cpp" line="2829"/>
         <source>Engine play has completed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2862"/>
+        <location filename="../mainwindow.cpp" line="2880"/>
         <source>B+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2862"/>
+        <location filename="../mainwindow.cpp" line="2880"/>
         <source>W+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2866"/>
+        <location filename="../mainwindow.cpp" line="2884"/>
         <source>Game result: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2871"/>
+        <location filename="../mainwindow.cpp" line="2889"/>
         <source>The computer has resigned the game.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2889"/>
+        <location filename="../mainwindow.cpp" line="2907"/>
         <source>Error</source>
         <translation type="unfinished">Erreur</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2902"/>
+        <location filename="../mainwindow.cpp" line="2920"/>
         <source>GTP process exited unexpectedly.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4208,7 +4213,7 @@ Overwrite stored game result?</source>
     <message>
         <location filename="../newvariantgame_gui.ui" line="256"/>
         <source>x</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">x</translation>
     </message>
     <message>
         <location filename="../newvariantgame_gui.ui" line="287"/>
@@ -4468,7 +4473,7 @@ Employez &apos;komi X&apos; pour demander un komi de x (nombre).</translation>
     <message>
         <location filename="../playertable.cpp" line="17"/>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">X</translation>
     </message>
     <message>
         <location filename="../playertable.cpp" line="17"/>
@@ -6553,7 +6558,7 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
     <message>
         <location filename="../preferences_gui.ui" line="4935"/>
         <source>x</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">x</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="4979"/>
@@ -6600,17 +6605,17 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="../mainwindow.cpp" line="425"/>
+        <location filename="../mainwindow.cpp" line="427"/>
         <source>free</source>
         <translation>libre</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="427"/>
+        <location filename="../mainwindow.cpp" line="429"/>
         <source>rated</source>
         <translation>comptabilisé</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="429"/>
+        <location filename="../mainwindow.cpp" line="431"/>
         <source>teach</source>
         <translation>pédagogique</translation>
     </message>
@@ -6762,32 +6767,32 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gametree.cpp" line="258"/>
+        <location filename="../gametree.cpp" line="270"/>
         <source>Expand subtree</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gametree.cpp" line="259"/>
+        <location filename="../gametree.cpp" line="271"/>
         <source>Expand one level of child nodes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gametree.cpp" line="262"/>
+        <location filename="../gametree.cpp" line="274"/>
         <source>Collapse subtree</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gametree.cpp" line="264"/>
+        <location filename="../gametree.cpp" line="276"/>
         <source>Clear diagram status for this node</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gametree.cpp" line="269"/>
+        <location filename="../gametree.cpp" line="281"/>
         <source>Set this move to be the start of a diagram</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gametree.cpp" line="273"/>
+        <location filename="../gametree.cpp" line="285"/>
         <source>Navigate to this node</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6995,12 +7000,12 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
     <message>
         <location filename="../sgfpreview.ui" line="52"/>
         <source>UTF-8</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">UTF-8</translation>
     </message>
     <message>
         <location filename="../sgfpreview.ui" line="57"/>
         <source>GB18030</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">GB18030</translation>
     </message>
     <message>
         <location filename="../sgfpreview.ui" line="62"/>
@@ -7015,7 +7020,7 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
     <message>
         <location filename="../sgfpreview.ui" line="72"/>
         <source>ISO-2022-JP</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ISO-2022-JP</translation>
     </message>
     <message>
         <location filename="../sgfpreview.ui" line="77"/>
@@ -7276,7 +7281,7 @@ Please verify the filename pattern is correct.</source>
     <message>
         <location filename="../slideview_gui.ui" line="124"/>
         <source>x</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">x</translation>
     </message>
     <message>
         <location filename="../slideview_gui.ui" line="168"/>
@@ -7872,9 +7877,132 @@ and play the selected number of games per line</source>
     </message>
 </context>
 <context>
+    <name>WebDavWidget</name>
+    <message>
+        <location filename="../webdavwidget.cpp" line="36"/>
+        <source>Connect</source>
+        <translation type="unfinished">Se connecter</translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="39"/>
+        <source>New Document</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="43"/>
+        <source>New Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="47"/>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="51"/>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="55"/>
+        <source>Upload Document</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="59"/>
+        <source>Refresh</source>
+        <translation type="unfinished">Mise à jour</translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="63"/>
+        <source>Goto Parent Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="67"/>
+        <source>Disconnect</source>
+        <translation type="unfinished">Se déconnecter</translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="74"/>
+        <source>Name</source>
+        <translation type="unfinished">Nom</translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="75"/>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="135"/>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="135"/>
+        <source>No valid WebDav server informations, please set it before connecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="329"/>
+        <source>New document</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="329"/>
+        <source>Please input new document name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="341"/>
+        <source>New directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="341"/>
+        <source>Please input new directory name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="354"/>
+        <source>Renaming %1 to...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="354"/>
+        <source>Please input new name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="386"/>
+        <source>Select files to upload</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="396"/>
+        <source>Confirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="396"/>
+        <source>Do you want to remove file %1 ? It can&apos;t be recovered.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="448"/>
+        <source>Notice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../webdavwidget.cpp" line="448"/>
+        <source>File %1 has been removed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>an_id_model</name>
     <message>
-        <location filename="../mainwindow.cpp" line="160"/>
+        <location filename="../mainwindow.cpp" line="161"/>
         <source>Engine</source>
         <translation type="unfinished"></translation>
     </message>
