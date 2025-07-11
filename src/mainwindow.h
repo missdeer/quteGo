@@ -20,6 +20,7 @@
 #include "qgtp.h"
 #include "setting.h"
 #include "textview.h"
+#include "qedgetts.h"
 #include "ui_boardwindow_gui.h"
 
 class Board;
@@ -30,6 +31,8 @@ class GameTree;
 class SlideView;
 class QListWidgetItem;
 class WebDavWidget;
+class QMediaPlayer;
+class QAudioOutput;
 
 /* This keeps track of analyzer_ids, which are combinations of engine name and
    komi.  The evaluation graph shows one line per id.  */
@@ -81,6 +84,10 @@ class MainWindow
     double             m_eval;
     ArchiveHandlerPtr  m_archive;
 
+    QMediaPlayer        *m_mediaPlayer;
+    QAudioOutput        *m_mediaAudioOutput;
+    QEdgeTTS             m_edgeTTS;
+
     an_id_model m_an_id_model;
 
     go_score m_score;
@@ -102,6 +109,9 @@ class MainWindow
     void update_score_type();
     void adjust_archive_dock();
     void create_webdav_dock();
+    void create_media_player();
+    void destroy_media_player();
+    void destroy_audio_data_buffer();
 public:
     MainWindow(QWidget *parent, go_game_ptr, ArchiveHandlerPtr archive, const QString opener_scrkey = QString(), GameMode mode = modeNormal);
     virtual ~MainWindow();
@@ -144,6 +154,7 @@ public:
     /* Called from external source.  */
     void append_comment(const QString &);
     void refresh_comment();
+    void read_comment();
 
     void update_analysis(analyzer);
     void update_game_tree();
@@ -250,6 +261,8 @@ public slots:
 
     void onRetrievedWebDavFile(QString path, QByteArray content);
     void onStoredWebDavFile(QString path);
+    void onVoiceReceived(QByteArray audioData);
+    void onEdgeTTSErrorOccurred(QString error);
     
     virtual void doPass();
     virtual void doCountDone();

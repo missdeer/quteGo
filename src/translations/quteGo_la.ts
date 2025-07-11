@@ -3380,7 +3380,7 @@ Control-click a collapsed node to expand one level of its children.</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="+609"/>
+        <location filename="../mainwindow.cpp" line="+620"/>
         <source>&amp;Autoplay</source>
         <translation>&amp;Sponte ludere</translation>
     </message>
@@ -3418,7 +3418,7 @@ Swap current move with previous variation.</source>
 Hanc et antecedentem variationem permutat.</translation>
     </message>
     <message>
-        <location line="-392"/>
+        <location line="-400"/>
         <source>Choose variation display</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3432,8 +3432,8 @@ in the preferences.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+512"/>
-        <location line="+393"/>
+        <location line="+520"/>
+        <location line="+436"/>
         <location line="+13"/>
         <location line="+142"/>
         <location line="+12"/>
@@ -3448,7 +3448,7 @@ in the preferences.</source>
         <translation>Paratus.</translation>
     </message>
     <message>
-        <location line="-867"/>
+        <location line="-910"/>
         <source>Current move</source>
         <translation>Hic motus</translation>
     </message>
@@ -3473,13 +3473,13 @@ Fratres filiosque huius motus ostendit.</translation>
     </message>
     <message>
         <location line="+5"/>
-        <location line="+1443"/>
+        <location line="+1506"/>
         <source>N</source>
         <comment>Board status line: normal mode</comment>
         <translation type="unfinished">R</translation>
     </message>
     <message>
-        <location line="-1441"/>
+        <location line="-1504"/>
         <source>Current mode</source>
         <translation>Modus</translation>
     </message>
@@ -3506,7 +3506,12 @@ Modum ostendit. &apos;R&apos; rectum, &apos;C&apos; ut corrigere.</translation>
         <translation type="unfinished">vs.</translation>
     </message>
     <message>
-        <location line="+227"/>
+        <location line="+137"/>
+        <source>Edge TTS Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+133"/>
         <source>This file had errors during loading and may be corrupt.
 Do you still want to save it?</source>
         <translation type="unfinished"></translation>
@@ -3552,7 +3557,7 @@ Do you still want to save it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+629"/>
+        <location line="+649"/>
         <source>E</source>
         <comment>Board status line: edit mode</comment>
         <translation type="unfinished">C</translation>
@@ -3711,13 +3716,13 @@ Overwrite stored game result?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-2394"/>
+        <location line="-2457"/>
         <location line="+15"/>
         <source>New board prepared.</source>
         <translation>Tabula nova instructa.</translation>
     </message>
     <message>
-        <location line="+174"/>
+        <location line="+217"/>
         <source>SGF Files (*.sgf);;All Files (*)</source>
         <translation>Plicae SGF (*.sgf);;Omnia (*)</translation>
     </message>
@@ -3791,7 +3796,7 @@ Correctiones servandae sunt?</translation>
 <context>
     <name>MainWindow_GTP</name>
     <message>
-        <location line="+856"/>
+        <location line="+876"/>
         <source>Invalid move by the engine</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4533,7 +4538,7 @@ Do you still want to import from kombilo.cfg?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+249"/>
+        <location line="+248"/>
         <source>Select white stone base color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6643,7 +6648,7 @@ ad :</translation>
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="../mainwindow.cpp" line="-2550"/>
+        <location filename="../mainwindow.cpp" line="-2616"/>
         <source>free</source>
         <translation>gratis</translation>
     </message>
@@ -6971,7 +6976,7 @@ ad :</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="-1024"/>
+        <location filename="../preferences.cpp" line="-1023"/>
         <source>Add a database directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8054,7 +8059,7 @@ and play the selected number of games per line</source>
 <context>
     <name>an_id_model</name>
     <message>
-        <location filename="../mainwindow.cpp" line="-278"/>
+        <location filename="../mainwindow.cpp" line="-283"/>
         <source>Engine</source>
         <translation type="unfinished"></translation>
     </message>

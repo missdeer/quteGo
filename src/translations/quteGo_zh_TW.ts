@@ -3450,17 +3450,17 @@ Ctrl+點選合攏的節點可展開一級子結點。</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="620"/>
         <source>&amp;Autoplay</source>
         <translation>自動打譜(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="613"/>
+        <location filename="../mainwindow.cpp" line="624"/>
         <source>Start/Stop autoplaying current game</source>
         <translation>開始/停止自動打譜</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="614"/>
+        <location filename="../mainwindow.cpp" line="625"/>
         <source>Autoplay
 
 Start/Stop autoplaying current game.</source>
@@ -3469,17 +3469,17 @@ Start/Stop autoplaying current game.</source>
 開始/停止自動打譜</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="617"/>
+        <location filename="../mainwindow.cpp" line="628"/>
         <source>S&amp;wap variations</source>
         <translation>交換變化次序(&amp;W)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="618"/>
+        <location filename="../mainwindow.cpp" line="629"/>
         <source>Swap current move with previous variation</source>
         <translation>交換當前一手與上一個變化的次序</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="619"/>
+        <location filename="../mainwindow.cpp" line="630"/>
         <source>Swap variations
 
 Swap current move with previous variation.</source>
@@ -3488,136 +3488,136 @@ Swap current move with previous variation.</source>
 交換當前一手與上一個變化的次序</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="740"/>
-        <location filename="../mainwindow.cpp" line="1133"/>
-        <location filename="../mainwindow.cpp" line="1146"/>
-        <location filename="../mainwindow.cpp" line="1288"/>
-        <location filename="../mainwindow.cpp" line="1300"/>
-        <location filename="../mainwindow.cpp" line="1550"/>
-        <location filename="../mainwindow.cpp" line="1558"/>
-        <location filename="../mainwindow.cpp" line="1564"/>
-        <location filename="../mainwindow.cpp" line="1570"/>
-        <location filename="../mainwindow.cpp" line="1581"/>
-        <location filename="../mainwindow.cpp" line="1588"/>
-        <location filename="../mainwindow.cpp" line="1614"/>
+        <location filename="../mainwindow.cpp" line="751"/>
+        <location filename="../mainwindow.cpp" line="1187"/>
+        <location filename="../mainwindow.cpp" line="1200"/>
+        <location filename="../mainwindow.cpp" line="1342"/>
+        <location filename="../mainwindow.cpp" line="1354"/>
+        <location filename="../mainwindow.cpp" line="1604"/>
+        <location filename="../mainwindow.cpp" line="1612"/>
+        <location filename="../mainwindow.cpp" line="1618"/>
+        <location filename="../mainwindow.cpp" line="1624"/>
+        <location filename="../mainwindow.cpp" line="1635"/>
+        <location filename="../mainwindow.cpp" line="1642"/>
+        <location filename="../mainwindow.cpp" line="1668"/>
         <source>Ready.</source>
         <translation>就緒</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="747"/>
+        <location filename="../mainwindow.cpp" line="758"/>
         <source>Current move</source>
         <translation>當前落子</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="748"/>
+        <location filename="../mainwindow.cpp" line="759"/>
         <source>Move
 Displays the number of the current turn and the last move played.</source>
         <translation>當前手
 顯示當前手數及最後一手的行棋方和座標</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="756"/>
+        <location filename="../mainwindow.cpp" line="767"/>
         <source>Brothers / sons</source>
         <translation>兄弟變化數/子變化數</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="757"/>
+        <location filename="../mainwindow.cpp" line="768"/>
         <source>Navigation
 Shows the brothers and sons of the current move.</source>
         <translation>導航資訊
 顯示當前一手兄弟變化數/子變化數</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="764"/>
+        <location filename="../mainwindow.cpp" line="775"/>
         <source>Current mode</source>
         <translation>當前模式</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="765"/>
+        <location filename="../mainwindow.cpp" line="776"/>
         <source>Mode
 Shows the current mode. &apos;N&apos; for normal mode, &apos;E&apos; for edit mode.</source>
         <translation>模式
 顯示當前模式.&apos;一般&apos;代表一般模式,&apos;編輯&apos;代表編輯模式.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="857"/>
-        <location filename="../mainwindow.cpp" line="872"/>
+        <location filename="../mainwindow.cpp" line="868"/>
+        <location filename="../mainwindow.cpp" line="883"/>
         <source>New board prepared.</source>
         <translation>新棋盤準備完畢</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1046"/>
+        <location filename="../mainwindow.cpp" line="1100"/>
         <source>SGF Files (*.sgf);;All Files (*)</source>
         <translation>SGF (*.sgf);;所有檔案 (*)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1071"/>
+        <location filename="../mainwindow.cpp" line="1125"/>
         <source>saved.</source>
         <translation>儲存完畢</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1100"/>
+        <location filename="../mainwindow.cpp" line="1154"/>
         <source>SGF imported.</source>
         <translation>SGF匯入完畢.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1107"/>
+        <location filename="../mainwindow.cpp" line="1161"/>
         <source>SGF exported.</source>
         <translation>SGF匯出完畢.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1153"/>
+        <location filename="../mainwindow.cpp" line="1207"/>
         <source>Export image as</source>
         <translation>匯出影像為</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1326"/>
-        <location filename="../mainwindow.cpp" line="1681"/>
-        <location filename="../mainwindow.cpp" line="1695"/>
-        <location filename="../mainwindow.cpp" line="1719"/>
-        <location filename="../mainwindow.cpp" line="1731"/>
+        <location filename="../mainwindow.cpp" line="1380"/>
+        <location filename="../mainwindow.cpp" line="1735"/>
+        <location filename="../mainwindow.cpp" line="1749"/>
+        <location filename="../mainwindow.cpp" line="1773"/>
+        <location filename="../mainwindow.cpp" line="1785"/>
         <source>Autoplay stopped.</source>
         <translation>自動打譜已停止</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1341"/>
+        <location filename="../mainwindow.cpp" line="1395"/>
         <source>Autoplay started.</source>
         <translation>自動打譜已開始</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1350"/>
+        <location filename="../mainwindow.cpp" line="1404"/>
         <source>Variations swapped.</source>
         <translation>變化已交換</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1352"/>
+        <location filename="../mainwindow.cpp" line="1406"/>
         <source>No previous variation available.</source>
         <translation>不存在上一個變化</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1789"/>
+        <location filename="../mainwindow.cpp" line="1843"/>
         <source>Window size saved.</source>
         <translation>視窗大小儲存完畢</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1837"/>
+        <location filename="../mainwindow.cpp" line="1891"/>
         <source>Window size restored.</source>
         <translation>視窗大小已恢復</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1946"/>
+        <location filename="../mainwindow.cpp" line="2000"/>
         <source>You modified the game.
 Do you want to save your changes?</source>
         <translation>您修改了對局
 是否要儲存您的修改?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="227"/>
+        <location filename="../mainwindow.cpp" line="230"/>
         <source>Choose variation display</source>
         <translation type="unfinished">選擇變化顯示</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="228"/>
+        <location filename="../mainwindow.cpp" line="231"/>
         <source>The SGF file that is being opened uses a different style
 of variation display.  Use the style found in the file?
 
@@ -3628,236 +3628,241 @@ in the preferences.</source>
 可以在首選項對話方塊裡自定義此行為（禁止顯示此對話方塊）。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="762"/>
-        <location filename="../mainwindow.cpp" line="2205"/>
+        <location filename="../mainwindow.cpp" line="773"/>
+        <location filename="../mainwindow.cpp" line="2279"/>
         <source>N</source>
         <comment>Board status line: normal mode</comment>
         <translation type="unfinished">普通</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="780"/>
+        <location filename="../mainwindow.cpp" line="791"/>
         <source>Analysis in progress: </source>
         <translation type="unfinished">分析中：</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="782"/>
+        <location filename="../mainwindow.cpp" line="793"/>
         <source>Off-line copy: </source>
         <translation type="unfinished">離線複本：</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="801"/>
+        <location filename="../mainwindow.cpp" line="812"/>
         <source>vs.</source>
         <translation type="unfinished">對</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1028"/>
+        <location filename="../mainwindow.cpp" line="949"/>
+        <source>Edge TTS Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1082"/>
         <source>This file had errors during loading and may be corrupt.
 Do you still want to save it?</source>
         <translation type="unfinished">檔案載入時發現錯誤，可能已被損壞。
 仍要儲存嗎？</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1046"/>
+        <location filename="../mainwindow.cpp" line="1100"/>
         <source>Save SGF file</source>
         <translation type="unfinished">儲存SGF檔案</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1058"/>
+        <location filename="../mainwindow.cpp" line="1112"/>
         <source>Cannot open SGF file for saving.</source>
         <translation type="unfinished">無法開啟SGF以儲存。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1066"/>
+        <location filename="../mainwindow.cpp" line="1120"/>
         <source>Failed to save SGF file.</source>
         <translation type="unfinished">儲存SGF失敗。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1166"/>
+        <location filename="../mainwindow.cpp" line="1220"/>
         <source>Failed to save image!</source>
         <translation type="unfinished">儲存影像失敗!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1405"/>
+        <location filename="../mainwindow.cpp" line="1459"/>
         <source>You did not configure any analysis engine for this boardsize!</source>
         <translation type="unfinished">沒有為此棋盤大小配置分析引擎！</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1412"/>
+        <location filename="../mainwindow.cpp" line="1466"/>
         <source>Internal error - engine not found.</source>
         <translation type="unfinished">內部錯誤 - 沒有找到引擎。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1578"/>
+        <location filename="../mainwindow.cpp" line="1632"/>
         <source>Diag. comments</source>
         <translation type="unfinished">圖解評論</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1580"/>
+        <location filename="../mainwindow.cpp" line="1634"/>
         <source>Comments</source>
         <translation type="unfinished">評論</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1836"/>
+        <location filename="../mainwindow.cpp" line="1890"/>
         <source> - Press F7 to show menu bar</source>
         <translation type="unfinished">- 按F7顯示選單欄</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2209"/>
+        <location filename="../mainwindow.cpp" line="2283"/>
         <source>E</source>
         <comment>Board status line: edit mode</comment>
         <translation type="unfinished">編輯</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2213"/>
+        <location filename="../mainwindow.cpp" line="2287"/>
         <source>O</source>
         <comment>Board status line: observe mode</comment>
         <translation type="unfinished">觀看</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2217"/>
+        <location filename="../mainwindow.cpp" line="2291"/>
         <source>O</source>
         <comment>Board status line: observe GTP mode</comment>
         <translation type="unfinished">觀看</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2221"/>
-        <location filename="../mainwindow.cpp" line="2225"/>
+        <location filename="../mainwindow.cpp" line="2295"/>
+        <location filename="../mainwindow.cpp" line="2299"/>
         <source>P</source>
         <comment>Board status line: play mode</comment>
         <translation type="unfinished">對局</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2229"/>
+        <location filename="../mainwindow.cpp" line="2303"/>
         <source>T</source>
         <comment>Board status line: teach mode</comment>
         <translation type="unfinished">教學</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2237"/>
+        <location filename="../mainwindow.cpp" line="2311"/>
         <source>S</source>
         <comment>Board status line: score mode</comment>
         <translation type="unfinished">點目</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2241"/>
+        <location filename="../mainwindow.cpp" line="2315"/>
         <source>A</source>
         <comment>Board status line: batch analysis</comment>
         <translation type="unfinished">分析</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2283"/>
+        <location filename="../mainwindow.cpp" line="2357"/>
         <source>remaining time / stones</source>
         <translation type="unfinished">剩餘時間/手數</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2287"/>
-        <location filename="../mainwindow.cpp" line="2291"/>
+        <location filename="../mainwindow.cpp" line="2361"/>
+        <location filename="../mainwindow.cpp" line="2365"/>
         <source>click to pause/unpause the game</source>
         <translation type="unfinished">點選此處暫停/恢復對局</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2293"/>
+        <location filename="../mainwindow.cpp" line="2367"/>
         <source>click to add 1 minute to your opponent&apos;s clock</source>
         <translation type="unfinished">為您的對手增加1分鐘</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2297"/>
-        <location filename="../mainwindow.cpp" line="2298"/>
+        <location filename="../mainwindow.cpp" line="2371"/>
+        <location filename="../mainwindow.cpp" line="2372"/>
         <source>Time remaining for this move</source>
         <translation type="unfinished">此一手剩餘時間</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2462"/>
+        <location filename="../mainwindow.cpp" line="2536"/>
         <source>W</source>
         <translation type="unfinished">白</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2463"/>
+        <location filename="../mainwindow.cpp" line="2537"/>
         <source>B</source>
         <translation type="unfinished">黑</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2465"/>
+        <location filename="../mainwindow.cpp" line="2539"/>
         <source>Move</source>
         <translation type="unfinished">落子</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2474"/>
+        <location filename="../mainwindow.cpp" line="2548"/>
         <source>Pass</source>
         <translation type="unfinished">虛手</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2478"/>
+        <location filename="../mainwindow.cpp" line="2552"/>
         <source> (Scoring)</source>
         <translation type="unfinished">（點目中）</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2489"/>
+        <location filename="../mainwindow.cpp" line="2563"/>
         <source>
 Variation </source>
         <translation type="unfinished">變化</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2489"/>
+        <location filename="../mainwindow.cpp" line="2563"/>
         <source> of </source>
         <translation type="unfinished">中的</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2492"/>
+        <location filename="../mainwindow.cpp" line="2566"/>
         <source>child position</source>
         <translation type="unfinished">子位置</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2494"/>
+        <location filename="../mainwindow.cpp" line="2568"/>
         <source>child positions</source>
         <translation type="unfinished">子位置</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2514"/>
+        <location filename="../mainwindow.cpp" line="2588"/>
         <source>Black to play</source>
         <translation type="unfinished">黑方行棋</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2516"/>
+        <location filename="../mainwindow.cpp" line="2590"/>
         <source>White to play</source>
         <translation type="unfinished">白方行棋</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3105"/>
+        <location filename="../mainwindow.cpp" line="3179"/>
         <source>White</source>
         <translation type="unfinished">白方</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3106"/>
+        <location filename="../mainwindow.cpp" line="3180"/>
         <source>Black</source>
         <translation type="unfinished">黑方</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2620"/>
+        <location filename="../mainwindow.cpp" line="2694"/>
         <source>Black wins with %1</source>
         <translation type="unfinished">黑棋勝%1目</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2624"/>
+        <location filename="../mainwindow.cpp" line="2698"/>
         <source>White wins with %1</source>
         <translation type="unfinished">白棋勝%1目</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2638"/>
+        <location filename="../mainwindow.cpp" line="2712"/>
         <source>Game result differs from the one stored.
 Overwrite stored game result?</source>
         <translation type="unfinished">棋局結果與儲存的不一致。
 覆蓋儲存的棋局結果？</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3245"/>
-        <location filename="../mainwindow.cpp" line="3246"/>
+        <location filename="../mainwindow.cpp" line="3319"/>
+        <location filename="../mainwindow.cpp" line="3320"/>
         <source>B Win %</source>
         <translation type="unfinished">黑勝%</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3250"/>
-        <location filename="../mainwindow.cpp" line="3251"/>
+        <location filename="../mainwindow.cpp" line="3324"/>
+        <location filename="../mainwindow.cpp" line="3325"/>
         <source>W Win %</source>
         <translation type="unfinished">白勝%</translation>
     </message>
@@ -3865,90 +3870,90 @@ Overwrite stored game result?</source>
 <context>
     <name>MainWindow_GTP</name>
     <message>
-        <location filename="../mainwindow.cpp" line="2802"/>
+        <location filename="../mainwindow.cpp" line="2876"/>
         <source>Invalid move by the engine</source>
         <translation type="unfinished">引擎落子無效</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2803"/>
+        <location filename="../mainwindow.cpp" line="2877"/>
         <source>An invalid move was played by the engine, game terminated.</source>
         <translation type="unfinished">引擎落子無效，對局結束。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2833"/>
+        <location filename="../mainwindow.cpp" line="2907"/>
         <source>Reported score by White: </source>
         <translation type="unfinished">白棋點目：</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2842"/>
+        <location filename="../mainwindow.cpp" line="2916"/>
         <source>Reported score by Black: </source>
         <translation type="unfinished">黑棋點目：</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2853"/>
+        <location filename="../mainwindow.cpp" line="2927"/>
         <source>Neither program reported a score.
 </source>
         <translation type="unfinished">程式未報告點目。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2875"/>
+        <location filename="../mainwindow.cpp" line="2949"/>
         <source>Game #%1:
 </source>
         <translation type="unfinished">對局 #%1:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2887"/>
+        <location filename="../mainwindow.cpp" line="2961"/>
         <source>Wins for White/Black: %1/%2</source>
         <translation type="unfinished">白棋/黑棋勝率：%1/%2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2889"/>
+        <location filename="../mainwindow.cpp" line="2963"/>
         <source> Jigo: %1</source>
         <translation type="unfinished">Jigo: %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2891"/>
+        <location filename="../mainwindow.cpp" line="2965"/>
         <source> Disagreements: %1</source>
         <translation type="unfinished">不同意：%1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2894"/>
-        <location filename="../mainwindow.cpp" line="2954"/>
+        <location filename="../mainwindow.cpp" line="2968"/>
+        <location filename="../mainwindow.cpp" line="3028"/>
         <source>Game end</source>
         <translation type="unfinished">對局結束</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2894"/>
+        <location filename="../mainwindow.cpp" line="2968"/>
         <source>Engine play has completed.</source>
         <translation type="unfinished">引擎對弈結束。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2945"/>
+        <location filename="../mainwindow.cpp" line="3019"/>
         <source>B+R</source>
         <translation type="unfinished">黑+R</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2945"/>
+        <location filename="../mainwindow.cpp" line="3019"/>
         <source>W+R</source>
         <translation type="unfinished">白+R</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2949"/>
+        <location filename="../mainwindow.cpp" line="3023"/>
         <source>Game result: </source>
         <translation type="unfinished">對局結果：</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2954"/>
+        <location filename="../mainwindow.cpp" line="3028"/>
         <source>The computer has resigned the game.</source>
         <translation type="unfinished">電腦已認輸。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2972"/>
+        <location filename="../mainwindow.cpp" line="3046"/>
         <source>Error</source>
         <translation type="unfinished">錯誤</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2985"/>
+        <location filename="../mainwindow.cpp" line="3059"/>
         <source>GTP process exited unexpectedly.</source>
         <translation type="unfinished">GTP程序異常退出。</translation>
     </message>
@@ -4571,90 +4576,90 @@ use &quot;free&quot; command to make game rated or unrated (free)</source>
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../preferences.cpp" line="1173"/>
-        <location filename="../preferences.cpp" line="1258"/>
+        <location filename="../preferences.cpp" line="1172"/>
+        <location filename="../preferences.cpp" line="1257"/>
         <source>Change</source>
         <translation>修改</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1178"/>
-        <location filename="../preferences.cpp" line="1263"/>
+        <location filename="../preferences.cpp" line="1177"/>
+        <location filename="../preferences.cpp" line="1262"/>
         <source>Add</source>
         <translation>加入</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1271"/>
+        <location filename="../preferences.cpp" line="1270"/>
         <source>Stones</source>
         <translation>落子</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1273"/>
+        <location filename="../preferences.cpp" line="1272"/>
         <source>Pass</source>
         <translation>虛手</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1275"/>
+        <location filename="../preferences.cpp" line="1274"/>
         <source>Autoplay</source>
         <translation>自動打譜</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1277"/>
+        <location filename="../preferences.cpp" line="1276"/>
         <source>Time</source>
         <translation>時間</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1279"/>
+        <location filename="../preferences.cpp" line="1278"/>
         <source>Talk</source>
         <translation>交談</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1281"/>
+        <location filename="../preferences.cpp" line="1280"/>
         <source>Say</source>
         <translation>局內交談</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1283"/>
+        <location filename="../preferences.cpp" line="1282"/>
         <source>Match</source>
         <translation>對局</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1285"/>
+        <location filename="../preferences.cpp" line="1284"/>
         <source>Enter</source>
         <translation>進入</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1287"/>
+        <location filename="../preferences.cpp" line="1286"/>
         <source>Game end</source>
         <translation>對局結束</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1289"/>
+        <location filename="../preferences.cpp" line="1288"/>
         <source>Leave</source>
         <translation>離開</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1291"/>
+        <location filename="../preferences.cpp" line="1290"/>
         <source>Disconnect</source>
         <translation>斷開連線</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1293"/>
+        <location filename="../preferences.cpp" line="1292"/>
         <source>Connect</source>
         <translation>連線</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1299"/>
+        <location filename="../preferences.cpp" line="1298"/>
         <source>All Files (*)</source>
         <translation>所有檔案 (*)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1328"/>
-        <location filename="../preferences.cpp" line="1358"/>
+        <location filename="../preferences.cpp" line="1327"/>
+        <location filename="../preferences.cpp" line="1357"/>
         <source>Images (*.png *.xpm *.jpg)</source>
         <translation>影像 (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="678"/>
+        <location filename="../preferences.cpp" line="677"/>
         <source>Select white stone base color</source>
         <translation type="unfinished">選擇白棋子基準顏色</translation>
     </message>
@@ -4696,116 +4701,116 @@ Do you still want to import from kombilo.cfg?</source>
 仍要從kombilo.cfg匯入嗎？</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="685"/>
+        <location filename="../preferences.cpp" line="684"/>
         <source>Select black stone base color</source>
         <translation type="unfinished">選擇黑棋子基準顏色</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="793"/>
+        <location filename="../preferences.cpp" line="792"/>
         <source>Invalid slide width</source>
         <translation type="unfinished">無效的幻燈片寬度</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="794"/>
-        <location filename="../preferences.cpp" line="803"/>
+        <location filename="../preferences.cpp" line="793"/>
+        <location filename="../preferences.cpp" line="802"/>
         <source>Please enter valid dimensions for slide export (100x100 or larger).</source>
         <translation type="unfinished">請輸入有效的維度用於幻燈片匯出(100x100或更大)。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="802"/>
+        <location filename="../preferences.cpp" line="801"/>
         <source>Invalid slide height</source>
         <translation type="unfinished">無效的幻燈片除錯</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="809"/>
+        <location filename="../preferences.cpp" line="808"/>
         <source>Invalid slide dimensions</source>
         <translation type="unfinished">無效的幻燈片維度</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="809"/>
+        <location filename="../preferences.cpp" line="808"/>
         <source>Slide export dimensions must be wider than they are tall.</source>
         <translation type="unfinished">幻燈片匯出維度必須寬大於高。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1017"/>
-        <location filename="../preferences.cpp" line="1030"/>
+        <location filename="../preferences.cpp" line="1016"/>
+        <location filename="../preferences.cpp" line="1029"/>
         <source>Unsaved data</source>
         <translation type="unfinished">未儲存資料</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1018"/>
+        <location filename="../preferences.cpp" line="1017"/>
         <source>The engine input fields contain
 potentially unsaved data.
 Really close the preferences?</source>
         <translation type="unfinished">引擎輸入欄位可能有未儲存資料。確定要關閉首選項嗎？</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1031"/>
+        <location filename="../preferences.cpp" line="1030"/>
         <source>The host input fields contain
 potentially unsaved data.
 Really close the preferences?</source>
         <translation type="unfinished">主機輸入欄位可能有未儲存資料。確定要關閉首選項嗎？</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1076"/>
+        <location filename="../preferences.cpp" line="1075"/>
         <source>Invalid komi entered</source>
         <translation type="unfinished">無效的貼目數</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1076"/>
+        <location filename="../preferences.cpp" line="1075"/>
         <source>Please enter a valid komi before adding the engine.</source>
         <translation type="unfinished">在新增引擎前請輸入有效的貼目數。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1085"/>
+        <location filename="../preferences.cpp" line="1084"/>
         <source>Missing board size</source>
         <translation type="unfinished">缺少棋盤大小</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1086"/>
+        <location filename="../preferences.cpp" line="1085"/>
         <source>Analysis engines require a board size to be specified.
 If your engine allows multiple board sizes, you need to configure them in separate entires.</source>
         <translation type="unfinished">分析引擎要求指定棋盤大小。
 如果引擎允許多種棋盤大小，則需要分別指定。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1097"/>
+        <location filename="../preferences.cpp" line="1096"/>
         <source>Invalid board size</source>
         <translation type="unfinished">無效的棋盤大小</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1097"/>
+        <location filename="../preferences.cpp" line="1096"/>
         <source>Only a range of 5 to 25 is allowed.</source>
         <translation type="unfinished">允許的範圍是5~25。</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1299"/>
+        <location filename="../preferences.cpp" line="1298"/>
         <source>Choose GTP engine path</source>
         <translation type="unfinished">選擇GTP引擎路徑</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1328"/>
+        <location filename="../preferences.cpp" line="1327"/>
         <source>Select a goban wood image</source>
         <translation type="unfinished">選擇棋盤木影像</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1358"/>
+        <location filename="../preferences.cpp" line="1357"/>
         <source>Select a table background image</source>
         <translation type="unfinished">選擇桌面背景影像</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1387"/>
+        <location filename="../preferences.cpp" line="1386"/>
         <source>Select a white stone image</source>
         <translation type="unfinished">選擇白棋子影像</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1387"/>
-        <location filename="../preferences.cpp" line="1416"/>
+        <location filename="../preferences.cpp" line="1386"/>
+        <location filename="../preferences.cpp" line="1415"/>
         <source>Images (*.png *.xpm *.jpg *.svg)</source>
         <translation type="unfinished">影像 (*.png *.xpm *.jpg *.svg)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1416"/>
+        <location filename="../preferences.cpp" line="1415"/>
         <source>Select a black stone image</source>
         <translation type="unfinished">選擇黑棋子影像</translation>
     </message>
@@ -6719,17 +6724,17 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="../mainwindow.cpp" line="435"/>
+        <location filename="../mainwindow.cpp" line="443"/>
         <source>free</source>
         <translation>不計分</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="437"/>
+        <location filename="../mainwindow.cpp" line="445"/>
         <source>rated</source>
         <translation>計分棋</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="439"/>
+        <location filename="../mainwindow.cpp" line="447"/>
         <source>teach</source>
         <translation>教學棋</translation>
     </message>
@@ -8135,7 +8140,7 @@ and play the selected number of games per line</source>
 <context>
     <name>an_id_model</name>
     <message>
-        <location filename="../mainwindow.cpp" line="161"/>
+        <location filename="../mainwindow.cpp" line="164"/>
         <source>Engine</source>
         <translation type="unfinished">引擎</translation>
     </message>

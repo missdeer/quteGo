@@ -3375,17 +3375,17 @@ Control-click a collapsed node to expand one level of its children.</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="620"/>
         <source>&amp;Autoplay</source>
         <translation>&amp;Autojugada</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="613"/>
+        <location filename="../mainwindow.cpp" line="624"/>
         <source>Start/Stop autoplaying current game</source>
         <translation>Comenzar/Parar autojugar para la partida actual</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="614"/>
+        <location filename="../mainwindow.cpp" line="625"/>
         <source>Autoplay
 
 Start/Stop autoplaying current game.</source>
@@ -3394,17 +3394,17 @@ Start/Stop autoplaying current game.</source>
 Comienza/Para autojugar para la partida actual.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="617"/>
+        <location filename="../mainwindow.cpp" line="628"/>
         <source>S&amp;wap variations</source>
         <translation>&amp;intercambiar variaciones</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="618"/>
+        <location filename="../mainwindow.cpp" line="629"/>
         <source>Swap current move with previous variation</source>
         <translation>Intercambia la jugada actual por la variación anterior</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="619"/>
+        <location filename="../mainwindow.cpp" line="630"/>
         <source>Swap variations
 
 Swap current move with previous variation.</source>
@@ -3413,136 +3413,136 @@ Swap current move with previous variation.</source>
 Intercambia la jugada actual por la variación anterior.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="740"/>
-        <location filename="../mainwindow.cpp" line="1133"/>
-        <location filename="../mainwindow.cpp" line="1146"/>
-        <location filename="../mainwindow.cpp" line="1288"/>
-        <location filename="../mainwindow.cpp" line="1300"/>
-        <location filename="../mainwindow.cpp" line="1550"/>
-        <location filename="../mainwindow.cpp" line="1558"/>
-        <location filename="../mainwindow.cpp" line="1564"/>
-        <location filename="../mainwindow.cpp" line="1570"/>
-        <location filename="../mainwindow.cpp" line="1581"/>
-        <location filename="../mainwindow.cpp" line="1588"/>
-        <location filename="../mainwindow.cpp" line="1614"/>
+        <location filename="../mainwindow.cpp" line="751"/>
+        <location filename="../mainwindow.cpp" line="1187"/>
+        <location filename="../mainwindow.cpp" line="1200"/>
+        <location filename="../mainwindow.cpp" line="1342"/>
+        <location filename="../mainwindow.cpp" line="1354"/>
+        <location filename="../mainwindow.cpp" line="1604"/>
+        <location filename="../mainwindow.cpp" line="1612"/>
+        <location filename="../mainwindow.cpp" line="1618"/>
+        <location filename="../mainwindow.cpp" line="1624"/>
+        <location filename="../mainwindow.cpp" line="1635"/>
+        <location filename="../mainwindow.cpp" line="1642"/>
+        <location filename="../mainwindow.cpp" line="1668"/>
         <source>Ready.</source>
         <translation>Listo.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="747"/>
+        <location filename="../mainwindow.cpp" line="758"/>
         <source>Current move</source>
         <translation>Jugada actual</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="748"/>
+        <location filename="../mainwindow.cpp" line="759"/>
         <source>Move
 Displays the number of the current turn and the last move played.</source>
         <translation>Jugada
 Muestra el número del turno actual y la última jugada.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="756"/>
+        <location filename="../mainwindow.cpp" line="767"/>
         <source>Brothers / sons</source>
         <translation>Hermanos / hijos</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="757"/>
+        <location filename="../mainwindow.cpp" line="768"/>
         <source>Navigation
 Shows the brothers and sons of the current move.</source>
         <translation>Navegación
 Muestra los hermanos e hijos de la jugada actual.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="764"/>
+        <location filename="../mainwindow.cpp" line="775"/>
         <source>Current mode</source>
         <translation>Modo actual</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="765"/>
+        <location filename="../mainwindow.cpp" line="776"/>
         <source>Mode
 Shows the current mode. &apos;N&apos; for normal mode, &apos;E&apos; for edit mode.</source>
         <translation>Modo
 Muestra el modo actual. &apos;N&apos; para modo normal, &apos;E&apos; para modo de edición.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="857"/>
-        <location filename="../mainwindow.cpp" line="872"/>
+        <location filename="../mainwindow.cpp" line="868"/>
+        <location filename="../mainwindow.cpp" line="883"/>
         <source>New board prepared.</source>
         <translation>Nuevo tablero preparado.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1046"/>
+        <location filename="../mainwindow.cpp" line="1100"/>
         <source>SGF Files (*.sgf);;All Files (*)</source>
         <translation>Archivos SGF (*.sgf);;Todos los archivos (*)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1071"/>
+        <location filename="../mainwindow.cpp" line="1125"/>
         <source>saved.</source>
         <translation>Guardado.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1100"/>
+        <location filename="../mainwindow.cpp" line="1154"/>
         <source>SGF imported.</source>
         <translation>SGF importado.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1107"/>
+        <location filename="../mainwindow.cpp" line="1161"/>
         <source>SGF exported.</source>
         <translation>SGF exportado.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1153"/>
+        <location filename="../mainwindow.cpp" line="1207"/>
         <source>Export image as</source>
         <translation>Exportar como imagen como</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1326"/>
-        <location filename="../mainwindow.cpp" line="1681"/>
-        <location filename="../mainwindow.cpp" line="1695"/>
-        <location filename="../mainwindow.cpp" line="1719"/>
-        <location filename="../mainwindow.cpp" line="1731"/>
+        <location filename="../mainwindow.cpp" line="1380"/>
+        <location filename="../mainwindow.cpp" line="1735"/>
+        <location filename="../mainwindow.cpp" line="1749"/>
+        <location filename="../mainwindow.cpp" line="1773"/>
+        <location filename="../mainwindow.cpp" line="1785"/>
         <source>Autoplay stopped.</source>
         <translation>Autojugada parado.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1341"/>
+        <location filename="../mainwindow.cpp" line="1395"/>
         <source>Autoplay started.</source>
         <translation>Autojuego iniciado.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1350"/>
+        <location filename="../mainwindow.cpp" line="1404"/>
         <source>Variations swapped.</source>
         <translation>Variaciones intercambiadas.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1352"/>
+        <location filename="../mainwindow.cpp" line="1406"/>
         <source>No previous variation available.</source>
         <translation>No hay ninguna variación anterior disponible.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1789"/>
+        <location filename="../mainwindow.cpp" line="1843"/>
         <source>Window size saved.</source>
         <translation>Tamaño de ventana guardado.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1837"/>
+        <location filename="../mainwindow.cpp" line="1891"/>
         <source>Window size restored.</source>
         <translation>Tamaño de ventana restaurado.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1946"/>
+        <location filename="../mainwindow.cpp" line="2000"/>
         <source>You modified the game.
 Do you want to save your changes?</source>
         <translation>Has modificado el juego.
 Quieres guardar los cambios?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="227"/>
+        <location filename="../mainwindow.cpp" line="230"/>
         <source>Choose variation display</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="228"/>
+        <location filename="../mainwindow.cpp" line="231"/>
         <source>The SGF file that is being opened uses a different style
 of variation display.  Use the style found in the file?
 
@@ -3551,234 +3551,239 @@ in the preferences.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="762"/>
-        <location filename="../mainwindow.cpp" line="2205"/>
+        <location filename="../mainwindow.cpp" line="773"/>
+        <location filename="../mainwindow.cpp" line="2279"/>
         <source>N</source>
         <comment>Board status line: normal mode</comment>
         <translation type="unfinished">N</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="780"/>
+        <location filename="../mainwindow.cpp" line="791"/>
         <source>Analysis in progress: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="782"/>
+        <location filename="../mainwindow.cpp" line="793"/>
         <source>Off-line copy: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="801"/>
+        <location filename="../mainwindow.cpp" line="812"/>
         <source>vs.</source>
         <translation type="unfinished">vs.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1028"/>
+        <location filename="../mainwindow.cpp" line="949"/>
+        <source>Edge TTS Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1082"/>
         <source>This file had errors during loading and may be corrupt.
 Do you still want to save it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1046"/>
+        <location filename="../mainwindow.cpp" line="1100"/>
         <source>Save SGF file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1058"/>
+        <location filename="../mainwindow.cpp" line="1112"/>
         <source>Cannot open SGF file for saving.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1066"/>
+        <location filename="../mainwindow.cpp" line="1120"/>
         <source>Failed to save SGF file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1166"/>
+        <location filename="../mainwindow.cpp" line="1220"/>
         <source>Failed to save image!</source>
         <translation type="unfinished">Fallo al guardar la imagen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1405"/>
+        <location filename="../mainwindow.cpp" line="1459"/>
         <source>You did not configure any analysis engine for this boardsize!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1412"/>
+        <location filename="../mainwindow.cpp" line="1466"/>
         <source>Internal error - engine not found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1578"/>
+        <location filename="../mainwindow.cpp" line="1632"/>
         <source>Diag. comments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1580"/>
+        <location filename="../mainwindow.cpp" line="1634"/>
         <source>Comments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1836"/>
+        <location filename="../mainwindow.cpp" line="1890"/>
         <source> - Press F7 to show menu bar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2209"/>
+        <location filename="../mainwindow.cpp" line="2283"/>
         <source>E</source>
         <comment>Board status line: edit mode</comment>
         <translation type="unfinished">E</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2213"/>
+        <location filename="../mainwindow.cpp" line="2287"/>
         <source>O</source>
         <comment>Board status line: observe mode</comment>
         <translation type="unfinished">O</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2217"/>
+        <location filename="../mainwindow.cpp" line="2291"/>
         <source>O</source>
         <comment>Board status line: observe GTP mode</comment>
         <translation type="unfinished">O</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2221"/>
-        <location filename="../mainwindow.cpp" line="2225"/>
+        <location filename="../mainwindow.cpp" line="2295"/>
+        <location filename="../mainwindow.cpp" line="2299"/>
         <source>P</source>
         <comment>Board status line: play mode</comment>
         <translation type="unfinished">P</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2229"/>
+        <location filename="../mainwindow.cpp" line="2303"/>
         <source>T</source>
         <comment>Board status line: teach mode</comment>
         <translation type="unfinished">T</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2237"/>
+        <location filename="../mainwindow.cpp" line="2311"/>
         <source>S</source>
         <comment>Board status line: score mode</comment>
         <translation type="unfinished">S</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2241"/>
+        <location filename="../mainwindow.cpp" line="2315"/>
         <source>A</source>
         <comment>Board status line: batch analysis</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2283"/>
+        <location filename="../mainwindow.cpp" line="2357"/>
         <source>remaining time / stones</source>
         <translation type="unfinished">Tiempo / Piedras restantes</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2287"/>
-        <location filename="../mainwindow.cpp" line="2291"/>
+        <location filename="../mainwindow.cpp" line="2361"/>
+        <location filename="../mainwindow.cpp" line="2365"/>
         <source>click to pause/unpause the game</source>
         <translation type="unfinished">Haz click para parar/continuar la partida</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2293"/>
+        <location filename="../mainwindow.cpp" line="2367"/>
         <source>click to add 1 minute to your opponent&apos;s clock</source>
         <translation type="unfinished">Haz click para agregar 1 minuto al reloj de tu oponente</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2297"/>
-        <location filename="../mainwindow.cpp" line="2298"/>
+        <location filename="../mainwindow.cpp" line="2371"/>
+        <location filename="../mainwindow.cpp" line="2372"/>
         <source>Time remaining for this move</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2462"/>
+        <location filename="../mainwindow.cpp" line="2536"/>
         <source>W</source>
         <translation type="unfinished">B</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2463"/>
+        <location filename="../mainwindow.cpp" line="2537"/>
         <source>B</source>
         <translation type="unfinished">N</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2465"/>
+        <location filename="../mainwindow.cpp" line="2539"/>
         <source>Move</source>
         <translation type="unfinished">Mover</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2474"/>
+        <location filename="../mainwindow.cpp" line="2548"/>
         <source>Pass</source>
         <translation type="unfinished">Pasar</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2478"/>
+        <location filename="../mainwindow.cpp" line="2552"/>
         <source> (Scoring)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2489"/>
+        <location filename="../mainwindow.cpp" line="2563"/>
         <source>
 Variation </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2489"/>
+        <location filename="../mainwindow.cpp" line="2563"/>
         <source> of </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2492"/>
+        <location filename="../mainwindow.cpp" line="2566"/>
         <source>child position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2494"/>
+        <location filename="../mainwindow.cpp" line="2568"/>
         <source>child positions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2514"/>
+        <location filename="../mainwindow.cpp" line="2588"/>
         <source>Black to play</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2516"/>
+        <location filename="../mainwindow.cpp" line="2590"/>
         <source>White to play</source>
         <translation type="unfinished">Turno de Blancas</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3105"/>
+        <location filename="../mainwindow.cpp" line="3179"/>
         <source>White</source>
         <translation type="unfinished">Blanco</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3106"/>
+        <location filename="../mainwindow.cpp" line="3180"/>
         <source>Black</source>
         <translation type="unfinished">Negro</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2620"/>
+        <location filename="../mainwindow.cpp" line="2694"/>
         <source>Black wins with %1</source>
         <translation type="unfinished">Negro gana con %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2624"/>
+        <location filename="../mainwindow.cpp" line="2698"/>
         <source>White wins with %1</source>
         <translation type="unfinished">Blanco gana con %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2638"/>
+        <location filename="../mainwindow.cpp" line="2712"/>
         <source>Game result differs from the one stored.
 Overwrite stored game result?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3245"/>
-        <location filename="../mainwindow.cpp" line="3246"/>
+        <location filename="../mainwindow.cpp" line="3319"/>
+        <location filename="../mainwindow.cpp" line="3320"/>
         <source>B Win %</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="3250"/>
-        <location filename="../mainwindow.cpp" line="3251"/>
+        <location filename="../mainwindow.cpp" line="3324"/>
+        <location filename="../mainwindow.cpp" line="3325"/>
         <source>W Win %</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3786,90 +3791,90 @@ Overwrite stored game result?</source>
 <context>
     <name>MainWindow_GTP</name>
     <message>
-        <location filename="../mainwindow.cpp" line="2802"/>
+        <location filename="../mainwindow.cpp" line="2876"/>
         <source>Invalid move by the engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2803"/>
+        <location filename="../mainwindow.cpp" line="2877"/>
         <source>An invalid move was played by the engine, game terminated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2833"/>
+        <location filename="../mainwindow.cpp" line="2907"/>
         <source>Reported score by White: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2842"/>
+        <location filename="../mainwindow.cpp" line="2916"/>
         <source>Reported score by Black: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2853"/>
+        <location filename="../mainwindow.cpp" line="2927"/>
         <source>Neither program reported a score.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2875"/>
+        <location filename="../mainwindow.cpp" line="2949"/>
         <source>Game #%1:
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2887"/>
+        <location filename="../mainwindow.cpp" line="2961"/>
         <source>Wins for White/Black: %1/%2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2889"/>
+        <location filename="../mainwindow.cpp" line="2963"/>
         <source> Jigo: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2891"/>
+        <location filename="../mainwindow.cpp" line="2965"/>
         <source> Disagreements: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2894"/>
-        <location filename="../mainwindow.cpp" line="2954"/>
+        <location filename="../mainwindow.cpp" line="2968"/>
+        <location filename="../mainwindow.cpp" line="3028"/>
         <source>Game end</source>
         <translation type="unfinished">Fin del juego</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2894"/>
+        <location filename="../mainwindow.cpp" line="2968"/>
         <source>Engine play has completed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2945"/>
+        <location filename="../mainwindow.cpp" line="3019"/>
         <source>B+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2945"/>
+        <location filename="../mainwindow.cpp" line="3019"/>
         <source>W+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2949"/>
+        <location filename="../mainwindow.cpp" line="3023"/>
         <source>Game result: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2954"/>
+        <location filename="../mainwindow.cpp" line="3028"/>
         <source>The computer has resigned the game.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2972"/>
+        <location filename="../mainwindow.cpp" line="3046"/>
         <source>Error</source>
         <translation type="unfinished">Error</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="2985"/>
+        <location filename="../mainwindow.cpp" line="3059"/>
         <source>GTP process exited unexpectedly.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4492,90 +4497,90 @@ Número de piedras colocadas por negro en su primera jugada.</translation>
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../preferences.cpp" line="1173"/>
-        <location filename="../preferences.cpp" line="1258"/>
+        <location filename="../preferences.cpp" line="1172"/>
+        <location filename="../preferences.cpp" line="1257"/>
         <source>Change</source>
         <translation>Cambiar</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1178"/>
-        <location filename="../preferences.cpp" line="1263"/>
+        <location filename="../preferences.cpp" line="1177"/>
+        <location filename="../preferences.cpp" line="1262"/>
         <source>Add</source>
         <translation>Agregar</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1271"/>
+        <location filename="../preferences.cpp" line="1270"/>
         <source>Stones</source>
         <translation>Piedras</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1273"/>
+        <location filename="../preferences.cpp" line="1272"/>
         <source>Pass</source>
         <translation>Pasar</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1275"/>
+        <location filename="../preferences.cpp" line="1274"/>
         <source>Autoplay</source>
         <translation>Autojugada</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1277"/>
+        <location filename="../preferences.cpp" line="1276"/>
         <source>Time</source>
         <translation>Tiempo</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1279"/>
+        <location filename="../preferences.cpp" line="1278"/>
         <source>Talk</source>
         <translation>Conversar</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1281"/>
+        <location filename="../preferences.cpp" line="1280"/>
         <source>Say</source>
         <translation>Decir</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1283"/>
+        <location filename="../preferences.cpp" line="1282"/>
         <source>Match</source>
         <translation>Jugada</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1285"/>
+        <location filename="../preferences.cpp" line="1284"/>
         <source>Enter</source>
         <translation>Entrar</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1287"/>
+        <location filename="../preferences.cpp" line="1286"/>
         <source>Game end</source>
         <translation>Fin del juego</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1289"/>
+        <location filename="../preferences.cpp" line="1288"/>
         <source>Leave</source>
         <translation>Salir</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1291"/>
+        <location filename="../preferences.cpp" line="1290"/>
         <source>Disconnect</source>
         <translation>Desconectar</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1293"/>
+        <location filename="../preferences.cpp" line="1292"/>
         <source>Connect</source>
         <translation>Conectar</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1299"/>
+        <location filename="../preferences.cpp" line="1298"/>
         <source>All Files (*)</source>
         <translation>Todos los archivos (*)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1328"/>
-        <location filename="../preferences.cpp" line="1358"/>
+        <location filename="../preferences.cpp" line="1327"/>
+        <location filename="../preferences.cpp" line="1357"/>
         <source>Images (*.png *.xpm *.jpg)</source>
         <translation>Imágenes (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="678"/>
+        <location filename="../preferences.cpp" line="677"/>
         <source>Select white stone base color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4616,115 +4621,115 @@ Do you still want to import from kombilo.cfg?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="685"/>
+        <location filename="../preferences.cpp" line="684"/>
         <source>Select black stone base color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="793"/>
+        <location filename="../preferences.cpp" line="792"/>
         <source>Invalid slide width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="794"/>
-        <location filename="../preferences.cpp" line="803"/>
+        <location filename="../preferences.cpp" line="793"/>
+        <location filename="../preferences.cpp" line="802"/>
         <source>Please enter valid dimensions for slide export (100x100 or larger).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="802"/>
+        <location filename="../preferences.cpp" line="801"/>
         <source>Invalid slide height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="809"/>
+        <location filename="../preferences.cpp" line="808"/>
         <source>Invalid slide dimensions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="809"/>
+        <location filename="../preferences.cpp" line="808"/>
         <source>Slide export dimensions must be wider than they are tall.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1017"/>
-        <location filename="../preferences.cpp" line="1030"/>
+        <location filename="../preferences.cpp" line="1016"/>
+        <location filename="../preferences.cpp" line="1029"/>
         <source>Unsaved data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1018"/>
+        <location filename="../preferences.cpp" line="1017"/>
         <source>The engine input fields contain
 potentially unsaved data.
 Really close the preferences?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1031"/>
+        <location filename="../preferences.cpp" line="1030"/>
         <source>The host input fields contain
 potentially unsaved data.
 Really close the preferences?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1076"/>
+        <location filename="../preferences.cpp" line="1075"/>
         <source>Invalid komi entered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1076"/>
+        <location filename="../preferences.cpp" line="1075"/>
         <source>Please enter a valid komi before adding the engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1085"/>
+        <location filename="../preferences.cpp" line="1084"/>
         <source>Missing board size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1086"/>
+        <location filename="../preferences.cpp" line="1085"/>
         <source>Analysis engines require a board size to be specified.
 If your engine allows multiple board sizes, you need to configure them in separate entires.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1097"/>
+        <location filename="../preferences.cpp" line="1096"/>
         <source>Invalid board size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1097"/>
+        <location filename="../preferences.cpp" line="1096"/>
         <source>Only a range of 5 to 25 is allowed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1299"/>
+        <location filename="../preferences.cpp" line="1298"/>
         <source>Choose GTP engine path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1328"/>
+        <location filename="../preferences.cpp" line="1327"/>
         <source>Select a goban wood image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1358"/>
+        <location filename="../preferences.cpp" line="1357"/>
         <source>Select a table background image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1387"/>
+        <location filename="../preferences.cpp" line="1386"/>
         <source>Select a white stone image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1387"/>
-        <location filename="../preferences.cpp" line="1416"/>
+        <location filename="../preferences.cpp" line="1386"/>
+        <location filename="../preferences.cpp" line="1415"/>
         <source>Images (*.png *.xpm *.jpg *.svg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1416"/>
+        <location filename="../preferences.cpp" line="1415"/>
         <source>Select a black stone image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6638,17 +6643,17 @@ Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="../mainwindow.cpp" line="435"/>
+        <location filename="../mainwindow.cpp" line="443"/>
         <source>free</source>
         <translation>Libre</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="437"/>
+        <location filename="../mainwindow.cpp" line="445"/>
         <source>rated</source>
         <translation>puntuada</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="439"/>
+        <location filename="../mainwindow.cpp" line="447"/>
         <source>teach</source>
         <translation>enseñar</translation>
     </message>
@@ -8048,7 +8053,7 @@ and play the selected number of games per line</source>
 <context>
     <name>an_id_model</name>
     <message>
-        <location filename="../mainwindow.cpp" line="161"/>
+        <location filename="../mainwindow.cpp" line="164"/>
         <source>Engine</source>
         <translation type="unfinished"></translation>
     </message>

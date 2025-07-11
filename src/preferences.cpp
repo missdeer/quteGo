@@ -664,7 +664,6 @@ void PreferencesDialog::init_from_settings()
     spVoicePitch->setValue(g_setting->readIntEntry("EDGETTS_PITCH"));
     spVoiceRate->setValue(g_setting->readIntEntry("EDGETTS_RATE"));
     spVoiceVolume->setValue(g_setting->readIntEntry("EDGETTS_VOLUME"));
-    edtVoiceShortName->setText(g_setting->readEntry("EDGETTS_SHORT_NAME"));
 }
 
 void PreferencesDialog::select_stone_look(bool)

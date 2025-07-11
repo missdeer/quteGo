@@ -25,6 +25,9 @@
 #include <QTimer>
 #include <QToolBar>
 #include <QWhatsThis>
+#include <QMediaPlayer>
+#include <QAudioOutput>
+#include <QBuffer>
 
 #include "mainwindow.h"
 #include "archivehandlerfactory.h"
@@ -383,6 +386,11 @@ MainWindow::MainWindow(QWidget *parent, go_game_ptr gr, ArchiveHandlerPtr archiv
     viewNumbers->setChecked(g_setting->readBoolEntry("SHOW_MOVE_NUMBER"));
     slotViewMoveNumbers(g_setting->readBoolEntry("SHOW_MOVE_NUMBER"));
     main_window_list.push_back(this);
+
+    create_media_player();
+
+    connect(&m_edgeTTS, &QEdgeTTS::voiceReceived, this, &MainWindow::onVoiceReceived);
+    connect(&m_edgeTTS, &QEdgeTTS::errorOccurred, this, &MainWindow::onEdgeTTSErrorOccurred);
     
     QTimer::singleShot(1000, [this]{
         if (m_webdavWidget && m_webdavWidget->onStart()) {
@@ -445,6 +453,9 @@ void MainWindow::update_game_record()
 
 MainWindow::~MainWindow()
 {
+    destroy_media_player();
+    destroy_audio_data_buffer();
+
     main_window_list.remove(this);
 
     delete slideView;
@@ -893,6 +904,49 @@ void MainWindow::adjust_archive_dock()
             archiveDock->toggleViewAction()->setVisible(true);
         }
     } 
+}
+
+void MainWindow::create_media_player()
+{
+    m_mediaPlayer      = new QMediaPlayer;
+    m_mediaAudioOutput = new QAudioOutput;
+    m_mediaAudioOutput->setVolume(1.f);
+    m_mediaPlayer->setAudioOutput(m_mediaAudioOutput);
+    m_mediaPlayer->setLoops(1);
+}
+
+void MainWindow::destroy_media_player()
+{
+    m_mediaPlayer->stop();
+    delete m_mediaAudioOutput;
+    delete m_mediaPlayer;
+}
+
+void MainWindow::destroy_audio_data_buffer()
+{
+    auto *sourceDevice = m_mediaPlayer->sourceDevice();
+    if (sourceDevice)
+    {
+        delete sourceDevice;
+    }
+}
+
+void MainWindow::onVoiceReceived(QByteArray audioData)
+{
+    destroy_audio_data_buffer();
+
+    QBuffer *buffer = new QBuffer;
+    buffer->setData(audioData);
+    buffer->open(QIODevice::ReadOnly);
+    buffer->seek(0);
+
+    m_mediaPlayer->setSourceDevice(buffer);
+    m_mediaPlayer->play();
+}
+
+void MainWindow::onEdgeTTSErrorOccurred(QString error)
+{
+    QMessageBox::warning(this, tr("Edge TTS Error"), error);
 }
 
 void MainWindow::create_webdav_dock()
@@ -1994,9 +2048,29 @@ void MainWindow::refresh_comment()
     if (c.size() == 0)
         commentEdit->clear();
     else
+    {
         commentEdit->setText(QString::fromStdString(c));
+        read_comment();
+    }    
 
     m_allow_text_update_signal = old;
+}
+
+void MainWindow::read_comment()
+{
+    bool auto_read_comment = g_setting->readBoolEntry("EDGETTS_AUTO_READ_COMMENT");
+    if (!auto_read_comment)
+        return;
+    QString text = commentEdit->toPlainText();
+    if (text.isEmpty())
+        return;
+
+    int pitch = g_setting->readIntEntry("EDGETTS_PITCH");
+    int rate = g_setting->readIntEntry("EDGETTS_RATE");
+    int volume = g_setting->readIntEntry("EDGETTS_VOLUME");
+    QString short_name = g_setting->readEntry("EDGETTS_SHORT_NAME");
+    
+    m_edgeTTS.getTextToSpeech(text, short_name, volume, rate, pitch);
 }
 
 void MainWindow::slotUpdateComment2()

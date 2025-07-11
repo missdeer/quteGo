@@ -200,7 +200,7 @@ void qGo::playSound(const QString& sound)
 void help_about()
 {
     QString txt;
-    txt = "<p>Copyright \u00a9 2019-2024\nFan Yang "
+    txt = "<p>Copyright \u00a9 2019-2025\nFan Yang "
            "&lt;me@minidump.info&gt;</p>";
     txt += "<p>Copyright \u00a9 2011-2019\nBernd Schmidt "
           "&lt;bernds_cb1@t-online.de&gt;</p>";
