@@ -11,7 +11,7 @@ if(POLICY CMP0167)
 endif()
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core LinguistTools)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Widgets Xml Svg Sql Multimedia Network PrintSupport LinguistTools)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Widgets Xml Svg Sql WebSockets Multimedia MultimediaWidgets Network PrintSupport LinguistTools)
 IF (Qt6_FOUND)
         find_package(Qt6 COMPONENTS Core5Compat Svgwidgets REQUIRED)
 ENDIF(Qt6_FOUND)
@@ -86,6 +86,7 @@ set(HEADERS
     encodingutils.h
     webdavwidget.h
     networkreplyhelper.h
+    qedgetts.h
     )
 set(SOURCES
     analyzedlg.cpp
@@ -136,6 +137,7 @@ set(SOURCES
     encodingutils.cpp
     webdavwidget.cpp
     networkreplyhelper.cpp
+    qedgetts.cpp
     )
 set(FORMS 
     gui_dialog.ui
@@ -241,6 +243,8 @@ target_link_libraries(${PROJECT_NAME}  PRIVATE  LibArchive::LibArchive
         Qt${QT_VERSION_MAJOR}::Multimedia
         Qt${QT_VERSION_MAJOR}::Widgets
         Qt${QT_VERSION_MAJOR}::PrintSupport
+        Qt${QT_VERSION_MAJOR}::WebSockets
+        Qt${QT_VERSION_MAJOR}::MultimediaWidgets
         )
 IF (WIN32)
     target_link_libraries(${PROJECT_NAME} PRIVATE AdvApi32 OleAut32 User32 Shell32 PowrProf Ole32 Uuid)

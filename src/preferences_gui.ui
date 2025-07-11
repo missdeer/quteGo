@@ -187,7 +187,7 @@
       <string/>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="InterfaceTabWidget">
       <attribute name="title">
@@ -2227,7 +2227,7 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QComboBox" name="cbVoiceNames"/>
+           <widget class="QComboBox" name="cbVoices"/>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_31">
@@ -2265,7 +2265,7 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QComboBox" name="comboBox"/>
+           <widget class="QComboBox" name="cbLocale"/>
           </item>
           <item row="4" column="0">
            <widget class="QLabel" name="label_35">
@@ -2359,6 +2359,20 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
           </item>
           <item row="2" column="1">
            <widget class="QSpinBox" name="spVoiceVolume"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_38">
+            <property name="text">
+             <string>Word in cue</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QSpinBox" name="spWordInCue">
+            <property name="value">
+             <number>10</number>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>

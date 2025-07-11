@@ -4497,7 +4497,12 @@ byo-yomi: e.g. Byo = 7x30s, VII spatia XXX secundorum; si lapis intra XXX secund
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../preferences.cpp" line="+322"/>
+        <location filename="../preferences.cpp" line="+294"/>
+        <source>Error</source>
+        <translation type="unfinished">Erratum</translation>
+    </message>
+    <message>
+        <location line="+106"/>
         <source>Directory contains no database</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4528,7 +4533,7 @@ Do you still want to import from kombilo.cfg?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+240"/>
+        <location line="+249"/>
         <source>Select white stone base color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4564,7 +4569,7 @@ Do you still want to import from kombilo.cfg?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+199"/>
+        <location line="+208"/>
         <location line="+13"/>
         <source>Unsaved data</source>
         <translation type="unfinished"></translation>
@@ -4896,7 +4901,7 @@ Select the font for the server console (fixed font preferably).</source>
 Typum (rigidum potius) imperii moderatri eligit.</translation>
     </message>
     <message>
-        <location line="+2083"/>
+        <location line="+2097"/>
         <location line="+1744"/>
         <source>New</source>
         <translation>Novus</translation>
@@ -4938,7 +4943,7 @@ Label &apos;Add&apos; is default. The given entries will be saved under the give
         <translation>Delere</translation>
     </message>
     <message>
-        <location line="-3775"/>
+        <location line="-3789"/>
         <source>Play sound for</source>
         <translation>Soni</translation>
     </message>
@@ -5145,7 +5150,7 @@ Si lingua tua non adest, qGo convertere pondera. qGo domum ade:  http://qgo.sour
         <translation>Tabella</translation>
     </message>
     <message>
-        <location line="+1439"/>
+        <location line="+1453"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5252,7 +5257,7 @@ Si lingua tua non adest, qGo convertere pondera. qGo domum ade:  http://qgo.sour
         <translation>Coordinata tabellae ostendere</translation>
     </message>
     <message>
-        <location line="-4117"/>
+        <location line="-4131"/>
         <source>Show a ghost stone at mouse pointer</source>
         <translation>Sub muris indice simulacrum lapidis ostendere</translation>
     </message>
@@ -5520,7 +5525,7 @@ Quomodo omnes fratres huius motus ostendentur elige: non ostenti aut simulacra a
         <translation>Simulacra</translation>
     </message>
     <message>
-        <location line="+1037"/>
+        <location line="+1051"/>
         <source>Computer Go</source>
         <translation>Go Computatro</translation>
     </message>
@@ -5673,7 +5678,7 @@ Omnibus moderatris Gois inscriptio porti, quae numerus est, addicta est. &apos;H
         <translation>Nomen:</translation>
     </message>
     <message>
-        <location line="-3523"/>
+        <location line="-3537"/>
         <source>Options for preventing misclicks in online games</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5761,12 +5766,12 @@ diagram pane shown:</source>
     </message>
     <message>
         <location line="+24"/>
-        <location line="+1489"/>
+        <location line="+1503"/>
         <source>Letters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-1465"/>
+        <location line="-1479"/>
         <source>Show as:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6092,7 +6097,12 @@ child/sibling setting:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+10"/>
+        <source>Word in cue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
         <source>WebDAV</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6356,12 +6366,12 @@ Lineam serbatam cum hoc titulo delet.
 Cave: &apos;Delere&apos; ad lineas serbatas pertinet.</translation>
     </message>
     <message>
-        <location line="-2258"/>
+        <location line="-2272"/>
         <source>Name</source>
         <translation>Nomen</translation>
     </message>
     <message>
-        <location line="+2518"/>
+        <location line="+2532"/>
         <location line="+69"/>
         <source>Host Entries
 
@@ -6961,7 +6971,7 @@ ad :</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="-1006"/>
+        <location filename="../preferences.cpp" line="-1024"/>
         <source>Add a database directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7540,7 +7550,7 @@ You will need to add &apos;%n&quot; somewhere in the template to indicate the po
 <context>
     <name>T</name>
     <message>
-        <location filename="../preferences.cpp" line="-220"/>
+        <location filename="../preferences.cpp" line="-298"/>
         <source>Name</source>
         <translation type="unfinished">Nomen</translation>
     </message>

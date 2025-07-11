@@ -8,6 +8,7 @@
 #include <QAbstractItemModel>
 #include <QStandardItemModel>
 
+#include "qedgetts.h"
 #include "setting.h"
 #include "ui_preferences_gui.h"
 
@@ -63,6 +64,9 @@ class PreferencesDialog
 
     pref_vec_model<Host>   m_hosts_model;
     pref_vec_model<Engine> m_engines_model;
+
+    QEdgeTTS             m_edgeTTS;
+    QList<VoiceIdentity> m_voiceList;
 
     bool m_engines_changed = false;
     bool m_hosts_changed   = false;
@@ -127,6 +131,12 @@ public slots:
     void slot_dbrem(bool);
     
     void slot_test_webdav_connection();
+
+    void onVoiceListReceived(const QList<VoiceIdentity> &voiceList);
+    void onVoiceReceived(const QByteArray &voice);
+    void onEdgeTTSErrorOccurred(const QString &error);
+    void onVoiceListCurrentIndexChanged(int index);
+    void onLocaleCurrentIndexChanged(int index);
 
 private:
     void saveSizes();

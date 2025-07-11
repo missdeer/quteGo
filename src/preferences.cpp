@@ -274,6 +274,84 @@ PreferencesDialog::PreferencesDialog(QWidget *parent)
     connect(fontListsButton, &QPushButton::clicked, [this]() { selectFont(fontListsButton, g_setting->fontLists); });
     connect(fontClocksButton, &QPushButton::clicked, [this]() { selectFont(fontClocksButton, g_setting->fontClocks); });
     connect(fontConsoleButton, &QPushButton::clicked, [this]() { selectFont(fontConsoleButton, g_setting->fontConsole); });
+    
+    connect(&m_edgeTTS, &QEdgeTTS::voiceListReceived, this, &PreferencesDialog::onVoiceListReceived);
+    connect(&m_edgeTTS, &QEdgeTTS::voiceReceived, this, &PreferencesDialog::onVoiceReceived);
+    connect(&m_edgeTTS, &QEdgeTTS::errorOccurred, this, &PreferencesDialog::onEdgeTTSErrorOccurred);
+    connect(cbVoices, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onVoiceListCurrentIndexChanged);
+    connect(cbLocale, &QComboBox::currentIndexChanged, this, &PreferencesDialog::onLocaleCurrentIndexChanged);
+
+    m_edgeTTS.getVoiceList();
+}
+
+void PreferencesDialog::onVoiceReceived(const QByteArray &voice)
+{
+    // play or save to file
+}
+
+void PreferencesDialog::onEdgeTTSErrorOccurred(const QString &error)
+{
+    QMessageBox::warning(this, tr("Error"), error);
+}
+
+void PreferencesDialog::onVoiceListCurrentIndexChanged(int index)
+{
+    if (index < 0 || index >= m_voiceList.size())
+    {
+        return;
+    }
+    auto        text  = cbVoices->currentText();
+    auto        iter  = std::find_if(m_voiceList.begin(), m_voiceList.end(), [text](const VoiceIdentity &voice) { return voice.name == text; });
+    const auto &voice = *iter;
+    edtVoiceShortName->setText(voice.shortName);
+    cbLocale->setCurrentText(voice.locale);
+    lblVoiceGender->setText(voice.gender);
+    lblVoiceFriendlyName->setText(voice.friendlyName);
+    lblVoiceContentCategory->setText(voice.contentCategory);
+    lblVoicePersonalities->setText(voice.voicePersonalities);
+    lblVoiceSuggestedCodec->setText(voice.suggestedCodec);
+    lblVoiceStatus->setText(voice.status);
+}
+
+void PreferencesDialog::onLocaleCurrentIndexChanged(int index)
+{
+    auto        text = cbLocale->currentText();
+    QStringList filteredVoices;
+    for (const auto &voice : m_voiceList)
+    {
+        if (voice.locale == text)
+        {
+            filteredVoices << voice.name;
+        }
+    }
+    cbVoices->clear();
+    cbVoices->addItems(filteredVoices);
+}
+
+void PreferencesDialog::onVoiceListReceived(const QList<VoiceIdentity> &voiceList)
+{
+    m_voiceList = voiceList;
+    QStringList locales;
+    for (const auto &voice : voiceList)
+    {
+        cbVoices->addItem(voice.name);
+        locales << voice.locale;
+    }
+    std::sort(locales.begin(), locales.end());
+    auto iter = std::unique(locales.begin(), locales.end());
+    locales.erase(iter, locales.end());
+    cbLocale->clear();
+    cbLocale->addItems(locales);
+    onVoiceListCurrentIndexChanged(0);
+
+    if (!g_setting->readEntry("EDGETTS_LOCALE").isEmpty())
+    {
+        cbLocale->setCurrentText(g_setting->readEntry("EDGETTS_LOCALE"));
+    }
+    if (!g_setting->readEntry("EDGETTS_VOICE").isEmpty())
+    {
+        cbVoices->setCurrentText(g_setting->readEntry("EDGETTS_VOICE"));
+    }  
 }
 
 void PreferencesDialog::update_dbpaths(const QStringList &l)
@@ -578,6 +656,15 @@ void PreferencesDialog::init_from_settings()
     edtWebDAVPassword->setText(g_setting->readEntry("WEBDAV_PASSWORD"));
     cbAutoConnectWebDAVAtStartup->setChecked(g_setting->readBoolEntry("WEBDAV_AUTO_CONNECT"));
     cbRememberLastUsedWebDAVPath->setChecked(g_setting->readBoolEntry("WEBDAV_REMEMBER_LAST_USED_PATH"));
+
+    // Edge TTS tab
+    cbAutoReadComment->setChecked(g_setting->readBoolEntry("EDGETTS_AUTO_READ_COMMENT"));
+   // cbVoices->setCurrentText(g_setting->readEntry("EDGETTS_VOICE"));
+   // cbLocale->setCurrentText(g_setting->readEntry("EDGETTS_LOCALE"));
+    spVoicePitch->setValue(g_setting->readIntEntry("EDGETTS_PITCH"));
+    spVoiceRate->setValue(g_setting->readIntEntry("EDGETTS_RATE"));
+    spVoiceVolume->setValue(g_setting->readIntEntry("EDGETTS_VOLUME"));
+    edtVoiceShortName->setText(g_setting->readEntry("EDGETTS_SHORT_NAME"));
 }
 
 void PreferencesDialog::select_stone_look(bool)
@@ -869,6 +956,15 @@ void PreferencesDialog::slot_apply()
     g_setting->writeEntry("WEBDAV_PASSWORD", edtWebDAVPassword->text());
     g_setting->writeBoolEntry("WEBDAV_AUTO_CONNECT", cbAutoConnectWebDAVAtStartup->isChecked());
     g_setting->writeBoolEntry("WEBDAV_REMEMBER_LAST_USED_PATH", cbRememberLastUsedWebDAVPath->isChecked());
+    
+    // Edge TTS tab
+    g_setting->writeBoolEntry("EDGETTS_AUTO_READ_COMMENT", cbAutoReadComment->isChecked());
+    g_setting->writeIntEntry("EDGETTS_PITCH", spVoicePitch->value());
+    g_setting->writeIntEntry("EDGETTS_RATE", spVoiceRate->value());
+    g_setting->writeIntEntry("EDGETTS_VOLUME", spVoiceVolume->value());
+    g_setting->writeEntry("EDGETTS_VOICE", cbVoices->currentText());
+    g_setting->writeEntry("EDGETTS_LOCALE", cbLocale->currentText());
+    g_setting->writeEntry("EDGETTS_SHORT_NAME", edtVoiceShortName->text());
 
     if (m_dbpaths_changed)
     {
