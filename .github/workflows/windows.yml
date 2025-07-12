@@ -381,6 +381,22 @@ jobs:
           ref: ${{ github.head_ref  }}
           submodules: true
 
+      - name: Build mingwdeployqt
+        shell: cmd
+        run: |
+          git clone https://github.com/missdeer/mingwdeployqt.git
+          echo set MSYSTEM=${{ matrix.mingw_arch }} > cmake.bat
+          echo set PATH=${{ env.msysroot }}\msys64\${{ matrix.mingw_arch }}\bin;${{ env.msysroot }}\msys64\usr\bin;%PATH% >> cmake.bat
+          echo ${{ env.msysroot }}\msys64\${{ matrix.mingw_arch }}\bin\cmake.exe %%* >> cmake.bat
+          type cmake.bat
+          cd mingwdeployqt
+          mkdir build
+          cd build
+          call ..\..\cmake.bat -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=${{ matrix.c }} -DCMAKE_CXX_COMPILER=${{ matrix.cxx }} -G Ninja ..
+          call ..\..\cmake.bat --build . --verbose
+          copy mingwdeployqt.exe ${{ env.msysroot }}\msys64\${{ matrix.mingw_arch }}\bin\
+          cd ..\..
+          
       - name: cmake-configure
         shell: msys2 {0}
         run: |
@@ -402,8 +418,15 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory ${env:archiveName}
-          Copy-Item build\src\release\${env:targetName}'.exe' ${env:archiveName}\
-   
+          Copy-Item build\src\${env:targetName}'.exe' ${env:archiveName}\
+
+      - name: deploy
+        env:
+          archiveName: ${{ env.targetName }}-${{ matrix.qt_arch }}
+        shell: cmd
+        run: |
+          ${{ env.msysroot }}\msys64\${{ matrix.mingw_arch }}\bin\mingwdeployqt.exe ${env:archiveName}\${env:targetName}'.exe'
+          
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
