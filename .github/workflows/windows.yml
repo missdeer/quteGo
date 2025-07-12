@@ -35,7 +35,7 @@ jobs:
         qt_arch_install: [msvc2022_64]
         include:
           - qt_ver: 6.9.1
-            qt_modules: "qtmultimedia qt5compat"
+            qt_modules: "qtmultimedia qt5compat qtwebsockets"
     env:
       targetName: quteGo
     steps:
@@ -171,7 +171,7 @@ jobs:
         clang_link: [https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.7/LLVM-20.1.7-win64.exe]
         include:
           - qt_ver: 6.9.1
-            qt_modules: "qtmultimedia qt5compat"
+            qt_modules: "qtmultimedia qt5compat qtwebsockets"
             clang_link: https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.7/LLVM-20.1.7-win64.exe
     env:
       targetName: quteGo
@@ -249,7 +249,7 @@ jobs:
         qt_arch_install: [msvc2022_64]
         include:
           - qt_ver: 6.9.1
-            qt_modules: "qtmultimedia qt5compat"
+            qt_modules: "qtmultimedia qt5compat qtwebsockets"
     env:
       targetName: quteGo
     steps:
