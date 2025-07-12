@@ -393,7 +393,7 @@ jobs:
           cd mingwdeployqt
           mkdir build
           cd build
-          call ..\..\cmake.bat -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=${{ matrix.c }} -DCMAKE_CXX_COMPILER=${{ matrix.cxx }} -G Ninja ..
+          call ..\..\cmake.bat -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=${{ matrix.toolchains }} -DCMAKE_CXX_COMPILER=${{ matrix.toolchainsplusplus }} -G Ninja ..
           call ..\..\cmake.bat --build . --verbose
           copy mingwdeployqt.exe ${{ env.msysroot }}\msys64\${{ matrix.mingw_arch }}\bin\
           cd ..\..
