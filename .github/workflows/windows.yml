@@ -344,6 +344,28 @@ jobs:
             toolchains: clang
             toolchainsplusplus: clang++
             windeployqt: windeployqt.exe
+          - qt_arch: ucrt64_qt6-gcc
+            mingw_arch: UCRT64
+            mingw_prefix: mingw-w64-ucrt-x86_64
+            qt_build: qt6  
+            toolchains: gcc
+            toolchainsplusplus: g++
+            windeployqt: windeployqt.exe
+          - qt_arch: ucrt64_qt6-clang
+            mingw_arch: UCRT64
+            mingw_prefix: mingw-w64-ucrt-x86_64
+            qt_build: qt6  
+            toolchains: clang
+            toolchainsplusplus: clang++
+            windeployqt: windeployqt.exe
+          - qt_arch: clang64_qt6-clang
+            mingw_arch: CLANG64
+            mingw_prefix: mingw-w64-clang-x86_64
+            qt_build: qt6  
+            toolchains: clang
+            toolchainsplusplus: clang++
+            windeployqt: windeployqt.exe
+
     env:
       targetName: quteGo
       
@@ -352,7 +374,7 @@ jobs:
         with:
           update: true
           msystem: ${{ matrix.mingw_arch }}
-          install:  ${{ matrix.mingw_prefix }}-${{ matrix.toolchains }} ${{ matrix.mingw_prefix }}-make ${{ matrix.mingw_prefix }}-${{ matrix.qt_build }} ${{ matrix.mingw_prefix }}-openssl ${{ matrix.mingw_prefix }}-zstd ${{ matrix.mingw_prefix }}-cmake ${{ matrix.mingw_prefix }}-ninja ${{ matrix.mingw_prefix }}-libarchive ${{ matrix.mingw_prefix }}-boost
+          install:  ${{ matrix.mingw_prefix }}-${{ matrix.toolchains }} ${{ matrix.mingw_prefix }}-clang ${{ matrix.mingw_prefix }}-make ${{ matrix.mingw_prefix }}-${{ matrix.qt_build }} ${{ matrix.mingw_prefix }}-openssl ${{ matrix.mingw_prefix }}-zstd ${{ matrix.mingw_prefix }}-cmake ${{ matrix.mingw_prefix }}-ninja ${{ matrix.mingw_prefix }}-libarchive ${{ matrix.mingw_prefix }}-boost
 
       - uses: actions/checkout@v2
         with:
