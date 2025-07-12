@@ -426,7 +426,7 @@ jobs:
           archiveName: ${{ env.targetName }}-${{ matrix.qt_arch }}
         shell: cmd
         run: |
-          ${{ env.msysroot }}\msys64\${{ matrix.mingw_arch }}\bin\mingwdeployqt.exe ${env:archiveName}\${env:targetName}'.exe'
+          ${{ env.msysroot }}\msys64\${{ matrix.mingw_arch }}\bin\mingwdeployqt.exe ${{ env.archiveName }}\${{ env.targetName }}'.exe'
           
       - name: Upload artifact
         uses: actions/upload-artifact@v4
