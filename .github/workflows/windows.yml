@@ -333,12 +333,14 @@ jobs:
           - qt_arch: mingw64_qt6-gcc
             mingw_arch: MINGW64 
             mingw_prefix: mingw-w64-x86_64
+            qt_build: qt6  
             toolchains: gcc
             toolchainsplusplus: g++
             windeployqt: windeployqt.exe
           - qt_arch: mingw64_qt6-clang
             mingw_arch: MINGW64 
             mingw_prefix: mingw-w64-x86_64
+            qt_build: qt6  
             toolchains: clang
             toolchainsplusplus: clang++
             windeployqt: windeployqt.exe
