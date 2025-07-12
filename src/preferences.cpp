@@ -215,8 +215,8 @@ PreferencesDialog::PreferencesDialog(QWidget *parent)
     connect(radioButtonStones_2D, &QRadioButton::toggled, this, &PreferencesDialog::select_stone_look);
     connect(radioButtonStones_3D, &QRadioButton::toggled, this, &PreferencesDialog::select_stone_look);
     connect(radioButtonStone_picture, &QRadioButton::toggled, this, &PreferencesDialog::select_stone_look);
-    connect(blackStonePicturePathEdit, &QLineEdit::textChanged, [=]() { update_b_stones(); });
-    connect(whiteStonePicturePathEdit, &QLineEdit::textChanged, [=]() { update_w_stones(); });
+    connect(blackStonePicturePathEdit->lineEdit(), &QLineEdit::textChanged, [=]() { update_b_stones(); });
+    connect(whiteStonePicturePathEdit->lineEdit(), &QLineEdit::textChanged, [=]() { update_w_stones(); });
 
     connect(whiteColorButton, &QToolButton::clicked, this, &PreferencesDialog::select_white_color);
     connect(blackColorButton, &QToolButton::clicked, this, &PreferencesDialog::select_black_color);
@@ -234,13 +234,12 @@ PreferencesDialog::PreferencesDialog(QWidget *parent)
     });
     connect(stripesCheckBox, &QCheckBox::toggled, [=](int) { update_w_stones(); });
 
-    void (QComboBox::*cic)(int) = &QComboBox::currentIndexChanged;
-    connect(woodComboBox, cic, [=](int i) {
+    connect(woodComboBox, &QComboBox::currentIndexChanged, [this](int i) {
         GobanPicturePathButton->setEnabled(i == 0);
         LineEdit_goban->setEnabled(i == 0);
         update_board_image();
     });
-    connect(LineEdit_goban, &QLineEdit::editingFinished, [=]() { update_board_image(); });
+    connect(LineEdit_goban->lineEdit(), &QLineEdit::editingFinished, [=]() { update_board_image(); });
 
     update_board_image();
     update_w_stones();
@@ -478,7 +477,7 @@ void PreferencesDialog::update_board_image()
     int     h = stoneView->height();
     QImage  image(w, h, QImage::Format_RGB32);
     QPixmap pm;
-    QString filename = LineEdit_goban->text();
+    QString filename = LineEdit_goban->lineEdit()->text();
     int     idx      = woodComboBox->currentIndex();
     if (idx > 0)
         filename = QString(":/BoardWindow/images/board/wood%1.png").arg(idx);
@@ -516,8 +515,8 @@ void PreferencesDialog::init_from_settings()
     LineEdit_goban->setEnabled(idx == 0);
     woodComboBox->setCurrentIndex(idx);
 
-    LineEdit_goban->setText(g_setting->readEntry("SKIN"));
-    LineEdit_Table->setText(g_setting->readEntry("SKIN_TABLE"));
+    LineEdit_goban->lineEdit()->setText(g_setting->readEntry("SKIN"));
+    LineEdit_Table->lineEdit()->setText(g_setting->readEntry("SKIN_TABLE"));
     scaleWoodCheckBox->setChecked(g_setting->readBoolEntry("SKIN_SCALE_WOOD"));
     languageComboBox->insertItems(1, g_setting->getAvailableLanguages());
     languageComboBox->setCurrentIndex(g_setting->convertLanguageCodeToNumber());
@@ -529,8 +528,8 @@ void PreferencesDialog::init_from_settings()
     radioButtonStone_real->setChecked((g_setting->readIntEntry("STONES_LOOK") == 3));
     radioButtonStone_picture->setChecked((g_setting->readIntEntry("STONES_LOOK") == 4));
     stoneSizePercentSlider->setValue(g_setting->readIntEntry("STONES_SIZE_PERCENT"));
-    whiteStonePicturePathEdit->setText(g_setting->readEntry("STONES_WPICTURE"));
-    blackStonePicturePathEdit->setText(g_setting->readEntry("STONES_BPICTURE"));
+    whiteStonePicturePathEdit->lineEdit()->setText(g_setting->readEntry("STONES_WPICTURE"));
+    blackStonePicturePathEdit->lineEdit()->setText(g_setting->readEntry("STONES_BPICTURE"));
     stripesCheckBox->setChecked(g_setting->readBoolEntry("STONES_STRIPES"));
     whiteSpecSlider->setValue(g_setting->readIntEntry("STONES_WSPEC"));
     blackSpecSlider->setValue(g_setting->readIntEntry("STONES_BSPEC"));
@@ -688,8 +687,8 @@ void PreferencesDialog::select_black_color(bool)
 
 void PreferencesDialog::update_stone_params()
 {
-    QString whiteStonePicturePath = whiteStonePicturePathEdit->text();
-    QString blackStonePicturePath = blackStonePicturePathEdit->text();
+    QString whiteStonePicturePath = whiteStonePicturePathEdit->lineEdit()->text();
+    QString blackStonePicturePath = blackStonePicturePathEdit->lineEdit()->text();
     int     sizePercent           = stoneSizePercentSlider->value();
     double  br                    = 2.05 + (100 - blackRoundSlider->value()) / 30.0;
     double  wr                    = 2.05 + (100 - whiteRoundSlider->value()) / 30.0;
@@ -818,8 +817,8 @@ void PreferencesDialog::slot_apply()
     g_setting->writeBoolEntry("SLIDE_COORDS", slideCoordsCheckBox->isChecked());
 
     g_setting->writeIntEntry("SKIN_INDEX", woodComboBox->currentIndex());
-    g_setting->writeEntry("SKIN", LineEdit_goban->text());
-    g_setting->writeEntry("SKIN_TABLE", LineEdit_Table->text());
+    g_setting->writeEntry("SKIN", LineEdit_goban->lineEdit()->text());
+    g_setting->writeEntry("SKIN_TABLE", LineEdit_Table->lineEdit()->text());
     g_setting->writeBoolEntry("SKIN_SCALE_WOOD", scaleWoodCheckBox->isChecked());
     g_setting->obtain_skin_images();
 
@@ -846,8 +845,8 @@ void PreferencesDialog::slot_apply()
     g_setting->writeIntEntry("STONES_WFLAT", whiteFlatSlider->value());
     g_setting->writeIntEntry("STONES_BFLAT", blackFlatSlider->value());
     g_setting->writeIntEntry("STONES_AMBIENT", ambientSlider->value());
-    g_setting->writeEntry("STONES_WPICTURE", whiteStonePicturePathEdit->text());
-    g_setting->writeEntry("STONES_BPICTURE", blackStonePicturePathEdit->text());
+    g_setting->writeEntry("STONES_WPICTURE", whiteStonePicturePathEdit->lineEdit()->text());
+    g_setting->writeEntry("STONES_BPICTURE", blackStonePicturePathEdit->lineEdit()->text());
     g_setting->writeIntEntry("STONES_SIZE_PERCENT", stoneSizePercentSlider->value());
     g_setting->writeEntry("STONES_BCOL", black_color().name());
     g_setting->writeEntry("STONES_WCOL", white_color().name());
@@ -1314,7 +1313,7 @@ void PreferencesDialog::slot_getGobanPicturePath()
 #else
     QString path = g_setting->readEntry("LAST_DIR");
 #endif
-    QString old_name = LineEdit_goban->text();
+    QString old_name = LineEdit_goban->lineEdit()->text();
     if (!old_name.isEmpty())
     {
         QFileInfo info(old_name);
@@ -1328,7 +1327,7 @@ void PreferencesDialog::slot_getGobanPicturePath()
     if (fileName.isEmpty())
         return;
 
-    LineEdit_goban->setText(fileName);
+    LineEdit_goban->lineEdit()->setText(fileName);
     update_board_image();
 }
 
@@ -1344,7 +1343,7 @@ void PreferencesDialog::slot_getTablePicturePath()
 #else
     QString path = g_setting->readEntry("LAST_DIR");
 #endif
-    QString old_name = LineEdit_Table->text();
+    QString old_name = LineEdit_Table->lineEdit()->text();
     if (!old_name.isEmpty())
     {
         QFileInfo info(old_name);
@@ -1358,7 +1357,7 @@ void PreferencesDialog::slot_getTablePicturePath()
     if (fileName.isEmpty())
         return;
 
-    LineEdit_Table->setText(fileName);
+    LineEdit_Table->lineEdit()->setText(fileName);
 }
 
 void PreferencesDialog::slot_getWhiteStonePicturePath()
@@ -1373,7 +1372,7 @@ void PreferencesDialog::slot_getWhiteStonePicturePath()
 #else
     QString path = g_setting->readEntry("LAST_DIR");
 #endif
-    QString old_name = whiteStonePicturePathEdit->text();
+    QString old_name = whiteStonePicturePathEdit->lineEdit()->text();
     if (!old_name.isEmpty())
     {
         QFileInfo info(old_name);
@@ -1387,7 +1386,7 @@ void PreferencesDialog::slot_getWhiteStonePicturePath()
     if (fileName.isEmpty())
         return;
 
-    whiteStonePicturePathEdit->setText(fileName);
+    whiteStonePicturePathEdit->lineEdit()->setText(fileName);
 }
 
 void PreferencesDialog::slot_getBlackStonePicturePath()
@@ -1402,7 +1401,7 @@ void PreferencesDialog::slot_getBlackStonePicturePath()
 #else
     QString path = g_setting->readEntry("LAST_DIR");
 #endif
-    QString old_name = blackStonePicturePathEdit->text();
+    QString old_name = blackStonePicturePathEdit->lineEdit()->text();
     if (!old_name.isEmpty())
     {
         QFileInfo info(old_name);
@@ -1416,7 +1415,7 @@ void PreferencesDialog::slot_getBlackStonePicturePath()
     if (fileName.isEmpty())
         return;
 
-    blackStonePicturePathEdit->setText(fileName);
+    blackStonePicturePathEdit->lineEdit()->setText(fileName);
 }
 
 void PreferencesDialog::slot_main_time_changed(int n)

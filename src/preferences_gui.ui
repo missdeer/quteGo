@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>822</width>
-    <height>868</height>
+    <height>886</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -187,7 +187,7 @@
       <string/>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="InterfaceTabWidget">
       <attribute name="title">
@@ -1936,116 +1936,6 @@ child/sibling setting:</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="2">
-           <widget class="QPushButton" name="GobanPicturePathButton">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="q4go.qrc">
-              <normaloff>:/ClientWindowGui/images/clientwindow/fileopen.png</normaloff>:/ClientWindowGui/images/clientwindow/fileopen.png</iconset>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="2">
-           <widget class="QPushButton" name="TablePicturePathButton">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>:/PreferencesDialogGui/images/preferences/image1.png</normaloff>:/PreferencesDialogGui/images/preferences/image1.png</iconset>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QLineEdit" name="LineEdit_Table">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="toolTip">
-             <string>Path to the table picture</string>
-            </property>
-            <property name="whatsThis">
-             <string>Path to the table picture.
-If the picture is not set, or unvalid, a default picture is used by qgo</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="textLabel1_2">
-            <property name="text">
-             <string>Table picture</string>
-            </property>
-            <property name="wordWrap">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QComboBox" name="woodComboBox">
-            <property name="toolTip">
-             <string>Choose a preset, or set to &quot;Custom File&quot; to use your own image file as the wood image for the board.</string>
-            </property>
-            <item>
-             <property name="text">
-              <string>Custom file</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Default 1</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Default 2</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Default 3</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Default 4</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Default 5</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLineEdit" name="LineEdit_goban">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="toolTip">
-             <string>Path to the goban picture</string>
-            </property>
-            <property name="whatsThis">
-             <string>Path to the goban picture.
-If the picture is not set, or unvalid, a default goban is used by qgo</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_6">
-            <property name="text">
-             <string>Wood image:</string>
-            </property>
-           </widget>
-          </item>
           <item row="4" column="0" colspan="2">
            <layout class="QHBoxLayout" name="horizontalLayout_14">
             <property name="topMargin">
@@ -2093,6 +1983,112 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
             </item>
            </layout>
           </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Wood image:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QComboBox" name="LineEdit_Table">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="editable">
+             <bool>true</bool>
+            </property>
+            <property name="toolTip">
+             <string>Path to the table picture</string>
+            </property>
+            <property name="whatsThis">
+             <string>Path to the table picture.
+If the picture is not set, or unvalid, a default picture is used by qgo</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="4">
+           <widget class="QPushButton" name="TablePicturePathButton">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="q4go.qrc">
+              <normaloff>:/ClientWindowGui/images/clientwindow/fileopen.png</normaloff>:/ClientWindowGui/images/clientwindow/fileopen.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="textLabel1_2">
+            <property name="text">
+             <string>Table picture</string>
+            </property>
+            <property name="wordWrap">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="LineEdit_goban">
+            <property name="editable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <widget class="QPushButton" name="GobanPicturePathButton">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="q4go.qrc">
+              <normaloff>:/ClientWindowGui/images/clientwindow/fileopen.png</normaloff>:/ClientWindowGui/images/clientwindow/fileopen.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QComboBox" name="woodComboBox">
+            <property name="toolTip">
+             <string>Choose a preset, or set to &quot;Custom File&quot; to use your own image file as the wood image for the board.</string>
+            </property>
+            <property name="editable">
+             <bool>true</bool>
+            </property>
+            <item>
+             <property name="text">
+              <string>Custom file</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Default 1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Default 2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Default 3</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Default 4</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Default 5</string>
+             </property>
+            </item>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
@@ -2108,8 +2104,8 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
              <string/>
             </property>
             <property name="icon">
-             <iconset>
-              <normaloff>:/PreferencesDialogGui/images/preferences/image1.png</normaloff>:/PreferencesDialogGui/images/preferences/image1.png</iconset>
+             <iconset resource="q4go.qrc">
+              <normaloff>:/ClientWindowGui/images/clientwindow/fileopen.png</normaloff>:/ClientWindowGui/images/clientwindow/fileopen.png</iconset>
             </property>
            </widget>
           </item>
@@ -2121,10 +2117,18 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
            </widget>
           </item>
           <item row="0" column="2">
-           <widget class="QLineEdit" name="whiteStonePicturePathEdit"/>
+           <widget class="QComboBox" name="whiteStonePicturePathEdit">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+           </widget>
           </item>
           <item row="1" column="2">
-           <widget class="QLineEdit" name="blackStonePicturePathEdit"/>
+           <widget class="QComboBox" name="blackStonePicturePathEdit">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+           </widget>
           </item>
           <item row="0" column="0">
            <widget class="QLabel" name="label_24">
@@ -2139,8 +2143,8 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
              <string/>
             </property>
             <property name="icon">
-             <iconset>
-              <normaloff>:/PreferencesDialogGui/images/preferences/image1.png</normaloff>:/PreferencesDialogGui/images/preferences/image1.png</iconset>
+             <iconset resource="q4go.qrc">
+              <normaloff>:/ClientWindowGui/images/clientwindow/fileopen.png</normaloff>:/ClientWindowGui/images/clientwindow/fileopen.png</iconset>
             </property>
            </widget>
           </item>
@@ -2449,6 +2453,10 @@ If the picture is not set, or unvalid, a default goban is used by qgo</string>
         <widget class="QPushButton" name="btnTestWebDAVConnect">
          <property name="text">
           <string>Test Connection</string>
+         </property>
+         <property name="icon">
+          <iconset resource="q4go.qrc">
+           <normaloff>:/rc/icons/connect.png</normaloff>:/rc/icons/connect.png</iconset>
          </property>
         </widget>
        </item>
@@ -5261,7 +5269,6 @@ Select one of the predefined hosts -- xxx -- and add a title to use it.</string>
   <tabstop>stripesCheckBox</tabstop>
   <tabstop>ambientSlider</tabstop>
   <tabstop>woodComboBox</tabstop>
-  <tabstop>LineEdit_goban</tabstop>
   <tabstop>GobanPicturePathButton</tabstop>
   <tabstop>LineEdit_Table</tabstop>
   <tabstop>TablePicturePathButton</tabstop>

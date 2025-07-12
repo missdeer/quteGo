@@ -4509,239 +4509,239 @@ Employez &apos;komi X&apos; pour demander un komi de x (nombre).</translation>
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../preferences.cpp" line="1172"/>
-        <location filename="../preferences.cpp" line="1257"/>
+        <location filename="../preferences.cpp" line="1171"/>
+        <location filename="../preferences.cpp" line="1256"/>
         <source>Change</source>
         <translation>Modifier</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1177"/>
-        <location filename="../preferences.cpp" line="1262"/>
+        <location filename="../preferences.cpp" line="1176"/>
+        <location filename="../preferences.cpp" line="1261"/>
         <source>Add</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1270"/>
+        <location filename="../preferences.cpp" line="1269"/>
         <source>Stones</source>
         <translation>Pierres</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1272"/>
+        <location filename="../preferences.cpp" line="1271"/>
         <source>Pass</source>
         <translation>Passer</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1274"/>
+        <location filename="../preferences.cpp" line="1273"/>
         <source>Autoplay</source>
         <translation>Déroulement automatique</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1276"/>
+        <location filename="../preferences.cpp" line="1275"/>
         <source>Time</source>
         <translation>temps</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1278"/>
+        <location filename="../preferences.cpp" line="1277"/>
         <source>Talk</source>
         <translation>Dialoguer</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1280"/>
+        <location filename="../preferences.cpp" line="1279"/>
         <source>Say</source>
         <translation>Parler</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1282"/>
+        <location filename="../preferences.cpp" line="1281"/>
         <source>Match</source>
         <translation>Partie</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1284"/>
+        <location filename="../preferences.cpp" line="1283"/>
         <source>Enter</source>
         <translation>entrez</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1286"/>
+        <location filename="../preferences.cpp" line="1285"/>
         <source>Game end</source>
         <translation>Partie terminée</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1288"/>
+        <location filename="../preferences.cpp" line="1287"/>
         <source>Leave</source>
         <translation>Quitter</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1290"/>
+        <location filename="../preferences.cpp" line="1289"/>
         <source>Disconnect</source>
         <translation>Se déconnecter</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1292"/>
+        <location filename="../preferences.cpp" line="1291"/>
         <source>Connect</source>
         <translation>Se connecter</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1298"/>
+        <location filename="../preferences.cpp" line="1297"/>
         <source>All Files (*)</source>
         <translation>Tous (*)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1327"/>
-        <location filename="../preferences.cpp" line="1357"/>
+        <location filename="../preferences.cpp" line="1326"/>
+        <location filename="../preferences.cpp" line="1356"/>
         <source>Images (*.png *.xpm *.jpg)</source>
         <translation>Images (*.png *.xpm *.jpg)</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="677"/>
+        <location filename="../preferences.cpp" line="676"/>
         <source>Select white stone base color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="294"/>
+        <location filename="../preferences.cpp" line="293"/>
         <source>Error</source>
         <translation type="unfinished">Erreur</translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="400"/>
+        <location filename="../preferences.cpp" line="399"/>
         <source>Directory contains no database</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="401"/>
+        <location filename="../preferences.cpp" line="400"/>
         <source>The directory could not be added because no kombilo.db file could be found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="411"/>
+        <location filename="../preferences.cpp" line="410"/>
         <source>Directory already in the list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="412"/>
+        <location filename="../preferences.cpp" line="411"/>
         <source>The directory could not be added because it already exists in the list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="428"/>
+        <location filename="../preferences.cpp" line="427"/>
         <source>Overwrite database paths</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="429"/>
+        <location filename="../preferences.cpp" line="428"/>
         <source>This operation replaces existing database paths.
 Do you still want to import from kombilo.cfg?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="684"/>
+        <location filename="../preferences.cpp" line="683"/>
         <source>Select black stone base color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="792"/>
+        <location filename="../preferences.cpp" line="791"/>
         <source>Invalid slide width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="793"/>
-        <location filename="../preferences.cpp" line="802"/>
+        <location filename="../preferences.cpp" line="792"/>
+        <location filename="../preferences.cpp" line="801"/>
         <source>Please enter valid dimensions for slide export (100x100 or larger).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="801"/>
+        <location filename="../preferences.cpp" line="800"/>
         <source>Invalid slide height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="808"/>
+        <location filename="../preferences.cpp" line="807"/>
         <source>Invalid slide dimensions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="808"/>
+        <location filename="../preferences.cpp" line="807"/>
         <source>Slide export dimensions must be wider than they are tall.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1016"/>
-        <location filename="../preferences.cpp" line="1029"/>
+        <location filename="../preferences.cpp" line="1015"/>
+        <location filename="../preferences.cpp" line="1028"/>
         <source>Unsaved data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1017"/>
+        <location filename="../preferences.cpp" line="1016"/>
         <source>The engine input fields contain
 potentially unsaved data.
 Really close the preferences?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1030"/>
+        <location filename="../preferences.cpp" line="1029"/>
         <source>The host input fields contain
 potentially unsaved data.
 Really close the preferences?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1075"/>
+        <location filename="../preferences.cpp" line="1074"/>
         <source>Invalid komi entered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1075"/>
+        <location filename="../preferences.cpp" line="1074"/>
         <source>Please enter a valid komi before adding the engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1084"/>
+        <location filename="../preferences.cpp" line="1083"/>
         <source>Missing board size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1085"/>
+        <location filename="../preferences.cpp" line="1084"/>
         <source>Analysis engines require a board size to be specified.
 If your engine allows multiple board sizes, you need to configure them in separate entires.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1096"/>
+        <location filename="../preferences.cpp" line="1095"/>
         <source>Invalid board size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1096"/>
+        <location filename="../preferences.cpp" line="1095"/>
         <source>Only a range of 5 to 25 is allowed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1298"/>
+        <location filename="../preferences.cpp" line="1297"/>
         <source>Choose GTP engine path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1327"/>
+        <location filename="../preferences.cpp" line="1326"/>
         <source>Select a goban wood image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1357"/>
+        <location filename="../preferences.cpp" line="1356"/>
         <source>Select a table background image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1386"/>
+        <location filename="../preferences.cpp" line="1385"/>
         <source>Select a white stone image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1386"/>
-        <location filename="../preferences.cpp" line="1415"/>
+        <location filename="../preferences.cpp" line="1385"/>
+        <location filename="../preferences.cpp" line="1414"/>
         <source>Images (*.png *.xpm *.jpg *.svg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="1415"/>
+        <location filename="../preferences.cpp" line="1414"/>
         <source>Select a black stone image</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4774,7 +4774,7 @@ If your engine allows multiple board sizes, you need to configure them in separa
         <translation>Plateau</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5122"/>
+        <location filename="../preferences_gui.ui" line="5130"/>
         <source>Show board coordinates</source>
         <translation>Affiche les coordonées du plateau</translation>
     </message>
@@ -5132,7 +5132,7 @@ Select the font for lists.</source>
 Sélectionne la police utilisée dans les listes.</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5125"/>
+        <location filename="../preferences_gui.ui" line="5133"/>
         <source>Coordinates</source>
         <translation>Coordonnées</translation>
     </message>
@@ -5171,22 +5171,22 @@ Sélectionne la police utilisée pour les horloges.</translation>
         <translation>Avertissement sonore lors de la connection au serveur</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4686"/>
+        <location filename="../preferences_gui.ui" line="4694"/>
         <source>Special players</source>
         <translation>Joueurs particuliers</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4692"/>
+        <location filename="../preferences_gui.ui" line="4700"/>
         <source>watch players:</source>
         <translation>Observer les joueurs:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4708"/>
+        <location filename="../preferences_gui.ui" line="4716"/>
         <source>players to be colored red</source>
         <translation>Joueurs à marquer en rouge</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4711"/>
+        <location filename="../preferences_gui.ui" line="4719"/>
         <source>add players you want to
 
 - see red coloured and
@@ -5201,12 +5201,12 @@ Use semicolon &quot;;&quot; as delimiter (no spaces)</source>
 Employez le point-virgule &apos;;&apos; comme délimiteur (aucun espaces)</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4739"/>
+        <location filename="../preferences_gui.ui" line="4747"/>
         <source>players to be colored green</source>
         <translation>Joueurs à marquer en vert</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4742"/>
+        <location filename="../preferences_gui.ui" line="4750"/>
         <source>add players you want to
 
 - see green coloured and
@@ -5221,42 +5221,42 @@ Use semicolon &quot;;&quot; as delimiter (no spaces)</source>
 Employez le point-virgule &apos;;&apos; comme délimiteur (aucun espaces)</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4723"/>
+        <location filename="../preferences_gui.ui" line="4731"/>
         <source>exclude players:</source>
         <translation>exclure les joueurs:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3042"/>
+        <location filename="../preferences_gui.ui" line="3050"/>
         <source>IGS</source>
         <translation>IGS</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3078"/>
+        <location filename="../preferences_gui.ui" line="3086"/>
         <source>Extended user info</source>
         <translation>Information complémentaires sur l&apos;utilisateur</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3066"/>
+        <location filename="../preferences_gui.ui" line="3074"/>
         <source>see more information from users -&gt; slow!</source>
         <translation>Voir plus d&apos;informations sur les utilisateurs -&gt; attention, c&apos;est lent !</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3030"/>
+        <location filename="../preferences_gui.ui" line="3038"/>
         <source>Go Server</source>
         <translation>Serveur</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4361"/>
+        <location filename="../preferences_gui.ui" line="4369"/>
         <source>Title:</source>
         <translation>Titre:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4371"/>
+        <location filename="../preferences_gui.ui" line="4379"/>
         <source>title, e.g.: guest account at NNGS</source>
         <translation>Titre, p.ex. : compte &apos;guest&apos; sur NNGS</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4374"/>
+        <location filename="../preferences_gui.ui" line="4382"/>
         <source>unique title, e.g.:
 
 guest account at NNGS
@@ -5277,20 +5277,20 @@ Le champ &apos;titre&apos; est utilisé pour choisir le serveur auquel se connec
 Note : Ne pas utiliser le nom du serveur par défaut, comme  &apos;-- Aurora --&apos; etc.</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3134"/>
-        <location filename="../preferences_gui.ui" line="4529"/>
+        <location filename="../preferences_gui.ui" line="3142"/>
+        <location filename="../preferences_gui.ui" line="4537"/>
         <source>Host:</source>
         <translation>URL:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3144"/>
-        <location filename="../preferences_gui.ui" line="4539"/>
+        <location filename="../preferences_gui.ui" line="3152"/>
+        <location filename="../preferences_gui.ui" line="4547"/>
         <source>hostname, e.g.: nngs.cosmic.org</source>
         <translation>Adresse, p.ex : nngs.cosmic.org</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3147"/>
-        <location filename="../preferences_gui.ui" line="4542"/>
+        <location filename="../preferences_gui.ui" line="3155"/>
+        <location filename="../preferences_gui.ui" line="4550"/>
         <source>hostname
 
 Use a valid hostname or ip address. Instead of typing it one of the predefined hosts can be chosen:
@@ -5317,19 +5317,19 @@ Utiliser une adresse valide ou une adresse IP. plutôt que de le taper, l&apos;u
 -- WING --</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3099"/>
-        <location filename="../preferences_gui.ui" line="3178"/>
+        <location filename="../preferences_gui.ui" line="3107"/>
+        <location filename="../preferences_gui.ui" line="3186"/>
         <source>Port:</source>
         <translation>Port:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3109"/>
-        <location filename="../preferences_gui.ui" line="3188"/>
+        <location filename="../preferences_gui.ui" line="3117"/>
+        <location filename="../preferences_gui.ui" line="3196"/>
         <source>port address, e.g.: 9696</source>
         <translation>adresse du port, p. ex : 9696</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3191"/>
+        <location filename="../preferences_gui.ui" line="3199"/>
         <source>port address, e.g.: 9696
 
 Port address is defined for each go server. It&apos;s a fixed number. See Host for predefined server names.</source>
@@ -5338,26 +5338,26 @@ Port address is defined for each go server. It&apos;s a fixed number. See Host f
 L&apos;adresse du port est définie pour chaque serveur. C&apos;est un nombre fixe. Voir les serveurs pour les ports prédéfinis.</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2821"/>
-        <location filename="../preferences_gui.ui" line="3216"/>
-        <location filename="../preferences_gui.ui" line="4784"/>
+        <location filename="../preferences_gui.ui" line="2829"/>
+        <location filename="../preferences_gui.ui" line="3224"/>
+        <location filename="../preferences_gui.ui" line="4792"/>
         <source>Name:</source>
         <translation>Nom:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2423"/>
+        <location filename="../preferences_gui.ui" line="2427"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3226"/>
-        <location filename="../preferences_gui.ui" line="4794"/>
+        <location filename="../preferences_gui.ui" line="3234"/>
+        <location filename="../preferences_gui.ui" line="4802"/>
         <source>use your login name; if unregistered use a unique name like &apos;hotdog17&apos; (NNGS, CWS) or guest (other servers)</source>
         <translation>Utiliser votre login. Si vous n&apos;êtes pas enregistré, utilisez un nom peu usité &apos;trucmuche&apos; (NNGS, CWS) ou &apos;guest&apos; (autres serveurs)</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3229"/>
-        <location filename="../preferences_gui.ui" line="4797"/>
+        <location filename="../preferences_gui.ui" line="3237"/>
+        <location filename="../preferences_gui.ui" line="4805"/>
         <source>name
 
 Registered users: 
@@ -5376,17 +5376,17 @@ NNGS, CWS: utilisez un nom peu usité &apos;trucmuche&apos;
 Autres : &apos;guest&apos;</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3256"/>
+        <location filename="../preferences_gui.ui" line="3264"/>
         <source>Password:</source>
         <translation>Mot de passe:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3266"/>
+        <location filename="../preferences_gui.ui" line="3274"/>
         <source>your password; if unregistered: blank field</source>
         <translation>Votre mot de passe. Si vous nêtes pas enregistré : ne rien mettre</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3269"/>
+        <location filename="../preferences_gui.ui" line="3277"/>
         <source>password
 
 Registered users: 
@@ -5401,12 +5401,12 @@ Utiliser votre Login en mot de passe fourni par le serveur après l&apos;enregis
 nouvel arrivant : laissez en blanc!</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4324"/>
+        <location filename="../preferences_gui.ui" line="4332"/>
         <source>Score/Edit</source>
         <translation>Score / Edition</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4327"/>
+        <location filename="../preferences_gui.ui" line="4335"/>
         <source>Score
 
 Left click on a group to mark it as dead.
@@ -5427,14 +5427,14 @@ Edition
 Cliquer pour une nouvelle fenêtre d&apos;édition hors ligne.</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2709"/>
-        <location filename="../preferences_gui.ui" line="4453"/>
+        <location filename="../preferences_gui.ui" line="2717"/>
+        <location filename="../preferences_gui.ui" line="4461"/>
         <source>New</source>
         <translation>Nouveau</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2704"/>
-        <location filename="../preferences_gui.ui" line="4448"/>
+        <location filename="../preferences_gui.ui" line="2712"/>
+        <location filename="../preferences_gui.ui" line="4456"/>
         <source>New
 
 clear form; doesn&apos;t make any changes to the entries</source>
@@ -5443,14 +5443,14 @@ clear form; doesn&apos;t make any changes to the entries</source>
 Effacer les données; aucun changement enregistré</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2743"/>
-        <location filename="../preferences_gui.ui" line="4487"/>
+        <location filename="../preferences_gui.ui" line="2751"/>
+        <location filename="../preferences_gui.ui" line="4495"/>
         <source>Add</source>
         <translation>Ajoute</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2736"/>
-        <location filename="../preferences_gui.ui" line="4480"/>
+        <location filename="../preferences_gui.ui" line="2744"/>
+        <location filename="../preferences_gui.ui" line="4488"/>
         <source>Add or Change
 
 Label &apos;Change &apos; appears when title is not unique, i.e. the saved entries with that title will be superseded by the current entries.
@@ -5463,14 +5463,14 @@ Label &apos;Add&apos; is default. The given entries will be saved under the give
 &apos;Ajoute&apos; est le défaut. Les données seront enregistrées sous le nouveau titre.</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2760"/>
-        <location filename="../preferences_gui.ui" line="4504"/>
+        <location filename="../preferences_gui.ui" line="2768"/>
+        <location filename="../preferences_gui.ui" line="4512"/>
         <source>Delete</source>
         <translation>Supprimer</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2753"/>
-        <location filename="../preferences_gui.ui" line="4497"/>
+        <location filename="../preferences_gui.ui" line="2761"/>
+        <location filename="../preferences_gui.ui" line="4505"/>
         <source>Delete
 
 Deletes the saved entries with same Title.
@@ -5483,13 +5483,13 @@ Supprime les données qui ont le titre affiché
 Note : &apos;Supprimer&apos; ne concerne que ce qui est déjà enregistré.</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2225"/>
+        <location filename="../preferences_gui.ui" line="2229"/>
         <source>Name</source>
         <translation>Nom</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4757"/>
-        <location filename="../preferences_gui.ui" line="4826"/>
+        <location filename="../preferences_gui.ui" line="4765"/>
+        <location filename="../preferences_gui.ui" line="4834"/>
         <source>Host Entries
 
 Select &apos;New&apos; to clear input fields. After filling in at least Title and Host use Add/Change.
@@ -5506,33 +5506,33 @@ Sélectionner une entrée pour la modifier ou pour effacer un paramètre (le tit
 Sélectionner un hôte prédéfini -- xxx -- et ajoutez un titre pour l&apos;utiliser.</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2494"/>
-        <location filename="../preferences_gui.ui" line="3286"/>
+        <location filename="../preferences_gui.ui" line="2502"/>
+        <location filename="../preferences_gui.ui" line="3294"/>
         <source>Default games settings</source>
         <translation>Paramètre des parties</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2526"/>
-        <location filename="../preferences_gui.ui" line="2887"/>
-        <location filename="../preferences_gui.ui" line="3327"/>
+        <location filename="../preferences_gui.ui" line="2534"/>
+        <location filename="../preferences_gui.ui" line="2895"/>
+        <location filename="../preferences_gui.ui" line="3335"/>
         <source>Board size:</source>
         <translation>Taille du plateau:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2503"/>
-        <location filename="../preferences_gui.ui" line="2599"/>
-        <location filename="../preferences_gui.ui" line="3499"/>
-        <location filename="../preferences_gui.ui" line="3540"/>
-        <location filename="../preferences_gui.ui" line="3709"/>
-        <location filename="../preferences_gui.ui" line="3747"/>
+        <location filename="../preferences_gui.ui" line="2511"/>
+        <location filename="../preferences_gui.ui" line="2607"/>
+        <location filename="../preferences_gui.ui" line="3507"/>
+        <location filename="../preferences_gui.ui" line="3548"/>
+        <location filename="../preferences_gui.ui" line="3717"/>
+        <location filename="../preferences_gui.ui" line="3755"/>
         <source>Playing time</source>
         <translation>Durée de la partie</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3593"/>
-        <location filename="../preferences_gui.ui" line="3631"/>
-        <location filename="../preferences_gui.ui" line="3800"/>
-        <location filename="../preferences_gui.ui" line="3838"/>
+        <location filename="../preferences_gui.ui" line="3601"/>
+        <location filename="../preferences_gui.ui" line="3639"/>
+        <location filename="../preferences_gui.ui" line="3808"/>
+        <location filename="../preferences_gui.ui" line="3846"/>
         <source>Additional time for 25 moves; after 25 moves the byoyomi time starts again and again</source>
         <translation>Temps additionnel pour 25 coups; après 25 coups, le byoyomi reprend</translation>
     </message>
@@ -5583,39 +5583,39 @@ Ajuster le délai d&apos;avertissement correspondant</translation>
         <translation>Ajuster le nombre de secondes du délai d&apos;avertissement à la fin du Byo Yomi</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2523"/>
-        <location filename="../preferences_gui.ui" line="2542"/>
-        <location filename="../preferences_gui.ui" line="2618"/>
-        <location filename="../preferences_gui.ui" line="3324"/>
-        <location filename="../preferences_gui.ui" line="3346"/>
-        <location filename="../preferences_gui.ui" line="3941"/>
-        <location filename="../preferences_gui.ui" line="3979"/>
+        <location filename="../preferences_gui.ui" line="2531"/>
+        <location filename="../preferences_gui.ui" line="2550"/>
+        <location filename="../preferences_gui.ui" line="2626"/>
+        <location filename="../preferences_gui.ui" line="3332"/>
+        <location filename="../preferences_gui.ui" line="3354"/>
+        <location filename="../preferences_gui.ui" line="3949"/>
+        <location filename="../preferences_gui.ui" line="3987"/>
         <source>board size</source>
         <translation>Taille du plateau</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3397"/>
+        <location filename="../preferences_gui.ui" line="3405"/>
         <source>Komi:</source>
         <translation>Komi:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3394"/>
-        <location filename="../preferences_gui.ui" line="3416"/>
+        <location filename="../preferences_gui.ui" line="3402"/>
+        <location filename="../preferences_gui.ui" line="3424"/>
         <source>Komi: added to white&apos;s result</source>
         <translation>Komi: ajouté au résultat de Blanc</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3419"/>
+        <location filename="../preferences_gui.ui" line="3427"/>
         <source>.5</source>
         <translation>.5</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3450"/>
+        <location filename="../preferences_gui.ui" line="3458"/>
         <source>allow client to negotiate automatic</source>
         <translation>Permettre au client de négocier le Komi</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3453"/>
+        <location filename="../preferences_gui.ui" line="3461"/>
         <source>Automatic Negotiation
 
 Allow client to negotiate komi automatic.
@@ -5643,12 +5643,12 @@ Attention: il peut être ennuyeux que l&apos;adversaire n&apos;accepte pas vos p
         <translation>Goban</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2472"/>
+        <location filename="../preferences_gui.ui" line="2480"/>
         <source>Computer Go</source>
         <translation>Jeu contre l&apos;ordinateur</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2506"/>
+        <location filename="../preferences_gui.ui" line="2514"/>
         <source>Handicap :</source>
         <translation>Handicap:</translation>
     </message>
@@ -5679,7 +5679,7 @@ Cocher pour avoir un délai anti clicko (1/4 seconde) dans les parties en ligne
 En cliquant pour jouer un coup sur le goban, le coup ne sera pas enregistré si la souris est relachée trop vite.</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3069"/>
+        <location filename="../preferences_gui.ui" line="3077"/>
         <source>If checked then additional information is requested from server.
 
 &apos;user&apos; cmd instead of &apos;who&apos;, thus, info string, won/lost, country and language settings are available.
@@ -5696,17 +5696,17 @@ C&apos;est très lent !
 Ne fonctionne que sur IGS.</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4568"/>
+        <location filename="../preferences_gui.ui" line="4576"/>
         <source>Autosave</source>
         <translation>enregistrement automatique</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4592"/>
+        <location filename="../preferences_gui.ui" line="4600"/>
         <source>check for automatic saving observed games</source>
         <translation>cocher pour enregistrer automatiquement les parties observées</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4595"/>
+        <location filename="../preferences_gui.ui" line="4603"/>
         <source>Autosave
 
 If checked then when an observed game completes, it is automatically saved in the working directory</source>
@@ -5715,17 +5715,17 @@ If checked then when an observed game completes, it is automatically saved in th
 Lorsque la case est cochée,  les parties observées sont enregistrées automatiquement dans le répertoire courant</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4600"/>
+        <location filename="../preferences_gui.ui" line="4608"/>
         <source>observed games</source>
         <translation>parties observées</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4634"/>
+        <location filename="../preferences_gui.ui" line="4642"/>
         <source>played games</source>
         <translation>parties jouées</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4629"/>
+        <location filename="../preferences_gui.ui" line="4637"/>
         <source>Autosave
 
 If checked then when a game you played completes, it is automatically saved in the working directory</source>
@@ -5749,113 +5749,101 @@ Lorsque la case est cochée,  les parties jouées sont enregistrées automatique
         <translation>10</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4626"/>
+        <location filename="../preferences_gui.ui" line="4634"/>
         <source>check for automatic saving for your games</source>
         <translation>cocher pour enregistrer automatiquement les parties jouées</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2034"/>
-        <source>Path to the goban picture</source>
-        <translation>Chemin de l&apos;image du goban</translation>
-    </message>
-    <message>
-        <location filename="../preferences_gui.ui" line="2037"/>
-        <source>Path to the goban picture.
-If the picture is not set, or unvalid, a default goban is used by qgo</source>
-        <translation>Chemin de l&apos;image du goban
-S&apos;il n&apos;est pas indiqué (ou qu&apos;il n&apos;est pas valide), une image par défaut est utilisée</translation>
-    </message>
-    <message>
-        <location filename="../preferences_gui.ui" line="1981"/>
+        <location filename="../preferences_gui.ui" line="2027"/>
         <source>Table picture</source>
         <translation>Image de la table</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="1970"/>
+        <location filename="../preferences_gui.ui" line="2005"/>
         <source>Path to the table picture</source>
         <translation>Chemin de l&apos;image de la table</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="1973"/>
+        <location filename="../preferences_gui.ui" line="2008"/>
         <source>Path to the table picture.
 If the picture is not set, or unvalid, a default picture is used by qgo</source>
         <translation>Chemin de l&apos;image de la table
 S&apos;il n&apos;est pas indiqué (ou qu&apos;il n&apos;est pas valide), une image par défaut est utilisée</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4658"/>
+        <location filename="../preferences_gui.ui" line="4666"/>
         <source>Codec:</source>
         <translation>Codec:</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3294"/>
+        <location filename="../preferences_gui.ui" line="3302"/>
         <source>All servers settings</source>
         <translation>Tous serveurs</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3460"/>
+        <location filename="../preferences_gui.ui" line="3468"/>
         <source>Automatic komi 
 negotiation</source>
         <translation>négociation du komi
 automatique</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3505"/>
+        <location filename="../preferences_gui.ui" line="3513"/>
         <source>Main 
 time :</source>
         <translation>Temps
 principal :</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3596"/>
+        <location filename="../preferences_gui.ui" line="3604"/>
         <source>Byoyomi
 time:</source>
         <translation>Byo
 yomi :</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3682"/>
+        <location filename="../preferences_gui.ui" line="3690"/>
         <source>IGS &apos;nmatch&apos; specific settings</source>
         <translation>Spécifique à IGS &apos;nmatch&apos;</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3712"/>
+        <location filename="../preferences_gui.ui" line="3720"/>
         <source>Main time 
 up to :</source>
         <translation>Temps principal
 jusqu&apos;à :</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3803"/>
+        <location filename="../preferences_gui.ui" line="3811"/>
         <source>Byo time
 up to :</source>
         <translation>Byo yomi
 jusqu&apos;à :</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3884"/>
+        <location filename="../preferences_gui.ui" line="3892"/>
         <source>Play as :</source>
         <translation>Jouer :</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2955"/>
-        <location filename="../preferences_gui.ui" line="3899"/>
+        <location filename="../preferences_gui.ui" line="2963"/>
+        <location filename="../preferences_gui.ui" line="3907"/>
         <source>Black</source>
         <translation>Noir</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2960"/>
-        <location filename="../preferences_gui.ui" line="3906"/>
+        <location filename="../preferences_gui.ui" line="2968"/>
+        <location filename="../preferences_gui.ui" line="3914"/>
         <source>White</source>
         <translation>Blanc</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3913"/>
+        <location filename="../preferences_gui.ui" line="3921"/>
         <source>Nigiri</source>
         <translation>Nigiri</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3944"/>
+        <location filename="../preferences_gui.ui" line="3952"/>
         <source>Handicap 
 up to :</source>
         <translation>Handicap 
@@ -5979,7 +5967,7 @@ jusqu&apos;à :</translation>
     </message>
     <message>
         <location filename="../preferences_gui.ui" line="1426"/>
-        <location filename="../preferences_gui.ui" line="2929"/>
+        <location filename="../preferences_gui.ui" line="2937"/>
         <source>Letters</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6222,432 +6210,432 @@ diagram pane shown:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="1991"/>
+        <location filename="../preferences_gui.ui" line="2055"/>
         <source>Choose a preset, or set to &quot;Custom File&quot; to use your own image file as the wood image for the board.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="1995"/>
+        <location filename="../preferences_gui.ui" line="2062"/>
         <source>Custom file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2000"/>
+        <location filename="../preferences_gui.ui" line="2067"/>
         <source>Default 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2005"/>
+        <location filename="../preferences_gui.ui" line="2072"/>
         <source>Default 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2010"/>
+        <location filename="../preferences_gui.ui" line="2077"/>
         <source>Default 3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2015"/>
+        <location filename="../preferences_gui.ui" line="2082"/>
         <source>Default 4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2020"/>
+        <location filename="../preferences_gui.ui" line="2087"/>
         <source>Default 5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2045"/>
+        <location filename="../preferences_gui.ui" line="1989"/>
         <source>Wood image:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2060"/>
+        <location filename="../preferences_gui.ui" line="1950"/>
         <source>Determines whether the wood image is scaled or tiled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2063"/>
+        <location filename="../preferences_gui.ui" line="1953"/>
         <source>Scale wood image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2070"/>
+        <location filename="../preferences_gui.ui" line="1960"/>
         <source>Scale line widths</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2077"/>
+        <location filename="../preferences_gui.ui" line="1967"/>
         <source>Widen outside lines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2102"/>
+        <location filename="../preferences_gui.ui" line="2098"/>
         <source>Stone picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2119"/>
+        <location filename="../preferences_gui.ui" line="2115"/>
         <source>Black stone picture:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2132"/>
+        <location filename="../preferences_gui.ui" line="2136"/>
         <source>White stone picture:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2150"/>
+        <location filename="../preferences_gui.ui" line="2154"/>
         <source>Size Percent(%):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2206"/>
+        <location filename="../preferences_gui.ui" line="2210"/>
         <source>Sound</source>
         <translation type="unfinished">Son</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2212"/>
+        <location filename="../preferences_gui.ui" line="2216"/>
         <source>Read comments automatically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2219"/>
+        <location filename="../preferences_gui.ui" line="2223"/>
         <source>Voices</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2235"/>
+        <location filename="../preferences_gui.ui" line="2239"/>
         <source>Short Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2249"/>
+        <location filename="../preferences_gui.ui" line="2253"/>
         <source>Gender</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2263"/>
+        <location filename="../preferences_gui.ui" line="2267"/>
         <source>Locale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2273"/>
+        <location filename="../preferences_gui.ui" line="2277"/>
         <source>Suggested Codec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2283"/>
+        <location filename="../preferences_gui.ui" line="2287"/>
         <source>Friendly Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2293"/>
+        <location filename="../preferences_gui.ui" line="2297"/>
         <source>Status</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2303"/>
+        <location filename="../preferences_gui.ui" line="2307"/>
         <source>Content Category</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2313"/>
+        <location filename="../preferences_gui.ui" line="2317"/>
         <source>Personalities</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2330"/>
+        <location filename="../preferences_gui.ui" line="2334"/>
         <source>Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2336"/>
+        <location filename="../preferences_gui.ui" line="2340"/>
         <source>Pitch(Hz)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2346"/>
+        <location filename="../preferences_gui.ui" line="2350"/>
         <source>Rate(%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2356"/>
+        <location filename="../preferences_gui.ui" line="2360"/>
         <source>Volume(%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2366"/>
+        <location filename="../preferences_gui.ui" line="2370"/>
         <source>Word in cue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2397"/>
+        <location filename="../preferences_gui.ui" line="2401"/>
         <source>WebDAV</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2403"/>
+        <location filename="../preferences_gui.ui" line="2407"/>
         <source>Server URL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2413"/>
+        <location filename="../preferences_gui.ui" line="2417"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2437"/>
+        <location filename="../preferences_gui.ui" line="2441"/>
         <source>Connect WebDAV server at startup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2444"/>
+        <location filename="../preferences_gui.ui" line="2448"/>
         <source>Remember last used WebDAV path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2451"/>
+        <location filename="../preferences_gui.ui" line="2455"/>
         <source>Test Connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2516"/>
+        <location filename="../preferences_gui.ui" line="2524"/>
         <source>Computer color:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2563"/>
+        <location filename="../preferences_gui.ui" line="2571"/>
         <source>...</source>
         <translation type="unfinished">...</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2621"/>
+        <location filename="../preferences_gui.ui" line="2629"/>
         <source>Default human player name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2641"/>
+        <location filename="../preferences_gui.ui" line="2649"/>
         <source>Go Engines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2701"/>
+        <location filename="../preferences_gui.ui" line="2709"/>
         <source>Clear the engine form.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2733"/>
-        <location filename="../preferences_gui.ui" line="4477"/>
+        <location filename="../preferences_gui.ui" line="2741"/>
+        <location filename="../preferences_gui.ui" line="4485"/>
         <source>Add or change the current entry.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2750"/>
-        <location filename="../preferences_gui.ui" line="4494"/>
+        <location filename="../preferences_gui.ui" line="2758"/>
+        <location filename="../preferences_gui.ui" line="4502"/>
         <source>Delete the current entry.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2789"/>
+        <location filename="../preferences_gui.ui" line="2797"/>
         <source>Executable:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2799"/>
+        <location filename="../preferences_gui.ui" line="2807"/>
         <source>The path to the GTP engine&apos;s executable.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2831"/>
+        <location filename="../preferences_gui.ui" line="2839"/>
         <source>The name of the engine by which it is selected in the new computer game dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2840"/>
+        <location filename="../preferences_gui.ui" line="2848"/>
         <source>Use for analysis (LZ or compatible)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2849"/>
+        <location filename="../preferences_gui.ui" line="2857"/>
         <source>Fixed komi:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2866"/>
+        <location filename="../preferences_gui.ui" line="2874"/>
         <source>Arguments:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2876"/>
+        <location filename="../preferences_gui.ui" line="2884"/>
         <source>Any command line arguments that should be passed at startup.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2915"/>
+        <location filename="../preferences_gui.ui" line="2923"/>
         <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2921"/>
+        <location filename="../preferences_gui.ui" line="2929"/>
         <source>Show variations as:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2934"/>
+        <location filename="../preferences_gui.ui" line="2942"/>
         <source>Percentage difference</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2939"/>
+        <location filename="../preferences_gui.ui" line="2947"/>
         <source>Absolute percentage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2947"/>
+        <location filename="../preferences_gui.ui" line="2955"/>
         <source>Winning percentages shown for:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2965"/>
+        <location filename="../preferences_gui.ui" line="2973"/>
         <source>Side to move</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2975"/>
+        <location filename="../preferences_gui.ui" line="2983"/>
         <source>Max. variation depth:
 (0 is unlimited)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="2990"/>
+        <location filename="../preferences_gui.ui" line="2998"/>
         <source>Max. moves shown:
 (0 is unlimited)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3003"/>
+        <location filename="../preferences_gui.ui" line="3011"/>
         <source>Override variation display settings
 (show child moves as circles when analysing)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3011"/>
+        <location filename="../preferences_gui.ui" line="3019"/>
         <source>Hide other moves when showing
 a variation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3019"/>
+        <location filename="../preferences_gui.ui" line="3027"/>
         <source>Don&apos;t display moves with few visits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="3112"/>
+        <location filename="../preferences_gui.ui" line="3120"/>
         <source>port address, e.g.: 9696
 
 Note: don&apos;t use a default server name, i.e. &apos;-- Aurora --&apos; etc.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4445"/>
+        <location filename="../preferences_gui.ui" line="4453"/>
         <source>Clear the server form.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4840"/>
+        <location filename="../preferences_gui.ui" line="4848"/>
         <source>Variants</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4848"/>
+        <location filename="../preferences_gui.ui" line="4856"/>
         <source>Duplicates shown either side of toroidal boards:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4878"/>
+        <location filename="../preferences_gui.ui" line="4886"/>
         <source>Import/Export</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4890"/>
+        <location filename="../preferences_gui.ui" line="4898"/>
         <source>Kombilo database paths</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4926"/>
+        <location filename="../preferences_gui.ui" line="4934"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4933"/>
+        <location filename="../preferences_gui.ui" line="4941"/>
         <source>Add directory...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4940"/>
+        <location filename="../preferences_gui.ui" line="4948"/>
         <source>Import from kombilo.cfg...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4952"/>
+        <location filename="../preferences_gui.ui" line="4960"/>
         <source>Slide export defaults</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="4998"/>
+        <location filename="../preferences_gui.ui" line="5006"/>
         <source>Exported size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5017"/>
-        <location filename="../preferences_gui.ui" line="5043"/>
+        <location filename="../preferences_gui.ui" line="5025"/>
+        <location filename="../preferences_gui.ui" line="5051"/>
         <source>The dimensions used when saving.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5024"/>
+        <location filename="../preferences_gui.ui" line="5032"/>
         <source>x</source>
         <translation type="unfinished">x</translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5068"/>
+        <location filename="../preferences_gui.ui" line="5076"/>
         <source>Lines of comment text:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5075"/>
+        <location filename="../preferences_gui.ui" line="5083"/>
         <source>This controls the font size for the comments display</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5085"/>
+        <location filename="../preferences_gui.ui" line="5093"/>
         <source>Comment margin:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5102"/>
-        <location filename="../preferences_gui.ui" line="5132"/>
+        <location filename="../preferences_gui.ui" line="5110"/>
+        <location filename="../preferences_gui.ui" line="5140"/>
         <source>Determines how the first paragraph of the comments should be displayed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5105"/>
+        <location filename="../preferences_gui.ui" line="5113"/>
         <source>Bold header</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5112"/>
+        <location filename="../preferences_gui.ui" line="5120"/>
         <source>Choose the color scheme for the comments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5115"/>
+        <location filename="../preferences_gui.ui" line="5123"/>
         <source>White on black text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences_gui.ui" line="5135"/>
+        <location filename="../preferences_gui.ui" line="5143"/>
         <source>Italic header</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7010,17 +6998,17 @@ Analysis engines now require a board size to be set, assuming 19 for existing en
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="392"/>
+        <location filename="../preferences.cpp" line="391"/>
         <source>Add a database directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="436"/>
+        <location filename="../preferences.cpp" line="435"/>
         <source>Open kombilo.cfg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="436"/>
+        <location filename="../preferences.cpp" line="435"/>
         <source>CFG Files (*.cfg);;All Files (*)</source>
         <translation type="unfinished"></translation>
     </message>

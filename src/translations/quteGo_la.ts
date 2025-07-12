@@ -4502,7 +4502,7 @@ byo-yomi: e.g. Byo = 7x30s, VII spatia XXX secundorum; si lapis intra XXX secund
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../preferences.cpp" line="+294"/>
+        <location filename="../preferences.cpp" line="+293"/>
         <source>Error</source>
         <translation type="unfinished">Erratum</translation>
     </message>
@@ -4906,7 +4906,7 @@ Select the font for the server console (fixed font preferably).</source>
 Typum (rigidum potius) imperii moderatri eligit.</translation>
     </message>
     <message>
-        <location line="+2097"/>
+        <location line="+2105"/>
         <location line="+1744"/>
         <source>New</source>
         <translation>Novus</translation>
@@ -4948,7 +4948,7 @@ Label &apos;Add&apos; is default. The given entries will be saved under the give
         <translation>Delere</translation>
     </message>
     <message>
-        <location line="-3789"/>
+        <location line="-3797"/>
         <source>Play sound for</source>
         <translation>Soni</translation>
     </message>
@@ -5155,12 +5155,12 @@ Si lingua tua non adest, qGo convertere pondera. qGo domum ade:  http://qgo.sour
         <translation>Tabella</translation>
     </message>
     <message>
-        <location line="+1453"/>
+        <location line="+1457"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2417"/>
+        <location line="+2421"/>
         <source>Variants</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5262,7 +5262,7 @@ Si lingua tua non adest, qGo convertere pondera. qGo domum ade:  http://qgo.sour
         <translation>Coordinata tabellae ostendere</translation>
     </message>
     <message>
-        <location line="-4131"/>
+        <location line="-4139"/>
         <source>Show a ghost stone at mouse pointer</source>
         <translation>Sub muris indice simulacrum lapidis ostendere</translation>
     </message>
@@ -5300,24 +5300,12 @@ Omnes suggestiones quae mure super elementum GUI apparent extinguit.</translatio
         <translation>Tabella</translation>
     </message>
     <message>
-        <location line="+123"/>
-        <source>Path to the goban picture</source>
-        <translation>Index plicarum imaginis tabellae</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Path to the goban picture.
-If the picture is not set, or unvalid, a default goban is used by qgo</source>
-        <translation>Index plicarum imaginis tabellae.
-Si index aut imago non legitimi sunt, tabellam paratam qgo eligit</translation>
-    </message>
-    <message>
-        <location line="-56"/>
+        <location line="+116"/>
         <source>Table picture</source>
         <translation>Imago pavimenti</translation>
     </message>
     <message>
-        <location line="-11"/>
+        <location line="-22"/>
         <source>Path to the table picture</source>
         <translation>Index plicarum imaginis pavimenti</translation>
     </message>
@@ -5329,7 +5317,7 @@ If the picture is not set, or unvalid, a default picture is used by qgo</source>
 Si index aut imago non legitimi sunt, imaginem paratam qgo eligit</translation>
     </message>
     <message>
-        <location line="-693"/>
+        <location line="-728"/>
         <source>Anti clicko (1/4 second click latency)</source>
         <translation>Anti-tactio (cunctatio quadrante secundi)</translation>
     </message>
@@ -5530,7 +5518,7 @@ Quomodo omnes fratres huius motus ostendentur elige: non ostenti aut simulacra a
         <translation>Simulacra</translation>
     </message>
     <message>
-        <location line="+1051"/>
+        <location line="+1059"/>
         <source>Computer Go</source>
         <translation>Go Computatro</translation>
     </message>
@@ -5683,7 +5671,7 @@ Omnibus moderatris Gois inscriptio porti, quae numerus est, addicta est. &apos;H
         <translation>Nomen:</translation>
     </message>
     <message>
-        <location line="-3537"/>
+        <location line="-3545"/>
         <source>Options for preventing misclicks in online games</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5771,12 +5759,12 @@ diagram pane shown:</source>
     </message>
     <message>
         <location line="+24"/>
-        <location line="+1503"/>
+        <location line="+1511"/>
         <source>Letters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-1479"/>
+        <location line="-1487"/>
         <source>Show as:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5947,12 +5935,12 @@ child/sibling setting:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+123"/>
         <source>Choose a preset, or set to &quot;Custom File&quot; to use your own image file as the wood image for the board.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+7"/>
         <source>Custom file</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5982,12 +5970,12 @@ child/sibling setting:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+25"/>
+        <location line="-98"/>
         <source>Wood image:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="-39"/>
         <source>Determines whether the wood image is scaled or tiled</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6007,7 +5995,7 @@ child/sibling setting:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+25"/>
+        <location line="+131"/>
         <source>Stone picture</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6017,7 +6005,7 @@ child/sibling setting:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+21"/>
         <source>White stone picture:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6137,7 +6125,7 @@ child/sibling setting:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+65"/>
+        <location line="+69"/>
         <source>Computer color:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6371,12 +6359,12 @@ Lineam serbatam cum hoc titulo delet.
 Cave: &apos;Delere&apos; ad lineas serbatas pertinet.</translation>
     </message>
     <message>
-        <location line="-2272"/>
+        <location line="-2276"/>
         <source>Name</source>
         <translation>Nomen</translation>
     </message>
     <message>
-        <location line="+2532"/>
+        <location line="+2536"/>
         <location line="+69"/>
         <source>Host Entries
 
@@ -7555,7 +7543,7 @@ You will need to add &apos;%n&quot; somewhere in the template to indicate the po
 <context>
     <name>T</name>
     <message>
-        <location filename="../preferences.cpp" line="-298"/>
+        <location filename="../preferences.cpp" line="-297"/>
         <source>Name</source>
         <translation type="unfinished">Nomen</translation>
     </message>
