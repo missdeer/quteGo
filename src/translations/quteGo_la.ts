@@ -4502,7 +4502,7 @@ byo-yomi: e.g. Byo = 7x30s, VII spatia XXX secundorum; si lapis intra XXX secund
 <context>
     <name>PreferencesDialog</name>
     <message>
-        <location filename="../preferences.cpp" line="+293"/>
+        <location filename="../preferences.cpp" line="+294"/>
         <source>Error</source>
         <translation type="unfinished">Erratum</translation>
     </message>
@@ -4538,7 +4538,7 @@ Do you still want to import from kombilo.cfg?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+248"/>
+        <location line="+247"/>
         <source>Select white stone base color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4574,7 +4574,7 @@ Do you still want to import from kombilo.cfg?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+208"/>
+        <location line="+207"/>
         <location line="+13"/>
         <source>Unsaved data</source>
         <translation type="unfinished"></translation>
@@ -4906,7 +4906,7 @@ Select the font for the server console (fixed font preferably).</source>
 Typum (rigidum potius) imperii moderatri eligit.</translation>
     </message>
     <message>
-        <location line="+2105"/>
+        <location line="+2058"/>
         <location line="+1744"/>
         <source>New</source>
         <translation>Novus</translation>
@@ -4948,7 +4948,7 @@ Label &apos;Add&apos; is default. The given entries will be saved under the give
         <translation>Delere</translation>
     </message>
     <message>
-        <location line="-3797"/>
+        <location line="-3750"/>
         <source>Play sound for</source>
         <translation>Soni</translation>
     </message>
@@ -5155,7 +5155,7 @@ Si lingua tua non adest, qGo convertere pondera. qGo domum ade:  http://qgo.sour
         <translation>Tabella</translation>
     </message>
     <message>
-        <location line="+1457"/>
+        <location line="+1410"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5262,7 +5262,7 @@ Si lingua tua non adest, qGo convertere pondera. qGo domum ade:  http://qgo.sour
         <translation>Coordinata tabellae ostendere</translation>
     </message>
     <message>
-        <location line="-4139"/>
+        <location line="-4092"/>
         <source>Show a ghost stone at mouse pointer</source>
         <translation>Sub muris indice simulacrum lapidis ostendere</translation>
     </message>
@@ -5300,12 +5300,12 @@ Omnes suggestiones quae mure super elementum GUI apparent extinguit.</translatio
         <translation>Tabella</translation>
     </message>
     <message>
-        <location line="+116"/>
+        <location line="+21"/>
         <source>Table picture</source>
         <translation>Imago pavimenti</translation>
     </message>
     <message>
-        <location line="-22"/>
+        <location line="+23"/>
         <source>Path to the table picture</source>
         <translation>Index plicarum imaginis pavimenti</translation>
     </message>
@@ -5317,7 +5317,7 @@ If the picture is not set, or unvalid, a default picture is used by qgo</source>
 Si index aut imago non legitimi sunt, imaginem paratam qgo eligit</translation>
     </message>
     <message>
-        <location line="-728"/>
+        <location line="-678"/>
         <source>Anti clicko (1/4 second click latency)</source>
         <translation>Anti-tactio (cunctatio quadrante secundi)</translation>
     </message>
@@ -5518,7 +5518,7 @@ Quomodo omnes fratres huius motus ostendentur elige: non ostenti aut simulacra a
         <translation>Simulacra</translation>
     </message>
     <message>
-        <location line="+1059"/>
+        <location line="+1012"/>
         <source>Computer Go</source>
         <translation>Go Computatro</translation>
     </message>
@@ -5671,7 +5671,7 @@ Omnibus moderatris Gois inscriptio porti, quae numerus est, addicta est. &apos;H
         <translation>Nomen:</translation>
     </message>
     <message>
-        <location line="-3545"/>
+        <location line="-3498"/>
         <source>Options for preventing misclicks in online games</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5759,12 +5759,12 @@ diagram pane shown:</source>
     </message>
     <message>
         <location line="+24"/>
-        <location line="+1511"/>
+        <location line="+1464"/>
         <source>Letters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-1487"/>
+        <location line="-1440"/>
         <source>Show as:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5930,48 +5930,8 @@ child/sibling setting:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+53"/>
+        <location line="+137"/>
         <source>Wood filename:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+123"/>
-        <source>Choose a preset, or set to &quot;Custom File&quot; to use your own image file as the wood image for the board.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Custom file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Default 1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Default 2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Default 3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Default 4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Default 5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-98"/>
-        <source>Wood image:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5995,7 +5955,7 @@ child/sibling setting:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+131"/>
+        <location line="+57"/>
         <source>Stone picture</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6964,7 +6924,7 @@ ad :</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../preferences.cpp" line="-1023"/>
+        <location filename="../preferences.cpp" line="-1021"/>
         <source>Add a database directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6999,13 +6959,13 @@ ad :</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../setting.cpp" line="+175"/>
+        <location filename="../setting.cpp" line="+179"/>
         <source>Could not load custom board image,
 reverting to default.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+89"/>
+        <location line="+98"/>
         <source>Engine configuration updated
 Analysis engines now require a board size to be set, assuming 19 for existing entries.</source>
         <translation type="unfinished"></translation>
@@ -7543,7 +7503,7 @@ You will need to add &apos;%n&quot; somewhere in the template to indicate the po
 <context>
     <name>T</name>
     <message>
-        <location filename="../preferences.cpp" line="-297"/>
+        <location filename="../preferences.cpp" line="-298"/>
         <source>Name</source>
         <translation type="unfinished">Nomen</translation>
     </message>

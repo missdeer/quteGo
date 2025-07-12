@@ -140,6 +140,10 @@ public slots:
 
 private:
     void saveSizes();
+    void fillTablePictureComboBox();
+    void fillGobanPictureComboBox();
+    void fillBlackStonePictureComboBox();
+    void fillWhiteStonePictureComboBox();
 };
 
 #endif

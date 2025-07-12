@@ -41,11 +41,7 @@
     <file>images/boardwindow/portrait.png</file>
     <file>images/boardwindow/fullscreen.png</file>
     <file>images/boardwindow/eye.png</file>
-    <file>images/board/wood2.png</file>
     <file>images/board/wood1.png</file>
-    <file>images/board/wood3.png</file>
-    <file>images/board/wood4.png</file>
-    <file>images/board/wood5.png</file>
     <file>images/board/table.png</file>
   </qresource>
   <qresource prefix="/Help">

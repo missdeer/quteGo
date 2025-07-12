@@ -163,11 +163,15 @@ Setting::~Setting()
 
 void Setting::obtain_skin_images()
 {
-    int     idx      = readIntEntry("SKIN_INDEX");
     QString filename = readEntry("SKIN");
-    if (idx > 0)
+    QFileInfo info(filename);
+    if (!info.isAbsolute())
     {
-        filename = QString(":/BoardWindow/images/board/wood%1.png").arg(idx);
+        #if defined(Q_OS_MAC)
+        filename = QCoreApplication::applicationDirPath() + "/../Resources/themes/board/" + filename;
+        #else
+        filename = QCoreApplication::applicationDirPath() + "/themes/board/" + filename;
+        #endif
     }
     QPixmap *p = new QPixmap(filename);
     if (p->isNull())
@@ -176,12 +180,21 @@ void Setting::obtain_skin_images()
 
         delete p;
         p = new QPixmap(":/BoardWindow/images/board/wood1.png");
-        writeIntEntry("SKIN_INDEX", 1);
     }
     delete m_wood_image;
     m_wood_image = p;
 
-    p = new QPixmap(readEntry("SKIN_TABLE"));
+    filename = readEntry("SKIN_TABLE");
+    info = QFileInfo(filename);
+    if (!info.isAbsolute())
+    {
+        #if defined(Q_OS_MAC)
+        filename = QCoreApplication::applicationDirPath() + "/../Resources/themes/background/" + filename;
+        #else
+        filename = QCoreApplication::applicationDirPath() + "/themes/background/" + filename;
+        #endif
+    }
+    p = new QPixmap(filename);
     if (p->isNull())
     {
         delete p;

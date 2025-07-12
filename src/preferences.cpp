@@ -187,6 +187,11 @@ PreferencesDialog::PreferencesDialog(QWidget *parent)
     slideXEdit->setValidator(new QIntValidator(100, 9999, this));
     slideYEdit->setValidator(new QIntValidator(100, 9999, this));
 
+    fillTablePictureComboBox();
+    fillGobanPictureComboBox();
+    fillBlackStonePictureComboBox();
+    fillWhiteStonePictureComboBox();
+
     // clear edit field
     LineEdit_title->clear();
 
@@ -234,12 +239,8 @@ PreferencesDialog::PreferencesDialog(QWidget *parent)
     });
     connect(stripesCheckBox, &QCheckBox::toggled, [=](int) { update_w_stones(); });
 
-    connect(woodComboBox, &QComboBox::currentIndexChanged, [this](int i) {
-        GobanPicturePathButton->setEnabled(i == 0);
-        LineEdit_goban->setEnabled(i == 0);
-        update_board_image();
-    });
-    connect(LineEdit_goban->lineEdit(), &QLineEdit::editingFinished, [=]() { update_board_image(); });
+    connect(LineEdit_goban->lineEdit(), &QLineEdit::editingFinished, [this]() { update_board_image(); });
+    connect(LineEdit_goban, &QComboBox::currentIndexChanged, [this]() { update_board_image(); });
 
     update_board_image();
     update_w_stones();
@@ -478,9 +479,15 @@ void PreferencesDialog::update_board_image()
     QImage  image(w, h, QImage::Format_RGB32);
     QPixmap pm;
     QString filename = LineEdit_goban->lineEdit()->text();
-    int     idx      = woodComboBox->currentIndex();
-    if (idx > 0)
-        filename = QString(":/BoardWindow/images/board/wood%1.png").arg(idx);
+    QFileInfo info(filename);
+    if (!info.isAbsolute())
+    {
+        #if defined(Q_OS_MAC)
+        filename = QCoreApplication::applicationDirPath() + "/../Resources/themes/board/" + filename;
+        #else
+        filename = QCoreApplication::applicationDirPath() + "/themes/board/" + filename;
+        #endif
+    }
     QPixmap p(filename);
     if (p.isNull())
         p = QPixmap(":/BoardWindow/images/board/wood1.png");
@@ -510,11 +517,6 @@ void PreferencesDialog::update_board_image()
 
 void PreferencesDialog::init_from_settings()
 {
-    int idx = g_setting->readIntEntry("SKIN_INDEX");
-    GobanPicturePathButton->setEnabled(idx == 0);
-    LineEdit_goban->setEnabled(idx == 0);
-    woodComboBox->setCurrentIndex(idx);
-
     LineEdit_goban->lineEdit()->setText(g_setting->readEntry("SKIN"));
     LineEdit_Table->lineEdit()->setText(g_setting->readEntry("SKIN_TABLE"));
     scaleWoodCheckBox->setChecked(g_setting->readBoolEntry("SKIN_SCALE_WOOD"));
@@ -658,8 +660,6 @@ void PreferencesDialog::init_from_settings()
 
     // Edge TTS tab
     cbAutoReadComment->setChecked(g_setting->readBoolEntry("EDGETTS_AUTO_READ_COMMENT"));
-   // cbVoices->setCurrentText(g_setting->readEntry("EDGETTS_VOICE"));
-   // cbLocale->setCurrentText(g_setting->readEntry("EDGETTS_LOCALE"));
     spVoicePitch->setValue(g_setting->readIntEntry("EDGETTS_PITCH"));
     spVoiceRate->setValue(g_setting->readIntEntry("EDGETTS_RATE"));
     spVoiceVolume->setValue(g_setting->readIntEntry("EDGETTS_VOLUME"));
@@ -816,7 +816,6 @@ void PreferencesDialog::slot_apply()
     g_setting->writeBoolEntry("SLIDE_WB", slideWBCheckBox->isChecked());
     g_setting->writeBoolEntry("SLIDE_COORDS", slideCoordsCheckBox->isChecked());
 
-    g_setting->writeIntEntry("SKIN_INDEX", woodComboBox->currentIndex());
     g_setting->writeEntry("SKIN", LineEdit_goban->lineEdit()->text());
     g_setting->writeEntry("SKIN_TABLE", LineEdit_Table->lineEdit()->text());
     g_setting->writeBoolEntry("SKIN_SCALE_WOOD", scaleWoodCheckBox->isChecked());
@@ -1436,4 +1435,56 @@ QColor PreferencesDialog::white_color()
 QColor PreferencesDialog::black_color()
 {
     return m_ih->black_color();
+}
+
+void PreferencesDialog::fillTablePictureComboBox()
+{
+    LineEdit_Table->clear();
+    #if defined(Q_OS_MAC)
+    QDir dir(QCoreApplication::applicationDirPath() + "/../Resources/themes/background");
+    #else
+    QDir dir(QCoreApplication::applicationDirPath() + "/themes/background");
+    #endif
+    auto supported_formats = QImageReader::supportedImageFormats();
+    QStringList filters;
+    for (const auto &format : supported_formats)
+        filters.append("*." + format);
+    QStringList files = dir.entryList(filters, QDir::Files);
+    LineEdit_Table->addItems(files);
+}
+
+void PreferencesDialog::fillGobanPictureComboBox()
+{
+    LineEdit_goban->clear();
+    #if defined(Q_OS_MAC)
+    QDir dir(QCoreApplication::applicationDirPath() + "/../Resources/themes/board");
+    #else
+    QDir dir(QCoreApplication::applicationDirPath() + "/themes/board");
+    #endif
+    auto supported_formats = QImageReader::supportedImageFormats();
+    QStringList filters;
+    for (const auto &format : supported_formats)
+        filters.append("*." + format);
+    QStringList files = dir.entryList(filters, QDir::Files);
+    LineEdit_goban->addItems(files);
+}
+
+void PreferencesDialog::fillBlackStonePictureComboBox()
+{
+    blackStonePicturePathEdit->clear();
+    #if defined(Q_OS_MAC)
+    QDir dir(QCoreApplication::applicationDirPath() + "/../Resources/themes/stones");
+    #else
+    QDir dir(QCoreApplication::applicationDirPath() + "/themes/stones");
+    #endif
+}
+
+void PreferencesDialog::fillWhiteStonePictureComboBox()
+{
+    whiteStonePicturePathEdit->clear();
+    #if defined(Q_OS_MAC)
+    QDir dir(QCoreApplication::applicationDirPath() + "/../Resources/themes/stones");
+    #else
+    QDir dir(QCoreApplication::applicationDirPath() + "/themes/stones");
+    #endif
 }
