@@ -368,6 +368,7 @@ jobs:
 
     env:
       targetName: quteGo
+      msysroot: "D:\\a\\_temp"
       
     steps:
       - uses: msys2/setup-msys2@v2
