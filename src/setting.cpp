@@ -165,7 +165,7 @@ void Setting::obtain_skin_images()
 {
     QString filename = readEntry("SKIN");
     QFileInfo info(filename);
-    if (!info.isAbsolute())
+    if (!filename.isEmpty() && !info.isAbsolute())
     {
         #if defined(Q_OS_MAC)
         filename = QCoreApplication::applicationDirPath() + "/../Resources/themes/board/" + filename;
@@ -186,7 +186,7 @@ void Setting::obtain_skin_images()
 
     filename = readEntry("SKIN_TABLE");
     info = QFileInfo(filename);
-    if (!info.isAbsolute())
+    if (!filename.isEmpty() && !info.isAbsolute())
     {
         #if defined(Q_OS_MAC)
         filename = QCoreApplication::applicationDirPath() + "/../Resources/themes/background/" + filename;
